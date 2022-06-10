@@ -1,0 +1,201 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: Contract Rates API
+  description: API for getting Contract Rates
+servers: 
+  - url: https://hexapi.example.com
+    description: API Server Description
+security: 
+  - BasicAuth: []
+paths: 
+  /contract-rates: 
+   post: 
+    tags: 
+     - contract-rates
+    description: enpoint to get contract rates
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetContractRatesReq'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetContractRatesResp'
+components: 
+  securitySchemes: 
+   BasicAuth: 
+    type: http
+    scheme: basic
+  schemas: 
+   Rate: 
+    type: object
+    properties: 
+     CallSourceDetails: 
+      type: object
+      $ref: '#/components/schemas/CallSourceDetails'
+     OfferDetails: 
+      type: object
+      $ref: '#/components/schemas/OfferDetails'
+   CallSourceDetails: 
+    type: object
+    properties: 
+     CallSource: 
+      type: string
+     Scheme: 
+      type: object
+      $ref: '#/components/schemas/Scheme'
+     Agent: 
+      type: object
+      $ref: '#/components/schemas/Agent'
+     ItemCode: 
+      type: string
+     ItemCodeDescription: 
+      type: string
+     PriceBand: 
+      type: number
+     NumberOfItems: 
+      type: number
+     CoverType: 
+      type: string
+     BreakdownStartDate: 
+      type: string
+     ContractType: 
+      type: object
+      $ref: '#/components/schemas/ContractType'
+   Scheme: 
+    type: object
+    properties: 
+     CompanyCode: 
+      type: string
+     SchemeCode: 
+      type: string
+   Agent: 
+    type: object
+    properties: 
+     AgentNumber: 
+      type: string
+     BranchNumber: 
+      type: string
+   ContractType: 
+    type: object
+    properties: 
+     ProductCategory: 
+      type: string
+     ProductCategoryDesc: 
+      type: string
+     ProductType: 
+      type: string
+     ProductTypeDesc: 
+      type: string
+     ProductVariance: 
+      type: string
+     ProductVarianceDesc: 
+      type: string
+     PaymentTerm: 
+      type: string
+     PaymentTermDesc: 
+      type: string
+     ContractTypeCode: 
+      type: string
+     ContractTypeDesc: 
+      type: string
+     ProductDescription: 
+      type: string
+   OfferDetails: 
+    type: object
+    properties: 
+     PeriodOfCover: 
+      type: number
+     Fee: 
+      type: number
+     WaitDays: 
+      type: number
+     WicType: 
+      type: number
+     MultiplanType: 
+      type: string
+     MultiplanWarrantyType: 
+      type: string
+     PaymentDetails: 
+      type: object
+      $ref: '#/components/schemas/PaymentDetails'
+   PaymentDetails: 
+    type: object
+    properties: 
+     PreferredPayment: 
+      type: string
+     PaymentType: 
+      type: string
+     PaymentProfile: 
+      type: number
+     CashPaymentType: 
+      type: string
+     NumberOfPayments: 
+      type: string
+     PaymentFrequency: 
+      type: string
+     FirstPayment: 
+      type: object
+     SubsequentPayment: 
+      type: number
+     ExcessAmount: 
+      type: number
+     NumberOfFreePayments: 
+      type: number
+     IPMPeriodOfCover: 
+      type: number
+     IPMNumberOfPayments: 
+      type: number
+     IPMTotalFee: 
+      type: number
+   RateList: 
+    type: object
+    properties: 
+     Rate: 
+      type: object
+      $ref: '#/components/schemas/Rate'
+   GetContractRatesReq: 
+    type: object
+    properties: 
+     Source: 
+      type: object
+      $ref: '#/components/schemas/Source'
+     SourceID: 
+      type: object
+     SourceEvent: 
+      type: object
+     Language: 
+      type: string
+     CallSourceList: 
+      type: object
+     IsBundle: 
+      type: string
+     TotalNumberOfItems: 
+      type: string
+     ItemDetails: 
+      type: object
+   Source: 
+    type: object
+    properties: 
+     ChannelCode: 
+      type: string
+     ChannelGroupCode: 
+      type: string
+     SystemCode: 
+      type: string
+     CountryCode: 
+      type: string
+     ClientCode: 
+      type: string
+     ClientCodeDescription: 
+      type: string
+     ClientGroupCode: 
+      type: string
+     ClientGroupCodeDescription: 
+      type: string
