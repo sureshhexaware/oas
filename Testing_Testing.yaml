@@ -14,19 +14,9 @@ paths:
     tags: 
      - contract-rates
     description: enpoint to get contract rates
-    requestBody: 
-     required: true
-     content: 
-       application/json: 
-        schema: 
-         $ref: '#/components/schemas/GetContractRatesReq'
     responses: 
      '200': 
       description: Success
-      content: 
-       application/json: 
-        schema: 
-         $ref: '#/components/schemas/GetContractRatesResp'
 components: 
   securitySchemes: 
    BasicAuth: 
