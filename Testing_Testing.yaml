@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info: 
   version: 1.0.0
-  title: Contract Rates API Test
+  title: Contract Rates API
   description: API for getting Contract Rates
 servers: 
   - url: https://hexapi.example.com
@@ -131,7 +131,7 @@ components:
      PaymentFrequency: 
       type: string
      FirstPayment: 
-      type: object
+      type: number
      SubsequentPayment: 
       type: number
      ExcessAmount: 
