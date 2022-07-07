@@ -1,12 +1,13 @@
 openapi: 3.0.0
 info: 
   version: 1.0.0
-  title: Test
-  description: Test
+  title: Contract Rates API Test
+  description: API for getting Contract Rates
 servers: 
-  - url: Test
+  - url: https://hexapi.example.com
     description: API Server Description
 security: 
+  - BasicAuth: []
 paths: 
   /contract-rates: 
    post: 
@@ -18,6 +19,9 @@ paths:
       description: Success
 components: 
   securitySchemes: 
+   BasicAuth: 
+    type: http
+    scheme: basic
   schemas: 
    Rate: 
     type: object
@@ -127,7 +131,7 @@ components:
      PaymentFrequency: 
       type: string
      FirstPayment: 
-      type: number
+      type: object
      SubsequentPayment: 
       type: number
      ExcessAmount: 
