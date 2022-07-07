@@ -127,7 +127,7 @@ components:
      PaymentFrequency: 
       type: string
      FirstPayment: 
-      type: number
+      type: object
      SubsequentPayment: 
       type: number
      ExcessAmount: 
