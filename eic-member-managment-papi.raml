@@ -1,0 +1,488 @@
+#%RAML 1.0
+title: EIC-Member-Managment-papi
+baseUri: api
+version: 1
+
+description: |
+  This API is designed to manage the complex process for Portal User management and process orestration.  
+  This process API layer is designed to handle the more complex process orestration for managing Portal Users.
+  We have intentionally followed the same URIs as exposed in the original Swagger / Open API so there is no need for mapping old name to new URI names.
+  While it would be nice to "clean up" some of the unconventional Resource naming to following the RESTful approach more closely, 
+  keeping the same URIs makes life much easier for developers to call lower level APIs that match the URIs while using the API-Led approach.  
+
+uses:
+  common: exchange_modules/cc5b37d2-1e82-426d-b07a-e49503aaa954/common-library/1.0.0/common-library.raml
+  eic: exchange_modules/cc5b37d2-1e82-426d-b07a-e49503aaa954/eic-library/1.0.1/eic-data-types.raml
+          
+/member:
+  get:
+    is: common.client-id-required
+    responses: 
+      200:
+        body: 
+          application/json: 
+            example: !include ../examples/response/memberResponse.json
+      500:
+        description: Internal Server Error
+        body:
+          application/json:                   
+  post:
+    is: common.client-id-required
+    queryParameters:
+      adminRequest:
+        type: string
+        required: false
+    body:
+      application/json:
+        example: !include ../examples/request/createMemberRequest.json
+        type: eic.MemberInsertRequest
+
+    responses: 
+      201: 
+        body: 
+          application/json:
+            example: !include ../examples/response/createMemberResponse.json
+      500:
+        description: Internal Server Error
+        body:
+          application/json:             
+  put:
+    is: common.client-id-required
+    body:
+      application/json:
+        example: !include ../examples/request/updateMemberRequest.json
+    responses: 
+      200: 
+        body: 
+          application/json:
+            example: !include ../examples/response/updateMemberResponse.json
+      500:
+        description: Internal Server Error
+        body:
+          application/json:             
+  /pbpChange:
+    post:
+      is: common.client-id-required
+      displayName: pbpChange
+      responses:
+        200:
+          description: OK
+          body:
+            application/json:
+              example: !include ../examples/response/pbpChangeResponse.json
+        500:
+          description: Internal Server Error
+          body:
+            application/json:               
+      headers:
+        TenantIdentifier:
+          description: Tenant Identifier
+          default: Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q==
+          type: string
+          required: false
+      body:
+        application/json:
+          example: !include ../examples/request/pbpChangeRequest.json
+                    
+  /letters/{nameId}:
+    get:
+      is: common.client-id-required
+      description: Get member letters by providing member unique Id
+      displayName: Member_GetMemberById
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include ../examples/response/lettersByNameIdResponse.json
+              
+        404:
+          description: Not found
+        500:
+          description: Internal Server Error
+          body:
+            application/json:        
+            
+      headers:
+        TenantIdentifier:
+          description: Tenant Identifier
+          default: Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q==
+          type: string
+          required: false
+      body:
+        application/json:    
+    uriParameters:
+      nameId:
+        description: nameId
+        type: string             
+  /Notes/{nameId}:
+    get:
+      is: common.client-id-required
+      description: Get member Notes by providing Name Id
+      displayName: Member_GetnotesByNameId
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include ../examples/response/memberNameIdResponse.json
+        404:
+          description: Not found
+        500:
+          description: Internal Server Error
+          body:
+            application/json: 
+      headers:
+        TenantIdentifier:
+          description: Tenant Identifier
+          default: Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q==
+          type: string
+          required: false
+    uriParameters:
+      nameId:
+        description: Name Id
+        type: string           
+  /payment/insertpaymentlog:
+    post:
+      is: common.client-id-required
+      displayName: insertpaymentlog
+      responses:
+        200:
+          description: OK
+          body:
+            application/json:
+              example: !include ../examples/response/insertPaymentlogResponse.json
+        500:
+          description: Internal Server Error
+          body:
+            application/json:              
+      headers:
+        TenantIdentifier:
+          description: Tenant Identifier
+          default: Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q==
+          type: string
+          required: false
+      body:
+        application/json:
+          example: !include ../examples/request/insertPaymentlogRequest.json
+          type: eic.PaymentLog
+  /payment/{nameId}:
+    get:
+      is: common.client-id-required
+      description: Get payment details by providing Name Id
+      displayName: Member_ByNameId
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include ../examples/response/memberPaymentByNameIdResponse.json
+        404:
+          description: Not found
+        500:
+          description: Internal Server Error
+          body:
+            application/json:
+      headers:
+        TenantIdentifier:
+          description: Tenant Identifier
+          default: Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q==
+          type: string
+          required: false
+    uriParameters:
+      nameId:
+        description: Name Id
+        type: string       
+  /ByNameID/{nameId}:
+    get:
+      is: common.client-id-required
+      description: Get member details by providing Name Id
+      displayName: Member_ByNameId
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include ../examples/response/memberNameIdByNameId.json
+        404:
+          description: Not found
+        500:
+          description: Internal Server Error
+          body:
+            application/json:
+      headers:
+        TenantIdentifier:
+          description: Tenant Identifier
+          default: Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q==
+          type: string
+          required: false
+    uriParameters:
+      nameId:
+        description: Name Id
+        type: string   
+  /nameId/{nameId}:
+    get:
+      is: common.client-id-required
+      description: Get member details by providing nameId
+      displayName: Member_GetnameId
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include ../examples/response/retrive-mp-member-info-Response.json
+        404:
+          description: Not found
+        500:
+          description: Internal Server Error
+          body:
+            application/json:
+    uriParameters:
+      nameId:
+        description: member nameId
+        type: string     
+  /{nameId}:
+    get:
+      is: common.client-id-required
+      responses: 
+        200: 
+          body: 
+            application/json:  
+              example: !include ../examples/response/memberNameIdResponse.json
+        500:
+          description: Internal Server Error
+          body:
+            application/json:              
+    /billing:
+      get:
+        is: common.client-id-required
+        description: "This will call MP API: /members/{nameId}/billing"
+        responses: 
+          200:
+            body: 
+              application/json:
+                example: !include ../examples/response/memberNameIdBillingResponse.json
+          500:
+            description: Internal Server Error
+            body:
+              application/json:               
+
+  /ByAltMemberId/{altMemberId}:
+    get: 
+      is: common.client-id-required
+      description: Get member details by providing name unique Id
+      displayName: Member_GetMemberById
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include ../examples/response/memberByAltMemberIdResponse.json
+              type: eic.MemberService
+        404:
+          description: Not found
+        500:
+          description: Internal Server Error
+          body:
+            application/json:
+      headers:
+        TenantIdentifier:
+          description: Tenant Identifier
+          default: Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q==
+          type: string
+          required: false
+    uriParameters:
+      altMemberId:
+        description: Alt Member Id
+        type: string        
+  /payment/lastvalidpayment/{altMemberId}:
+    get:
+      is: common.client-id-required
+      description: Get lastvalidpayment details by providing Member unique Id
+      displayName: lastvalidpayment_GetMemberById
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include ../examples/response/lastvalidpaymentAltMemberIdRes.json
+        404:
+          description: Not found
+        500:
+          description: Internal Server Error
+          body:
+            application/json:
+      headers:
+        TenantIdentifier:
+          description: Tenant Identifier
+          default: Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q==
+          type: string
+          required: false
+    uriParameters:
+      altMemberId:
+        description: Alt Member Id
+        type: string  
+  /pharmacy:
+  
+    post:
+      is: common.client-id-required
+      body:
+        application/json:
+
+      responses: 
+        201: 
+          body: 
+            application/json:
+            
+    /{memberPharmacyId}:
+      delete:
+        is: common.client-id-required
+        responses:
+          200:
+            body:
+              application/json:
+          500:
+            description: Internal Server Error
+            body:
+              application/json:      
+  /billing/{nameId}:
+    get:
+      is: common.client-id-required
+      description: "This will call MP API: /members/{nameId}/billing"
+      responses: 
+        200:
+          body: 
+            application/json:
+              example: !include ../examples/response/billingTransactionResponse.json
+        500:
+          description: Internal Server Error
+          body:
+            application/json:              
+    /visited/{altNameId}:
+        
+      get:
+        is: common.client-id-required
+        responses:
+          200:
+            body:
+              application/json:
+            
+  /portaluser:
+  
+    post:
+      is: common.client-id-required
+      body:
+        application/json:
+
+      responses:
+        201:
+          body:
+            application/json:
+        500:
+          description: Internal Server Error
+          body:
+            application/json:            
+            
+  /validate/about:
+      
+    post:
+      is: common.client-id-required
+      body:
+        application/json:
+      
+      responses:
+        201:
+          body:
+            application/json:
+        500:
+          description: Internal Server Error
+          body:
+            application/json:            
+
+  /addresschange:
+    post:
+      is: common.client-id-required
+      body:
+        application/json:
+
+      responses:
+        201:
+          body:
+            application/json:
+        500:
+          description: Internal Server Error
+          body:
+            application/json:            
+            
+  /disenrollment:
+    post:
+      is: common.client-id-required
+      body:
+          application/json:
+
+      responses:
+        200:
+          body:
+            application/json:
+        500:
+          description: Internal Server Error
+          body:
+            application/json:            
+            
+  /MemberEnrollmentStatus/{medicareNumber}:
+    get:
+      is: common.client-id-required
+      responses:
+        200:
+          body:
+            application/json:
+        500:
+          description: Internal Server Error
+          body:
+            application/json:             
+            
+  /Messages:
+    post:
+      is: common.client-id-required
+      body:
+        application/json:
+          
+      responses:
+        201:
+          body:
+            application/json:
+        500:
+          description: Internal Server Error
+          body:
+            application/json:            
+            
+  /Premium/{nameId}:
+    get:
+      is: common.client-id-required
+      responses:
+        200:
+          body:
+            application/json:
+        500:
+          description: Internal Server Error
+          body:
+            application/json:            
+/memberivr/GetBalance:
+  post:
+    is: common.client-id-required
+    displayName: MemberIvr_GetBalance
+    responses:
+      200:
+        description: OK
+        body:
+          application/json:
+            example: !include ../examples/response/memberIVRgetBalanceResponse.json
+            #type: object
+      500:
+        description: Internal Server Error
+        body:
+          application/json:            
+    headers:
+      TenantIdentifier:
+        description: Tenant Identifier
+        default: Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q==
+        type: string
+        required: false
+    body:
+      application/json:
+        example: !include ../examples/request/memberIVRgetBalanceRequest.json
+        type: eic.MemberIvrBalanceRequest 
+                          
