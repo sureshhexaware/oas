@@ -1,0 +1,393 @@
+#%RAML 1.0
+title: Member Enrollment API V1
+description: Member Enrollment API V1
+version: v1
+securitySchemes: 
+annotationTypes: 
+  operationId: 
+   type: string
+types: 
+  updateResponse: 
+   type: object
+   properties: 
+     id: 
+      type: string
+     status: 
+      type: string
+     statusCode: 
+      type: string
+  createResponse: 
+   type: object
+   properties: 
+     id: 
+      type: string
+     status: 
+      type: string
+     statusCode: 
+      type: string
+  groupRequest: 
+   type: object
+   properties: 
+     id: 
+      type: string
+     groupNo: 
+      type: string
+     groupName: 
+      type: string
+     groupType: 
+      type: string
+     idNumber: 
+      type: string
+     addressDetails: addressDetails
+     effectiveStartDate: 
+      type: date-time
+     effectiveEndDate: 
+      type: date-time
+     contactDetails: contactDetails
+     renewalDate: 
+      type: date-time
+     lineOfBusiness: 
+      type: string
+     productType: 
+      type: string
+     productLine: 
+      type: string
+     coverage: 
+      type: string
+  addressDetails: 
+   type: object
+   properties: 
+     streetAddress1: 
+      type: string
+     streetAddress2: 
+      type: string
+     city: 
+      type: string
+     state: 
+      type: string
+     zipCode: 
+      type: string
+     county: 
+      type: string
+     country: 
+      type: string
+  contactDetails: 
+   type: object
+   properties: 
+     contactName: 
+      type: string
+     contactPhone: 
+      type: string
+     ext: 
+      type: string
+     fax: 
+      type: string
+     email: 
+      type: string
+  groupResponse: 
+   type: object
+   properties: 
+     id: 
+      type: string
+     groupNo: 
+      type: string
+     groupName: 
+      type: string
+     groupType: 
+      type: string
+     idNumber: 
+      type: string
+     addressDetails: addressDetails
+     effectiveStartDate: 
+      type: date
+     effectiveEndDate: 
+      type: date
+     contactDetails: contactDetails
+     renewalDate: 
+      type: date
+     lineOfBusiness: 
+      type: string
+     productType: 
+      type: string
+     productLine: 
+      type: string
+     coverage: 
+      type: string
+  memberRequest: 
+   type: object
+   properties: 
+     id: 
+      type: string
+     firstName: 
+      type: string
+     lastName: 
+      type: string
+     middleName: 
+      type: string
+     prefix: 
+      type: string
+     suffix: 
+      type: string
+     gender: 
+      type: string
+     addressDetails: addressDetails
+     activeMemberSince: 
+      type: date
+     nationalId: 
+      type: string
+     lastNameMatch: 
+      type: string
+     locationCode: 
+      type: string
+     HICN: 
+      type: string
+     dateOfBirth: 
+      type: date
+     dateOfDeath: 
+      type: date
+     SSN: 
+      type: string
+     medicareEntitlement: 
+      type: string
+     mbi: 
+      type: string
+     primaryLanguage: 
+      type: string
+     maritalStatus: 
+      type: string
+     ethnicity: 
+      type: string
+     dependentViewWebOption: 
+      type: string
+     employerName: 
+      type: string
+     homePhone: 
+      type: string
+     workPhone: 
+      type: string
+     cellPhone: 
+      type: string
+     email: 
+      type: string
+     hireDate: 
+      type: date
+     volume: 
+      type: string
+  memberResponse: 
+   type: object
+   properties: 
+     id: 
+      type: string
+     firstName: 
+      type: string
+     lastName: 
+      type: string
+     middleName: 
+      type: string
+     prefix: 
+      type: string
+     suffix: 
+      type: string
+     gender: 
+      type: string
+     addressDetails: addressDetails
+     activeMemberSince: 
+      type: date
+     nationalId: 
+      type: string
+     lastNameMatch: 
+      type: string
+     locationCode: 
+      type: string
+     HICN: 
+      type: string
+     dateOfBirth: 
+      type: date
+     dateOfDeath: 
+      type: date
+     SSN: 
+      type: string
+     medicareEntitlement: 
+      type: string
+     mbi: 
+      type: string
+     primaryLanguage: 
+      type: string
+     maritalStatus: 
+      type: string
+     ethnicity: 
+      type: string
+     dependentViewWebOption: 
+      type: string
+     employerName: 
+      type: string
+     homePhone: 
+      type: string
+     workPhone: 
+      type: string
+     cellPhone: 
+      type: string
+     email: 
+      type: string
+     hireDate: 
+      type: date
+     volume: 
+      type: string
+  ErrorResponseList: 
+   type: object
+   properties: 
+     Error: Error
+  Error: 
+   type: object
+   properties: 
+     ErrorCode: 
+      type: string
+     ErrorDescription: 
+      type: string
+/groups: 
+  get: 
+   (operationId): getAllGroups
+   description: Get All Groups
+   responses: 
+    200: 
+     description: All Groups retrieved
+     body: 
+      application/json: 
+       type: array
+       items: 
+        type: groupResponse
+    404: 
+     description: Not Found
+     body: 
+      application/json: 
+       type: ErrorResponseList
+    500: 
+     description: Internal Server Error
+     body: 
+      application/json: 
+       type: ErrorResponseList
+  post: 
+   (operationId): createGroup
+   description: Create Group
+   body: 
+    type: groupRequest
+   responses: 
+    200: 
+     description: Group created by Id
+     body: 
+      application/json: 
+       type: createResponse
+    404: 
+     description: Not Found
+     body: 
+      application/json: 
+       type: ErrorResponseList
+    500: 
+     description: Internal Server Error
+     body: 
+      application/json: 
+       type: ErrorResponseList
+  /{id}: 
+   get: 
+    (operationId): getGroupById
+    description: Get Group By Id
+    responses: 
+     200: 
+      description: Group retrieved by Id
+      body: 
+       application/json: 
+        type: groupResponse
+     404: 
+      description: Not Found
+      body: 
+       application/json: 
+        type: ErrorResponseList
+     500: 
+      description: Internal Server Error
+      body: 
+       application/json: 
+        type: ErrorResponseList
+   put: 
+    (operationId): updateGroup
+    description: Update Group By Id
+    body: 
+     type: memberRequest
+    responses: 
+     200: 
+      description: Group updated by Id
+      body: 
+       application/json: 
+        type: updateResponse
+     404: 
+      description: Not Found
+      body: 
+       application/json: 
+        type: ErrorResponseList
+     500: 
+      description: Internal Server Error
+      body: 
+       application/json: 
+        type: ErrorResponseList
+/members: 
+  get: 
+   (operationId): getAllMembers
+   description: Get All Members
+   responses: 
+    200: 
+     description: All Members retrieved
+     body: 
+      application/json: 
+       type: array
+       items: 
+        type: memberResponse
+    404: 
+     description: Not Found
+     body: 
+      application/json: 
+       type: ErrorResponseList
+    500: 
+     description: Internal Server Error
+     body: 
+      application/json: 
+       type: ErrorResponseList
+  post: 
+   (operationId): createMember
+   description: Create Member
+   body: 
+    type: memberRequest
+   responses: 
+    200: 
+     description: Member created by Id
+     body: 
+      application/json: 
+       type: createResponse
+    404: 
+     description: Not Found
+     body: 
+      application/json: 
+       type: ErrorResponseList
+    500: 
+     description: Internal Server Error
+     body: 
+      application/json: 
+       type: ErrorResponseList
+  /{id}: 
+   get: 
+    (operationId): getMemberById
+    description: Get Member By Id
+    responses: 
+     200: 
+      description: Member retrieved by Id
+      body: 
+       application/json: 
+        type: memberResponse
+     404: 
+      description: Not Found
+      body: 
+       application/json: 
+        type: ErrorResponseList
+     500: 
+      description: Internal Server Error
+      body: 
+       application/json: 
+        type: ErrorResponseList
