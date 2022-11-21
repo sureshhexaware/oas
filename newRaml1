@@ -1,0 +1,184 @@
+#%RAML 1.0
+title: policy-s-api
+description: To create, modify, delete and get the policy related information
+version: v1
+securitySchemes: 
+annotationTypes: 
+  operationId: 
+   type: string
+types: 
+  notFoundErrorResponse: 
+   type: object
+   properties: 
+     code: 
+      type: integer
+     data: 
+      type: object
+     message: 
+      type: string
+     status: 
+      type: string
+  ServerErrorResponse: 
+   type: object
+   properties: 
+     code: 
+      type: integer
+     data: 
+      type: object
+     message: 
+      type: string
+     status: 
+      type: string
+  successUpdatePolicyResponse: 
+   type: object
+   properties: 
+     status: 
+      type: string
+     data1: data1
+  removePolicyRequest: 
+   type: object
+   properties: 
+     identifier: identifier
+  identifier: 
+   type: object
+   properties: 
+     policyNumber: 
+      type: string
+  updatePolicyRequest: 
+   type: object
+   properties: 
+     identifier: identifier
+     data1: data1
+  data1: 
+   type: object
+   properties: 
+     policyNumber: 
+      type: string
+     fleetVehicleIndicator: 
+      type: string
+     insuranceHolder: insuranceHolder
+     identifier: 
+      type: integer
+  insuranceHolder: 
+   type: object
+   properties: 
+     lastName: 
+      type: string
+     firstName: 
+      type: string
+     streetName: 
+      type: string
+     houseNumber: 
+      type: string
+     boxNumber: 
+      type: string
+     postalCode: 
+      type: string
+     cityName: 
+      type: string
+     countryCode: 
+      type: string
+     languageCode: 
+      type: integer
+     identifier: 
+      type: integer
+  successGetPolicyResponse: 
+   type: object
+   properties: 
+     status: 
+      type: string
+     data: 
+      type: object
+     insuranceHolder: insuranceHolder
+  invalidRequestErrorResponse: 
+   type: object
+   properties: 
+     code: 
+      type: integer
+     data: 
+      type: object
+     message: 
+      type: string
+     status: 
+      type: string
+  : 
+   type: object
+   properties: 
+     code: 
+      type: integer
+     message: 
+      type: string
+\policy: 
+  get: 
+   (operationId): Get Policy
+   description: Get policy details
+   queryParameters: 
+    policyNumber: 
+     description: Policy Number
+     type: string
+     false: true
+   responses: 
+    200: 
+     description: Successfully retrieved policies
+     body: 
+      application/json: 
+       type: successGetPolicyResponse
+    400: 
+     description: Invalid request on endpoint
+     body: 
+      application/json: 
+       type: invalidRequestErrorResponse
+    404: 
+     description: Could not find policy
+     body: 
+      application/json: 
+       type: notFoundErrorResponse
+    500: 
+     description: Error occurred on the server when processing request sent to /policy/
+     body: 
+      application/json: 
+       type: ServerErrorResponse
+  delete: 
+   (operationId): Remove Policy
+   description: Remove policy
+   body: 
+    type: removePolicyRequest
+   responses: 
+    204: 
+     description: Policy successfully removed
+    400: 
+     description: Invalid request on endpoint /policy/
+     body: 
+      application/json: 
+       type: invalidRequestErrorResponse
+    404: 
+     description: Could not find policy
+     body: 
+      application/json: 
+       type: notFoundErrorResponse
+    500: 
+     description: Error occurred on the server when processing request sent to /policy/
+     body: 
+      application/json: 
+       type: ServerErrorResponse
+  post: 
+   (operationId): Update Policy
+   description: Update existing policy
+   body: 
+    type: updatePolicyRequest
+   responses: 
+    200: 
+     description: Successfully updated policy
+     body: 
+      application/json: 
+       type: successUpdatePolicyResponse
+    400: 
+     description: Invalid request on endpoint /policy/
+     body: 
+      application/json: 
+       type: invalidRequestErrorResponse
+    500: 
+     description: Error occurred on the server when processing request sent to /policy/
+     body: 
+      application/json: 
+       type: ServerErrorResponse
