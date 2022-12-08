@@ -1,0 +1,5 @@
+#%RAML 1.0
+title: Member Enrollment API V1
+description: Member Enrollment API V1
+version: v1
+securitySchemes: 
