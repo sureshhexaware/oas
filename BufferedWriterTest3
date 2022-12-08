@@ -1,0 +1,38 @@
+annotationTypes: 
+  operationId: 
+   type: string
+types: 
+  updateResponse: 
+   type: object
+   properties: 
+  createResponse: 
+   type: object
+   properties: 
+  groupRequest: 
+   type: object
+   properties: 
+  addressDetails: 
+   type: object
+   properties: 
+  contactDetails: 
+   type: object
+   properties: 
+  groupResponse: 
+   type: object
+   properties: 
+  memberRequest: 
+   type: object
+   properties: 
+  memberResponse: 
+   type: object
+   properties: 
+  ErrorResponseList: 
+   type: object
+   properties: 
+  Error: 
+   type: object
+   properties: 
+/groups: 
+  /{id}: 
+/members: 
+  /{id}: 
