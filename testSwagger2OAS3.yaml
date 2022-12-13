@@ -1,0 +1,299 @@
+swagger: "2.0"
+info: 
+  title: Items API V1
+  description: Items API
+  version: 1.0.1
+host: www.apiexample.com
+basePath: /v1
+schemes: 
+  - https
+security: 
+  - BasicAuth: []
+paths: 
+  /ecommerce/products: 
+   get: 
+    tags: 
+     - products
+    description: get all Products
+    produces: 
+     - application/json
+     - application/xml
+    responses: 
+     '200': 
+      description: Products Retrieved
+      schema: 
+       type: array
+       items: 
+        $ref: '#/definitions/productsPayload'
+       $ref: '#/definitions/productsPayload'
+     '500': 
+      description: Internal Server Error
+      schema: 
+       $ref: '#/definitions/Error'
+       $ref: '#/definitions/Error'
+     '404': 
+      description: Not Found
+      schema: 
+       $ref: '#/definitions/Error'
+       $ref: '#/definitions/Error'
+   post: 
+    tags: 
+     - products
+    description: creates a product
+    produces: 
+     - application/json
+     - application/xml
+    parameters: 
+     - name: products
+       in: body
+       description: description of parameter passed
+       required: true
+       schema: 
+        $ref: '#/definitions/products'
+    responses: 
+     '200': 
+      description: Product Created
+      schema: 
+       $ref: '#/definitions/products'
+       $ref: '#/definitions/products'
+     '500': 
+      description: Internal Server Error
+      schema: 
+       $ref: '#/definitions/Error'
+       $ref: '#/definitions/Error'
+     '404': 
+      description: Not Found
+      schema: 
+       $ref: '#/definitions/Error'
+       $ref: '#/definitions/Error'
+  /ecommerce/products/{id}: 
+   get: 
+    tags: 
+     - products
+    description: get Product details by id
+    produces: 
+     - application/json
+     - application/xml
+    parameters: 
+     - $ref: '#/parameters/idParam'
+    responses: 
+     '200': 
+      description: Product Retrieved by Id
+      schema: 
+       $ref: '#/definitions/products'
+       $ref: '#/definitions/products'
+     '500': 
+      description: Internal Server Error
+      schema: 
+       $ref: '#/definitions/Error'
+       $ref: '#/definitions/Error'
+     '404': 
+      description: Not Found
+      schema: 
+       $ref: '#/definitions/Error'
+       $ref: '#/definitions/Error'
+   put: 
+    tags: 
+     - products
+    description: updates a product
+    produces: 
+     - application/json
+     - application/xml
+    parameters: 
+     - name: products
+       in: body
+       description: description of parameter passed
+       required: true
+       schema: 
+        $ref: '#/definitions/products'
+     - $ref: '#/parameters/idParam'
+    responses: 
+     '200': 
+      description: Product Updated
+      schema: 
+       $ref: '#/definitions/products'
+       $ref: '#/definitions/products'
+     '500': 
+      description: Internal Server Error
+      schema: 
+       $ref: '#/definitions/Error'
+       $ref: '#/definitions/Error'
+     '404': 
+      description: Not Found
+      schema: 
+       $ref: '#/definitions/Error'
+       $ref: '#/definitions/Error'
+   delete: 
+    tags: 
+     - products
+    description: deletes a product
+    produces: 
+     - application/json
+     - application/xml
+    parameters: 
+     - $ref: '#/parameters/idParam'
+    responses: 
+     '200': 
+      description: Product Deleted
+       $ref: '#/definitions/'
+     '500': 
+      description: Internal Server Error
+      schema: 
+       $ref: '#/definitions/Error'
+       $ref: '#/definitions/Error'
+     '404': 
+      description: Not Found
+      schema: 
+       $ref: '#/definitions/Error'
+       $ref: '#/definitions/Error'
+  /ecommerce/products: 
+   post: 
+    tags: 
+     - products
+    description: creates a product
+    produces: 
+     - application/json
+     - application/xml
+    parameters: 
+     - name: products
+       in: body
+       description: description of parameter passed
+       required: true
+       schema: 
+        $ref: '#/definitions/products'
+    responses: 
+     '200': 
+      description: Product Created
+      schema: 
+       $ref: '#/definitions/products'
+       $ref: '#/definitions/products'
+     '500': 
+      description: Internal Server Error
+      schema: 
+       $ref: '#/definitions/Error'
+       $ref: '#/definitions/Error'
+     '404': 
+      description: Not Found
+      schema: 
+       $ref: '#/definitions/Error'
+       $ref: '#/definitions/Error'
+   get: 
+    tags: 
+     - products
+    description: get all Products
+    produces: 
+     - application/json
+     - application/xml
+    responses: 
+     '200': 
+      description: Products Retrieved
+      schema: 
+       type: array
+       items: 
+        $ref: '#/definitions/productsPayload'
+       $ref: '#/definitions/productsPayload'
+     '500': 
+      description: Internal Server Error
+      schema: 
+       $ref: '#/definitions/Error'
+       $ref: '#/definitions/Error'
+     '404': 
+      description: Not Found
+      schema: 
+       $ref: '#/definitions/Error'
+       $ref: '#/definitions/Error'
+definitions: 
+   productsPayload: 
+    type: object
+    properties: 
+     products: 
+      type: object
+      $ref: '#/definitions/products'
+     total_items: 
+      type: string
+   ErrorResponseList: 
+    type: object
+    properties: 
+     Error: 
+      type: object
+      $ref: '#/definitions/Error'
+   Error: 
+    type: object
+    properties: 
+     ErrorCode: 
+      type: string
+     ErrorDescription: 
+      type: string
+   products: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     currency_code: 
+      type: string
+     title: 
+      type: string
+     handle: 
+      type: string
+     url: 
+      type: string
+     description: 
+      type: string
+     type: 
+      type: string
+     vendor: 
+      type: string
+     image_url: 
+      type: string
+     variants: 
+      type: object
+      $ref: '#/definitions/variants'
+     images: 
+      type: object
+      $ref: '#/definitions/images'
+     published_at_foreign: 
+      type: string
+   variants: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     title: 
+      type: string
+     url: 
+      type: string
+     sku: 
+      type: string
+     price: 
+      type: string
+     inventory_quantity: 
+      type: string
+     image_url: 
+      type: string
+     backorders: 
+      type: string
+     visibility: 
+      type: string
+     created_at: 
+      type: string
+     updated_at: 
+      type: string
+   images: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     url: 
+      type: string
+     variant_ids: 
+      type: array
+parameters: 
+   idParam: 
+    in: path
+    name: id
+    type: string
+    required: true
+    description: Id of an item to get details
+securityDefinitions: 
+   BasicAuth: 
+    type: basic
