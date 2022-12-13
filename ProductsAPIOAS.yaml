@@ -1,0 +1,254 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: Items API V1
+  description: Items API
+servers: 
+  - url: <to be set>
+    description: API Server Description
+security: 
+  - BasicAuth: []
+paths: 
+  /ecommerce/products: 
+   get: 
+    operationId: listProducts
+    tags: 
+     - products
+    summary: Retrieve list of products
+    description: get all Products
+    responses: 
+     '200': 
+      description: Products Retrieved
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/productsPayload'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+   post: 
+    operationId: createProduct
+    tags: 
+     - products
+    summary: Creates a product
+    description: creates a product
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/products'
+    responses: 
+     '200': 
+      description: Product Created
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/products'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+  /ecommerce/products/{id}: 
+   get: 
+    operationId: getProductById
+    tags: 
+     - products
+    summary: Retrieve product details by id
+    description: get Product details by id
+    parameters: 
+     - $ref: '#/components/parameters/idParam'
+    responses: 
+     '200': 
+      description: Product Retrieved by Id
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/products'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+   put: 
+    operationId: updateProduct
+    tags: 
+     - products
+    summary: Updates a product
+    description: updates a product
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/products'
+    parameters: 
+     - $ref: '#/components/parameters/idParam'
+    responses: 
+     '200': 
+      description: Product Updated
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/products'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+   delete: 
+    operationId: deleteProduct
+    tags: 
+     - products
+    summary: Deletes a product
+    description: deletes a product
+    parameters: 
+     - $ref: '#/components/parameters/idParam'
+    responses: 
+     '200': 
+      description: Product Deleted
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+components: 
+  securitySchemes: 
+   BasicAuth: 
+    type: http
+    scheme: basic
+  schemas: 
+   productsPayload: 
+    type: object
+    properties: 
+     products: 
+      type: object
+      $ref: '#/components/schemas/products'
+     total_items: 
+      type: string
+   ErrorResponseList: 
+    type: object
+    properties: 
+     Error: 
+      type: object
+      $ref: '#/components/schemas/Error'
+   Error: 
+    type: object
+    properties: 
+     ErrorCode: 
+      type: string
+     ErrorDescription: 
+      type: string
+   products: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     currency_code: 
+      type: string
+     title: 
+      type: string
+     handle: 
+      type: string
+     url: 
+      type: string
+     description: 
+      type: string
+     type: 
+      type: string
+     vendor: 
+      type: string
+     image_url: 
+      type: string
+     variants: 
+      type: object
+      $ref: '#/components/schemas/variants'
+     images: 
+      type: object
+      $ref: '#/components/schemas/images'
+     published_at_foreign: 
+      type: string
+   variants: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     title: 
+      type: string
+     url: 
+      type: string
+     sku: 
+      type: string
+     price: 
+      type: string
+     inventory_quantity: 
+      type: string
+     image_url: 
+      type: string
+     backorders: 
+      type: string
+     visibility: 
+      type: string
+     created_at: 
+      type: string
+     updated_at: 
+      type: string
+   images: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     url: 
+      type: string
+     variant_ids: 
+      type: array
+      items: 
+       type: string
+  parameters: 
+   idParam: 
+    in: path
+    name: id
+    required: true
+    schema: 
+     type: string
+    description: Id of an item to get details
