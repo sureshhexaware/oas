@@ -1,0 +1,481 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: Member Enrollment API V1
+  description: Member Enrollment API V1
+servers: 
+  - url: <to be set>
+    description: API Server Description
+security: 
+  - BasicAuth: []
+paths: 
+  /groups: 
+   get: 
+    operationId: getAllGroups
+    tags: 
+     - groups
+    summary: Get All Groups
+    description: Get All Groups
+    responses: 
+     '200': 
+      description: All Groups retrieved
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/groupResponse'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponseList'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponseList'
+   post: 
+    operationId: createGroup
+    tags: 
+     - groups
+    summary: Create Group
+    description: Create Group
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/groupRequest'
+    responses: 
+     '200': 
+      description: Group created by Id
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/createResponse'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponseList'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponseList'
+  /groups/{id}: 
+   get: 
+    operationId: getGroupById
+    tags: 
+     - groups
+    summary: Get Group By Id
+    description: Get Group By Id
+    parameters: 
+     - $ref: '#/components/parameters/idParam'
+    responses: 
+     '200': 
+      description: Group retrieved by Id
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/groupResponse'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponseList'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponseList'
+   put: 
+    operationId: updateGroup
+    tags: 
+     - groups
+    summary: Update Group By Id
+    description: Update Group By Id
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/memberRequest'
+    responses: 
+     '200': 
+      description: Group updated by Id
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/updateResponse'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponseList'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponseList'
+  /members: 
+   get: 
+    operationId: getAllMembers
+    tags: 
+     - groups
+    summary: Get All Members
+    description: Get All Members
+    responses: 
+     '200': 
+      description: All Members retrieved
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/memberResponse'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponseList'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponseList'
+   post: 
+    operationId: createMember
+    tags: 
+     - groups
+    summary: Create Member
+    description: Create Member
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/memberRequest'
+    responses: 
+     '200': 
+      description: Member created by Id
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/createResponse'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponseList'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponseList'
+  /members/{id}: 
+   get: 
+    operationId: getMemberById
+    tags: 
+     - groups
+    summary: Get Member By Id
+    description: Get Member By Id
+    parameters: 
+     - $ref: '#/components/parameters/idParam'
+    responses: 
+     '200': 
+      description: Member retrieved by Id
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/memberResponse'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponseList'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponseList'
+components: 
+  securitySchemes: 
+   BasicAuth: 
+    type: http
+    scheme: basic
+  schemas: 
+   updateResponse: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     status: 
+      type: string
+     statusCode: 
+      type: string
+   createResponse: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     status: 
+      type: string
+     statusCode: 
+      type: string
+   groupRequest: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     groupNo: 
+      type: string
+     groupName: 
+      type: string
+     groupType: 
+      type: string
+     idNumber: 
+      type: string
+     addressDetails: 
+      type: object
+      $ref: '#/components/schemas/addressDetails'
+     effectiveStartDate: 
+      type: date-time
+     effectiveEndDate: 
+      type: date-time
+     contactDetails: 
+      type: object
+      $ref: '#/components/schemas/contactDetails'
+     renewalDate: 
+      type: date-time
+     lineOfBusiness: 
+      type: string
+     productType: 
+      type: string
+     productLine: 
+      type: string
+     coverage: 
+      type: string
+   addressDetails: 
+    type: object
+    properties: 
+     streetAddress1: 
+      type: string
+     streetAddress2: 
+      type: string
+     city: 
+      type: string
+     state: 
+      type: string
+     zipCode: 
+      type: string
+     county: 
+      type: string
+     country: 
+      type: string
+   contactDetails: 
+    type: object
+    properties: 
+     contactName: 
+      type: string
+     contactPhone: 
+      type: string
+     ext: 
+      type: string
+     fax: 
+      type: string
+     email: 
+      type: string
+   groupResponse: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     groupNo: 
+      type: string
+     groupName: 
+      type: string
+     groupType: 
+      type: string
+     idNumber: 
+      type: string
+     addressDetails: 
+      type: object
+      $ref: '#/components/schemas/addressDetails'
+     effectiveStartDate: 
+      type: date
+     effectiveEndDate: 
+      type: date
+     contactDetails: 
+      type: object
+      $ref: '#/components/schemas/contactDetails'
+     renewalDate: 
+      type: date
+     lineOfBusiness: 
+      type: string
+     productType: 
+      type: string
+     productLine: 
+      type: string
+     coverage: 
+      type: string
+   memberRequest: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     firstName: 
+      type: string
+     lastName: 
+      type: string
+     middleName: 
+      type: string
+     prefix: 
+      type: string
+     suffix: 
+      type: string
+     gender: 
+      type: string
+     addressDetails: 
+      type: object
+      $ref: '#/components/schemas/addressDetails'
+     activeMemberSince: 
+      type: date
+     nationalId: 
+      type: string
+     lastNameMatch: 
+      type: string
+     locationCode: 
+      type: string
+     HICN: 
+      type: string
+     dateOfBirth: 
+      type: date
+     dateOfDeath: 
+      type: date
+     SSN: 
+      type: string
+     medicareEntitlement: 
+      type: string
+     mbi: 
+      type: string
+     primaryLanguage: 
+      type: string
+     maritalStatus: 
+      type: string
+     ethnicity: 
+      type: string
+     dependentViewWebOption: 
+      type: string
+     employerName: 
+      type: string
+     homePhone: 
+      type: string
+     workPhone: 
+      type: string
+     cellPhone: 
+      type: string
+     email: 
+      type: string
+     hireDate: 
+      type: date
+     volume: 
+      type: string
+   memberResponse: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     firstName: 
+      type: string
+     lastName: 
+      type: string
+     middleName: 
+      type: string
+     prefix: 
+      type: string
+     suffix: 
+      type: string
+     gender: 
+      type: string
+     addressDetails: 
+      type: object
+      $ref: '#/components/schemas/addressDetails'
+     activeMemberSince: 
+      type: date
+     nationalId: 
+      type: string
+     lastNameMatch: 
+      type: string
+     locationCode: 
+      type: string
+     HICN: 
+      type: string
+     dateOfBirth: 
+      type: date
+     dateOfDeath: 
+      type: date
+     SSN: 
+      type: string
+     medicareEntitlement: 
+      type: string
+     mbi: 
+      type: string
+     primaryLanguage: 
+      type: string
+     maritalStatus: 
+      type: string
+     ethnicity: 
+      type: string
+     dependentViewWebOption: 
+      type: string
+     employerName: 
+      type: string
+     homePhone: 
+      type: string
+     workPhone: 
+      type: string
+     cellPhone: 
+      type: string
+     email: 
+      type: string
+     hireDate: 
+      type: date
+     volume: 
+      type: string
+   ErrorResponseList: 
+    type: object
+    properties: 
+     Error: 
+      type: object
+      $ref: '#/components/schemas/Error'
+   Error: 
+    type: object
+    properties: 
+     ErrorCode: 
+      type: string
+     ErrorDescription: 
+      type: string
+  parameters: 
+   idParam: 
+    in: path
+    name: id
+    required: true
+    schema: 
+     type: string
+    description: Id of an group to get details
