@@ -1,0 +1,216 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: Claims API
+  description: Insurance Claims API
+servers: 
+  - url: <to be set>
+    description: API Server Description
+security: 
+  - BasicAuth: []
+paths: 
+  /claims: 
+   get: 
+    operationId: getClaims
+    tags: 
+     - claims
+    summary: By passing in the appropriate options, you can search for claim in the system
+    description: By passing in the appropriate options, you can search for claim in the system
+    responses: 
+     '200': 
+      description: Claims Retrieved
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/claims'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+   post: 
+    operationId: createClaim
+    tags: 
+     - claims
+    summary: Adds a claim to the system
+    description: Adds a claim to the system
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/claims'
+    responses: 
+     '200': 
+      description: Claim Created
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/claims'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+  /claims/{id}: 
+   get: 
+    operationId: getClaimById
+    tags: 
+     - claims
+    summary: Get a Claim by its ID
+    description: Get a Claim by its ID
+    parameters: 
+     - $ref: '#/components/parameters/idParam'
+    responses: 
+     '200': 
+      description: Claim Retrieved
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/claims'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+   put: 
+    operationId: updateClaim
+    tags: 
+     - claims
+    summary: Updates a claim
+    description: Updates a claim
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/claims'
+    parameters: 
+     - $ref: '#/components/parameters/idParam'
+    responses: 
+     '200': 
+      description: Claim updated
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/claims'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+   delete: 
+    operationId: deleteClaim
+    tags: 
+     - claims
+    summary: Deletes a claim
+    description: Deletes a claim
+    parameters: 
+     - $ref: '#/components/parameters/idParam'
+    responses: 
+     '200': 
+      description: Claim Deleted
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/Error'
+components: 
+  securitySchemes: 
+   BasicAuth: 
+    type: http
+    scheme: basic
+  schemas: 
+   ErrorResponseList: 
+    type: object
+    properties: 
+     Error: 
+      type: object
+      $ref: '#/components/schemas/Error'
+   Error: 
+    type: object
+    properties: 
+     ErrorCode: 
+      type: string
+     ErrorDescription: 
+      type: string
+   claims: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     claimType: 
+      type: string
+     location: 
+      type: string
+     lossCause: 
+      type: string
+     description: 
+      type: string
+     fnol: 
+      type: string
+     claimNumber: 
+      type: string
+     liabilityShare: 
+      type: string
+     reserve: 
+      type: string
+     claimStatus: 
+      type: string
+     lastUpdate: 
+      type: string
+     reopenDate: 
+      type: string
+     excessAmount: 
+      type: string
+     paymentMethod: 
+      type: string
+     documents: 
+      type: string
+     lossDate: 
+      type: string
+  parameters: 
+   idParam: 
+    in: path
+    name: id
+    required: true
+    schema: 
+     type: string
+    description: Id of claim to get details
