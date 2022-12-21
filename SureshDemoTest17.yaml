@@ -1,0 +1,191 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: EIC-Admin-Exp-Api
+  description: API description
+servers: 
+  - url: api
+    description: API Server Description
+paths: 
+  /document: 
+   get: 
+    operationId: getdocument
+    tags: 
+     - document
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierParam'
+     - $ref: '#/components/parameters/downloadTokenQueryParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+  /member: 
+   post: 
+    operationId: postmember
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/memberpostResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+   get: 
+    operationId: getmember
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierParam'
+     - $ref: '#/components/parameters/memberIdQueryParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/membergetResponse'
+     '500': 
+      description: Internal Server Error
+     '404': 
+      description: Not found
+   put: 
+    operationId: putmember
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+  /gogreenstatus/{nameId}: 
+   get: 
+    operationId: getgogreenstatus_nameId
+    tags: 
+     - gogreenstatus
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/nameIdParam'
+     - $ref: '#/components/parameters/TenantIdentifierParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/gogreenstatusgetResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+  /SSADeductByMemberID/{memberId}: 
+   get: 
+    operationId: getSSADeductByMemberID_memberId
+    tags: 
+     - SSADeductByMemberID
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/memberIdParam'
+     - $ref: '#/components/parameters/TenantIdentifierParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/SSADeductByMemberIDgetResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+  /SetGoGreenSubscription: 
+   post: 
+    operationId: postSetGoGreenSubscription
+    tags: 
+     - SetGoGreenSubscription
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/SetGoGreenSubscriptionpostResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+  /eob/{altmemberid}: 
+   get: 
+    operationId: geteob_altmemberid
+    tags: 
+     - eob
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/altmemberidParam'
+     - $ref: '#/components/parameters/TenantIdentifierParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/eobgetResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+components: 
+  schemas: 
+   FaultException: 
+    type: object
+    properties: 
+     Errors: 
+      type: string
