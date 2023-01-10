@@ -1,0 +1,172 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: EIC-Admin-Exp-Api
+  description: API description
+servers: 
+  - url: api
+    description: API Server Description
+paths: 
+components: 
+  schemas: 
+   FaultException: 
+    type: object
+    properties: 
+     Errors: 
+      type: string
+     Messages: 
+      type: string
+     Exceptions: 
+      type: string
+     Warnings: 
+      type: string
+     Success: 
+      type: string
+   memberpostResponse: 
+    type: object
+    properties: 
+     FaultException: 
+      type: object
+      $ref: '#/components/schemas/FaultException'
+     ResponseDetails: 
+      type: object
+      $ref: '#/components/schemas/ResponseDetails'
+   ResponseDetails: 
+    type: object
+    properties: 
+     PaymentException: 
+      type: string
+     SsaDeductRequested: 
+      type: string
+     ProcessPaymentReponse: 
+      type: string
+     IsBrokerCompliant: 
+      type: string
+     Member: 
+      type: object
+      $ref: '#/components/schemas/Member'
+   Member: 
+    type: object
+    properties: 
+     MZipCode: 
+      type: string
+     Email: 
+      type: string
+     GreenEobReasonCode: 
+      type: string
+     MCity: 
+      type: string
+     BWritingCode: 
+      type: string
+     BrokerID: 
+      type: string
+     CellPhone: 
+      type: string
+     CurrentBalance: 
+      type: string
+     AltMemberId: 
+      type: string
+     Prefix: 
+      type: string
+     Gender: 
+      type: string
+     PlanName: 
+      type: string
+     PbpId: 
+      type: string
+     HICN: 
+      type: string
+     MemberId: 
+      type: string
+     MailNABPs: 
+      type: string
+     EnrollmentDate: 
+      type: string
+     MiddleInitial: 
+      type: string
+     MBI: 
+      type: string
+     DOB: 
+      type: string
+     Phone: 
+      type: string
+     BrokerAttestation: 
+      type: string
+     PbpCode: 
+      type: string
+     DisenrollmentDate: 
+      type: string
+     MAddress2: 
+      type: string
+     Status: 
+      type: string
+     MAddress1: 
+      type: string
+     PrimaryPharmacy: 
+      type: string
+     FirstName: 
+      type: string
+     ZipCode: 
+      type: string
+     PlanId: 
+      type: string
+     Address2: 
+      type: string
+     MState: 
+      type: string
+     Address1: 
+      type: string
+     City: 
+      type: string
+     GroupId: 
+      type: string
+     Pharmacies: 
+      type: string
+     MedicareNumber: 
+      type: string
+     MonthlyPremium: 
+      type: string
+     AltPhone: 
+      type: string
+     CMSConfirmationID: 
+      type: string
+     Year: 
+      type: string
+     State: 
+      type: string
+     LastName: 
+      type: string
+     EGWPDirectBill: 
+      type: string
+     IsBroker: 
+      type: string
+  parameters: 
+   TenantIdentifierParam: 
+    in: header
+    name: TenantIdentifier
+    required: false
+    schema: 
+     type: string
+    description: Tenant Identifier
+   client_secretParam: 
+    in: header
+    name: client_secret
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   client_idParam: 
+    in: header
+    name: client_id
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   channelidParam: 
+    in: header
+    name: channelid
+    required: false
+    schema: 
+     type: string
+     format: integer | nil
+    description: Unique Id to determine the Client
