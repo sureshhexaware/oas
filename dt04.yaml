@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: EIC-Admin-Exp-Api
+  description: API description
+servers: 
+  - url: api
+    description: API Server Description
+paths: 
+components: 
+  schemas: 
+   FaultException: 
+    type: object
+    properties: 
+     Errors: 
+      type: string
+     Messages: 
+      type: string
+     Exceptions: 
+      type: string
+     Warnings: 
+      type: string
+     Success: 
+      type: string
+   memberpostResponse: 
+    type: object
+    properties: 
+     FaultException: 
+      type: object
+      $ref: '#/components/schemas/FaultException'
+   ResponseDetails: 
+    type: object
+    properties: 
+     PaymentException: 
+      type: string
+     SsaDeductRequested: 
+      type: string
+     ProcessPaymentReponse: 
+      type: string
+     IsBrokerCompliant: 
+      type: string
+  parameters: 
+   TenantIdentifierParam: 
+    in: header
+    name: TenantIdentifier
+    required: false
+    schema: 
+     type: string
+    description: Tenant Identifier
