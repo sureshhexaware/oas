@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: API Title
+  description: API description
+servers: 
+  - url: https://hexapi.example.com
+    description: API Server Description
+paths: 
+components: 
+  schemas: 
+   notespostResponse: 
+    type: object
+    properties: 
+     itemId: 
+      type: string
+     nameId: 
+      type: string
+  parameters: 
+   client_secretParam: 
+    in: header
+    name: client_secret
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   client_idParam: 
+    in: header
+    name: client_id
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   channelidParam: 
+    in: header
+    name: channelid
+    required: false
+    schema: 
+     type: string
+     format: integer | nil
+    description: Unique Id to determine the Client
