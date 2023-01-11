@@ -1,0 +1,401 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: EIC-Admin-Exp-Api
+  description: API description
+servers: 
+  - url: api
+    description: API Server Description
+paths: 
+  /member: 
+   post: 
+    operationId: postmember
+    tags: 
+     - member
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/memberInsertRequest'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/memberpostResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+components: 
+  schemas: 
+   memberpostResponse: 
+    type: object
+    properties: 
+     FaultException: 
+      type: string
+     ResponseDetails: 
+      type: string
+   memberInsertRequest: 
+    type: object
+    properties: 
+     ReferralCode: 
+      type: object
+      $ref: '#/components/schemas/ReferralCode'
+     Email: 
+      type: object
+      $ref: '#/components/schemas/Email'
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     Gender: 
+      type: object
+     Institution: 
+      type: object
+      $ref: '#/components/schemas/Institution'
+     MiddleInitial: 
+      type: object
+      $ref: '#/components/schemas/MiddleInitial'
+     BrokerAttestation: 
+      type: object
+     DateOfBirth: 
+      type: object
+      $ref: '#/components/schemas/DateOfBirth'
+     PartAEffDate: 
+      type: object
+      $ref: '#/components/schemas/PartAEffDate'
+     CmsConfirmationId: 
+      type: object
+      $ref: '#/components/schemas/CmsConfirmationId'
+     AltPhone: 
+      type: object
+     spouseWorkInd: 
+      type: object
+      $ref: '#/components/schemas/spouseWorkInd'
+     LastName: 
+      type: object
+      $ref: '#/components/schemas/LastName'
+     ApplicationId: 
+      type: object
+      $ref: '#/components/schemas/ApplicationId'
+     EmergencyContact: 
+      type: object
+      $ref: '#/components/schemas/EmergencyContact'
+     HasEmergencyContact: 
+      type: object
+      $ref: '#/components/schemas/HasEmergencyContact'
+     CellPhone: 
+      type: object
+     HasOtherCoverage: 
+      type: object
+     SepReason: 
+      type: object
+      $ref: '#/components/schemas/SepReason'
+     Prefix: 
+      type: object
+      $ref: '#/components/schemas/Prefix'
+     ApplicationDate: 
+      type: object
+      $ref: '#/components/schemas/ApplicationDate'
+     selfWorkInd: 
+      type: object
+      $ref: '#/components/schemas/selfWorkInd'
+     EnrollmentDate: 
+      type: object
+     OtherCoverage: 
+      type: object
+      $ref: '#/components/schemas/OtherCoverage'
+     Language: 
+      type: object
+     Phone: 
+      type: object
+      $ref: '#/components/schemas/Phone'
+     altFormatRqst: 
+      type: object
+      $ref: '#/components/schemas/altFormatRqst'
+     EnrollmentType: 
+      type: object
+      $ref: '#/components/schemas/EnrollmentType'
+     PaymentType: 
+      type: object
+      $ref: '#/components/schemas/PaymentType'
+     IsLongTermCare: 
+      type: object
+      $ref: '#/components/schemas/IsLongTermCare'
+     DeductSsa: 
+      type: object
+     Broker: 
+      type: object
+      $ref: '#/components/schemas/Broker'
+     LoginId: 
+      type: object
+      $ref: '#/components/schemas/LoginId'
+     ZipCode: 
+      type: object
+      $ref: '#/components/schemas/ZipCode'
+     StateCode: 
+      type: object
+      $ref: '#/components/schemas/StateCode'
+     MailingAddress: 
+      type: object
+      $ref: '#/components/schemas/MailingAddress'
+     HasBroker: 
+      type: object
+      $ref: '#/components/schemas/HasBroker'
+     Plan: 
+      type: object
+      $ref: '#/components/schemas/Plan'
+     PartBEffDate: 
+      type: object
+      $ref: '#/components/schemas/PartBEffDate'
+     SeparationReasonDescription: 
+      type: object
+      $ref: '#/components/schemas/SeparationReasonDescription'
+     GroupId: 
+      type: object
+     Firstname: 
+      type: object
+      $ref: '#/components/schemas/Firstname'
+     MedicareNumber: 
+      type: object
+     UserId: 
+      type: object
+      $ref: '#/components/schemas/UserId'
+     ElectionType: 
+      type: object
+     IsRepresentative: 
+      type: object
+     BrokerAttestationType: 
+      type: object
+      $ref: '#/components/schemas/BrokerAttestationType'
+     Representative: 
+      type: object
+      $ref: '#/components/schemas/Representative'
+     IsBroker: 
+      type: object
+   ReferralCode: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   Email: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   Address: 
+    type: object
+    properties: 
+     properties: 
+      type: string
+     required: 
+      type: string
+   Institution: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   MiddleInitial: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   DateOfBirth: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   PartAEffDate: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   CmsConfirmationId: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   spouseWorkInd: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   LastName: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   ApplicationId: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   EmergencyContact: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   HasEmergencyContact: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   SepReason: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   Prefix: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   ApplicationDate: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   selfWorkInd: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   OtherCoverage: 
+    type: object
+    properties: 
+     properties: 
+      type: string
+   Phone: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   altFormatRqst: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   EnrollmentType: 
+    type: object
+    properties: 
+     format: 
+      type: string
+   PaymentType: 
+    type: object
+    properties: 
+     format: 
+      type: string
+   IsLongTermCare: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   Broker: 
+    type: object
+    properties: 
+     properties: 
+      type: string
+     required: 
+      type: string
+   LoginId: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   ZipCode: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   StateCode: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   MailingAddress: 
+    type: object
+    properties: 
+     properties: 
+      type: string
+     required: 
+      type: string
+   HasBroker: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   Plan: 
+    type: object
+    properties: 
+     properties: 
+      type: string
+   PartBEffDate: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   SeparationReasonDescription: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   Firstname: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   UserId: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   BrokerAttestationType: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   Representative: 
+    type: object
+    properties: 
+     properties: 
+      type: string
+  parameters: 
+   TenantIdentifierParam: 
+    in: header
+    name: TenantIdentifier
+    required: false
+    schema: 
+     type: string
+    description: Tenant Identifier
+   client_secretParam: 
+    in: header
+    name: client_secret
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   client_idParam: 
+    in: header
+    name: client_id
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   channelidParam: 
+    in: header
+    name: channelid
+    required: false
+    schema: 
+     type: string
+     format: integer | nil
+    description: Unique Id to determine the Client
