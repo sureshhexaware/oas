@@ -1,0 +1,784 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: EIC-Admin-Exp-Api
+  description: API description
+servers: 
+  - url: api
+    description: API Server Description
+paths: 
+  /member: 
+   post: 
+    operationId: postmember
+    tags: 
+     - member
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/memberInsertRequest'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/memberpostResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+   get: 
+    operationId: getmember
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/memberIdQueryParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/membergetResponse'
+     '500': 
+      description: Internal Server Error
+     '404': 
+      description: Not found
+   put: 
+    operationId: putmember
+    tags: 
+     - member
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/memberUpdateRequest'
+    parameters: 
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+components: 
+  schemas: 
+   FaultException: 
+    type: object
+    properties: 
+     Errors: 
+      type: string
+     Messages: 
+      type: string
+     Exceptions: 
+      type: string
+     Warnings: 
+      type: string
+     Success: 
+      type: string
+   memberpostResponse: 
+    type: object
+    properties: 
+     FaultException: 
+      type: object
+      $ref: '#/components/schemas/FaultException'
+     ResponseDetails: 
+      type: object
+      $ref: '#/components/schemas/ResponseDetails'
+   ResponseDetails: 
+    type: object
+    properties: 
+     PaymentException: 
+      type: string
+     SsaDeductRequested: 
+      type: string
+     ProcessPaymentReponse: 
+      type: string
+     IsBrokerCompliant: 
+      type: string
+     Member: 
+      type: object
+      $ref: '#/components/schemas/Member'
+   Member: 
+    type: object
+    properties: 
+     MZipCode: 
+      type: string
+     Email: 
+      type: string
+     GreenEobReasonCode: 
+      type: string
+     MCity: 
+      type: string
+     BWritingCode: 
+      type: string
+     BrokerID: 
+      type: string
+     CellPhone: 
+      type: string
+     CurrentBalance: 
+      type: string
+     AltMemberId: 
+      type: string
+     Prefix: 
+      type: string
+     Gender: 
+      type: string
+     PlanName: 
+      type: string
+     PbpId: 
+      type: string
+     HICN: 
+      type: string
+     MemberId: 
+      type: string
+     MailNABPs: 
+      type: string
+     EnrollmentDate: 
+      type: string
+     MiddleInitial: 
+      type: string
+     MBI: 
+      type: string
+     DOB: 
+      type: string
+     Phone: 
+      type: string
+     BrokerAttestation: 
+      type: string
+     PbpCode: 
+      type: string
+     DisenrollmentDate: 
+      type: string
+     MAddress2: 
+      type: string
+     Status: 
+      type: string
+     MAddress1: 
+      type: string
+     PrimaryPharmacy: 
+      type: string
+     FirstName: 
+      type: string
+     ZipCode: 
+      type: string
+     PlanId: 
+      type: string
+     Address2: 
+      type: string
+     MState: 
+      type: string
+     Address1: 
+      type: string
+     City: 
+      type: string
+     GroupId: 
+      type: string
+     Pharmacies: 
+      type: string
+     MedicareNumber: 
+      type: string
+     MonthlyPremium: 
+      type: string
+     AltPhone: 
+      type: string
+     CMSConfirmationID: 
+      type: string
+     Year: 
+      type: string
+     State: 
+      type: string
+     LastName: 
+      type: string
+     EGWPDirectBill: 
+      type: string
+     IsBroker: 
+      type: string
+   memberInsertRequest: 
+    type: object
+    properties: 
+     ReferralCode: 
+      type: string
+     Email: 
+      type: string
+     Gender: 
+      type: string
+     MiddleInitial: 
+      type: string
+     DateOfBirth: 
+      type: string
+     CmsConfirmationId: 
+      type: string
+     AltPhone: 
+      type: string
+     LastName: 
+      type: string
+     ApplicationId: 
+      type: string
+     CellPhone: 
+      type: string
+     SepReason: 
+      type: string
+     Prefix: 
+      type: string
+     ApplicationDate: 
+      type: string
+     Language: 
+      type: string
+     Phone: 
+      type: string
+     altFormatRqst: 
+      type: string
+     ZipCode: 
+      type: string
+     StateCode: 
+      type: string
+     SeparationReasonDescription: 
+      type: string
+     GroupId: 
+      type: string
+     Firstname: 
+      type: string
+     MedicareNumber: 
+      type: string
+     ElectionType: 
+      type: string
+     BrokerAttestationType: 
+      type: string
+   ReferralCode: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   Email: 
+    type: object
+    properties: 
+     required: 
+      type: string
+     required: 
+      type: string
+   Address: 
+    type: object
+    properties: 
+     required: 
+      type: string
+     required: 
+      type: string
+     ZipCode: 
+      type: string
+     Address2: 
+      type: string
+     StateCode: 
+      type: string
+     Address1: 
+      type: string
+     City: 
+      type: string
+   Institution: 
+    type: object
+    properties: 
+     required: 
+      type: string
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     Phone: 
+      type: string
+     Relationship: 
+      type: string
+     Name: 
+      type: string
+   MiddleInitial: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   DateOfBirth: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   PartAEffDate: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   CmsConfirmationId: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   spouseWorkInd: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   LastName: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   ApplicationId: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   EmergencyContact: 
+    type: object
+    properties: 
+     required: 
+      type: string
+     Phone: 
+      type: string
+     Relationship: 
+      type: string
+     Name: 
+      type: string
+   HasEmergencyContact: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   SepReason: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   Prefix: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   ApplicationDate: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   selfWorkInd: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   Phone: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   altFormatRqst: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   EnrollmentType: 
+    type: object
+    properties: 
+     format: 
+      type: string
+   PaymentType: 
+    type: object
+    properties: 
+     format: 
+      type: string
+   IsLongTermCare: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   Broker: 
+    type: object
+    properties: 
+     required: 
+      type: string
+     Referral: 
+      type: object
+      $ref: '#/components/schemas/Referral'
+   LoginId: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   ZipCode: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   StateCode: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   MailingAddress: 
+    type: object
+    properties: 
+     required: 
+      type: string
+     ZipCode: 
+      type: string
+     Address2: 
+      type: string
+     StateCode: 
+      type: string
+     Address1: 
+      type: string
+     City: 
+      type: string
+   HasBroker: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   PartBEffDate: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   SeparationReasonDescription: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   Firstname: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   UserId: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   BrokerAttestationType: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   properties: 
+    type: object
+    properties: 
+     Email: 
+      type: object
+      $ref: '#/components/schemas/Email'
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     Phone: 
+      type: object
+      $ref: '#/components/schemas/Phone'
+     Relationship: 
+      type: object
+     Name: 
+      type: object
+      $ref: '#/components/schemas/Name'
+   Name: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   membergetResponse: 
+    type: object
+    properties: 
+     EmergencyContact: 
+      type: object
+      $ref: '#/components/schemas/EmergencyContact'
+     Email: 
+      type: string
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     HasEmergencyContact: 
+      type: string
+     CellPhone: 
+      type: string
+     HasOtherCoverage: 
+      type: string
+     SepReasonId: 
+      type: string
+     Prefix: 
+      type: string
+     Gender: 
+      type: string
+     Institution: 
+      type: object
+      $ref: '#/components/schemas/Institution'
+     LargePrint: 
+      type: string
+     ApplicationDate: 
+      type: string
+     EnrollmentDate: 
+      type: string
+     MiddleInitial: 
+      type: string
+     OtherCoverage: 
+      type: object
+      $ref: '#/components/schemas/OtherCoverage'
+     Language: 
+      type: string
+     Phone: 
+      type: string
+     BrokerAttestation: 
+      type: string
+     EnrollmentType: 
+      type: string
+     PaymentType: 
+      type: string
+     IsLongTermCare: 
+      type: string
+     DeductSsa: 
+      type: string
+     DateOfBirth: 
+      type: string
+     Broker: 
+      type: object
+      $ref: '#/components/schemas/Broker'
+     MailingAddress: 
+      type: object
+      $ref: '#/components/schemas/MailingAddress'
+     HasBroker: 
+      type: string
+     Plan: 
+      type: object
+      $ref: '#/components/schemas/Plan'
+     PartAEffDate: 
+      type: string
+     PartBEffDate: 
+      type: string
+     GroupId: 
+      type: string
+     Firstname: 
+      type: string
+     MedicareNumber: 
+      type: string
+     AltPhone: 
+      type: string
+     ElectionType: 
+      type: string
+     IsRepresentative: 
+      type: string
+     BrokerAttestationType: 
+      type: string
+     Representative: 
+      type: object
+      $ref: '#/components/schemas/Representative'
+     LastName: 
+      type: string
+     Audio: 
+      type: string
+     IsBroker: 
+      type: string
+   OtherCoverage: 
+    type: object
+    properties: 
+     Group: 
+      type: string
+     Id: 
+      type: string
+     Name: 
+      type: string
+   Referral: 
+    type: object
+    properties: 
+     FirstName: 
+      type: string
+     Phone: 
+      type: string
+     LastName: 
+      type: string
+     Code: 
+      type: string
+   Plan: 
+    type: object
+    properties: 
+     IsEGWP: 
+      type: string
+     PlanId: 
+      type: string
+     PlanYear: 
+      type: string
+     PlanName: 
+      type: string
+     Pbp: 
+      type: string
+   Representative: 
+    type: object
+    properties: 
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     Phone: 
+      type: string
+     Relationship: 
+      type: string
+     Name: 
+      type: string
+   memberUpdateRequest: 
+    type: object
+    properties: 
+     MZipCode: 
+      type: string
+     Email: 
+      type: string
+     GreenEobReasonCode: 
+      type: string
+     MCity: 
+      type: string
+     BWritingCode: 
+      type: string
+     CellPhone: 
+      type: string
+     AltMemberId: 
+      type: string
+     Prefix: 
+      type: string
+     Gender: 
+      type: string
+     PlanName: 
+      type: string
+     HICN: 
+      type: string
+     MailNABPs: 
+      type: string
+     MiddleInitial: 
+      type: string
+     MBI: 
+      type: string
+     Phone: 
+      type: string
+     PbpCode: 
+      type: string
+     MAddress2: 
+      type: string
+     Status: 
+      type: string
+     MAddress1: 
+      type: string
+     FirstName: 
+      type: string
+     ZipCode: 
+      type: string
+     Address2: 
+      type: string
+     MState: 
+      type: string
+     Address1: 
+      type: string
+     City: 
+      type: string
+     GroupId: 
+      type: string
+     MedicareNumber: 
+      type: string
+     AltPhone: 
+      type: string
+     CMSConfirmationID: 
+      type: string
+     State: 
+      type: string
+     LastName: 
+      type: string
+   CurrentBalance: 
+    type: object
+    properties: 
+     format: 
+      type: string
+   PbpId: 
+    type: object
+    properties: 
+     format: 
+      type: string
+   MemberId: 
+    type: object
+    properties: 
+     format: 
+      type: string
+   Status: 
+    type: object
+    properties: 
+     enum: 
+      type: string
+   PlanId: 
+    type: object
+    properties: 
+     format: 
+      type: string
+   items: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   MonthlyPremium: 
+    type: object
+    properties: 
+     format: 
+      type: string
+   PbpEffectiveDate: 
+    type: object
+    properties: 
+     required: 
+      type: string
+   Year: 
+    type: object
+    properties: 
+     format: 
+      type: string
+  parameters: 
+   TenantIdentifierParam: 
+    in: header
+    name: TenantIdentifier
+    required: false
+    schema: 
+     type: string
+    description: Tenant Identifier
+   client_secretParam: 
+    in: header
+    name: client_secret
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   client_idParam: 
+    in: header
+    name: client_id
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   channelidParam: 
+    in: header
+    name: channelid
+    required: false
+    schema: 
+     type: string
+     format: integer | nil
+    description: Unique Id to determine the Client
+   memberIdQueryParam: 
+    in: query
+    name: memberIdQuery
+    required: true
+    schema: 
+     type: integer
+    description: Unique member Id
