@@ -1,0 +1,1101 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: EIC-Admin-Exp-Api
+  description: API description
+servers: 
+  - url: api
+    description: API Server Description
+paths: 
+  /member: 
+   post: 
+    operationId: postmember
+    tags: 
+     - member
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/memberInsertRequest'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/memberpostResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+components: 
+  schemas: 
+   FaultException: 
+    type: object
+    properties: 
+     Errors: 
+      type: string
+     Messages: 
+      type: string
+     Exceptions: 
+      type: string
+     Warnings: 
+      type: string
+     Success: 
+      type: string
+   memberpostResponse: 
+    type: object
+    properties: 
+     FaultException: 
+      type: object
+      $ref: '#/components/schemas/FaultException'
+     ResponseDetails: 
+      type: object
+      $ref: '#/components/schemas/ResponseDetails'
+   ResponseDetails: 
+    type: object
+    properties: 
+     PaymentException: 
+      type: string
+     SsaDeductRequested: 
+      type: string
+     ProcessPaymentReponse: 
+      type: string
+     IsBrokerCompliant: 
+      type: string
+     Member: 
+      type: object
+      $ref: '#/components/schemas/Member'
+   Member: 
+    type: object
+    properties: 
+     MZipCode: 
+      type: string
+     Email: 
+      type: string
+     GreenEobReasonCode: 
+      type: string
+     MCity: 
+      type: string
+     BWritingCode: 
+      type: string
+     BrokerID: 
+      type: string
+     CellPhone: 
+      type: string
+     CurrentBalance: 
+      type: string
+     AltMemberId: 
+      type: string
+     Prefix: 
+      type: string
+     Gender: 
+      type: string
+     PlanName: 
+      type: string
+     PbpId: 
+      type: string
+     HICN: 
+      type: string
+     MemberId: 
+      type: string
+     MailNABPs: 
+      type: string
+     EnrollmentDate: 
+      type: string
+     MiddleInitial: 
+      type: string
+     MBI: 
+      type: string
+     DOB: 
+      type: string
+     Phone: 
+      type: string
+     BrokerAttestation: 
+      type: string
+     PbpCode: 
+      type: string
+     DisenrollmentDate: 
+      type: string
+     MAddress2: 
+      type: string
+     Status: 
+      type: string
+     MAddress1: 
+      type: string
+     PrimaryPharmacy: 
+      type: string
+     FirstName: 
+      type: string
+     ZipCode: 
+      type: string
+     PlanId: 
+      type: string
+     Address2: 
+      type: string
+     MState: 
+      type: string
+     Address1: 
+      type: string
+     City: 
+      type: string
+     GroupId: 
+      type: string
+     Pharmacies: 
+      type: string
+     MedicareNumber: 
+      type: string
+     MonthlyPremium: 
+      type: string
+     AltPhone: 
+      type: string
+     CMSConfirmationID: 
+      type: string
+     Year: 
+      type: string
+     State: 
+      type: string
+     LastName: 
+      type: string
+     EGWPDirectBill: 
+      type: string
+     IsBroker: 
+      type: string
+   memberInsertRequest: 
+    type: object
+    properties: 
+     ReferralCode: 
+      type: string
+     Email: 
+      type: string
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     Gender: 
+      type: string
+     MiddleInitial: 
+      type: string
+     DateOfBirth: 
+      type: string
+     CmsConfirmationId: 
+      type: string
+     AltPhone: 
+      type: string
+     LastName: 
+      type: string
+     ApplicationId: 
+      type: string
+     CellPhone: 
+      type: string
+     SepReason: 
+      type: string
+     Prefix: 
+      type: string
+     ApplicationDate: 
+      type: string
+     OtherCoverage: 
+      type: object
+      $ref: '#/components/schemas/OtherCoverage'
+     Language: 
+      type: string
+     Phone: 
+      type: string
+     altFormatRqst: 
+      type: string
+     Broker: 
+      type: object
+      $ref: '#/components/schemas/Broker'
+     ZipCode: 
+      type: string
+     StateCode: 
+      type: string
+     MailingAddress: 
+      type: object
+      $ref: '#/components/schemas/MailingAddress'
+     Plan: 
+      type: object
+      $ref: '#/components/schemas/Plan'
+     SeparationReasonDescription: 
+      type: string
+     GroupId: 
+      type: string
+     Firstname: 
+      type: string
+     MedicareNumber: 
+      type: string
+     ElectionType: 
+      type: string
+     BrokerAttestationType: 
+      type: string
+     Representative: 
+      type: object
+      $ref: '#/components/schemas/Representative'
+   ZipCode: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     type: 
+      type: string
+     type: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   post: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Address: 
+    type: object
+    properties: 
+     ZipCode: 
+      type: string
+     ZipCode: 
+      type: object
+      $ref: '#/components/schemas/ZipCode'
+     ZipCode: 
+      type: object
+      $ref: '#/components/schemas/ZipCode'
+     Address2: 
+      type: object
+      $ref: '#/components/schemas/Address2'
+     Address2: 
+      type: object
+      $ref: '#/components/schemas/Address2'
+     StateCode: 
+      type: object
+      $ref: '#/components/schemas/StateCode'
+     StateCode: 
+      type: object
+      $ref: '#/components/schemas/StateCode'
+     Address1: 
+      type: object
+      $ref: '#/components/schemas/Address1'
+     Address1: 
+      type: object
+      $ref: '#/components/schemas/Address1'
+     City: 
+      type: object
+      $ref: '#/components/schemas/City'
+     City: 
+      type: object
+      $ref: '#/components/schemas/City'
+     type: 
+      type: string
+     properties: 
+      type: object
+      $ref: '#/components/schemas/properties'
+     required: 
+      type: string
+     type: 
+      type: string
+     properties: 
+      type: object
+      $ref: '#/components/schemas/properties'
+     required: 
+      type: string
+   Address2: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   StateCode: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Address1: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   City: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Group: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   OtherCoverage: 
+    type: object
+    properties: 
+     Group: 
+      type: object
+      $ref: '#/components/schemas/Group'
+     Id: 
+      type: object
+      $ref: '#/components/schemas/Id'
+     Id: 
+      type: object
+      $ref: '#/components/schemas/Id'
+     Name: 
+      type: object
+      $ref: '#/components/schemas/Name'
+     Name: 
+      type: object
+      $ref: '#/components/schemas/Name'
+   Id: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Name: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   DateOfBirth: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Broker: 
+    type: object
+    properties: 
+     DateOfBirth: 
+      type: object
+      $ref: '#/components/schemas/DateOfBirth'
+     DateOfBirth: 
+      type: object
+      $ref: '#/components/schemas/DateOfBirth'
+     Status: 
+      type: object
+      $ref: '#/components/schemas/Status'
+     Status: 
+      type: object
+      $ref: '#/components/schemas/Status'
+     Status: 
+      type: object
+      $ref: '#/components/schemas/Status'
+     Email: 
+      type: object
+      $ref: '#/components/schemas/Email'
+     Email: 
+      type: object
+      $ref: '#/components/schemas/Email'
+     LicenseExpirationDate: 
+      type: object
+      $ref: '#/components/schemas/LicenseExpirationDate'
+     LicenseExpirationDate: 
+      type: object
+      $ref: '#/components/schemas/LicenseExpirationDate'
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     FirstName: 
+      type: object
+      $ref: '#/components/schemas/FirstName'
+     FirstName: 
+      type: object
+      $ref: '#/components/schemas/FirstName'
+     AgentSuspended: 
+      type: object
+      $ref: '#/components/schemas/AgentSuspended'
+     AgentSuspended: 
+      type: object
+      $ref: '#/components/schemas/AgentSuspended'
+     NPN: 
+      type: object
+      $ref: '#/components/schemas/NPN'
+     NPN: 
+      type: object
+      $ref: '#/components/schemas/NPN'
+     Name: 
+      type: object
+      $ref: '#/components/schemas/Name'
+     Name: 
+      type: object
+      $ref: '#/components/schemas/Name'
+     SSN: 
+      type: object
+      $ref: '#/components/schemas/SSN'
+     SSN: 
+      type: object
+      $ref: '#/components/schemas/SSN'
+     LicenseState: 
+      type: object
+      $ref: '#/components/schemas/LicenseState'
+     LicenseState: 
+      type: object
+      $ref: '#/components/schemas/LicenseState'
+     Referral: 
+      type: object
+      $ref: '#/components/schemas/Referral'
+     Referral: 
+      type: object
+      $ref: '#/components/schemas/Referral'
+     Phone: 
+      type: object
+      $ref: '#/components/schemas/Phone'
+     Phone: 
+      type: object
+      $ref: '#/components/schemas/Phone'
+     LicenseStatus: 
+      type: object
+      $ref: '#/components/schemas/LicenseStatus'
+     LicenseStatus: 
+      type: object
+      $ref: '#/components/schemas/LicenseStatus'
+     Relationship: 
+      type: object
+      $ref: '#/components/schemas/Relationship'
+     Relationship: 
+      type: object
+      $ref: '#/components/schemas/Relationship'
+     Id: 
+      type: object
+      $ref: '#/components/schemas/Id'
+     Id: 
+      type: object
+      $ref: '#/components/schemas/Id'
+     LastName: 
+      type: object
+      $ref: '#/components/schemas/LastName'
+     LastName: 
+      type: object
+      $ref: '#/components/schemas/LastName'
+     WritingCode: 
+      type: object
+      $ref: '#/components/schemas/WritingCode'
+     WritingCode: 
+      type: object
+      $ref: '#/components/schemas/WritingCode'
+     MailAddress1: 
+      type: object
+      $ref: '#/components/schemas/MailAddress1'
+     MailAddress1: 
+      type: object
+      $ref: '#/components/schemas/MailAddress1'
+   Status: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     enum: 
+      type: string
+   Email: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   LicenseExpirationDate: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   properties: 
+    type: object
+    properties: 
+     ZipCode: 
+      type: object
+      $ref: '#/components/schemas/ZipCode'
+     ZipCode: 
+      type: object
+      $ref: '#/components/schemas/ZipCode'
+     Address2: 
+      type: object
+      $ref: '#/components/schemas/Address2'
+     Address2: 
+      type: object
+      $ref: '#/components/schemas/Address2'
+     StateCode: 
+      type: object
+      $ref: '#/components/schemas/StateCode'
+     StateCode: 
+      type: object
+      $ref: '#/components/schemas/StateCode'
+     Address1: 
+      type: object
+      $ref: '#/components/schemas/Address1'
+     Address1: 
+      type: object
+      $ref: '#/components/schemas/Address1'
+     City: 
+      type: object
+      $ref: '#/components/schemas/City'
+     City: 
+      type: object
+      $ref: '#/components/schemas/City'
+     ZipCode: 
+      type: object
+      $ref: '#/components/schemas/ZipCode'
+     ZipCode: 
+      type: object
+      $ref: '#/components/schemas/ZipCode'
+     Address2: 
+      type: object
+      $ref: '#/components/schemas/Address2'
+     Address2: 
+      type: object
+      $ref: '#/components/schemas/Address2'
+     StateCode: 
+      type: object
+      $ref: '#/components/schemas/StateCode'
+     StateCode: 
+      type: object
+      $ref: '#/components/schemas/StateCode'
+     Address1: 
+      type: object
+      $ref: '#/components/schemas/Address1'
+     Address1: 
+      type: object
+      $ref: '#/components/schemas/Address1'
+     City: 
+      type: object
+      $ref: '#/components/schemas/City'
+     City: 
+      type: object
+      $ref: '#/components/schemas/City'
+   FirstName: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   AgentSuspended: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   NPN: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   SSN: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   LicenseState: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Referral: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Phone: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+   LicenseStatus: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Relationship: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+   LastName: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   WritingCode: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   MailAddress1: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   MailingAddress: 
+    type: object
+    properties: 
+     ZipCode: 
+      type: object
+      $ref: '#/components/schemas/ZipCode'
+     ZipCode: 
+      type: object
+      $ref: '#/components/schemas/ZipCode'
+     Address2: 
+      type: object
+      $ref: '#/components/schemas/Address2'
+     Address2: 
+      type: object
+      $ref: '#/components/schemas/Address2'
+     StateCode: 
+      type: object
+      $ref: '#/components/schemas/StateCode'
+     StateCode: 
+      type: object
+      $ref: '#/components/schemas/StateCode'
+     Address1: 
+      type: object
+      $ref: '#/components/schemas/Address1'
+     Address1: 
+      type: object
+      $ref: '#/components/schemas/Address1'
+     City: 
+      type: object
+      $ref: '#/components/schemas/City'
+     City: 
+      type: object
+      $ref: '#/components/schemas/City'
+   Deductible: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Plan: 
+    type: object
+    properties: 
+     Deductible: 
+      type: object
+      $ref: '#/components/schemas/Deductible'
+     Deductible: 
+      type: object
+      $ref: '#/components/schemas/Deductible'
+     IsEGWP: 
+      type: object
+      $ref: '#/components/schemas/IsEGWP'
+     PlanYearStages: 
+      type: object
+      $ref: '#/components/schemas/PlanYearStages'
+     PlanYearStages: 
+      type: object
+      $ref: '#/components/schemas/PlanYearStages'
+     PlanId: 
+      type: object
+      $ref: '#/components/schemas/PlanId'
+     PlanId: 
+      type: object
+      $ref: '#/components/schemas/PlanId'
+     StateName: 
+      type: object
+      $ref: '#/components/schemas/StateName'
+     StateName: 
+      type: object
+      $ref: '#/components/schemas/StateName'
+     DeductibleDescription: 
+      type: object
+      $ref: '#/components/schemas/DeductibleDescription'
+     DeductibleDescription: 
+      type: object
+      $ref: '#/components/schemas/DeductibleDescription'
+     Deminimis: 
+      type: object
+      $ref: '#/components/schemas/Deminimis'
+     Deminimis: 
+      type: object
+      $ref: '#/components/schemas/Deminimis'
+     Premium: 
+      type: object
+      $ref: '#/components/schemas/Premium'
+     Premium: 
+      type: object
+      $ref: '#/components/schemas/Premium'
+     PlanName: 
+      type: object
+      $ref: '#/components/schemas/PlanName'
+     PlanDetails: 
+      type: object
+      $ref: '#/components/schemas/PlanDetails'
+     PlanDetails: 
+      type: object
+      $ref: '#/components/schemas/PlanDetails'
+     GroupId: 
+      type: object
+      $ref: '#/components/schemas/GroupId'
+     GroupId: 
+      type: object
+      $ref: '#/components/schemas/GroupId'
+     PbpDescription: 
+      type: object
+      $ref: '#/components/schemas/PbpDescription'
+     PbpDescription: 
+      type: object
+      $ref: '#/components/schemas/PbpDescription'
+     Lis50: 
+      type: object
+      $ref: '#/components/schemas/Lis50'
+     Lis50: 
+      type: object
+      $ref: '#/components/schemas/Lis50'
+     Lis75: 
+      type: object
+      $ref: '#/components/schemas/Lis75'
+     Lis75: 
+      type: object
+      $ref: '#/components/schemas/Lis75'
+     State: 
+      type: object
+      $ref: '#/components/schemas/State'
+     State: 
+      type: object
+      $ref: '#/components/schemas/State'
+     Lis100: 
+      type: object
+      $ref: '#/components/schemas/Lis100'
+     Lis100: 
+      type: object
+      $ref: '#/components/schemas/Lis100'
+     Lis25: 
+      type: object
+      $ref: '#/components/schemas/Lis25'
+     Lis25: 
+      type: object
+      $ref: '#/components/schemas/Lis25'
+     PlanYear: 
+      type: object
+      $ref: '#/components/schemas/PlanYear'
+     PlanYear: 
+      type: object
+      $ref: '#/components/schemas/PlanYear'
+     SkipDeductable: 
+      type: object
+      $ref: '#/components/schemas/SkipDeductable'
+     SkipDeductable: 
+      type: object
+      $ref: '#/components/schemas/SkipDeductable'
+     Pbp: 
+      type: object
+      $ref: '#/components/schemas/Pbp'
+   IsEGWP: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   PlanYearStages: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     items: 
+      type: object
+      $ref: '#/components/schemas/items'
+     required: 
+      type: string
+   items: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     type: 
+      type: string
+   PlanId: 
+    type: object
+    properties: 
+     format: 
+      type: string
+     type: 
+      type: string
+   StateName: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   DeductibleDescription: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Deminimis: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Premium: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   PlanName: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   PlanDetails: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     items: 
+      type: object
+      $ref: '#/components/schemas/items'
+     required: 
+      type: string
+   GroupId: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   PbpDescription: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis50: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis75: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   State: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis100: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis25: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   PlanYear: 
+    type: object
+    properties: 
+     format: 
+      type: string
+     type: 
+      type: string
+   SkipDeductable: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Pbp: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Representative: 
+    type: object
+    properties: 
+     Email: 
+      type: object
+      $ref: '#/components/schemas/Email'
+     Email: 
+      type: object
+      $ref: '#/components/schemas/Email'
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     Phone: 
+      type: object
+      $ref: '#/components/schemas/Phone'
+     Relationship: 
+      type: object
+      $ref: '#/components/schemas/Relationship'
+     Name: 
+      type: object
+      $ref: '#/components/schemas/Name'
+     Name: 
+      type: object
+      $ref: '#/components/schemas/Name'
+  parameters: 
+   TenantIdentifierParam: 
+    in: header
+    name: TenantIdentifier
+    required: false
+    schema: 
+     type: string
+    description: Tenant Identifier
+   client_secretParam: 
+    in: header
+    name: client_secret
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   client_idParam: 
+    in: header
+    name: client_id
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   channelidParam: 
+    in: header
+    name: channelid
+    required: false
+    schema: 
+     type: string
+     format: integer | nil
+    description: Unique Id to determine the Client
