@@ -1,0 +1,2243 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: EIC-Admin-Exp-Api
+  description: API description
+servers: 
+  - url: api
+    description: API Server Description
+paths: 
+  /member: 
+   post: 
+    operationId: postmember
+    tags: 
+     - member
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/memberInsertRequest'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/memberpostResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+   get: 
+    operationId: getmember
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/memberIdQueryParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/membergetResponse'
+     '500': 
+      description: Internal Server Error
+     '404': 
+      description: Not found
+   put: 
+    operationId: putmember
+    tags: 
+     - member
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/memberUpdateRequest'
+    parameters: 
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+components: 
+  schemas: 
+   FaultException: 
+    type: object
+    properties: 
+     Errors: 
+      type: string
+     Messages: 
+      type: string
+     Exceptions: 
+      type: string
+     Warnings: 
+      type: string
+     Success: 
+      type: string
+   memberpostResponse: 
+    type: object
+    properties: 
+     FaultException: 
+      type: object
+      $ref: '#/components/schemas/FaultException'
+     ResponseDetails: 
+      type: object
+      $ref: '#/components/schemas/ResponseDetails'
+   ResponseDetails: 
+    type: object
+    properties: 
+     PaymentException: 
+      type: string
+     SsaDeductRequested: 
+      type: string
+     ProcessPaymentReponse: 
+      type: string
+     IsBrokerCompliant: 
+      type: string
+     Member: 
+      type: object
+      $ref: '#/components/schemas/Member'
+   Member: 
+    type: object
+    properties: 
+     MZipCode: 
+      type: string
+     Email: 
+      type: string
+     GreenEobReasonCode: 
+      type: string
+     MCity: 
+      type: string
+     BWritingCode: 
+      type: string
+     BrokerID: 
+      type: string
+     CellPhone: 
+      type: string
+     CurrentBalance: 
+      type: string
+     AltMemberId: 
+      type: string
+     Prefix: 
+      type: string
+     Gender: 
+      type: string
+     PlanName: 
+      type: string
+     PbpId: 
+      type: string
+     HICN: 
+      type: string
+     MemberId: 
+      type: string
+     MailNABPs: 
+      type: string
+     EnrollmentDate: 
+      type: string
+     MiddleInitial: 
+      type: string
+     MBI: 
+      type: string
+     DOB: 
+      type: string
+     Phone: 
+      type: string
+     BrokerAttestation: 
+      type: string
+     PbpCode: 
+      type: string
+     DisenrollmentDate: 
+      type: string
+     MAddress2: 
+      type: string
+     Status: 
+      type: string
+     MAddress1: 
+      type: string
+     PrimaryPharmacy: 
+      type: string
+     FirstName: 
+      type: string
+     ZipCode: 
+      type: string
+     PlanId: 
+      type: string
+     Address2: 
+      type: string
+     MState: 
+      type: string
+     Address1: 
+      type: string
+     City: 
+      type: string
+     GroupId: 
+      type: string
+     Pharmacies: 
+      type: string
+     MedicareNumber: 
+      type: string
+     MonthlyPremium: 
+      type: string
+     AltPhone: 
+      type: string
+     CMSConfirmationID: 
+      type: string
+     Year: 
+      type: string
+     State: 
+      type: string
+     LastName: 
+      type: string
+     EGWPDirectBill: 
+      type: string
+     IsBroker: 
+      type: string
+   memberInsertRequestpost: 
+    type: object
+    properties: 
+     ReferralCodememberInsertRequest: 
+      type: string
+     EmailmemberInsertRequest: 
+      type: string
+     AddressmemberInsertRequest: 
+      type: object
+     GendermemberInsertRequest: 
+      type: string
+     MiddleInitialmemberInsertRequest: 
+      type: string
+     DateOfBirthmemberInsertRequest: 
+      type: string
+     CmsConfirmationIdmemberInsertRequest: 
+      type: string
+     AltPhonememberInsertRequest: 
+      type: string
+     LastNamememberInsertRequest: 
+      type: string
+     ApplicationIdmemberInsertRequest: 
+      type: string
+     CellPhonememberInsertRequest: 
+      type: string
+     SepReasonmemberInsertRequest: 
+      type: string
+     PrefixmemberInsertRequest: 
+      type: string
+     ApplicationDatememberInsertRequest: 
+      type: string
+     OtherCoveragememberInsertRequest: 
+      type: object
+     LanguagememberInsertRequest: 
+      type: string
+     PhonememberInsertRequest: 
+      type: string
+     altFormatRqstmemberInsertRequest: 
+      type: string
+     BrokermemberInsertRequest: 
+      type: object
+     ZipCodememberInsertRequest: 
+      type: string
+     StateCodememberInsertRequest: 
+      type: string
+     MailingAddressmemberInsertRequest: 
+      type: object
+     PlanmemberInsertRequest: 
+      type: object
+     SeparationReasonDescriptionmemberInsertRequest: 
+      type: string
+     GroupIdmemberInsertRequest: 
+      type: string
+     FirstnamememberInsertRequest: 
+      type: string
+     MedicareNumbermemberInsertRequest: 
+      type: string
+     ElectionTypememberInsertRequest: 
+      type: string
+     BrokerAttestationTypememberInsertRequest: 
+      type: string
+     RepresentativememberInsertRequest: 
+      type: object
+   ReferralCodepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Emailpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Addresspost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   propertiesmemberInsertRequest: 
+    type: object
+    properties: 
+     ZipCode: 
+      type: object
+     Address2: 
+      type: object
+     StateCode: 
+      type: object
+     Address1: 
+      type: object
+     City: 
+      type: object
+     Group: 
+      type: object
+     Id: 
+      type: object
+     Name: 
+      type: object
+     DateOfBirth: 
+      type: object
+     Status: 
+      type: object
+     Email: 
+      type: object
+     LicenseExpirationDate: 
+      type: object
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     ZipCode: 
+      type: object
+     Address2: 
+      type: object
+     StateCode: 
+      type: object
+     Address1: 
+      type: object
+     City: 
+      type: object
+     FirstName: 
+      type: object
+     AgentSuspended: 
+      type: object
+     NPN: 
+      type: object
+     Name: 
+      type: object
+     SSN: 
+      type: object
+     LicenseState: 
+      type: object
+     Referral: 
+      type: object
+      $ref: '#/components/schemas/Referral'
+     Phone: 
+      type: object
+     LicenseStatus: 
+      type: object
+     Relationship: 
+      type: object
+     Id: 
+      type: object
+     LastName: 
+      type: object
+     WritingCode: 
+      type: object
+     MailAddress1: 
+      type: object
+     ZipCode: 
+      type: object
+     Address2: 
+      type: object
+     StateCode: 
+      type: object
+     Address1: 
+      type: object
+     City: 
+      type: object
+     Deductible: 
+      type: object
+     IsEGWP: 
+      type: object
+     PlanYearStages: 
+      type: object
+     PlanId: 
+      type: object
+     StateName: 
+      type: object
+     DeductibleDescription: 
+      type: object
+     Deminimis: 
+      type: object
+     Premium: 
+      type: object
+     PlanName: 
+      type: object
+     PlanDetails: 
+      type: object
+     GroupId: 
+      type: object
+     PbpDescription: 
+      type: object
+     Lis50: 
+      type: object
+     Lis75: 
+      type: object
+     State: 
+      type: object
+     Lis100: 
+      type: object
+     Lis25: 
+      type: object
+     PlanYear: 
+      type: object
+     SkipDeductable: 
+      type: object
+     Pbp: 
+      type: object
+     Email: 
+      type: object
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     ZipCode: 
+      type: object
+     Address2: 
+      type: object
+     StateCode: 
+      type: object
+     Address1: 
+      type: object
+     City: 
+      type: object
+     Phone: 
+      type: object
+     Relationship: 
+      type: object
+     Name: 
+      type: object
+   ZipCodepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Address2post: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   StateCodepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Address1post: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Citypost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Genderpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Institutionpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   MiddleInitialpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   BrokerAttestationpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   DateOfBirthpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   PartAEffDatepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   CmsConfirmationIdpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   AltPhonepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   spouseWorkIndpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   LastNamepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   ApplicationIdpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   EmergencyContactpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   HasEmergencyContactpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   CellPhonepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   HasOtherCoveragepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   SepReasonpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Prefixpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   ApplicationDatepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   selfWorkIndpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   EnrollmentDatepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   OtherCoveragepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Grouppost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Idpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Namepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Languagepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Phonepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+   altFormatRqstpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   EnrollmentTypepost: 
+    type: object
+    properties: 
+     format: 
+      type: string
+     type: 
+      type: string
+   PaymentTypepost: 
+    type: object
+    properties: 
+     format: 
+      type: string
+     type: 
+      type: string
+   IsLongTermCarepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   DeductSsapost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Brokerpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Statuspost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     enum: 
+      type: string
+   LicenseExpirationDatepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   FirstNamepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   AgentSuspendedpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   NPNpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   SSNpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   LicenseStatepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Referralpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   LicenseStatuspost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Relationshippost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+   WritingCodepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   MailAddress1post: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   LoginIdpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   MailingAddresspost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   HasBrokerpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Planpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Deductiblepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   IsEGWPpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   PlanYearStagespost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   itemsmemberInsertRequest: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     type: 
+      type: string
+   PlanIdpost: 
+    type: object
+    properties: 
+     format: 
+      type: string
+     type: 
+      type: string
+   StateNamepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   DeductibleDescriptionpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Deminimispost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Premiumpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   PlanNamepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   PlanDetailspost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   GroupIdpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+   PbpDescriptionpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis50post: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis75post: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Statepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis100post: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis25post: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   PlanYearpost: 
+    type: object
+    properties: 
+     format: 
+      type: string
+     type: 
+      type: string
+   SkipDeductablepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Pbppost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   PartBEffDatepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   SeparationReasonDescriptionpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Firstnamepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   MedicareNumberpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   UserIdpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   ElectionTypepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   IsRepresentativepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   BrokerAttestationTypepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Representativepost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   IsBrokerpost: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   EmergencyContact: 
+    type: object
+    properties: 
+     Phone: 
+      type: string
+     Relationship: 
+      type: string
+     Name: 
+      type: string
+   membergetResponse: 
+    type: object
+    properties: 
+     EmergencyContact: 
+      type: object
+      $ref: '#/components/schemas/EmergencyContact'
+     Email: 
+      type: string
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     HasEmergencyContact: 
+      type: string
+     CellPhone: 
+      type: string
+     HasOtherCoverage: 
+      type: string
+     SepReasonId: 
+      type: string
+     Prefix: 
+      type: string
+     Gender: 
+      type: string
+     Institution: 
+      type: object
+      $ref: '#/components/schemas/Institution'
+     LargePrint: 
+      type: string
+     ApplicationDate: 
+      type: string
+     EnrollmentDate: 
+      type: string
+     MiddleInitial: 
+      type: string
+     OtherCoverage: 
+      type: object
+      $ref: '#/components/schemas/OtherCoverage'
+     Language: 
+      type: string
+     Phone: 
+      type: string
+     BrokerAttestation: 
+      type: string
+     EnrollmentType: 
+      type: string
+     PaymentType: 
+      type: string
+     IsLongTermCare: 
+      type: string
+     DeductSsa: 
+      type: string
+     DateOfBirth: 
+      type: string
+     Broker: 
+      type: object
+      $ref: '#/components/schemas/Broker'
+     MailingAddress: 
+      type: object
+      $ref: '#/components/schemas/MailingAddress'
+     HasBroker: 
+      type: string
+     Plan: 
+      type: object
+      $ref: '#/components/schemas/Plan'
+     PartAEffDate: 
+      type: string
+     PartBEffDate: 
+      type: string
+     GroupId: 
+      type: string
+     Firstname: 
+      type: string
+     MedicareNumber: 
+      type: string
+     AltPhone: 
+      type: string
+     ElectionType: 
+      type: string
+     IsRepresentative: 
+      type: string
+     BrokerAttestationType: 
+      type: string
+     Representative: 
+      type: object
+      $ref: '#/components/schemas/Representative'
+     LastName: 
+      type: string
+     Audio: 
+      type: string
+     IsBroker: 
+      type: string
+   Address: 
+    type: object
+    properties: 
+     ZipCode: 
+      type: string
+     Address2: 
+      type: string
+     StateCode: 
+      type: string
+     Address1: 
+      type: string
+     City: 
+      type: string
+   Institution: 
+    type: object
+    properties: 
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     Phone: 
+      type: string
+     Relationship: 
+      type: string
+     Name: 
+      type: string
+   OtherCoverage: 
+    type: object
+    properties: 
+     Group: 
+      type: string
+     Id: 
+      type: string
+     Name: 
+      type: string
+   Broker: 
+    type: object
+    properties: 
+     Referral: 
+      type: object
+      $ref: '#/components/schemas/Referral'
+   Referral: 
+    type: object
+    properties: 
+     FirstName: 
+      type: string
+     Phone: 
+      type: string
+     LastName: 
+      type: string
+     Code: 
+      type: string
+   MailingAddress: 
+    type: object
+    properties: 
+     ZipCode: 
+      type: string
+     Address2: 
+      type: string
+     StateCode: 
+      type: string
+     Address1: 
+      type: string
+     City: 
+      type: string
+   Plan: 
+    type: object
+    properties: 
+     IsEGWP: 
+      type: string
+     PlanId: 
+      type: string
+     PlanYear: 
+      type: string
+     PlanName: 
+      type: string
+     Pbp: 
+      type: string
+   Representative: 
+    type: object
+    properties: 
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     Phone: 
+      type: string
+     Relationship: 
+      type: string
+     Name: 
+      type: string
+   memberUpdateRequestput: 
+    type: object
+    properties: 
+     ReferralCodememberUpdateRequest: 
+      type: string
+     EmailmemberUpdateRequest: 
+      type: string
+     AddressmemberUpdateRequest: 
+      type: object
+     GendermemberUpdateRequest: 
+      type: string
+     MiddleInitialmemberUpdateRequest: 
+      type: string
+     DateOfBirthmemberUpdateRequest: 
+      type: string
+     CmsConfirmationIdmemberUpdateRequest: 
+      type: string
+     AltPhonememberUpdateRequest: 
+      type: string
+     LastNamememberUpdateRequest: 
+      type: string
+     ApplicationIdmemberUpdateRequest: 
+      type: string
+     CellPhonememberUpdateRequest: 
+      type: string
+     SepReasonmemberUpdateRequest: 
+      type: string
+     PrefixmemberUpdateRequest: 
+      type: string
+     ApplicationDatememberUpdateRequest: 
+      type: string
+     OtherCoveragememberUpdateRequest: 
+      type: object
+     LanguagememberUpdateRequest: 
+      type: string
+     PhonememberUpdateRequest: 
+      type: string
+     altFormatRqstmemberUpdateRequest: 
+      type: string
+     BrokermemberUpdateRequest: 
+      type: object
+     ZipCodememberUpdateRequest: 
+      type: string
+     StateCodememberUpdateRequest: 
+      type: string
+     MailingAddressmemberUpdateRequest: 
+      type: object
+     PlanmemberUpdateRequest: 
+      type: object
+     SeparationReasonDescriptionmemberUpdateRequest: 
+      type: string
+     GroupIdmemberUpdateRequest: 
+      type: string
+     FirstnamememberUpdateRequest: 
+      type: string
+     MedicareNumbermemberUpdateRequest: 
+      type: string
+     ElectionTypememberUpdateRequest: 
+      type: string
+     BrokerAttestationTypememberUpdateRequest: 
+      type: string
+     RepresentativememberUpdateRequest: 
+      type: object
+   ReferralCodeput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Emailput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Addressput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   propertiesmemberUpdateRequest: 
+    type: object
+    properties: 
+     ZipCode: 
+      type: object
+     Address2: 
+      type: object
+     StateCode: 
+      type: object
+     Address1: 
+      type: object
+     City: 
+      type: object
+     Group: 
+      type: object
+     Id: 
+      type: object
+     Name: 
+      type: object
+     DateOfBirth: 
+      type: object
+     Status: 
+      type: object
+     Email: 
+      type: object
+     LicenseExpirationDate: 
+      type: object
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     ZipCode: 
+      type: object
+     Address2: 
+      type: object
+     StateCode: 
+      type: object
+     Address1: 
+      type: object
+     City: 
+      type: object
+     FirstName: 
+      type: object
+     AgentSuspended: 
+      type: object
+     NPN: 
+      type: object
+     Name: 
+      type: object
+     SSN: 
+      type: object
+     LicenseState: 
+      type: object
+     Referral: 
+      type: object
+      $ref: '#/components/schemas/Referral'
+     Phone: 
+      type: object
+     LicenseStatus: 
+      type: object
+     Relationship: 
+      type: object
+     Id: 
+      type: object
+     LastName: 
+      type: object
+     WritingCode: 
+      type: object
+     MailAddress1: 
+      type: object
+     ZipCode: 
+      type: object
+     Address2: 
+      type: object
+     StateCode: 
+      type: object
+     Address1: 
+      type: object
+     City: 
+      type: object
+     Deductible: 
+      type: object
+     IsEGWP: 
+      type: object
+     PlanYearStages: 
+      type: object
+     PlanId: 
+      type: object
+     StateName: 
+      type: object
+     DeductibleDescription: 
+      type: object
+     Deminimis: 
+      type: object
+     Premium: 
+      type: object
+     PlanName: 
+      type: object
+     PlanDetails: 
+      type: object
+     GroupId: 
+      type: object
+     PbpDescription: 
+      type: object
+     Lis50: 
+      type: object
+     Lis75: 
+      type: object
+     State: 
+      type: object
+     Lis100: 
+      type: object
+     Lis25: 
+      type: object
+     PlanYear: 
+      type: object
+     SkipDeductable: 
+      type: object
+     Pbp: 
+      type: object
+     Email: 
+      type: object
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     ZipCode: 
+      type: object
+     Address2: 
+      type: object
+     StateCode: 
+      type: object
+     Address1: 
+      type: object
+     City: 
+      type: object
+     Phone: 
+      type: object
+     Relationship: 
+      type: object
+     Name: 
+      type: object
+   ZipCodeput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Address2put: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   StateCodeput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Address1put: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Cityput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Genderput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Institutionput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   MiddleInitialput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   BrokerAttestationput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   DateOfBirthput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   PartAEffDateput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   CmsConfirmationIdput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   AltPhoneput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   spouseWorkIndput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   LastNameput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   ApplicationIdput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   EmergencyContactput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   HasEmergencyContactput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   CellPhoneput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   HasOtherCoverageput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   SepReasonput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Prefixput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   ApplicationDateput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   selfWorkIndput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   EnrollmentDateput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   OtherCoverageput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Groupput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Idput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Nameput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   Languageput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Phoneput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+   altFormatRqstput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   EnrollmentTypeput: 
+    type: object
+    properties: 
+     format: 
+      type: string
+     type: 
+      type: string
+   PaymentTypeput: 
+    type: object
+    properties: 
+     format: 
+      type: string
+     type: 
+      type: string
+   IsLongTermCareput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   DeductSsaput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Brokerput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Statusput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     enum: 
+      type: string
+   LicenseExpirationDateput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   FirstNameput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   AgentSuspendedput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   NPNput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   SSNput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   LicenseStateput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Referralput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   LicenseStatusput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Relationshipput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+   WritingCodeput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   MailAddress1put: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   LoginIdput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   MailingAddressput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   HasBrokerput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Planput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Deductibleput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   IsEGWPput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   PlanYearStagesput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   itemsmemberUpdateRequest: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     type: 
+      type: string
+   PlanIdput: 
+    type: object
+    properties: 
+     format: 
+      type: string
+     type: 
+      type: string
+   StateNameput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   DeductibleDescriptionput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Deminimisput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Premiumput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   PlanNameput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   PlanDetailsput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   GroupIdput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+   PbpDescriptionput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis50put: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis75put: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Stateput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis100put: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis25put: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   PlanYearput: 
+    type: object
+    properties: 
+     format: 
+      type: string
+     type: 
+      type: string
+   SkipDeductableput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Pbpput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   PartBEffDateput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   SeparationReasonDescriptionput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Firstnameput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+     type: 
+      type: string
+     required: 
+      type: string
+   MedicareNumberput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   UserIdput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   ElectionTypeput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   IsRepresentativeput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   BrokerAttestationTypeput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Representativeput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   IsBrokerput: 
+    type: object
+    properties: 
+     type: 
+      type: string
+  parameters: 
+   TenantIdentifierParam: 
+    in: header
+    name: TenantIdentifier
+    required: false
+    schema: 
+     type: string
+    description: Tenant Identifier
+   client_secretParam: 
+    in: header
+    name: client_secret
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   client_idParam: 
+    in: header
+    name: client_id
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   channelidParam: 
+    in: header
+    name: channelid
+    required: false
+    schema: 
+     type: string
+     format: integer | nil
+    description: Unique Id to determine the Client
+   memberIdQueryParam: 
+    in: query
+    name: memberIdQuery
+    required: true
+    schema: 
+     type: integer
+    description: Unique member Id
