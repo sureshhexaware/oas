@@ -1,0 +1,132 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: EIC-Admin-Exp-Api
+  description: API description
+servers: 
+  - url: api
+    description: API Server Description
+paths: 
+  /SSADeductExport/{UserName}: 
+   get: 
+    operationId: getSSADeductExport_UserName
+    tags: 
+     - SSADeductExport
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/UserNameParam'
+     - $ref: '#/components/parameters/TenantIdentifierParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/SSADeductExportgetResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+  /SSADeductByMemberID/{memberId}: 
+   get: 
+    operationId: getSSADeductByMemberID_memberId
+    tags: 
+     - SSADeductByMemberID
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/memberIdParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/SSADeductByMemberIDgetResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+components: 
+  schemas: 
+   SSADeductExportgetResponse: 
+    type: object
+    properties: 
+     SSADeductRequests: 
+      type: string
+   SSADeductByMemberIDgetResponse: 
+    type: object
+    properties: 
+     SSADeductID: 
+      type: string
+     ExportDate: 
+      type: string
+     MemberID: 
+      type: string
+     CreatedBy: 
+      type: string
+     NameID: 
+      type: string
+     FirstName: 
+      type: string
+     CreatedDate: 
+      type: string
+     ExportedBy: 
+      type: string
+     LastName: 
+      type: string
+     MedicareID: 
+      type: string
+  parameters: 
+   UserNameParam: 
+    in: path
+    name: UserName
+    required: true
+    schema: 
+     type: string
+    description: Unique UserName
+   TenantIdentifierParam: 
+    in: header
+    name: TenantIdentifier
+    required: false
+    schema: 
+     type: string
+    description: Tenant Identifier
+   client_secretParam: 
+    in: header
+    name: client_secret
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   client_idParam: 
+    in: header
+    name: client_id
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   channelidParam: 
+    in: header
+    name: channelid
+    required: false
+    schema: 
+     type: string
+     format: integer | nil
+    description: Unique Id to determine the Client
+   memberIdParam: 
+    in: path
+    name: memberId
+    required: true
+    schema: 
+     type: string
+    description: Unique MemberID
