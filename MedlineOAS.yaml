@@ -1,0 +1,146 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: Menu Items
+  description: Menu Item APIs V1
+servers: 
+  - url: https://hexapi.example.com
+    description: API Server Description
+paths: 
+  /menu/{storeid}: 
+   get: 
+    operationId: getItemsByStoreId
+    tags: 
+     - menutitem
+    summary: Get Menu Items By Store Id
+    description: Get Menu Items By Store Id
+    parameters: 
+     - $ref: '#/components/parameters/storeidParam'
+    responses: 
+     '200': 
+      description: All Menu Items Retrieved
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/menuItemsDetailsResponse'
+  /store/{storeid}: 
+   get: 
+    operationId: getStoreByStoreId
+    tags: 
+     - menutitem
+    summary: Get Store Details By Store Id
+    description: Get Store Details By Store Id
+    parameters: 
+     - $ref: '#/components/parameters/storeidParam'
+    responses: 
+     '200': 
+      description: Store Details Retrieved
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/storeDetailsResponse'
+     '404': 
+      description: Method not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+  /toppings/{menuid}: 
+   get: 
+    operationId: getToppingsByMenuId
+    tags: 
+     - menutitem
+    summary: Get Toppings Array By Menu Id
+    description: Get Toppings Array By Menu Id
+    parameters: 
+     - $ref: '#/components/parameters/menuidParam'
+    responses: 
+     '200': 
+      description: Toppings List Retrieved
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/toppingsDetailsResponse'
+     '404': 
+      description: Method not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+components: 
+  schemas: 
+   storeDetailsResponse: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     name: 
+      type: string
+     location: 
+      type: string
+   menuItemsDetailsResponse: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     name: 
+      type: string
+     description: 
+      type: string
+     createdDateTime: 
+      type: string
+     updatedDateTime: 
+      type: string
+     ingredients: 
+      type: array
+     image: 
+      type: string
+     price: 
+      type: string
+   toppingsDetailsResponse: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     name: 
+      type: string
+     price: 
+      type: string
+   errorResponse: 
+    type: object
+    properties: 
+     code: 
+      type: string
+     message: 
+      type: string
+  parameters: 
+   storeidParam: 
+    in: path
+    name: storeid
+    required: true
+    schema: 
+     type: string
+    description: Store Id to be passed
+   menuidParam: 
+    in: path
+    name: menuid
+    required: true
+    schema: 
+     type: string
+    description: Menu Id to be passed
