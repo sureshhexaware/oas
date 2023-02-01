@@ -1,0 +1,108 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: Orders
+  description: Orders API V1
+servers: 
+  - url: https://hexapi.example.com
+    description: API Server Description
+paths: 
+  /order: 
+   post: 
+    operationId: createOrder
+    tags: 
+     - order
+    summary: Create Order
+    description: Create Order
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/orderDetailsRequest'
+    responses: 
+     '200': 
+      description: Order placed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/orderDetailsResponse'
+     '404': 
+      description: Method not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+components: 
+  schemas: 
+   orderDetailsRequest: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     userid: 
+      type: string
+     status: 
+      type: string
+     couponId: 
+      type: string
+     totalPrice: 
+      type: number
+     paymentMode: 
+      type: string
+     orderItemsDetails: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/orderItemsDetails'
+     storeid: 
+      type: string
+     discounts: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/discounts'
+   orderItemsDetails: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     menuitemid: 
+      type: string
+     price: 
+      type: number
+     quantity: 
+      type: string
+     name: 
+      type: string
+     toppings: 
+      type: array
+      items: 
+       type: string
+   errorResponse: 
+    type: object
+    properties: 
+     code: 
+      type: integer
+     message: 
+      type: string
+   discounts: 
+    type: object
+    properties: 
+     orderitem: 
+      type: array
+      items: 
+       type: string
+     price: 
+      type: number
+     comboid: 
+      type: string
+   orderDetailsResponse: 
+    type: object
+    properties: 
+     message: 
+      type: string
