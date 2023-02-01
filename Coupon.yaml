@@ -1,0 +1,100 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: Coupons
+  description: Coupons API V1
+servers: 
+  - url: https://hexapi.example.com
+    description: API Server Description
+paths: 
+  /coupon: 
+   get: 
+    operationId: getAllCoupons
+    tags: 
+     - coupon
+    summary: Get All Coupons
+    description: Get All Coupons
+    responses: 
+     '200': 
+      description: All Coupons Retrieved
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/couponDetails'
+     '404': 
+      description: Method not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+  /coupon/validate/{id}: 
+   get: 
+    operationId: validateCoupon
+    tags: 
+     - coupon
+    summary: Validate Coupon
+    description: Validate Coupon
+    parameters: 
+     - $ref: '#/components/parameters/idParam'
+    responses: 
+     '200': 
+      description: Validate Coupon Status
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/couponValidationDetails'
+     '404': 
+      description: Method not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+components: 
+  schemas: 
+   couponDetails: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     name: 
+      type: string
+     description: 
+      type: string
+     discount: 
+      type: number
+   errorResponse: 
+    type: object
+    properties: 
+     code: 
+      type: integer
+     message: 
+      type: string
+   couponValidationDetails: 
+    type: object
+    properties: 
+     isValid: 
+      type: boolean
+     discount: 
+      type: number
+  parameters: 
+   idParam: 
+    in: path
+    name: id
+    required: true
+    schema: 
+     type: string
+    description: Coupon Id to be passed
