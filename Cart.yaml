@@ -1,0 +1,178 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: Cart
+  description: Cart API V1
+servers: 
+  - url: https://hexapi.example.com
+    description: API Server Description
+paths: 
+  /cart: 
+   post: 
+    operationId: getCartDetails
+    tags: 
+     - cart
+    summary: Cart Details
+    description: Cart Details
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/cartDetailsRequest'
+    responses: 
+     '200': 
+      description: Get Cart Details
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/getCartDetailsResponse'
+     '404': 
+      description: Method not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+   delete: 
+    operationId: removeFromCart
+    tags: 
+     - cart
+    summary: Remove From Cart
+    description: Remove From Cart
+    responses: 
+     '200': 
+      description: Item Removed
+      content: 
+       application/json: 
+        schema: 
+         type: string
+     '404': 
+      description: Method not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+  /cart/add: 
+   post: 
+    operationId: addToCart
+    tags: 
+     - cart
+    summary: Add To Cart
+    description: Add To Cart
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/addToCartRequest'
+    responses: 
+     '200': 
+      description: Add to cart successful
+      content: 
+       application/json: 
+        schema: 
+         type: string
+     '404': 
+      description: Method not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+  /cart/empty: 
+   delete: 
+    operationId: emptyCart
+    tags: 
+     - cart
+    summary: Empty Cart
+    description: Empty Cart
+    responses: 
+     '200': 
+      description: Cart Emptied
+      content: 
+       application/json: 
+        schema: 
+         type: string
+     '404': 
+      description: Method not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/errorResponse'
+components: 
+  schemas: 
+   cartDetailsRequest: 
+    type: object
+    properties: 
+     userid: 
+      type: string
+     storeid: 
+      type: string
+   addToCartRequest: 
+    type: object
+    properties: 
+     userid: 
+      type: string
+     storeid: 
+      type: string
+     menuitemid: 
+      type: string
+   emptyCartRequest: 
+    type: object
+    properties: 
+     userid: 
+      type: string
+     storeid: 
+      type: string
+   errorResponse: 
+    type: object
+    properties: 
+     code: 
+      type: integer
+     message: 
+      type: string
+   removeFromCartRequest: 
+    type: object
+    properties: 
+     userid: 
+      type: string
+     storeid: 
+      type: string
+     itemid: 
+      type: string
+   getCartDetailsResponse: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     userid: 
+      type: string
+     storeid: 
+      type: string
+     menuitemids: 
+      type: array
+      items: 
+       type: string
