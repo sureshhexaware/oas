@@ -1,0 +1,80 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: User
+  description: User API V1
+servers: 
+  - url: https://hexapi.example.com
+    description: API Server Description
+paths: 
+  /user/{id}: 
+   get: 
+    operationId: getUserById
+    tags: 
+     - user
+    summary: Get User Details
+    description: Get User Details
+    parameters: 
+     - $ref: '#/components/parameters/idParam'
+    responses: 
+     '200': 
+      description: User Details Retrieved
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/UserDetailsResponse'
+     '404': 
+      description: Method not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponse'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponse'
+components: 
+  schemas: 
+   UserDetailsResponse: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     name: 
+      type: string
+     address: 
+      type: array
+      items: 
+       type: string
+     contact: 
+      type: string
+   ErrorResponse: 
+    type: object
+    properties: 
+     code: 
+      type: integer
+     message: 
+      type: string
+   User: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     name: 
+      type: string
+     address: 
+      type: array
+      items: 
+       type: string
+     contact: 
+      type: string
+  parameters: 
+   idParam: 
+    in: path
+    name: id
+    required: true
+    schema: 
+     type: string
+    description: User Id to be passed
