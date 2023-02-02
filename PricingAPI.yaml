@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: Pricing
+  description: Pricing API V1
+servers: 
+  - url: https://hexapi.example.com
+    description: API Server Description
+paths: 
+  /price: 
+   post: 
+    operationId: getTotalPrice
+    tags: 
+     - price
+    summary: Get Total Price
+    description: Get Total Price
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/PriceDetailsRequest'
+    responses: 
+     '200': 
+      description: Total Cart Price
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/PriceDetailsResponse'
+     '404': 
+      description: Method not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponse'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponse'
+components: 
+  schemas: 
+   PriceDetailsRequest: 
+    type: object
+    properties: 
+     userid: 
+      type: string
+     storeid: 
+      type: string
+   PriceDetailsResponse: 
+    type: object
+    properties: 
+     totalprice: 
+      type: number
+   ErrorResponse: 
+    type: object
+    properties: 
+     code: 
+      type: integer
+     message: 
+      type: string
+   ComboOffer: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     name: 
+      type: string
+     description: 
+      type: string
+     menuitemids: 
+      type: array
+      items: 
+       type: string
+     price: 
+      type: number
