@@ -1,0 +1,33 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: EIC-Member-Data-Service-sapi
+  description: API description
+servers: 
+  - url: api
+    description: API Server Description
+paths: 
+components: 
+  parameters: 
+   client_secretParam: 
+    in: header
+    name: client_secret
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   client_idParam: 
+    in: header
+    name: client_id
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   channelidParam: 
+    in: header
+    name: channelid
+    required: false
+    schema: 
+     type: string
+     format: integer | nil
+    description: description of parameter passed
