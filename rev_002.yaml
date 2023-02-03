@@ -1,0 +1,111 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: EIC-Portal-xapi
+  description: API description
+servers: 
+  - url: api
+    description: API Server Description
+paths: 
+components: 
+  schemas: 
+   type: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     properties: 
+      type: object
+   Gpi: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   UsualDailyDose: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   DosageFormDecoded: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Tier: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   DrugName: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   PkgSize: 
+    type: object
+    properties: 
+     format: 
+      type: string
+     type: 
+      type: string
+   ProdName: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   FormularyDetailId: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Ndc: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   DosageForm: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   Pbp: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   FormularyNamepostResponse: 
+    type: object
+    properties: 
+     type: 
+      type: object
+      $ref: '#/components/schemas/type'
+  parameters: 
+   TenantIdentifierParam: 
+    in: header
+    name: TenantIdentifier
+    required: true
+    schema: 
+     type: string
+    description: Tenant Identifier
+   client_secretParam: 
+    in: header
+    name: client_secret
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   client_idParam: 
+    in: header
+    name: client_id
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   channelidParam: 
+    in: header
+    name: channelid
+    required: false
+    schema: 
+     type: string
+     format: integer | nil
+    description: Unique Id to determine the Client
