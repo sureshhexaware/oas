@@ -1,0 +1,78 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: EIC-Member-Data-Service-sapi
+  description: API description
+servers: 
+  - url: api
+    description: API Server Description
+paths: 
+  /Messages: 
+   post: 
+    operationId: postMessages
+    tags: 
+     - Messages
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+   put: 
+    operationId: putMessages
+    tags: 
+     - Messages
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/MessagesputResponse'
+components: 
+  schemas: 
+   MessagesputResponse: 
+    type: object
+    properties: 
+     MessageID: 
+      type: string
+  parameters: 
+   client_secretParam: 
+    in: header
+    name: client_secret
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   client_idParam: 
+    in: header
+    name: client_id
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   channelidParam: 
+    in: header
+    name: channelid
+    required: false
+    schema: 
+     type: string
+     format: integer | nil
+    description: description of parameter passed
