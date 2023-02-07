@@ -1,0 +1,83 @@
+---
+openapi: "3.0.0"
+info:
+  title: "EIC-Member-Data-Service-sapi"
+  version: "1"
+servers:
+- url: "api"
+paths:
+  /CorrespondenceLogGetByNameId: {}
+  /CorrespondenceLogGetByNameId/{NameId}:
+    parameters:
+    - name: "NameId"
+      required: true
+      in: "path"
+      schema:
+        type: "string"
+    get:
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema: {}
+        "500":
+          description: ""
+          content:
+            application/json:
+              schema: {}
+  /SetGoGreenSubscription:
+    post:
+      operationId: "SetGoGreenSubscriptionIdO"
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                NameId: "N00064143695"
+                ReasonCode: "1"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                example:
+                  NameId: "N00064143695"
+        "500":
+          description: "Internal Server error"
+          content:
+            application/json:
+              schema: {}
+x-amf-uses:
+  common: "exchange_modules/cc5b37d2-1e82-426d-b07a-e49503aaa954/common-library/1.0.0/common-library.raml"
