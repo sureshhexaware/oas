@@ -1,0 +1,3170 @@
+---
+openapi: "3.0.0"
+info:
+  title: "EIC-Member-Managment-papi"
+  description: "This API is designed to manage the complex process for Portal User\
+    \ management and process orestration.  \nThis process API layer is designed to\
+    \ handle the more complex process orestration for managing Portal Users.\nWe have\
+    \ intentionally followed the same URIs as exposed in the original Swagger / Open\
+    \ API so there is no need for mapping old name to new URI names.\nWhile it would\
+    \ be nice to \"clean up\" some of the unconventional Resource naming to following\
+    \ the RESTful approach more closely, \nkeeping the same URIs makes life much easier\
+    \ for developers to call lower level APIs that match the URIs while using the\
+    \ API-Led approach.  \n"
+  version: "1"
+servers:
+- url: "api"
+paths:
+  /member:
+    get:
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  MemberId: 1
+                  PlanId: 6
+                  PlanName: "EnvisionRxPlus"
+                  GroupId: "EICH"
+                  AltMemberId: "EIC1"
+                  HICN: "123456782A"
+                  MBI: null
+                  MedicareNumber: "123456782A"
+                  FirstName: "TEST1"
+                  LastName: "TEST2A"
+                  Prefix: "MR."
+                  MiddleInitial: "A"
+                  Address1: "663 East Aurora Road"
+                  Address2: null
+                  City: "BROOKLYN"
+                  State: "NY"
+                  ZipCode: "11208"
+                  MAddress1: "Mailing Address"
+                  MAddress2: null
+                  MCity: "City"
+                  MState: "OH"
+                  MZipCode: "44087"
+                  DOB: 315532800000
+                  Gender: "M"
+                  Email: "aathithan@envisionrx.com"
+                  Phone: "724-488-0888"
+                  CellPhone: "752-826-5148"
+                  AltPhone: "751-653-9248"
+                  BWritingCode: "ABCD123"
+                  PrimaryPharmacy:
+                    PharmacyId: 27181898
+                    NABP: "3672070"
+                    ChainCode: "248"
+                    Name: "GIANT EAGLE PHARMACY #6299"
+                    Address:
+                      Latitude: "41.313958"
+                      Longitude: "-81.529006"
+                      Address1: "290 EAST AURORA ROAD"
+                      Address2: ""
+                      City: "NORTHFIELD"
+                      StateCode: null
+                      ZipCode: "44067"
+                    PharmacyTypeId: 1
+                    Phone: "330-468-3263"
+                    IsPrimary: true
+                    IsPreferred: true
+                    IsEPrescribing: true
+                    IsEIC: true
+                    IsEGWP: true
+                    IsPreferredCC: true
+                    Is90DayRetail: true
+                    MemberPharmacyID: 6535
+                    Distance: 0
+                    Year: 0
+                    PreferenceType: 0
+                    IsBrokerPbp: false
+                  Pharmacies: []
+                  MonthlyPremium: 0
+                  CurrentBalance: 0
+                  EnrollmentDate: 1466467200000
+                  DisenrollmentDate: null
+                  PbpCode: "003"
+                  PbpId: 0
+                  Year: 2020
+                  GreenEobReasonCode: 1
+                  CMSConfirmationID: null
+                  MailNABPs: null
+                  IsBroker: false
+                  BrokerAttestation: false
+                  BrokerID: 69
+                  Status: "Active"
+                  EGWPDirectBill: false
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+    post:
+      parameters:
+      - name: "adminRequest"
+        required: false
+        in: "query"
+        schema:
+          type: "string"
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                Plan:
+                  PlanId: 6
+                  PlanName: "EnvisionRxPlus"
+                  PlanYear: 0
+                  Pbp: "014"
+                  IsEGWP: false
+                EnrollmentDate: 1590969600000
+                ElectionType: "S"
+                LastName: "Smith"
+                Firstname: "Uno"
+                MiddleInitial: "M"
+                Prefix: "MS."
+                DateOfBirth: -303955200000
+                Gender: "F"
+                Phone: "330-555-1234"
+                AltPhone: "330-555-1478"
+                CellPhone: "330-555-1878"
+                Email: "usmith@example.com"
+                Address:
+                  Address1: "123 Main St."
+                  Address2: ""
+                  City: "Twinsburg"
+                  StateCode: "OH"
+                  ZipCode: "44087"
+                MailingAddress:
+                  Address1: "123 Mail St."
+                  Address2: "Apt A."
+                  City: "Twinsburg"
+                  StateCode: "OH"
+                  ZipCode: "44087"
+                HasEmergencyContact: true
+                EmergencyContact:
+                  Name: "Ema Contact"
+                  Relationship: "Child"
+                  Phone: "330-555-9999"
+                MedicareNumber: "154884848A"
+                PartAEffDate: 1590969600000
+                PartBEffDate: 1590969600000
+                HasOtherCoverage: false
+                OtherCoverage:
+                  Name: ""
+                  Id: ""
+                  Group: ""
+                IsLongTermCare: false
+                Institution:
+                  Name: ""
+                  Relationship: ""
+                  Phone: ""
+                  Address:
+                    Address1: ""
+                    Address2: ""
+                    City: ""
+                    StateCode: ""
+                    ZipCode: ""
+                Language: "EN"
+                LargePrint: false
+                Audio: false
+                IsRepresentative: true
+                Representative:
+                  Name: "Rep Smith"
+                  Relationship: "Child"
+                  Phone: "330-555-8452"
+                  Address:
+                    Address1: "123 Rep st."
+                    Address2: ""
+                    City: "Twinsburg"
+                    StateCode: "OH"
+                    ZipCode: "44511"
+                HasBroker: false
+                Broker:
+                  Referral:
+                    FirstName: "string"
+                    LastName: "string"
+                    Code: "string"
+                    Phone: "string"
+                SepReason: "MOV 06302021"
+                EnrollmentType: 4
+                PaymentType: 1
+                DeductSsa: false
+                GroupId: "EICH"
+                IsBroker: false
+                BrokerAttestation: false
+                BrokerAttestationType: ""
+                ApplicationDate: 1589564139000
+              type: "object"
+              additionalProperties: true
+              required:
+              - "Plan"
+              - "EnrollmentDate"
+              - "ElectionType"
+              - "Gender"
+              - "AltPhone"
+              - "CellPhone"
+              - "MedicareNumber"
+              - "HasOtherCoverage"
+              - "OtherCoverage"
+              - "Language"
+              - "IsRepresentative"
+              - "Representative"
+              - "EnrollmentType"
+              - "PaymentType"
+              - "DeductSsa"
+              - "GroupId"
+              - "IsBroker"
+              - "BrokerAttestation"
+              properties:
+                Plan:
+                  type: "object"
+                  additionalProperties: true
+                  required:
+                  - "PlanId"
+                  - "PlanName"
+                  - "PlanYear"
+                  - "Pbp"
+                  - "IsEGWP"
+                  properties:
+                    PlanId:
+                      type: "integer"
+                      format: "int32"
+                    PlanName:
+                      type: "string"
+                    PlanYear:
+                      type: "integer"
+                      format: "int32"
+                    Pbp:
+                      type: "string"
+                    PbpDescription:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    IsEGWP:
+                      type: "boolean"
+                    GroupId:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    State:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    StateName:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Lis25:
+                      x-amf-union:
+                      - type: "number"
+                      - type: "null"
+                    Lis50:
+                      x-amf-union:
+                      - type: "number"
+                      - type: "null"
+                    Lis75:
+                      x-amf-union:
+                      - type: "number"
+                      - type: "null"
+                    Lis100:
+                      x-amf-union:
+                      - type: "number"
+                      - type: "null"
+                    Deductible:
+                      x-amf-union:
+                      - type: "number"
+                      - type: "null"
+                    DeductibleDescription:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Premium:
+                      x-amf-union:
+                      - type: "number"
+                      - type: "null"
+                    Deminimis:
+                      type: "boolean"
+                    PlanDetails:
+                      type: "array"
+                      items:
+                        type: "object"
+                        additionalProperties: true
+                        required:
+                        - "PharmacyCostType"
+                        - "DrugTier"
+                        - "DrugTierCaption"
+                        - "DaysSupply"
+                        - "CostAmount"
+                        - "CostPercentage"
+                        - "MinAmount"
+                        - "MaxAmount"
+                        - "Is31DaySupply"
+                        - "DrugCategory"
+                        - "SubCategory"
+                        properties:
+                          PharmacyCostType:
+                            enum:
+                            - "RetailPreferred"
+                            - "RetailStandard"
+                            - "MailPreferred"
+                            - "MailStandard"
+                            type: "string"
+                          DrugTier:
+                            type: "integer"
+                            format: "int32"
+                          DrugTierCaption:
+                            type: "string"
+                          DaysSupply:
+                            enum:
+                            - "Days30"
+                            - "Days60"
+                            - "Days90"
+                            type: "string"
+                          CostAmount:
+                            type: "number"
+                            format: "double"
+                          CostPercentage:
+                            type: "number"
+                            format: "double"
+                          MinAmount:
+                            type: "number"
+                            format: "double"
+                          MaxAmount:
+                            type: "number"
+                            format: "double"
+                          Is31DaySupply:
+                            type: "boolean"
+                          DrugCategory:
+                            type: "string"
+                          SubCategory:
+                            type: "string"
+                    PlanYearStages:
+                      type: "array"
+                      items:
+                        type: "object"
+                        additionalProperties: true
+                        required:
+                        - "Stage"
+                        - "StageDescription"
+                        - "StageLimit"
+                        - "StageGenericDescription"
+                        - "StageBrandDescription"
+                        properties:
+                          Stage:
+                            type: "integer"
+                            format: "int32"
+                          StageDescription:
+                            type: "string"
+                          StageLimit:
+                            type: "number"
+                            format: "double"
+                          StageGenericDescription:
+                            type: "string"
+                          StageBrandDescription:
+                            type: "string"
+                    SkipDeductable:
+                      x-amf-union:
+                      - type: "boolean"
+                      - type: "null"
+                EnrollmentDate:
+                  type: "string"
+                  format: "date-time-only"
+                ElectionType:
+                  type: "string"
+                LastName:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                Firstname:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                MiddleInitial:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                Prefix:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                DateOfBirth:
+                  x-amf-union:
+                  - type: "string"
+                    format: "date-time-only"
+                  - type: "null"
+                Gender:
+                  type: "string"
+                Phone:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                AltPhone:
+                  type: "string"
+                CellPhone:
+                  type: "string"
+                Email:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                Address:
+                  x-amf-union:
+                  - type: "object"
+                    additionalProperties: true
+                    properties:
+                      Address1:
+                        x-amf-union:
+                        - type: "string"
+                        - type: "null"
+                      Address2:
+                        x-amf-union:
+                        - type: "string"
+                        - type: "null"
+                      City:
+                        x-amf-union:
+                        - type: "string"
+                        - type: "null"
+                      StateCode:
+                        x-amf-union:
+                        - type: "string"
+                        - type: "null"
+                      ZipCode:
+                        x-amf-union:
+                        - type: "string"
+                        - type: "null"
+                  - type: "null"
+                MailingAddress:
+                  x-amf-union:
+                  - type: "object"
+                    additionalProperties: true
+                    properties:
+                      Address1:
+                        x-amf-union:
+                        - type: "string"
+                        - type: "null"
+                      Address2:
+                        x-amf-union:
+                        - type: "string"
+                        - type: "null"
+                      City:
+                        x-amf-union:
+                        - type: "string"
+                        - type: "null"
+                      StateCode:
+                        x-amf-union:
+                        - type: "string"
+                        - type: "null"
+                      ZipCode:
+                        x-amf-union:
+                        - type: "string"
+                        - type: "null"
+                  - type: "null"
+                HasEmergencyContact:
+                  x-amf-union:
+                  - type: "boolean"
+                  - type: "null"
+                EmergencyContact:
+                  type: "object"
+                  additionalProperties: true
+                  required:
+                  - "Relationship"
+                  - "Phone"
+                  properties:
+                    Name:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Relationship:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Phone:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Address:
+                      type: "object"
+                      additionalProperties: true
+                      properties:
+                        Address1:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        Address2:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        City:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        StateCode:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        ZipCode:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                    Email:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                MedicareNumber:
+                  type: "string"
+                PartAEffDate:
+                  x-amf-union:
+                  - type: "string"
+                    format: "date-time-only"
+                  - type: "null"
+                PartBEffDate:
+                  x-amf-union:
+                  - type: "string"
+                    format: "date-time-only"
+                  - type: "null"
+                altFormatRqst:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                selfWorkInd:
+                  x-amf-union:
+                  - type: "boolean"
+                  - type: "null"
+                spouseWorkInd:
+                  x-amf-union:
+                  - type: "boolean"
+                  - type: "null"
+                HasOtherCoverage:
+                  type: "boolean"
+                OtherCoverage:
+                  type: "object"
+                  additionalProperties: true
+                  required:
+                  - "Group"
+                  properties:
+                    Name:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Id:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Group:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                IsLongTermCare:
+                  x-amf-union:
+                  - type: "boolean"
+                  - type: "null"
+                Institution:
+                  type: "object"
+                  additionalProperties: true
+                  required:
+                  - "Relationship"
+                  - "Phone"
+                  properties:
+                    Name:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Relationship:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Phone:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Address:
+                      type: "object"
+                      additionalProperties: true
+                      properties:
+                        Address1:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        Address2:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        City:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        StateCode:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        ZipCode:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                    Email:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                Language:
+                  type: "string"
+                IsRepresentative:
+                  type: "boolean"
+                Representative:
+                  type: "object"
+                  additionalProperties: true
+                  required:
+                  - "Relationship"
+                  - "Phone"
+                  properties:
+                    Name:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Relationship:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Phone:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Address:
+                      type: "object"
+                      additionalProperties: true
+                      properties:
+                        Address1:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        Address2:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        City:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        StateCode:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        ZipCode:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                    Email:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                HasBroker:
+                  x-amf-union:
+                  - type: "boolean"
+                  - type: "null"
+                Broker:
+                  type: "object"
+                  additionalProperties: true
+                  properties:
+                    Id:
+                      x-amf-union:
+                      - type: "integer"
+                      - type: "null"
+                    FirstName:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    LastName:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Name:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    DateOfBirth:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    MailAddress1:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    WritingCode:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Referral:
+                      type: "object"
+                      additionalProperties: true
+                      properties:
+                        FirstName:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        LastName:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        Code:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        Name:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        Relationship:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        Phone:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        Address:
+                          x-amf-union:
+                          - type: "object"
+                            additionalProperties: true
+                            properties:
+                              Address1:
+                                x-amf-union:
+                                - type: "string"
+                                - type: "null"
+                              Address2:
+                                x-amf-union:
+                                - type: "string"
+                                - type: "null"
+                              City:
+                                x-amf-union:
+                                - type: "string"
+                                - type: "null"
+                              StateCode:
+                                x-amf-union:
+                                - type: "string"
+                                - type: "null"
+                              ZipCode:
+                                x-amf-union:
+                                - type: "string"
+                                - type: "null"
+                          - type: "null"
+                        Email:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                    NPN:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    SSN:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    AgentSuspended:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    LicenseStatus:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    LicenseExpirationDate:
+                      x-amf-union:
+                      - type: "string"
+                        format: "date-time-only"
+                      - type: "null"
+                    Status:
+                      enum:
+                      - 0
+                      - 1
+                      - 2
+                      - 3
+                      type: "integer"
+                    LicenseState:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Relationship:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Phone:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    Address:
+                      type: "object"
+                      additionalProperties: true
+                      properties:
+                        Address1:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        Address2:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        City:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        StateCode:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                        ZipCode:
+                          x-amf-union:
+                          - type: "string"
+                          - type: "null"
+                    Email:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                SeparationReasonDescription:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                ReferralCode:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                SepReason:
+                  type: "string"
+                EnrollmentType:
+                  type: "integer"
+                  format: "int32"
+                LoginId:
+                  x-amf-union:
+                  - type: "integer"
+                  - type: "null"
+                CmsConfirmationId:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                PaymentType:
+                  type: "integer"
+                  format: "int32"
+                DeductSsa:
+                  type: "boolean"
+                GroupId:
+                  type: "string"
+                IsBroker:
+                  type: "boolean"
+                BrokerAttestation:
+                  type: "boolean"
+                BrokerAttestationType:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                UserId:
+                  x-amf-union:
+                  - type: "integer"
+                  - type: "null"
+                StateCode:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                ZipCode:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                ApplicationId:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                ApplicationDate:
+                  x-amf-union:
+                  - type: "string"
+                    format: "date-time-only"
+                  - type: "null"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  id: "EIC4500974"
+                  rowsAffected: 0
+                  lastUpdatedDate: -62135769600000
+                  actionSetCount: 0
+                  nextCardId: null
+                  success: true
+                  statusCode: 200
+                  actionSetErrors: []
+                  errors: []
+                  truthTableErrors: []
+                  userMessages: []
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+    put:
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                MemberId: 1
+                PlanId: 6
+                PlanName: "EnvisionRxPlus"
+                GroupId: "EICH"
+                AltMemberId: "EIC1"
+                HICN: "123456782A"
+                MBI: null
+                MedicareNumber: "123456782A"
+                FirstName: "TEST1"
+                LastName: "TEST2A"
+                Prefix: "MR."
+                MiddleInitial: "A"
+                Address1: "663 East Aurora Road"
+                Address2: null
+                City: "BROOKLYN"
+                State: "NY"
+                ZipCode: "11208"
+                MAddress1: "Mailing Address"
+                MAddress2: null
+                MCity: "City"
+                MState: "OH"
+                MZipCode: "44087"
+                DOB: 315532800000
+                Gender: "M"
+                Email: "aathithan@envisionrx.com"
+                Phone: "724-488-0888"
+                CellPhone: "752-826-5148"
+                AltPhone: "751-653-9248"
+                BWritingCode: "ABCD123"
+                PrimaryPharmacy:
+                  PharmacyId: 27181898
+                  NABP: "3672070"
+                  ChainCode: "248"
+                  Name: "GIANT EAGLE PHARMACY #6299"
+                  Address:
+                    Latitude: "41.313958"
+                    Longitude: "-81.529006"
+                    Address1: "290 EAST AURORA ROAD"
+                    Address2: ""
+                    City: "NORTHFIELD"
+                    StateCode: null
+                    ZipCode: "44067"
+                  PharmacyTypeId: 1
+                  Phone: "330-468-3263"
+                  IsPrimary: true
+                  IsPreferred: true
+                  IsEPrescribing: true
+                  IsEIC: true
+                  IsEGWP: true
+                  IsPreferredCC: true
+                  Is90DayRetail: true
+                  MemberPharmacyID: 6535
+                  Distance: 0
+                  Year: 0
+                  PreferenceType: 0
+                  IsBrokerPbp: false
+                Pharmacies: []
+                MonthlyPremium: 0
+                CurrentBalance: 0
+                EnrollmentDate: 1466467200000
+                DisenrollmentDate: null
+                PbpCode: "003"
+                PbpId: 0
+                Year: 2020
+                GreenEobReasonCode: 1
+                CMSConfirmationID: null
+                MailNABPs: null
+                IsBroker: false
+                BrokerAttestation: false
+                BrokerID: 69
+                Status: "Active"
+                EGWPDirectBill: false
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  ResponseDetails: true
+                  FaultException:
+                    Success: true
+                    Exceptions:
+                    - {}
+                    Errors:
+                    - "string"
+                    Warnings:
+                    - "string"
+                    Messages:
+                    - "string"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/pbpChange:
+    post:
+      operationId: "pbpChangexRG"
+      parameters:
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          default: "Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q=="
+          type: "string"
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                nameId: "N00064143726"
+                dateOfBirth: 403574400000
+                currentPackageId: "P00063403960"
+                effectiveDate: 1609459200000
+                newPackageId: "P00063403972"
+                premiumWithholdType: "D"
+                signatureDate: 1602720000000
+                receivedDate: 1602720000000
+                electionPeriod: "A"
+                brokerAttestation: "n"
+                loginId: "pbean"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                example:
+                  id: "A00064288921"
+                  rowsAffected: 0
+                  lastUpdatedDate: -62135769600000
+                  actionSetCount: 0
+                  nextCardId: null
+                  success: true
+                  statusCode: 200
+                  actionSetErrors: []
+                  errors: []
+                  truthTableErrors: []
+                  userMessages: []
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/letters/{nameId}:
+    parameters:
+    - name: "nameId"
+      description: "nameId"
+      required: true
+      in: "path"
+      schema:
+        description: "nameId"
+        type: "string"
+    get:
+      operationId: "Member_GetMemberByIdEP5"
+      description: "Get member letters by providing member unique Id"
+      parameters:
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          default: "Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q=="
+          type: "string"
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  letters:
+                  - toDoId: "10"
+                    templateType: ""
+                    templateName: "hd_eic_adh"
+                    letterName: "Health Dialog Live Adherence Attempt or Call"
+                    dateScheduled: 1591862942000
+                    dateCompleted: 1592179200000
+                    resultPrimary: ""
+                    resultSecondary: ""
+                  - toDoId: "9"
+                    templateType: ""
+                    templateName: "LIS Rider"
+                    letterName: "S7694_2016 LIS Rider Accepted 08152015"
+                    dateScheduled: 1583748822000
+                    dateCompleted: 1582848000000
+                    resultPrimary: ""
+                    resultSecondary: ""
+                  - toDoId: "T00064139922"
+                    templateType: "NONEXH"
+                    templateName: "OEV"
+                    letterName: "Outbound Enroll Verify"
+                    dateScheduled: 1593086498000
+                    dateCompleted: ""
+                    resultPrimary: ""
+                    resultSecondary: ""
+        "404":
+          description: "Not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/Notes/{nameId}:
+    parameters:
+    - name: "nameId"
+      description: "Name Id"
+      required: true
+      in: "path"
+      schema:
+        description: "Name Id"
+        type: "string"
+    get:
+      operationId: "Member_GetnotesByNameIdWPp"
+      description: "Get member Notes by providing Name Id"
+      parameters:
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          default: "Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q=="
+          type: "string"
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  MemberId: 1
+                  PlanId: 6
+                  PlanName: "EnvisionRxPlus"
+                  GroupId: "EICH"
+                  AltMemberId: "EIC1"
+                  HICN: "123456782A"
+                  MBI: null
+                  MedicareNumber: "123456782A"
+                  FirstName: "TEST1"
+                  LastName: "TEST2A"
+                  Prefix: "MR."
+                  MiddleInitial: "A"
+                  Address1: "663 East Aurora Road"
+                  Address2: null
+                  City: "BROOKLYN"
+                  State: "NY"
+                  ZipCode: "11208"
+                  MAddress1: "Mailing Address"
+                  MAddress2: null
+                  MCity: "City"
+                  MState: "OH"
+                  MZipCode: "44087"
+                  DOB: 315532800000
+                  Gender: "M"
+                  Email: "aathithan@envisionrx.com"
+                  Phone: "724-488-0888"
+                  CellPhone: "752-826-5148"
+                  AltPhone: "751-653-9248"
+                  BWritingCode: "ABCD123"
+                  PrimaryPharmacy:
+                    PharmacyId: 27181898
+                    NABP: "3672070"
+                    ChainCode: "248"
+                    Name: "GIANT EAGLE PHARMACY #6299"
+                    Address:
+                      Latitude: "41.313958"
+                      Longitude: "-81.529006"
+                      Address1: "290 EAST AURORA ROAD"
+                      Address2: ""
+                      City: "NORTHFIELD"
+                      StateCode: null
+                      ZipCode: "44067"
+                    PharmacyTypeId: 1
+                    Phone: "330-468-3263"
+                    IsPrimary: true
+                    IsPreferred: true
+                    IsEPrescribing: true
+                    IsEIC: true
+                    IsEGWP: true
+                    IsPreferredCC: true
+                    Is90DayRetail: true
+                    MemberPharmacyID: 6535
+                    Distance: 0
+                    Year: 0
+                    PreferenceType: 0
+                    IsBrokerPbp: false
+                  Pharmacies: []
+                  MonthlyPremium: 0
+                  CurrentBalance: 0
+                  EnrollmentDate: 1466467200000
+                  DisenrollmentDate: null
+                  PbpCode: "003"
+                  PbpId: 0
+                  Year: 2020
+                  GreenEobReasonCode: 1
+                  CMSConfirmationID: null
+                  MailNABPs: null
+                  IsBroker: false
+                  BrokerAttestation: false
+                  BrokerID: 69
+                  Status: "Active"
+                  EGWPDirectBill: false
+        "404":
+          description: "Not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/payment/insertpaymentlog:
+    post:
+      operationId: "insertpaymentlog2EV"
+      parameters:
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          default: "Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q=="
+          type: "string"
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                Id: 1
+                CreatedDate: 1513179532910
+                TransactionId: null
+                MemberId: "EIC1"
+                Approved: true
+                Status: null
+                Origin: 1
+              type: "object"
+              additionalProperties: true
+              required:
+              - "MemberId"
+              - "Approved"
+              properties:
+                Id:
+                  x-amf-union:
+                  - type: "integer"
+                  - type: "null"
+                MemberId:
+                  type: "string"
+                CreatedDate:
+                  x-amf-union:
+                  - type: "string"
+                    format: "date-time"
+                  - type: "null"
+                TransactionId:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                Approved:
+                  type: "boolean"
+                Status:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                Origin:
+                  enum:
+                  - 0
+                  - 1
+                  - 2
+                  type: "integer"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                example:
+                  resultSet1:
+                  - CreatedDate: 1513179532000
+                    Origin: 0
+                    Id: 40461
+                    TransactionId: "2"
+                    MemberId: "EIC1"
+                    Status: null
+                  updateCount1: 1
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/payment/{nameId}:
+    parameters:
+    - name: "nameId"
+      description: "Name Id"
+      required: true
+      in: "path"
+      schema:
+        description: "Name Id"
+        type: "string"
+    get:
+      operationId: "Member_ByNameIdVra"
+      description: "Get payment details by providing Name Id"
+      parameters:
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          default: "Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q=="
+          type: "string"
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                - NameId: "N00064284642"
+                  PaymentMethodCode: "CHECK"
+                  PaymentType: null
+                  BillingId: null
+                  StopRequestPending: false
+        "404":
+          description: "Not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/ByNameID/{nameId}:
+    parameters:
+    - name: "nameId"
+      description: "Name Id"
+      required: true
+      in: "path"
+      schema:
+        description: "Name Id"
+        type: "string"
+    get:
+      operationId: "Member_ByNameIdtPH"
+      description: "Get member details by providing Name Id"
+      parameters:
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          default: "Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q=="
+          type: "string"
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  nameId: "N00064144070"
+                  demographics:
+                    prefix: ""
+                    firstName: "Middlebrooks"
+                    lastName: "Mccloskey"
+                    middleInitial: "Y"
+                    suffix: ""
+                    gender: "M"
+                    birthDate: 209001600000
+                  addresses:
+                  - address1: "Current Mailing Preffered St."
+                    address2: "Line 2"
+                    address3: ""
+                    city: "Harrisburg"
+                    state: "PA"
+                    zip: "17101 "
+                    startDate: 1613088000000
+                    endDate: 1612051200000
+                    preferred: "w"
+                    type: "Mailing - Prior 1"
+                  - address1: "New Mailing St."
+                    address2: ""
+                    address3: ""
+                    city: "Harrisburg"
+                    state: "PA"
+                    zip: "17101 "
+                    startDate: 1612137600000
+                    endDate: ""
+                    preferred: "w"
+                    type: "Mailing"
+                  - address1: "Future Home Preffered St."
+                    address2: "Line 2"
+                    address3: "Line 3"
+                    city: "Harrisburg"
+                    state: "PA"
+                    zip: "17101 "
+                    startDate: 1623456000000
+                    endDate: ""
+                    preferred: "x"
+                    type: "Home"
+                  brokers: []
+                  enrollment:
+                    enrollmentDates:
+                    - startDate: 1483228800000
+                      endDate: ""
+                    applicationDate: 1286755200000
+                    electionType: "S"
+                    type: ""
+                    state: "Enrolled"
+                    typeDescription: null
+                    medicareId: "126789726I  "
+                    plan: "P00063355844"
+                    planName: null
+                    sepReason: ""
+                    language: "English"
+                    accessibleMaterials: ""
+                    partAStartDate: ""
+                    partBStartDate: ""
+                    partDStartDate: ""
+                    lowIncomeSubsidy:
+                    - startDate: 1483228800000
+                      endDate: ""
+                      level: "100"
+                    longTermCare: []
+                    otherCoverage:
+                      coverageId: ""
+                      groupNumber: ""
+                      name: ""
+                      prescriptionCoverage: ""
+                    memberId: "EIC64810472"
+                    groupNumber: "EICS006"
+                    rxBin: "012312"
+                    rxPcn: "PartD"
+                    copayCategory:
+                    - startDate: 1483228800000
+                      endDate: ""
+                      copay: "3"
+                    disenrollDate: ""
+                    disenrollReason: ""
+                    pbp: "006"
+                    contractID: "S7694"
+                  phoneNumbers:
+                  - phoneNumber: "2283319875"
+                    extension: ""
+                    type: "Home"
+                    preferred: "x"
+                  emailAddresses: []
+                  contacts:
+                  - id: "C00064192312"
+                    type: "Emergency"
+                    firstName: "Gish"
+                    lastName: "Gish"
+                    relationship: "Other"
+                    address1: "4489 EW Pierce Cir"
+                    address2: "4489 EW Pierce Cir"
+                    city: "Honolulu"
+                    state: ""
+                    zip: "96801"
+                    phoneNumber: "0226748 4261"
+                    alternativePhoneNumber: ""
+                    startDate: 1577836800000
+                    endDate: ""
+                  - id: "C00064192313"
+                    type: "Authorized Rep"
+                    firstName: "Giroux"
+                    lastName: "Giroux"
+                    relationship: "Other"
+                    address1: "4488 SW Fillmore Ln"
+                    address2: "4488 SW Fillmore Ln"
+                    city: "Baton Rouge"
+                    state: ""
+                    zip: "70801"
+                    phoneNumber: "0473717 7763"
+                    alternativePhoneNumber: ""
+                    startDate: 1577836800000
+                    endDate: ""
+        "404":
+          description: "Not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/nameId/{nameId}:
+    parameters:
+    - name: "nameId"
+      description: "member nameId"
+      required: true
+      in: "path"
+      schema:
+        description: "member nameId"
+        type: "string"
+    get:
+      operationId: "Member_GetnameIduTX"
+      description: "Get member details by providing nameId"
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  MpStatusCode: 0
+                  data:
+                    nameId: "N00064141476"
+                    demographics:
+                      prefix: "Mrs."
+                      firstName: "Timmons"
+                      lastName: "Testa"
+                      middleInitial: "D"
+                      suffix: ""
+                      gender: "F"
+                      birthDate: 591926400000
+                    addresses:
+                    - address1: "1564 NS Nixon Dr"
+                      address2: "Apt No:15"
+                      address3: ""
+                      city: "Huntersville"
+                      state: "NC"
+                      zip: "27601 "
+                      startDate: 1483228800000
+                      endDate: ""
+                      preferred: "x"
+                      type: "Home"
+                    brokers: []
+                    enrollment:
+                      enrollmentDates:
+                      - startDate: 1483228800000
+                        endDate: ""
+                      applicationDate: 1454889600000
+                      electionType: "S"
+                      state: "Enrolled"
+                      type: ""
+                      medicareId: "126786700O  "
+                      plan: "P00063355852"
+                      sepReason: "MDE"
+                      language: ""
+                      partAStartDate: ""
+                      partBStartDate: ""
+                      partDStartDate: ""
+                      lowIncomeSubsidy:
+                      - startDate: 1483228800000
+                        endDate: ""
+                        level: "100"
+                      longTermCare:
+                      - startDate: 1483228800000
+                        endDate: ""
+                        level: "100"
+                      otherCoverage: {}
+                      memberId: "EIC49247573"
+                      groupNumber: ""
+                      rxBin: ""
+                      rxPcn: ""
+                      pbp: "008"
+                    phoneNumbers:
+                    - phoneNumber: "8797879554"
+                      extension: ""
+                      type: "Cell"
+                      preferred: "w"
+                    - phoneNumber: "5463914813"
+                      extension: ""
+                      type: "Alternative"
+                      preferred: "x"
+                    - phoneNumber: "2811869328"
+                      extension: ""
+                      type: "Home"
+                      preferred: "w"
+                    emailAddresses: []
+                    contacts:
+                    - id: "C00064190522"
+                      type: "Emergency"
+                      firstName: "Brink"
+                      lastName: "Brink"
+                      relationship: "Other"
+                      address1: "2115 NE Lincoln Pkwy"
+                      address2: "2115 NE Lincoln Pkwy"
+                      city: "Cheyenne"
+                      state: ""
+                      zip: "82001"
+                      phoneNumber: "086177 49910"
+                      alternativePhoneNumber: ""
+                    - id: "C00064190523"
+                      type: "Authorized Rep"
+                      firstName: "Brim"
+                      lastName: "Brim"
+                      relationship: "Other"
+                      address1: "2114 NS Buchanan Pk"
+                      address2: "2114 NS Buchanan Pk"
+                      city: "Atlanta"
+                      state: ""
+                      zip: "30301"
+                      phoneNumber: "0668397 4513"
+                      alternativePhoneNumber: ""
+                  errors:
+                  - statusCode: 1
+                    message: "No records found"
+                    topic: "membersummary"
+                    severityLevel: 1
+                    severity: "part_a_ind"
+                  - statusCode: 1
+                    message: "No records found"
+                    topic: "membersummary"
+                    severityLevel: 1
+                    severity: "part_b_ind"
+                  - statusCode: 1
+                    message: "No records found"
+                    topic: "membersummary"
+                    severityLevel: 1
+                    severity: "COB"
+        "404":
+          description: "Not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/{nameId}:
+    parameters:
+    - name: "nameId"
+      required: true
+      in: "path"
+      schema:
+        type: "string"
+    get:
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  MemberId: 1
+                  PlanId: 6
+                  PlanName: "EnvisionRxPlus"
+                  GroupId: "EICH"
+                  AltMemberId: "EIC1"
+                  HICN: "123456782A"
+                  MBI: null
+                  MedicareNumber: "123456782A"
+                  FirstName: "TEST1"
+                  LastName: "TEST2A"
+                  Prefix: "MR."
+                  MiddleInitial: "A"
+                  Address1: "663 East Aurora Road"
+                  Address2: null
+                  City: "BROOKLYN"
+                  State: "NY"
+                  ZipCode: "11208"
+                  MAddress1: "Mailing Address"
+                  MAddress2: null
+                  MCity: "City"
+                  MState: "OH"
+                  MZipCode: "44087"
+                  DOB: 315532800000
+                  Gender: "M"
+                  Email: "aathithan@envisionrx.com"
+                  Phone: "724-488-0888"
+                  CellPhone: "752-826-5148"
+                  AltPhone: "751-653-9248"
+                  BWritingCode: "ABCD123"
+                  PrimaryPharmacy:
+                    PharmacyId: 27181898
+                    NABP: "3672070"
+                    ChainCode: "248"
+                    Name: "GIANT EAGLE PHARMACY #6299"
+                    Address:
+                      Latitude: "41.313958"
+                      Longitude: "-81.529006"
+                      Address1: "290 EAST AURORA ROAD"
+                      Address2: ""
+                      City: "NORTHFIELD"
+                      StateCode: null
+                      ZipCode: "44067"
+                    PharmacyTypeId: 1
+                    Phone: "330-468-3263"
+                    IsPrimary: true
+                    IsPreferred: true
+                    IsEPrescribing: true
+                    IsEIC: true
+                    IsEGWP: true
+                    IsPreferredCC: true
+                    Is90DayRetail: true
+                    MemberPharmacyID: 6535
+                    Distance: 0
+                    Year: 0
+                    PreferenceType: 0
+                    IsBrokerPbp: false
+                  Pharmacies: []
+                  MonthlyPremium: 0
+                  CurrentBalance: 0
+                  EnrollmentDate: 1466467200000
+                  DisenrollmentDate: null
+                  PbpCode: "003"
+                  PbpId: 0
+                  Year: 2020
+                  GreenEobReasonCode: 1
+                  CMSConfirmationID: null
+                  MailNABPs: null
+                  IsBroker: false
+                  BrokerAttestation: false
+                  BrokerID: 69
+                  Status: "Active"
+                  EGWPDirectBill: false
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/{nameId}/billing:
+    parameters:
+    - name: "nameId"
+      required: true
+      in: "path"
+      schema:
+        type: "string"
+    get:
+      description: "This will call MP API: /members/{nameId}/billing"
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  MpStatusCode: 0
+                  data:
+                    nameId: "N00063396487"
+                    memberBalance: 130.5
+                    billingOption: "I"
+                    premiumWithhold: "D"
+                    premiumDetails:
+                    - effectiveDate: 1577836800000
+                      premiumAmount: 14.2
+                      memberExpected: 14.2
+                      lepAmount: null
+                      lisExpected: 0
+                      spapExpected: 0
+                      ssaExpected: 0
+                    transactions:
+                    - billee: "01"
+                      invoiceNumber: "116774"
+                      paymentType: "Premium"
+                      createDate: 1564760647000
+                      periodStart: 1556668800000
+                      paymentMethod: ""
+                      note: "auto-entry"
+                      totalAmount: 14.5
+                    - billee: "01"
+                      invoiceNumber: "117102"
+                      paymentType: "Premium"
+                      createDate: 1565602596000
+                      periodStart: 1564617600000
+                      paymentMethod: ""
+                      note: "auto-entry"
+                      totalAmount: 14.5
+                    - billee: "01"
+                      invoiceNumber: "117102"
+                      paymentType: "Premium"
+                      createDate: 1565884960000
+                      periodStart: 1567296000000
+                      paymentMethod: ""
+                      note: "auto-entry"
+                      totalAmount: 14.5
+                  errors: []
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/ByAltMemberId/{altMemberId}:
+    parameters:
+    - name: "altMemberId"
+      description: "Alt Member Id"
+      required: true
+      in: "path"
+      schema:
+        description: "Alt Member Id"
+        type: "string"
+    get:
+      operationId: "Member_GetMemberById9P5"
+      description: "Get member details by providing name unique Id"
+      parameters:
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          default: "Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q=="
+          type: "string"
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  MemberId: 1
+                  PlanId: 6
+                  PlanName: "EnvisionRxPlus"
+                  GroupId: "EICH"
+                  AltMemberId: "EIC1"
+                  HICN: "123456782A"
+                  MBI: null
+                  MedicareNumber: "123456782A"
+                  FirstName: "TEST1"
+                  LastName: "TEST2A"
+                  Prefix: "MR."
+                  MiddleInitial: "A"
+                  Address1: "663 East Aurora Road"
+                  Address2: null
+                  City: "BROOKLYN"
+                  State: "NY"
+                  ZipCode: "11208"
+                  MAddress1: "Mailing Address"
+                  MAddress2: null
+                  MCity: "City"
+                  MState: "OH"
+                  MZipCode: "44087"
+                  DOB: 315532800000
+                  Gender: "M"
+                  Email: "aathithan@envisionrx.com"
+                  Phone: "724-488-0888"
+                  CellPhone: "752-826-5148"
+                  AltPhone: "751-653-9248"
+                  BWritingCode: "ABCD123"
+                  PrimaryPharmacy:
+                    PharmacyId: 27181898
+                    NABP: "3672070"
+                    ChainCode: "248"
+                    Name: "GIANT EAGLE PHARMACY #6299"
+                    Address:
+                      Latitude: "41.313958"
+                      Longitude: "-81.529006"
+                      Address1: "290 EAST AURORA ROAD"
+                      Address2: ""
+                      City: "NORTHFIELD"
+                      StateCode: null
+                      ZipCode: "44067"
+                    PharmacyTypeId: 1
+                    Phone: "330-468-3263"
+                    IsPrimary: true
+                    IsPreferred: true
+                    IsEPrescribing: true
+                    IsEIC: true
+                    IsEGWP: true
+                    IsPreferredCC: true
+                    Is90DayRetail: true
+                    MemberPharmacyID: 6535
+                    Distance: 0
+                    Year: 0
+                    PreferenceType: 0
+                    IsBrokerPbp: false
+                  Pharmacies: []
+                  MonthlyPremium: 0
+                  CurrentBalance: 0
+                  EnrollmentDate: 1466467200000
+                  DisenrollmentDate: null
+                  PbpCode: "003"
+                  PbpId: 0
+                  Year: 2020
+                  GreenEobReasonCode: 1
+                  CMSConfirmationID: null
+                  MailNABPs: null
+                  IsBroker: false
+                  BrokerAttestation: false
+                  BrokerID: 69
+                  Status: "Active"
+                  EGWPDirectBill: false
+                type: "object"
+                additionalProperties: true
+        "404":
+          description: "Not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/payment/lastvalidpayment/{altMemberId}:
+    parameters:
+    - name: "altMemberId"
+      description: "Alt Member Id"
+      required: true
+      in: "path"
+      schema:
+        description: "Alt Member Id"
+        type: "string"
+    get:
+      operationId: "lastvalidpayment_GetMemberByIda5y"
+      description: "Get lastvalidpayment details by providing Member unique Id"
+      parameters:
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          default: "Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q=="
+          type: "string"
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  Log:
+                    Id: 10209
+                    MemberId: 1
+                    CreatedDate: 1582299380687
+                    TransactionId: "035-0005765296"
+                    Approved: true
+                    Origin: null
+                  NextPaymentAllowedIn: 0
+        "404":
+          description: "Not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/pharmacy:
+    post:
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema: {}
+  /member/pharmacy/{memberPharmacyId}:
+    parameters:
+    - name: "memberPharmacyId"
+      required: true
+      in: "path"
+      schema:
+        type: "string"
+    delete:
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema: {}
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/billing/{nameId}:
+    parameters:
+    - name: "nameId"
+      required: true
+      in: "path"
+      schema:
+        type: "string"
+    get:
+      description: "This will call MP API: /members/{nameId}/billing"
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  nameId: "N00064144070"
+                  memberBalance: 0
+                  billingOption: ""
+                  premiumWithhold: "D"
+                  premiumDetails:
+                  - effectiveDate: 1577836800000
+                    premiumAmount: 14.2
+                    memberExpected: 0
+                    lepAmount: null
+                    lisExpected: 0
+                    spapExpected: 0
+                    ssaExpected: 14.2
+                  transactions:
+                  - billee: "01"
+                    invoiceNumber: "134767"
+                    paymentType: "Premium"
+                    createDate: 1594202737000
+                    periodStart: 1593561600000
+                    paymentMethod: ""
+                    note: "auto-entry"
+                    totalAmount: 0
+                  - billee: "01"
+                    invoiceNumber: "137743"
+                    paymentType: "Premium"
+                    createDate: 1595501403000
+                    periodStart: 1588291200000
+                    paymentMethod: ""
+                    note: "auto-entry"
+                    totalAmount: 0
+                  - billee: "01"
+                    invoiceNumber: "136269"
+                    paymentType: "Premium"
+                    createDate: 1595501195000
+                    periodStart: 1590969600000
+                    paymentMethod: ""
+                    note: "auto-entry"
+                    totalAmount: 0
+                  - billee: "02"
+                    invoiceNumber: "134767"
+                    paymentType: "Premium"
+                    createDate: 1594202737000
+                    periodStart: 1593561600000
+                    paymentMethod: ""
+                    note: "auto-entry"
+                    totalAmount: 14.2
+                  - billee: "02"
+                    invoiceNumber: "137743"
+                    paymentType: "Premium"
+                    createDate: 1595501403000
+                    periodStart: 1588291200000
+                    paymentMethod: ""
+                    note: "auto-entry"
+                    totalAmount: 14.2
+                  - billee: "02"
+                    invoiceNumber: "136269"
+                    paymentType: "Premium"
+                    createDate: 1595501195000
+                    periodStart: 1590969600000
+                    paymentMethod: ""
+                    note: "auto-entry"
+                    totalAmount: 14.2
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.3
+                    createDate: 1488499200000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.6
+                    createDate: 1489363200000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "0008476309"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.6
+                    createDate: 1491004800000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "3215291"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.6
+                    createDate: 1493596800000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "3334422"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.6
+                    createDate: 1493769600000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.6
+                    createDate: 1496275200000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "3455396"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.6
+                    createDate: 1498867200000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "3579037"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.6
+                    createDate: 1501718400000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.6
+                    createDate: 1504224000000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "3834404"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.6
+                    createDate: 1504656000000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.6
+                    createDate: 1507075200000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.6
+                    createDate: 1509494400000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "4102359"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.6
+                    createDate: 1512086400000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "4240602"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -12.6
+                    createDate: 1515024000000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 12.6
+                    createDate: 1517443200000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "4605203"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -12.6
+                    createDate: 1517788800000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 12.6
+                    createDate: 1519862400000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "4824513"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 12.6
+                    createDate: 1525132800000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "5268829"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -12.6
+                    createDate: 1525305600000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 12.6
+                    createDate: 1527811200000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "5492597"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -12.6
+                    createDate: 1528156800000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 12.6
+                    createDate: 1530403200000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "5717489"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 12.6
+                    createDate: 1533081600000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "6025945"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -12.6
+                    createDate: 1533254400000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 12.6
+                    createDate: 1535760000000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "6255416"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -12.6
+                    createDate: 1536192000000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 12.6
+                    createDate: 1541030400000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "6728989"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 12.6
+                    createDate: 1543622400000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "6970662"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -12.6
+                    createDate: 1543968000000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.5
+                    createDate: 1546300800000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "7116935"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.5
+                    createDate: 1546560000000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.5
+                    createDate: 1548979200000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "7391223"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -29.0
+                    createDate: 1550534400000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.5
+                    createDate: 1554076800000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "8039057"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.5
+                    createDate: 1556668800000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "8309268"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.5
+                    createDate: 1556841600000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.5
+                    createDate: 1559347200000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "8579526"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.5
+                    createDate: 1559692800000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.5
+                    createDate: 1562112000000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.5
+                    createDate: 1564617600000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "9121151"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.5
+                    createDate: 1564963200000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.5
+                    createDate: 1567296000000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "9499286"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.5
+                    createDate: 1569888000000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "9667428"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.5
+                    createDate: 1572566400000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "9943534"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.5
+                    createDate: 1573171200000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 12.6
+                    createDate: 1522540800000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "5045418"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -12.6
+                    createDate: 1522800000000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.6
+                    createDate: 1483228800000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "2864128"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.6
+                    createDate: 1484870400000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "0001608539"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.5
+                    createDate: 1554249600000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.6
+                    createDate: 1499299200000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -12.6
+                    createDate: 1538524800000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.6
+                    createDate: 1506816000000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "3967023"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.6
+                    createDate: 1509667200000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.6
+                    createDate: 1488326400000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "3097147"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.6
+                    createDate: 1496620800000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -12.6
+                    createDate: 1520208000000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 12.6
+                    createDate: 1514764800000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "4455991"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.6
+                    createDate: 1501545600000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "3705433"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.5
+                    createDate: 1561939200000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "8849770"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -12.6
+                    createDate: 1530748800000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.5
+                    createDate: 1570060800000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.6
+                    createDate: 1512432000000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.9
+                    createDate: 1486598400000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "0004602674"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.5
+                    createDate: 1551398400000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "7773108"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 12.6
+                    createDate: 1538352000000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "6490526"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: 14.6
+                    createDate: 1485907200000
+                    paymentType: "Invoice"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "2980185"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -12.6
+                    createDate: 1541376000000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+                  - note: ""
+                    billee: "01"
+                    totalAmount: -14.5
+                    createDate: 1567641600000
+                    paymentType: "Payment"
+                    periodStart: ""
+                    paymentMethod: ""
+                    invoiceNumber: "VISA1958"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/billing/{nameId}/visited/{altNameId}:
+    parameters:
+    - name: "nameId"
+      required: true
+      in: "path"
+      schema:
+        type: "string"
+    - name: "altNameId"
+      required: true
+      in: "path"
+      schema:
+        type: "string"
+    get:
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema: {}
+  /member/portaluser:
+    post:
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema: {}
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/validate/about:
+    post:
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema: {}
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/addresschange:
+    post:
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema: {}
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/disenrollment:
+    post:
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema: {}
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/MemberEnrollmentStatus/{medicareNumber}:
+    parameters:
+    - name: "medicareNumber"
+      required: true
+      in: "path"
+      schema:
+        type: "string"
+    get:
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema: {}
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/Messages:
+    post:
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema: {}
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/Premium/{nameId}:
+    parameters:
+    - name: "nameId"
+      required: true
+      in: "path"
+      schema:
+        type: "string"
+    get:
+      parameters:
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema: {}
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /memberivr/GetBalance:
+    post:
+      operationId: "MemberIvr_GetBalance8KQ"
+      parameters:
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          default: "Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q=="
+          type: "string"
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                UserName: "pbean"
+                Password: "364"
+                CustomKey: "2020"
+                TransactionId: "2020"
+              type: "object"
+              additionalProperties: true
+              required:
+              - "UserName"
+              - "Password"
+              - "CustomKey"
+              - "TransactionId"
+              properties:
+                UserName:
+                  type: "string"
+                Password:
+                  type: "string"
+                CustomKey:
+                  type: "string"
+                TransactionId:
+                  type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                example: "\r\n\"1|61.60\""
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+x-amf-uses:
+  common: "exchange_modules/cc5b37d2-1e82-426d-b07a-e49503aaa954/common-library/1.0.0/common-library.raml"
+  eic: "exchange_modules/cc5b37d2-1e82-426d-b07a-e49503aaa954/eic-library/1.0.1/eic-data-types.raml"
