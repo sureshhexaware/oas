@@ -1,0 +1,104 @@
+---
+openapi: "3.0.0"
+info:
+  title: "API with Examples"
+  version: "1.0"
+paths:
+  /organisation:
+    post:
+      parameters:
+      - name: "UserID"
+        description: "the identifier for the user that posts a new organisation"
+        required: true
+        in: "header"
+        schema:
+          description: "the identifier for the user that posts a new organisation"
+          example: "SWED-123"
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              x-amf-examples:
+                example_0:
+                  value:
+                    name: "Doe Enterprise"
+                    value: "Silver"
+                acme:
+                  name: "Acme"
+                softwareCorp:
+                  value:
+                    name: "Software Corp"
+                    address: "35 Central Street"
+                    value: "Gold"
+              type: "object"
+              additionalProperties: true
+              required:
+              - "name"
+              properties:
+                name:
+                  type: "string"
+                address:
+                  type: "string"
+                value:
+                  type: "string"
+      responses: {}
+    get:
+      description: "Returns an organisation entity."
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                x-amf-examples:
+                  example_0:
+                    value:
+                      name: "Doe Enterprise"
+                      value: "Silver"
+                  acme:
+                    name: "Acme"
+                  softwareCorp:
+                    value:
+                      name: "Software Corp"
+                      address: "35 Central Street"
+                      value: "Gold"
+                type: "object"
+                additionalProperties: true
+                required:
+                - "name"
+                properties:
+                  name:
+                    type: "string"
+                  address:
+                    type: "string"
+                  value:
+                    type: "string"
+components:
+  schemas:
+    User:
+      example:
+        name: "Bob"
+        lastname: "Marley"
+      type: "object"
+      additionalProperties: true
+      required:
+      - "name"
+      - "lastname"
+      properties:
+        name:
+          type: "string"
+        lastname:
+          type: "string"
+    Org:
+      type: "object"
+      additionalProperties: true
+      required:
+      - "name"
+      properties:
+        name:
+          type: "string"
+        address:
+          type: "string"
+        value:
+          type: "string"
