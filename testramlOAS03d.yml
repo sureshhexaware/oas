@@ -1,0 +1,333 @@
+---
+openapi: "3.0.0"
+info:
+  title: "EIC-Admin-Exp-Api"
+  version: "1"
+servers:
+- url: "api"
+paths:
+  /member: {}
+  /member/SetGoGreenSubscription:
+    post:
+      operationId: "SetGoGreenSubscription_Postl2F"
+      parameters:
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          default: "Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q=="
+          type: "string"
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          description: "Unique Id to determine the Client"
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ""
+              example:
+                NameId: "N00064143695"
+                ReasonCode: "1"
+              type: "object"
+              additionalProperties: true
+              required:
+              - "NameId"
+              properties:
+                NameId:
+                  type: "string"
+                ReasonCode:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                example:
+                  NameId: "N00064143695"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/letters/{nameId}:
+    parameters:
+    - name: "nameId"
+      description: "nameId"
+      required: true
+      in: "path"
+      schema:
+        description: "nameId"
+        type: "string"
+    get:
+      operationId: "Member_GetMemberByIdMFI"
+      description: "Get member letters by providing member unique Id"
+      parameters:
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          type: "string"
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          description: "Unique Id to determine the Client"
+          required: false
+          type: "integer | nil"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  letters:
+                  - toDoId: "10"
+                    templateType: ""
+                    templateName: "hd_eic_adh"
+                    letterName: "Health Dialog Live Adherence Attempt or Call"
+                    dateScheduled: 1591862942000
+                    dateCompleted: 1592179200000
+                    resultPrimary: ""
+                    resultSecondary: ""
+                  - toDoId: "9"
+                    templateType: ""
+                    templateName: "LIS Rider"
+                    letterName: "S7694_2016 LIS Rider Accepted 08152015"
+                    dateScheduled: 1583748822000
+                    dateCompleted: 1582848000000
+                    resultPrimary: ""
+                    resultSecondary: ""
+                  - toDoId: "T00064139922"
+                    templateType: "NONEXH"
+                    templateName: "OEV"
+                    letterName: "Outbound Enroll Verify"
+                    dateScheduled: 1593086498000
+                    dateCompleted: ""
+                    resultPrimary: ""
+                    resultSecondary: ""
+        "404":
+          description: "Not found"
+        "500":
+          description: "Internal Server Error"
+  /member/pbpChange:
+    post:
+      operationId: "pbpChangecQP"
+      parameters:
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          default: "Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q=="
+          type: "string"
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          description: "Unique Id to determine the Client"
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ""
+              example:
+                nameId: "N123456789"
+                dateOfBirth: -631065600000
+                currentPackageId: "P00063355844"
+                effectiveDate: 1609459200000
+                newPackageId: "P00063403972"
+                premiumWithholdType: "D"
+                signatureDate: 1602720000000
+                receivedDate: 1602720000000
+                electionPeriod: "A"
+                brokerAttestation: "n"
+                authorizedRep:
+                  firstName: "Jack"
+                  lastName: "Hazard"
+                  relationship: "Other"
+                  address1: "5029 EW T. Roosevelt Cir"
+                  address2: "Apt A"
+                  city: "Atlanta"
+                  state: ""
+                  zip: "30301"
+                  phoneNumber: "0360393 2018"
+                loginId: "{{username}}"
+              type: "object"
+              additionalProperties: true
+              properties:
+                premiumWithholdType:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                nameId:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                dateOfBirth:
+                  x-amf-union:
+                  - type: "string"
+                    format: "date"
+                  - type: "null"
+                  - type: "string"
+                electionPeriod:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                currentPackageId:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                newPackageId:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                brokerAttestation:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+                receivedDate:
+                  x-amf-union:
+                  - type: "string"
+                    format: "date"
+                  - type: "null"
+                  - type: "string"
+                signatureDate:
+                  x-amf-union:
+                  - type: "string"
+                    format: "date"
+                  - type: "null"
+                  - type: "string"
+                effectiveDate:
+                  x-amf-union:
+                  - type: "string"
+                    format: "date"
+                  - type: "null"
+                  - type: "string"
+                authorizedRep:
+                  type: "object"
+                  additionalProperties: true
+                  properties:
+                    firstName:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    lastName:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    relationship:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    address1:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    address2:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    city:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    state:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    zip:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                    phoneNumber:
+                      x-amf-union:
+                      - type: "string"
+                      - type: "null"
+                loginId:
+                  x-amf-union:
+                  - type: "string"
+                  - type: "null"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                example:
+                  id: "A00356787998"
+                  rowsAffected: 0
+                  lastUpdatedDate: -62135769600000
+                  actionSetCount: 0
+                  nextCardId: null
+                  success: false
+                  statusCode: 400
+                  actionSetErrors: []
+                  errors:
+                  - statusCode: "85"
+                    message: "error*app_id*A00356787998|validation*current_package_id*is\
+                      \ invalid|validation*new_package_id*is invalid - error*app_id*A00356787998|validation*current_package_id*is\
+                      \ invalid|validation*new_package_id*is invalid"
+                    topic: ";"
+                    severityLevel: 0
+                    severity: "40"
+                  truthTableErrors: []
+                  userMessages: []
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                example:
+                  nameId: "N00064143726"
+                  dateOfBirth: 403574400000
+                  currentPackageId: "P00063403960"
+                  effectiveDate: 1609459200000
+                  newPackageId: "P00063403972"
+                  premiumWithholdType: "D"
+                  signatureDate: 1602720000000
+                  receivedDate: 1602720000000
+                  electionPeriod: "A"
+                  brokerAttestation: "n"
+                  loginId: "pbean"
+x-amf-uses:
+  common: "exchange_modules/cc5b37d2-1e82-426d-b07a-e49503aaa954/common-library/1.0.6/common-library.raml"
+  eic: "exchange_modules/cc5b37d2-1e82-426d-b07a-e49503aaa954/eic-library/1.0.1/eic-data-types.raml"
