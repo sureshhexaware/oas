@@ -1,0 +1,164 @@
+---
+openapi: "3.0.0"
+info:
+  title: "EIC-Member-Managment-papi"
+  description: "This API is designed to manage the complex process for Portal User\
+    \ management and process orestration.  \nThis process API layer is designed to\
+    \ handle the more complex process orestration for managing Portal Users.\nWe have\
+    \ intentionally followed the same URIs as exposed in the original Swagger / Open\
+    \ API so there is no need for mapping old name to new URI names.\nWhile it would\
+    \ be nice to \"clean up\" some of the unconventional Resource naming to following\
+    \ the RESTful approach more closely, \nkeeping the same URIs makes life much easier\
+    \ for developers to call lower level APIs that match the URIs while using the\
+    \ API-Led approach.  \n"
+  version: "1"
+servers:
+- url: "api"
+paths:
+  /member: {}
+  /member/pbpChange:
+    post:
+      operationId: "pbpChangesit"
+      parameters:
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          default: "Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q=="
+          type: "string"
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                nameId: "N00064143726"
+                dateOfBirth: 403574400000
+                currentPackageId: "P00063403960"
+                effectiveDate: 1609459200000
+                newPackageId: "P00063403972"
+                premiumWithholdType: "D"
+                signatureDate: 1602720000000
+                receivedDate: 1602720000000
+                electionPeriod: "A"
+                brokerAttestation: "n"
+                loginId: "pbean"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                example:
+                  id: "A00064288921"
+                  rowsAffected: 0
+                  lastUpdatedDate: -62135769600000
+                  actionSetCount: 0
+                  nextCardId: null
+                  success: true
+                  statusCode: 200
+                  actionSetErrors: []
+                  errors: []
+                  truthTableErrors: []
+                  userMessages: []
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+  /member/letters/{nameId}:
+    parameters:
+    - name: "nameId"
+      description: "nameId"
+      required: true
+      in: "path"
+      schema:
+        description: "nameId"
+        type: "string"
+    get:
+      operationId: "Member_GetMemberByIdT3F"
+      description: "Get member letters by providing member unique Id"
+      parameters:
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          default: "Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q=="
+          type: "string"
+      - name: "client_id"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      - name: "client_secret"
+        required: true
+        in: "header"
+        schema:
+          type: "string"
+      x-amf-headers:
+        channelid:
+          required: false
+          type: "integer | nil"
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  letters:
+                  - toDoId: "10"
+                    templateType: ""
+                    templateName: "hd_eic_adh"
+                    letterName: "Health Dialog Live Adherence Attempt or Call"
+                    dateScheduled: 1591862942000
+                    dateCompleted: 1592179200000
+                    resultPrimary: ""
+                    resultSecondary: ""
+                  - toDoId: "9"
+                    templateType: ""
+                    templateName: "LIS Rider"
+                    letterName: "S7694_2016 LIS Rider Accepted 08152015"
+                    dateScheduled: 1583748822000
+                    dateCompleted: 1582848000000
+                    resultPrimary: ""
+                    resultSecondary: ""
+                  - toDoId: "T00064139922"
+                    templateType: "NONEXH"
+                    templateName: "OEV"
+                    letterName: "Outbound Enroll Verify"
+                    dateScheduled: 1593086498000
+                    dateCompleted: ""
+                    resultPrimary: ""
+                    resultSecondary: ""
+        "404":
+          description: "Not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema: {}
+x-amf-uses:
+  common: "exchange_modules/cc5b37d2-1e82-426d-b07a-e49503aaa954/common-library/1.0.0/common-library.raml"
+  eic: "exchange_modules/cc5b37d2-1e82-426d-b07a-e49503aaa954/eic-library/1.0.1/eic-data-types.raml"
