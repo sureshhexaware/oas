@@ -1,0 +1,174 @@
+---
+openapi: "3.0.0"
+info:
+  title: "EIC-Admin-Exp-Api"
+  version: "1"
+servers:
+- url: "api"
+paths:
+  /SSADeductByMemberID/{memberId}:
+    parameters:
+    - name: "memberId"
+      description: "Unique MemberID"
+      required: true
+      in: "path"
+      schema:
+        description: "Unique MemberID"
+        type: "string"
+    get:
+      operationId: "MemberIDK09"
+      description: "Get SSADeductExport details by providing MemberID"
+      x-amf-is: "common.client-id-required"
+      parameters:
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          default: "Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q=="
+          type: "string"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  FirstName: "Test"
+                  CreatedDate: 1603353201660
+                  CreatedBy: null
+                  ExportedBy: "pbean"
+                  SSADeductID: 79
+                  NameID: "N00064143695"
+                  MedicareID: "126787230P"
+                  ExportDate: 1603708758237
+                  MemberID: "EIC96284199"
+                  LastName: "User"
+  /member:
+    get:
+      operationId: "Member_GetMemberByIdASt"
+      description: "Get member details by providing member unique Id"
+      x-amf-is: "common.client-id-required"
+      parameters:
+      - name: "memberId"
+        description: "Unique member Id"
+        required: true
+        in: "query"
+        schema:
+          description: "Unique member Id"
+          type: "integer"
+          format: "int64"
+      - name: "TenantIdentifier"
+        description: "Tenant Identifier"
+        required: false
+        in: "header"
+        schema:
+          description: "Tenant Identifier"
+          default: "Xol4PiCv+fGHX6O9VLHEAchlamGPHWD0m56m/3+gDrPjkNm65Rnb0Q=="
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ""
+              type: "object"
+              x-amf-merge:
+              - $ref: "#/components/schemas/Member"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                example:
+                  Plan:
+                    PlanId: 7
+                    PlanName: "EnvisionRxSecure"
+                    PlanYear: 2020
+                    Pbp: "003"
+                    IsEGWP: false
+                  EnrollmentDate: 1591032930000
+                  ElectionType: "S"
+                  LastName: "Kumar"
+                  Firstname: "Ramesh"
+                  MiddleInitial: "M"
+                  Prefix: "MS."
+                  DateOfBirth: -631088661000
+                  Gender: "M"
+                  Phone: "330-555-1234"
+                  AltPhone: "330-555-1478"
+                  CellPhone: "330-555-1878"
+                  Email: "usmith@example.com"
+                  Address:
+                    Address1: "1400 Millersport Highway"
+                    Address2: ""
+                    City: "Buffalo"
+                    StateCode: "NY"
+                    ZipCode: "14221"
+                  MailingAddress:
+                    Address1: "1400 Millersport Highway"
+                    Address2: ""
+                    City: "Buffalo"
+                    StateCode: "NY"
+                    ZipCode: "14221"
+                  HasEmergencyContact: true
+                  EmergencyContact:
+                    Name: "Ema Contact"
+                    Relationship: "Child"
+                    Phone: "330-555-9999"
+                  MedicareNumber: "4678100PE"
+                  PartAEffDate: 1591032939000
+                  PartBEffDate: 1591032939000
+                  HasOtherCoverage: false
+                  OtherCoverage:
+                    Name: ""
+                    Id: ""
+                    Group: ""
+                  IsLongTermCare: true
+                  Institution:
+                    Name: "Care Center"
+                    Relationship: "Caregiver"
+                    Phone: ""
+                    Address:
+                      Address1: "210 Summerbrook drive"
+                      Address2: ""
+                      City: "Atlanta"
+                      StateCode: "GA"
+                      ZipCode: "30350"
+                  Language: "EN"
+                  LargePrint: false
+                  Audio: false
+                  IsRepresentative: true
+                  Representative:
+                    Name: "Test Name"
+                    Relationship: "Child"
+                    Phone: "330-555-8452"
+                    Address:
+                      Address1: "2181 E Aurora"
+                      Address2: ""
+                      City: "Twinsburg"
+                      StateCode: "OH"
+                      ZipCode: "44087"
+                  HasBroker: true
+                  Broker:
+                    Referral:
+                      FirstName: ""
+                      LastName: ""
+                      Code: ""
+                      Phone: ""
+                  SepReasonId: 14
+                  EnrollmentType: 4
+                  PaymentType: 1
+                  DeductSsa: false
+                  GroupId: ""
+                  IsBroker: false
+                  BrokerAttestation: false
+                  BrokerAttestationType: ""
+                  ApplicationDate: 1589564139000
+                type: "object"
+                x-amf-merge:
+                - $ref: "#/components/schemas/MemberService"
+x-amf-uses:
+  common: "exchange_modules/cc5b37d2-1e82-426d-b07a-e49503aaa954/common-library/1.0.6/common-library.raml"
+  eic: "exchange_modules/cc5b37d2-1e82-426d-b07a-e49503aaa954/eic-library/1.0.1/eic-data-types.raml"
