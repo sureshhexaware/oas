@@ -1,0 +1,667 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: EIC-Admin-Exp-Api
+  description: API description
+servers: 
+  - url: api
+    description: API Server Description
+paths: 
+  /lepAttestations: 
+   get: 
+    operationId: getlepAttestations
+    tags: 
+     - lepAttestations
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/assignedQueryParam'
+     - $ref: '#/components/parameters/completeQueryParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/lepAttestationsgetResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+  /lepAttestation: 
+   post: 
+    operationId: postlepAttestation
+    tags: 
+     - lepAttestation
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/lepAttestationpostResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/LEPAttestationpostResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+  /auditLogByNameId: 
+   get: 
+    operationId: getauditLogByNameId
+    tags: 
+     - auditLogByNameId
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+  /lepAttestationsByMemberId/{memberId}: 
+   get: 
+    operationId: getlepAttestationsByMemberId_memberId
+    tags: 
+     - lepAttestationsByMemberId
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/memberIdParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+  /SSADeductByMemberID/{memberId}: 
+   get: 
+    operationId: getSSADeductByMemberID_memberId
+    tags: 
+     - SSADeductByMemberID
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/SSADeductByMemberIDgetResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+  /lastLogin/{Username}: 
+   get: 
+    operationId: getlastLogin_Username
+    tags: 
+     - lastLogin
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/UsernameParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/lastLogingetResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+  /LEPAttestation/{ID}: 
+   get: 
+    operationId: getLEPAttestation_ID
+    tags: 
+     - LEPAttestation
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/IDParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+  /AddressChangeRequest/{addressChangeID}: 
+   get: 
+    operationId: getAddressChangeRequest_addressChangeID
+    tags: 
+     - AddressChangeRequest
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/addressChangeIDParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+  /AddressChangeRequest/MemberID/{ID}: 
+   get: 
+    operationId: getAddressChangeRequest_MemberID_ID
+    tags: 
+     - AddressChangeRequest
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+  /plan/search: 
+   get: 
+    operationId: getplan_search
+    tags: 
+     - plan
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/plangetResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+  /AddressChangeRequests: 
+   get: 
+    operationId: getAddressChangeRequests
+    tags: 
+     - AddressChangeRequests
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/AddressChangeRequestsgetResponse'
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+  /notetypes: 
+   get: 
+    operationId: getnotetypes
+    tags: 
+     - notetypes
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+     '500': 
+      description: Internal Server Error
+     '404': 
+      description: Not found
+  /PrintRequestExport: 
+   get: 
+    operationId: getPrintRequestExport
+    tags: 
+     - PrintRequestExport
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/PrintRequestExportgetResponse'
+     '500': 
+      description: Internal Server Error
+     '404': 
+      description: Not found
+  /PrintRequestTypes/{Who}: 
+   get: 
+    operationId: getPrintRequestTypes_Who
+    tags: 
+     - PrintRequestTypes
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/WhoParam'
+     - $ref: '#/components/parameters/client_secretParam'
+     - $ref: '#/components/parameters/client_idParam'
+     - $ref: '#/components/parameters/channelidParam'
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/PrintRequestTypesgetResponse'
+     '500': 
+      description: Internal Server Error
+     '404': 
+      description: Not found
+components: 
+  schemas: 
+   loginpostResponse: 
+    type: object
+    properties: 
+     response: 
+      type: string
+   lepAttestationsgetResponse: 
+    type: object
+    properties: 
+     lepAttestationID: 
+      type: string
+   lepAttestationpostResponse: 
+    type: object
+    properties: 
+     lepAttestationID: 
+      type: string
+     lepAttestationID: 
+      type: string
+   SSADeductByMemberIDgetResponse: 
+    type: object
+    properties: 
+     SSADeductID: 
+      type: string
+     ExportDate: 
+      type: string
+     MemberID: 
+      type: string
+     CreatedBy: 
+      type: string
+     NameID: 
+      type: string
+     FirstName: 
+      type: string
+     CreatedDate: 
+      type: string
+     ExportedBy: 
+      type: string
+     LastName: 
+      type: string
+     MedicareID: 
+      type: string
+   LEPAttestationpostResponse: 
+    type: object
+    properties: 
+     lepAttestationID: 
+      type: string
+     lepAttestationID: 
+      type: string
+   lastLogingetResponse: 
+    type: object
+    properties: 
+     success: 
+      type: string
+     ipAddress: 
+      type: string
+     loginDate: 
+      type: string
+     username: 
+      type: string
+   type: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     properties: 
+      type: object
+   Deductible: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   IsEGWP: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   PlanYearStages: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     items: 
+      type: object
+      $ref: '#/components/schemas/items'
+     required: 
+      type: string
+   items: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     type: 
+      type: string
+   PlanId: 
+    type: object
+    properties: 
+     format: 
+      type: string
+     type: 
+      type: string
+   StateName: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   DeductibleDescription: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Deminimis: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Premium: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   PlanName: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   PlanDetails: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     items: 
+      type: object
+      $ref: '#/components/schemas/items'
+     required: 
+      type: string
+   GroupId: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   PbpDescription: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis50: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis75: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   State: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis100: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Lis25: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   PlanYear: 
+    type: object
+    properties: 
+     format: 
+      type: string
+     type: 
+      type: string
+   SkipDeductable: 
+    type: object
+    properties: 
+     type: 
+      type: string
+     required: 
+      type: string
+   Pbp: 
+    type: object
+    properties: 
+     type: 
+      type: string
+   plangetResponse: 
+    type: object
+    properties: 
+     type: 
+      type: object
+      $ref: '#/components/schemas/type'
+   disableLoginpostResponse: 
+    type: object
+    properties: 
+     AdminDisabledUserID: 
+      type: string
+   PrintRequestpostResponse: 
+    type: object
+    properties: 
+     PrintRequestId: 
+      type: string
+   AddressChangeRequestsgetResponse: 
+    type: object
+    properties: 
+     ResponseDetails: 
+      type: string
+   PrintRequestExportgetResponse: 
+    type: object
+    properties: 
+     printRequests: 
+      type: string
+   eventlogpostResponse: 
+    type: object
+    properties: 
+     updateCount1: 
+      type: string
+   PrintRequestTypesgetResponse: 
+    type: object
+    properties: 
+     RequestTypes: 
+      type: string
+  parameters: 
+   TenantIdentifierParam: 
+    in: header
+    name: TenantIdentifier
+    required: false
+    schema: 
+     type: string
+    description: Tenant Identifier
+   client_secretParam: 
+    in: header
+    name: client_secret
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   client_idParam: 
+    in: header
+    name: client_id
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   channelidParam: 
+    in: header
+    name: channelid
+    required: false
+    schema: 
+     type: string
+     format: integer | nil
+    description: Unique Id to determine the Client
+   assignedQueryParam: 
+    in: query
+    name: assignedQuery
+    required: true
+    schema: 
+     type: boolean
+    description: assigned
+   completeQueryParam: 
+    in: query
+    name: completeQuery
+    required: true
+    schema: 
+     type: boolean
+    description: complete
+   memberIdParam: 
+    in: path
+    name: memberId
+    required: true
+    schema: 
+     type: string
+    description: MemberID
+   UsernameParam: 
+    in: path
+    name: Username
+    required: true
+    schema: 
+     type: string
+    description: Username
+   IDParam: 
+    in: path
+    name: ID
+    required: true
+    schema: 
+     type: integer
+    description: LEPAttestationID
+   addressChangeIDParam: 
+    in: path
+    name: addressChangeID
+    required: true
+    schema: 
+     type: number
+    description: addressChangeID
+   WhoParam: 
+    in: path
+    name: Who
+    required: true
+    schema: 
+     type: string
+    description: Who
