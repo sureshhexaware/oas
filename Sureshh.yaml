@@ -1,0 +1,44 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: EIC-Portal-User-papi
+  description: API description
+servers: 
+  - url: api
+    description: API Server Description
+paths: 
+  /user: 
+   put: 
+    operationId: putuser
+    tags: 
+     - user
+    description: Description of path
+    responses: 
+     '200': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+     '500': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+   post: 
+    operationId: postuser
+    tags: 
+     - user
+    description: Description of path
+    responses: 
+     '201': 
+      description: Success
+      content: 
+       application/json: 
+                                                    schema:
+                                                     type: string
+     '500': 
+      description: Success
+      content: 
+       application/json: 
