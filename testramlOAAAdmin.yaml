@@ -1,0 +1,308 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: EIC-Admin-Exp-Api
+  description: API description
+servers: 
+  - url: https://hexapi.example.com
+    description: API Server Description
+paths: 
+  /member/SetGoGreenSubscription: 
+   post: 
+    operationId: post_member_SetGoGreenSubscription_1
+    tags: 
+     - member
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_member_SetGoGreenSubscription_1_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_member_SetGoGreenSubscription_1_200_res'
+     '500': 
+      description: Internal Server Error
+  /member/letters/{nameId}: 
+   get: 
+    operationId: get_member_letters_nameId_2
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/nameIdPathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_member_letters_nameId_2
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_member_letters_nameId_2_200_res'
+     '404': 
+      description: Not found
+     '500': 
+      description: Internal Server Error
+  /member/pbpChange: 
+   post: 
+    operationId: post_member_pbpChange_3
+    tags: 
+     - member
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_member_pbpChange_3_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_member_pbpChange_3_200_res'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_member_pbpChange_3_500_res'
+components: 
+  schemas: 
+   post_member_SetGoGreenSubscription_1_200_res: 
+    type: object
+    properties: 
+     NameId: 
+      type: string
+   post_member_SetGoGreenSubscription_1_req: 
+    type: object
+    properties: 
+     NameId: 
+      type: string
+     ReasonCode: 
+      type: string
+   letters: 
+    type: object
+    properties: 
+     toDoId: 
+      type: string
+     templateType: 
+      type: string
+     templateName: 
+      type: string
+     letterName: 
+      type: string
+     dateScheduled: 
+      type: string
+      format: date-time
+     dateCompleted: 
+      type: string
+      format: date-time
+     resultPrimary: 
+      type: string
+     resultSecondary: 
+      type: string
+   get_member_letters_nameId_2_200_reslettersArray: 
+    type: object
+    properties: 
+     letters: 
+      type: object
+      $ref: '#/components/schemas/letters'
+   get_member_letters_nameId_2_200_res: 
+    type: object
+    properties: 
+     letters: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/get_member_letters_nameId_2_200_reslettersArray'
+   post_member_pbpChange_3_200_res: 
+    type: object
+    properties: 
+     id: 
+      type: string
+     rowsAffected: 
+      type: number
+     lastUpdatedDate: 
+      type: string
+      format: date-time
+     actionSetCount: 
+      type: number
+     nextCardId: 
+      type: string
+     success: 
+      type: boolean
+     statusCode: 
+      type: number
+     actionSetErrors: 
+      type: array
+      items: 
+       type: string
+     errors: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_member_pbpChange_3_200_reserrorsArray'
+     truthTableErrors: 
+      type: array
+      items: 
+       type: string
+     userMessages: 
+      type: array
+      items: 
+       type: string
+   post_member_pbpChange_3_200_resactionSetErrorsArray: 
+    type: object
+    properties: 
+     actionSetErrors: 
+      type: string
+   errors: 
+    type: object
+    properties: 
+     statusCode: 
+      type: string
+     message: 
+      type: string
+     topic: 
+      type: string
+     severityLevel: 
+      type: number
+     severity: 
+      type: string
+   post_member_pbpChange_3_200_reserrorsArray: 
+    type: object
+    properties: 
+     errors: 
+      type: object
+      $ref: '#/components/schemas/errors'
+   post_member_pbpChange_3_200_restruthTableErrorsArray: 
+    type: object
+    properties: 
+     truthTableErrors: 
+      type: string
+   post_member_pbpChange_3_200_resuserMessagesArray: 
+    type: object
+    properties: 
+     userMessages: 
+      type: string
+   post_member_pbpChange_3_500_res: 
+    type: object
+    properties: 
+     nameId: 
+      type: string
+     dateOfBirth: 
+      type: string
+      format: date-time
+     currentPackageId: 
+      type: string
+     effectiveDate: 
+      type: string
+      format: date-time
+     newPackageId: 
+      type: string
+     premiumWithholdType: 
+      type: string
+     signatureDate: 
+      type: string
+      format: date-time
+     receivedDate: 
+      type: string
+      format: date-time
+     electionPeriod: 
+      type: string
+     brokerAttestation: 
+      type: string
+     loginId: 
+      type: string
+   post_member_pbpChange_3_req: 
+    type: object
+    properties: 
+     premiumWithholdType: 
+      type: string
+     nameId: 
+      type: string
+     dateOfBirth: 
+      type: string
+     electionPeriod: 
+      type: string
+     currentPackageId: 
+      type: string
+     newPackageId: 
+      type: string
+     brokerAttestation: 
+      type: string
+     receivedDate: 
+      type: string
+     signatureDate: 
+      type: string
+     effectiveDate: 
+      type: string
+     authorizedRep: 
+      type: object
+      $ref: '#/components/schemas/authorizedRep'
+     loginId: 
+      type: string
+   authorizedRep: 
+    type: object
+    properties: 
+     firstName: 
+      type: string
+     lastName: 
+      type: string
+     relationship: 
+      type: string
+     address1: 
+      type: string
+     address2: 
+      type: string
+     city: 
+      type: string
+     state: 
+      type: string
+     zip: 
+      type: string
+     phoneNumber: 
+      type: string
+  parameters: 
+   TenantIdentifierHeaderParam: 
+    in: header
+    name: TenantIdentifier
+    required: false
+    schema: 
+     type: string
+    description: Tenant Identifier
+   client_idHeaderParam: 
+    in: header
+    name: client_id
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   client_secretHeaderParam: 
+    in: header
+    name: client_secret
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   nameIdPathParam: 
+    in: path
+    name: nameId
+    required: true
+    schema: 
+     type: string
+    description: nameId
