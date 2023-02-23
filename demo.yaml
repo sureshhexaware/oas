@@ -1,0 +1,1083 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: PBMExpress
+  description: <Please add description here>
+servers: 
+  - url: https://localhost:58922/PBMExpress.asmx
+    description: API Server Description
+paths: 
+  /GetPharmacies: 
+   post: 
+    operationId: GetPharmacies
+    tags: 
+     - PBMExpressSoap
+    summary: GetPharmacies
+    description: GetPharmacies
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetPharmaciesSoapIn'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDParam'
+     - $ref: '#/components/parameters/PasswordParam'
+    responses: 
+     '200': 
+      description: <Please add description here>
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetPharmaciesSoapOut'
+  /GetPharmacyByNABP: 
+   post: 
+    operationId: GetPharmacyByNABP
+    tags: 
+     - PBMExpressSoap
+    summary: GetPharmacyByNABP
+    description: GetPharmacyByNABP
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetPharmacyByNABPSoapIn'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDParam'
+     - $ref: '#/components/parameters/PasswordParam'
+    responses: 
+     '200': 
+      description: <Please add description here>
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetPharmacyByNABPSoapOut'
+  /GetPharmaciesByLatLong: 
+   post: 
+    operationId: GetPharmaciesByLatLong
+    tags: 
+     - PBMExpressSoap
+    summary: GetPharmaciesByLatLong
+    description: GetPharmaciesByLatLong
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetPharmaciesByLatLongSoapIn'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDParam'
+     - $ref: '#/components/parameters/PasswordParam'
+    responses: 
+     '200': 
+      description: <Please add description here>
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetPharmaciesByLatLongSoapOut'
+  /GetPharmaciesByLatLongAndMember: 
+   post: 
+    operationId: GetPharmaciesByLatLongAndMember
+    tags: 
+     - PBMExpressSoap
+    summary: GetPharmaciesByLatLongAndMember
+    description: GetPharmaciesByLatLongAndMember
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetPharmaciesByLatLongAndMemberSoapIn'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDParam'
+     - $ref: '#/components/parameters/PasswordParam'
+    responses: 
+     '200': 
+      description: <Please add description here>
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetPharmaciesByLatLongAndMemberSoapOut'
+  /GetDrugPricingByNABP: 
+   post: 
+    operationId: GetDrugPricingByNABP
+    tags: 
+     - PBMExpressSoap
+    summary: GetDrugPricingByNABP
+    description: GetDrugPricingByNABP
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetDrugPricingByNABPSoapIn'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDParam'
+     - $ref: '#/components/parameters/PasswordParam'
+    responses: 
+     '200': 
+      description: <Please add description here>
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetDrugPricingByNABPSoapOut'
+  /GetDrugPricingByZipcode: 
+   post: 
+    operationId: GetDrugPricingByZipcode
+    tags: 
+     - PBMExpressSoap
+    summary: GetDrugPricingByZipcode
+    description: GetDrugPricingByZipcode
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetDrugPricingByZipcodeSoapIn'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDParam'
+     - $ref: '#/components/parameters/PasswordParam'
+    responses: 
+     '200': 
+      description: <Please add description here>
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetDrugPricingByZipcodeSoapOut'
+  /GetDrugPricingByLatLong: 
+   post: 
+    operationId: GetDrugPricingByLatLong
+    tags: 
+     - PBMExpressSoap
+    summary: GetDrugPricingByLatLong
+    description: GetDrugPricingByLatLong
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetDrugPricingByLatLongSoapIn'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDParam'
+     - $ref: '#/components/parameters/PasswordParam'
+    responses: 
+     '200': 
+      description: <Please add description here>
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetDrugPricingByLatLongSoapOut'
+  /GetDrugsByName: 
+   post: 
+    operationId: GetDrugsByName
+    tags: 
+     - PBMExpressSoap
+    summary: GetDrugsByName
+    description: GetDrugsByName
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetDrugsByNameSoapIn'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDParam'
+     - $ref: '#/components/parameters/PasswordParam'
+    responses: 
+     '200': 
+      description: <Please add description here>
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetDrugsByNameSoapOut'
+  /DrugSearchByProdName: 
+   post: 
+    operationId: DrugSearchByProdName
+    tags: 
+     - PBMExpressSoap
+    summary: DrugSearchByProdName
+    description: DrugSearchByProdName
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/DrugSearchByProdNameSoapIn'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDParam'
+     - $ref: '#/components/parameters/PasswordParam'
+    responses: 
+     '200': 
+      description: <Please add description here>
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/DrugSearchByProdNameSoapOut'
+  /GetGenericEquivalentByBrandNDC: 
+   post: 
+    operationId: GetGenericEquivalentByBrandNDC
+    tags: 
+     - PBMExpressSoap
+    summary: GetGenericEquivalentByBrandNDC
+    description: GetGenericEquivalentByBrandNDC
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetGenericEquivalentByBrandNDCSoapIn'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDParam'
+     - $ref: '#/components/parameters/PasswordParam'
+    responses: 
+     '200': 
+      description: <Please add description here>
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetGenericEquivalentByBrandNDCSoapOut'
+  /GetBrandEquivalentByGenericNDC: 
+   post: 
+    operationId: GetBrandEquivalentByGenericNDC
+    tags: 
+     - PBMExpressSoap
+    summary: GetBrandEquivalentByGenericNDC
+    description: GetBrandEquivalentByGenericNDC
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetBrandEquivalentByGenericNDCSoapIn'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDParam'
+     - $ref: '#/components/parameters/PasswordParam'
+    responses: 
+     '200': 
+      description: <Please add description here>
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetBrandEquivalentByGenericNDCSoapOut'
+  /ClaimsHistory: 
+   post: 
+    operationId: ClaimsHistory
+    tags: 
+     - PBMExpressSoap
+    summary: ClaimsHistory
+    description: ClaimsHistory
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ClaimsHistorySoapIn'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDParam'
+     - $ref: '#/components/parameters/PasswordParam'
+    responses: 
+     '200': 
+      description: <Please add description here>
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ClaimsHistorySoapOut'
+  /NetClaimsHistory: 
+   post: 
+    operationId: NetClaimsHistory
+    tags: 
+     - PBMExpressSoap
+    summary: NetClaimsHistory
+    description: NetClaimsHistory
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/NetClaimsHistorySoapIn'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDParam'
+     - $ref: '#/components/parameters/PasswordParam'
+    responses: 
+     '200': 
+      description: <Please add description here>
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/NetClaimsHistorySoapOut'
+  /GetCarrierGroups: 
+   post: 
+    operationId: GetCarrierGroups
+    tags: 
+     - PBMExpressSoap
+    summary: GetCarrierGroups
+    description: GetCarrierGroups
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetCarrierGroupsSoapIn'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDParam'
+     - $ref: '#/components/parameters/PasswordParam'
+    responses: 
+     '200': 
+      description: <Please add description here>
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetCarrierGroupsSoapOut'
+  /GetMemberInformation: 
+   post: 
+    operationId: GetMemberInformation
+    tags: 
+     - PBMExpressSoap
+    summary: GetMemberInformation
+    description: GetMemberInformation
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetMemberInformationSoapIn'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDParam'
+     - $ref: '#/components/parameters/PasswordParam'
+    responses: 
+     '200': 
+      description: <Please add description here>
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/GetMemberInformationSoapOut'
+components: 
+  schemas: 
+   GetPharmaciesSoapIn: 
+    type: object
+    properties: 
+     GetPharmacies: 
+      type: object
+      $ref: '#/components/schemas/GetPharmacies'
+   GetPharmacies: 
+    type: object
+    properties: 
+     PharmacyName: 
+      type: string
+     ZipCode: 
+      type: string
+     CarrierID: 
+      type: string
+     Distance: 
+      type: string
+     MaxPharmacies: 
+      type: integer
+   GetPharmaciesSoapOut: 
+    type: object
+    properties: 
+     GetPharmaciesResponse: 
+      type: object
+      $ref: '#/components/schemas/GetPharmaciesResponse'
+   GetPharmaciesResponse: 
+    type: object
+    properties: 
+     ArrayOfPharmacy: 
+      type: object
+      $ref: '#/components/schemas/ArrayOfPharmacy'
+   ArrayOfPharmacy: 
+    type: object
+    properties: 
+     Pharmacy: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/Pharmacy'
+   Pharmacy: 
+    type: object
+    properties: 
+     PHARMACYNAME: 
+      type: string
+     NABP: 
+      type: string
+     AFFILIATIONCODE: 
+      type: string
+     PHARMADDR1: 
+      type: string
+     PHARMADDR2: 
+      type: string
+     PHARMCITY: 
+      type: string
+     PHARMSTATE: 
+      type: string
+     PHARMZIP: 
+      type: string
+     PHONE: 
+      type: string
+     LATITUDE: 
+      type: number
+     LONGITUDE: 
+      type: number
+     DISTANCE: 
+      type: number
+     DISPTYPE: 
+      type: string
+     DISPCLASS: 
+      type: string
+     ICON: 
+      type: string
+     MONHOURS: 
+      type: string
+     TUEHOURS: 
+      type: string
+     WEDHOURS: 
+      type: string
+     THUHOURS: 
+      type: string
+     FRIHOURS: 
+      type: string
+     SATHOURS: 
+      type: string
+     SUNHOURS: 
+      type: string
+     RETAIL90: 
+      type: boolean
+     VACCINENETWORK: 
+      type: boolean
+     RX90: 
+      type: boolean
+   GetPharmacyByNABPSoapIn: 
+    type: object
+    properties: 
+     GetPharmacyByNABP: 
+      type: object
+      $ref: '#/components/schemas/GetPharmacyByNABP'
+   GetPharmacyByNABP: 
+    type: object
+    properties: 
+     NABP: 
+      type: string
+     CarrierID: 
+      type: string
+   GetPharmacyByNABPSoapOut: 
+    type: object
+    properties: 
+     GetPharmacyByNABPResponse: 
+      type: object
+      $ref: '#/components/schemas/GetPharmacyByNABPResponse'
+   GetPharmacyByNABPResponse: 
+    type: object
+    properties: 
+     Pharmacy: 
+      type: object
+      $ref: '#/components/schemas/Pharmacy'
+   GetPharmaciesByLatLongSoapIn: 
+    type: object
+    properties: 
+     GetPharmaciesByLatLong: 
+      type: object
+      $ref: '#/components/schemas/GetPharmaciesByLatLong'
+   GetPharmaciesByLatLong: 
+    type: object
+    properties: 
+     Latitude: 
+      type: string
+     Longitude: 
+      type: string
+     CarrierID: 
+      type: string
+     Distance: 
+      type: string
+     MaxPharmacies: 
+      type: integer
+   GetPharmaciesByLatLongSoapOut: 
+    type: object
+    properties: 
+     GetPharmaciesByLatLongResponse: 
+      type: object
+      $ref: '#/components/schemas/GetPharmaciesByLatLongResponse'
+   GetPharmaciesByLatLongResponse: 
+    type: object
+    properties: 
+     ArrayOfPharmacy: 
+      type: object
+      $ref: '#/components/schemas/ArrayOfPharmacy'
+   GetPharmaciesByLatLongAndMemberSoapIn: 
+    type: object
+    properties: 
+     GetPharmaciesByLatLongAndMember: 
+      type: object
+      $ref: '#/components/schemas/GetPharmaciesByLatLongAndMember'
+   GetPharmaciesByLatLongAndMember: 
+    type: object
+    properties: 
+     Latitude: 
+      type: string
+     Longitude: 
+      type: string
+     CarrierID: 
+      type: string
+     Distance: 
+      type: string
+     MaxPharmacies: 
+      type: integer
+     MemberID: 
+      type: string
+     PersonCode: 
+      type: string
+   GetPharmaciesByLatLongAndMemberSoapOut: 
+    type: object
+    properties: 
+     GetPharmaciesByLatLongAndMemberResponse: 
+      type: object
+      $ref: '#/components/schemas/GetPharmaciesByLatLongAndMemberResponse'
+   GetPharmaciesByLatLongAndMemberResponse: 
+    type: object
+    properties: 
+     ArrayOfPharmacy: 
+      type: object
+      $ref: '#/components/schemas/ArrayOfPharmacy'
+   GetDrugPricingByNABPSoapIn: 
+    type: object
+    properties: 
+     GetDrugPricingByNABP: 
+      type: object
+      $ref: '#/components/schemas/GetDrugPricingByNABP'
+   GetDrugPricingByNABP: 
+    type: object
+    properties: 
+     NDC: 
+      type: string
+     Qty: 
+      type: number
+     Days: 
+      type: integer
+     NABP: 
+      type: string
+     CarrierID: 
+      type: string
+     GroupID: 
+      type: string
+     MemberID: 
+      type: string
+     PersonCode: 
+      type: string
+     DOB: 
+      type: string
+   GetDrugPricingByNABPSoapOut: 
+    type: object
+    properties: 
+     GetDrugPricingByNABPResponse: 
+      type: object
+      $ref: '#/components/schemas/GetDrugPricingByNABPResponse'
+   GetDrugPricingByNABPResponse: 
+    type: object
+    properties: 
+     AdjResponse: 
+      type: object
+      $ref: '#/components/schemas/AdjResponse'
+   AdjResponse: 
+    type: object
+    properties: 
+     Drug: 
+      type: object
+      $ref: '#/components/schemas/Drug'
+     ArrayOfRxClaim: 
+      type: object
+      $ref: '#/components/schemas/ArrayOfRxClaim'
+   Drug: 
+    type: object
+    properties: 
+     NDCUPCHRI: 
+      type: string
+     ALTNDC: 
+      type: string
+     PRODDESCABBREV: 
+      type: string
+     ALTDRUGNAME: 
+      type: string
+     STRENGTH: 
+      type: string
+     STRENGTHUOM: 
+      type: string
+     MULTISOURCE: 
+      type: string
+     TYPE: 
+      type: string
+     PACKAGESIZE: 
+      type: number
+     PRODNAME: 
+      type: string
+     GPI: 
+      type: string
+     DOSAGEFORM: 
+      type: string
+     FORMDESCRIPTION: 
+      type: string
+     QTYTYPE: 
+      type: string
+     OTC: 
+      type: boolean
+     INGREDIENT: 
+      type: boolean
+     USESTRENGTH: 
+      type: boolean
+     MAINTDRUGCODE: 
+      type: boolean
+   ArrayOfRxClaim: 
+    type: object
+    properties: 
+     RxClaim: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/RxClaim'
+   RxClaim: 
+    type: object
+    properties: 
+     Response: 
+      type: object
+      $ref: '#/components/schemas/Response'
+     DrugCost: 
+      type: object
+      $ref: '#/components/schemas/DrugCost'
+     Pharmacy: 
+      type: object
+      $ref: '#/components/schemas/Pharmacy'
+   Response: 
+    type: object
+    properties: 
+     Status: 
+      type: string
+     Message: 
+      type: string
+   DrugCost: 
+    type: object
+    properties: 
+     Copay: 
+      type: string
+     PlanPay: 
+      type: string
+     UNCPrice: 
+      type: string
+   GetDrugPricingByZipcodeSoapIn: 
+    type: object
+    properties: 
+     GetDrugPricingByZipcode: 
+      type: object
+      $ref: '#/components/schemas/GetDrugPricingByZipcode'
+   GetDrugPricingByZipcode: 
+    type: object
+    properties: 
+     NDC: 
+      type: string
+     Qty: 
+      type: number
+     Days: 
+      type: integer
+     ZipCode: 
+      type: string
+     CarrierID: 
+      type: string
+     GroupID: 
+      type: string
+     Distance: 
+      type: string
+     MaxPharmacies: 
+      type: integer
+   GetDrugPricingByZipcodeSoapOut: 
+    type: object
+    properties: 
+     GetDrugPricingByZipcodeResponse: 
+      type: object
+      $ref: '#/components/schemas/GetDrugPricingByZipcodeResponse'
+   GetDrugPricingByZipcodeResponse: 
+    type: object
+    properties: 
+     AdjResponse: 
+      type: object
+      $ref: '#/components/schemas/AdjResponse'
+   GetDrugPricingByLatLongSoapIn: 
+    type: object
+    properties: 
+     GetDrugPricingByLatLong: 
+      type: object
+      $ref: '#/components/schemas/GetDrugPricingByLatLong'
+   GetDrugPricingByLatLong: 
+    type: object
+    properties: 
+     NDC: 
+      type: string
+     Qty: 
+      type: number
+     Days: 
+      type: integer
+     Latitude: 
+      type: string
+     Longitude: 
+      type: string
+     CarrierID: 
+      type: string
+     GroupID: 
+      type: string
+     Distance: 
+      type: string
+     MaxPharmacies: 
+      type: integer
+   GetDrugPricingByLatLongSoapOut: 
+    type: object
+    properties: 
+     GetDrugPricingByLatLongResponse: 
+      type: object
+      $ref: '#/components/schemas/GetDrugPricingByLatLongResponse'
+   GetDrugPricingByLatLongResponse: 
+    type: object
+    properties: 
+     AdjResponse: 
+      type: object
+      $ref: '#/components/schemas/AdjResponse'
+   GetDrugsByNameSoapIn: 
+    type: object
+    properties: 
+     GetDrugsByName: 
+      type: object
+      $ref: '#/components/schemas/GetDrugsByName'
+   GetDrugsByName: 
+    type: object
+    properties: 
+     CarrierID: 
+      type: string
+     DrugName: 
+      type: string
+   GetDrugsByNameSoapOut: 
+    type: object
+    properties: 
+     GetDrugsByNameResponse: 
+      type: object
+      $ref: '#/components/schemas/GetDrugsByNameResponse'
+   GetDrugsByNameResponse: 
+    type: object
+    properties: 
+     ArrayOfDrug: 
+      type: object
+      $ref: '#/components/schemas/ArrayOfDrug'
+   ArrayOfDrug: 
+    type: object
+    properties: 
+     Drug: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/Drug'
+   DrugSearchByProdNameSoapIn: 
+    type: object
+    properties: 
+     DrugSearchByProdName: 
+      type: object
+      $ref: '#/components/schemas/DrugSearchByProdName'
+   DrugSearchByProdName: 
+    type: object
+    properties: 
+     CarrierID: 
+      type: string
+     ProductName: 
+      type: string
+     SearchType: 
+      type: string
+      description: <Please add string Description here>
+      format: string
+      minLength: 0
+      maxLength: 10
+      default: <Please add string default value here>
+      example: <Please add string example value here>
+      pattern: <Please add string pattern here>
+   DrugSearchByProdNameSoapOut: 
+    type: object
+    properties: 
+     DrugSearchByProdNameResponse: 
+      type: object
+      $ref: '#/components/schemas/DrugSearchByProdNameResponse'
+   DrugSearchByProdNameResponse: 
+    type: object
+    properties: 
+     ArrayOfDrug: 
+      type: object
+      $ref: '#/components/schemas/ArrayOfDrug'
+   GetGenericEquivalentByBrandNDCSoapIn: 
+    type: object
+    properties: 
+     GetGenericEquivalentByBrandNDC: 
+      type: object
+      $ref: '#/components/schemas/GetGenericEquivalentByBrandNDC'
+   GetGenericEquivalentByBrandNDC: 
+    type: object
+    properties: 
+     CarrierID: 
+      type: string
+     NDC: 
+      type: string
+   GetGenericEquivalentByBrandNDCSoapOut: 
+    type: object
+    properties: 
+     GetGenericEquivalentByBrandNDCResponse: 
+      type: object
+      $ref: '#/components/schemas/GetGenericEquivalentByBrandNDCResponse'
+   GetGenericEquivalentByBrandNDCResponse: 
+    type: object
+    properties: 
+     Drug: 
+      type: object
+      $ref: '#/components/schemas/Drug'
+   GetBrandEquivalentByGenericNDCSoapIn: 
+    type: object
+    properties: 
+     GetBrandEquivalentByGenericNDC: 
+      type: object
+      $ref: '#/components/schemas/GetBrandEquivalentByGenericNDC'
+   GetBrandEquivalentByGenericNDC: 
+    type: object
+    properties: 
+     CarrierID: 
+      type: string
+     NDC: 
+      type: string
+   GetBrandEquivalentByGenericNDCSoapOut: 
+    type: object
+    properties: 
+     GetBrandEquivalentByGenericNDCResponse: 
+      type: object
+      $ref: '#/components/schemas/GetBrandEquivalentByGenericNDCResponse'
+   GetBrandEquivalentByGenericNDCResponse: 
+    type: object
+    properties: 
+     Drug: 
+      type: object
+      $ref: '#/components/schemas/Drug'
+   ClaimsHistorySoapIn: 
+    type: object
+    properties: 
+     ClaimsHistory: 
+      type: object
+      $ref: '#/components/schemas/ClaimsHistory'
+   ClaimsHistory: 
+    type: object
+    properties: 
+     CarrierID: 
+      type: string
+     GroupID: 
+      type: string
+     MemberID: 
+      type: string
+     PersonCode: 
+      type: integer
+     StartDate: 
+      type: string
+     EndDate: 
+      type: string
+   ClaimsHistorySoapOut: 
+    type: object
+    properties: 
+     ClaimsHistoryResponse: 
+      type: object
+      $ref: '#/components/schemas/ClaimsHistoryResponse'
+   ClaimsHistoryResponse: 
+    type: object
+    properties: 
+     ArrayOfClaim: 
+      type: object
+      $ref: '#/components/schemas/ArrayOfClaim'
+   ArrayOfClaim: 
+    type: object
+    properties: 
+     Claim: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/Claim'
+   Claim: 
+    type: object
+    properties: 
+     Drug: 
+      type: object
+      $ref: '#/components/schemas/Drug'
+     RxNumber: 
+      type: number
+     FillDate: 
+      type: string
+     Quantity: 
+      type: number
+     DaysSupply: 
+      type: number
+     PrescriberID: 
+      type: string
+     PrescriberName: 
+      type: string
+     PharmacyID: 
+      type: string
+     PharmacyName: 
+      type: string
+     PharmacyType: 
+      type: string
+     PharmacyZip: 
+      type: string
+     PlanPaid: 
+      type: number
+     OutOfPocket: 
+      type: number
+     Deductible: 
+      type: number
+     MemberPaid: 
+      type: number
+     TotalPrice: 
+      type: number
+     DAW: 
+      type: string
+     Reversed: 
+      type: boolean
+     Refillable: 
+      type: boolean
+   NetClaimsHistorySoapIn: 
+    type: object
+    properties: 
+     NetClaimsHistory: 
+      type: object
+      $ref: '#/components/schemas/NetClaimsHistory'
+   NetClaimsHistory: 
+    type: object
+    properties: 
+     CarrierID: 
+      type: string
+     GroupID: 
+      type: string
+     MemberID: 
+      type: string
+     PersonCode: 
+      type: integer
+     StartDate: 
+      type: string
+     EndDate: 
+      type: string
+   NetClaimsHistorySoapOut: 
+    type: object
+    properties: 
+     NetClaimsHistoryResponse: 
+      type: object
+      $ref: '#/components/schemas/NetClaimsHistoryResponse'
+   NetClaimsHistoryResponse: 
+    type: object
+    properties: 
+     ArrayOfClaim: 
+      type: object
+      $ref: '#/components/schemas/ArrayOfClaim'
+   GetCarrierGroupsSoapIn: 
+    type: object
+    properties: 
+     GetCarrierGroups: 
+      type: object
+      $ref: '#/components/schemas/GetCarrierGroups'
+   GetCarrierGroups: 
+    type: object
+    properties: 
+     CarrierID: 
+      type: string
+   GetCarrierGroupsSoapOut: 
+    type: object
+    properties: 
+     GetCarrierGroupsResponse: 
+      type: object
+      $ref: '#/components/schemas/GetCarrierGroupsResponse'
+   GetCarrierGroupsResponse: 
+    type: object
+    properties: 
+     Carrier: 
+      type: object
+      $ref: '#/components/schemas/Carrier'
+   Carrier: 
+    type: object
+    properties: 
+     CARRIERCODE: 
+      type: string
+     CARRIERNAME: 
+      type: string
+     ArrayOfGroups: 
+      type: object
+      $ref: '#/components/schemas/ArrayOfGroups'
+   ArrayOfGroups: 
+    type: object
+    properties: 
+     Groups: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/Groups'
+   Groups: 
+    type: object
+    properties: 
+     GROUPNUM: 
+      type: string
+     GROUPNAME: 
+      type: string
+     STARTDATE: 
+      type: string
+     TERMINATIONDATE: 
+      type: string
+   GetMemberInformationSoapIn: 
+    type: object
+    properties: 
+     GetMemberInformation: 
+      type: object
+      $ref: '#/components/schemas/GetMemberInformation'
+   GetMemberInformation: 
+    type: object
+    properties: 
+     MemberID: 
+      type: string
+     PersonCode: 
+      type: string
+     CarrierID: 
+      type: string
+   GetMemberInformationSoapOut: 
+    type: object
+    properties: 
+     GetMemberInformationResponse: 
+      type: object
+      $ref: '#/components/schemas/GetMemberInformationResponse'
+   GetMemberInformationResponse: 
+    type: object
+    properties: 
+     Member: 
+      type: object
+      $ref: '#/components/schemas/Member'
+   Member: 
+    type: object
+    properties: 
+     MemberID: 
+      type: string
+     PersonCode: 
+      type: integer
+     FirstName: 
+      type: string
+     LastName: 
+      type: string
+     DOB: 
+      type: string
+     Gender: 
+      type: string
+     RelationID: 
+      type: integer
+     GroupID: 
+      type: string
+     Carrier: 
+      type: string
+     ZipCode: 
+      type: string
+  parameters: 
+   UserIDParam: 
+    in: header
+    name: UserID
+    required: true
+    schema: 
+     type: string
+    description: <Please add description here>
+   PasswordParam: 
+    in: header
+    name: Password
+    required: true
+    schema: 
+     type: string
+    description: <Please add description here>
