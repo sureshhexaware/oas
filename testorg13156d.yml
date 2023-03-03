@@ -1,0 +1,2916 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: ts-mdm-sys
+  description: MDM System API
+servers: 
+  - url: https://hexapi.example.com
+    description: API Server Description
+paths: 
+  /Search: 
+   post: 
+    operationId: post_Search_1
+    tags: 
+     - Search
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Search_1_req'
+    parameters: 
+     - $ref: '#/components/parameters/messageidHeaderParam'
+    responses: 
+     '200': 
+      description: post_Search_1
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Search_1_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Search_1_400_res'
+     '404': 
+      description: resource not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Search_1_404_res'
+     '500': 
+      description: internal server error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Search_1_500_res'
+  /Export: 
+   post: 
+    operationId: post_Export_2
+    tags: 
+     - Export
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Export_2_req'
+    parameters: 
+     - $ref: '#/components/parameters/entityTypeQueryParam'
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_Export_2
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Export_2_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Export_2_400_res'
+     '404': 
+      description: resource not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Export_2_404_res'
+     '500': 
+      description: internal server error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Export_2_500_res'
+  /Export/{TaskId}: 
+   post: 
+    operationId: post_Export_TaskId_3
+    tags: 
+     - Export
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Export_TaskId_3_req'
+    parameters: 
+     - $ref: '#/components/parameters/TaskIdPathParam'
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_Export_TaskId_3
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Export_TaskId_3_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Export_TaskId_3_400_res'
+     '500': 
+      description: Server-side issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Export_TaskId_3_500_res'
+  /CrossWalk/entities/{entityURI}: 
+   post: 
+    operationId: post_CrossWalk_entities_entityURI_4
+    tags: 
+     - CrossWalk
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CrossWalk_entities_entityURI_4_req'
+    parameters: 
+     - $ref: '#/components/parameters/entityURIPathParam'
+     - $ref: '#/components/parameters/sfdcIdQueryParam'
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_CrossWalk_entities_entityURI_4
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CrossWalk_entities_entityURI_4_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CrossWalk_entities_entityURI_4_400_res'
+     '500': 
+      description: Server-side issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CrossWalk_entities_entityURI_4_500_res'
+  /CrossWalk/relations/{entityURI}: 
+   post: 
+    operationId: post_CrossWalk_relations_entityURI_5
+    tags: 
+     - CrossWalk
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CrossWalk_relations_entityURI_5_req'
+    parameters: 
+     - $ref: '#/components/parameters/entityURIPathParam'
+     - $ref: '#/components/parameters/sfdcIdQueryParam'
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_CrossWalk_relations_entityURI_5
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CrossWalk_relations_entityURI_5_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CrossWalk_relations_entityURI_5_400_res'
+     '500': 
+      description: Server-side issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CrossWalk_relations_entityURI_5_500_res'
+  /SubscriptionFlag/{entityUri}: 
+   post: 
+    operationId: post_SubscriptionFlag_entityUri_6
+    tags: 
+     - SubscriptionFlag
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_SubscriptionFlag_entityUri_6_req'
+    parameters: 
+     - $ref: '#/components/parameters/entityUriPathParam'
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_SubscriptionFlag_entityUri_6
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_SubscriptionFlag_entityUri_6_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_SubscriptionFlag_entityUri_6_400_res'
+     '500': 
+      description: Server-side issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_SubscriptionFlag_entityUri_6_500_res'
+  /GetDetails/entities: 
+   post: 
+    operationId: post_GetDetails_entities_7
+    tags: 
+     - GetDetails
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_GetDetails_entities_7_req'
+    parameters: 
+     - $ref: '#/components/parameters/ovOnlyQueryParam'
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_GetDetails_entities_7
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/post_GetDetails_entities_7_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_GetDetails_entities_7_400_res'
+     '500': 
+      description: Server-side issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_GetDetails_entities_7_500_res'
+  /GetDetails/entities/{entityUri}: 
+   post: 
+    operationId: post_GetDetails_entities_entityUri_8
+    tags: 
+     - GetDetails
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_GetDetails_entities_entityUri_8_req'
+    parameters: 
+     - $ref: '#/components/parameters/entityUriPathParam'
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_GetDetails_entities_entityUri_8
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_GetDetails_entities_entityUri_8_400_res'
+     '500': 
+      description: Server-side issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_GetDetails_entities_entityUri_8_500_res'
+  /GetDetails/entities/searchByUris: 
+   post: 
+    operationId: post_GetDetails_entities_searchByUris_9
+    tags: 
+     - GetDetails
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_GetDetails_entities_searchByUris_9_req'
+    parameters: 
+     - $ref: '#/components/parameters/ovOnlyQueryParam'
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_GetDetails_entities_searchByUris_9
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/post_GetDetails_entities_searchByUris_9_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_GetDetails_entities_searchByUris_9_400_res'
+     '500': 
+      description: Server-side issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_GetDetails_entities_searchByUris_9_500_res'
+  /GetDetails/relations: 
+   post: 
+    operationId: post_GetDetails_relations_10
+    tags: 
+     - GetDetails
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_GetDetails_relations_10_req'
+    parameters: 
+     - $ref: '#/components/parameters/ovOnlyQueryParam'
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_GetDetails_relations_10
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_GetDetails_relations_10_400_res'
+     '500': 
+      description: Server-side issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_GetDetails_relations_10_500_res'
+  /GetDetails/relations/{relationUri}: 
+   post: 
+    operationId: post_GetDetails_relations_relationUri_11
+    tags: 
+     - GetDetails
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_GetDetails_relations_relationUri_11_req'
+    parameters: 
+     - $ref: '#/components/parameters/relationUriPathParam'
+     - $ref: '#/components/parameters/ovOnlyQueryParam'
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_GetDetails_relations_relationUri_11
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_GetDetails_relations_relationUri_11_400_res'
+     '500': 
+      description: Server-side issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_GetDetails_relations_relationUri_11_500_res'
+  /Merge: 
+   post: 
+    operationId: post_Merge_12
+    tags: 
+     - Merge
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Merge_12_req'
+    parameters: 
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_Merge_12
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Merge_12_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Merge_12_400_res'
+     '404': 
+      description: resource not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Merge_12_404_res'
+     '500': 
+      description: internal server error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Merge_12_500_res'
+  /UpdateEntities: 
+   post: 
+    operationId: post_UpdateEntities_13
+    tags: 
+     - UpdateEntities
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_UpdateEntities_13_req'
+    parameters: 
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_UpdateEntities_13
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_UpdateEntities_13_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_UpdateEntities_13_400_res'
+     '404': 
+      description: resource not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_UpdateEntities_13_404_res'
+     '500': 
+      description: internal server error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_UpdateEntities_13_500_res'
+  /CreateEntities: 
+   post: 
+    operationId: post_CreateEntities_14
+    tags: 
+     - CreateEntities
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CreateEntities_14_req'
+    parameters: 
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_CreateEntities_14
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CreateEntities_14_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CreateEntities_14_400_res'
+     '404': 
+      description: resource not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CreateEntities_14_404_res'
+     '500': 
+      description: internal server error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CreateEntities_14_500_res'
+  /DCRStatus/{DCRUri}: 
+   post: 
+    operationId: post_DCRStatus_DCRUri_15
+    tags: 
+     - DCRStatus
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_DCRStatus_DCRUri_15_req'
+    parameters: 
+     - $ref: '#/components/parameters/DCRUriPathParam'
+     - $ref: '#/components/parameters/DCROperationTypeQueryParam'
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+     - $ref: '#/components/parameters/crosswalkIdHeaderParam'
+    responses: 
+     '200': 
+      description: post_DCRStatus_DCRUri_15
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_DCRStatus_DCRUri_15_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_DCRStatus_DCRUri_15_400_res'
+     '500': 
+      description: Server-side issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_DCRStatus_DCRUri_15_500_res'
+  /DCRInitiateStatus/{DCRUri}: 
+   post: 
+    operationId: post_DCRInitiateStatus_DCRUri_16
+    tags: 
+     - DCRInitiateStatus
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_DCRInitiateStatus_DCRUri_16_req'
+    parameters: 
+     - $ref: '#/components/parameters/DCRUriPathParam'
+    responses: 
+     '200': 
+      description: post_DCRInitiateStatus_DCRUri_16
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_DCRInitiateStatus_DCRUri_16_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_DCRInitiateStatus_DCRUri_16_400_res'
+     '500': 
+      description: Server-side issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_DCRInitiateStatus_DCRUri_16_500_res'
+  /CreateRelation: 
+   post: 
+    operationId: post_CreateRelation_17
+    tags: 
+     - CreateRelation
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CreateRelation_17_req'
+    parameters: 
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_CreateRelation_17
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CreateRelation_17_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CreateRelation_17_400_res'
+     '404': 
+      description: resource not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CreateRelation_17_404_res'
+     '500': 
+      description: internal server error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CreateRelation_17_500_res'
+  /SearchEvent: 
+   post: 
+    operationId: post_SearchEvent_18
+    tags: 
+     - SearchEvent
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_SearchEvent_18_req'
+    parameters: 
+     - $ref: '#/components/parameters/dataEntityUriQueryParam'
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_SearchEvent_18
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_SearchEvent_18_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_SearchEvent_18_400_res'
+     '500': 
+      description: Server-side issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_SearchEvent_18_500_res'
+  /DCRComments/{DCRUri}: 
+   post: 
+    operationId: post_DCRComments_DCRUri_19
+    tags: 
+     - DCRComments
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_DCRComments_DCRUri_19_req'
+    parameters: 
+     - $ref: '#/components/parameters/DCRUriPathParam'
+     - $ref: '#/components/parameters/taskFlagQueryParam'
+     - $ref: '#/components/parameters/messageidHeaderParam'
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_DCRComments_DCRUri_19
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_DCRComments_DCRUri_19_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_DCRComments_DCRUri_19_400_res'
+     '404': 
+      description: resource not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_DCRComments_DCRUri_19_404_res'
+     '500': 
+      description: internal server error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_DCRComments_DCRUri_19_500_res'
+  /HealthCheck: 
+   get: 
+    operationId: get_HealthCheck_20
+    tags: 
+     - HealthCheck
+    description: Description of path
+    responses: 
+     '200': 
+      description: get_HealthCheck_20
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_HealthCheck_20_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_HealthCheck_20_400_res'
+     '500': 
+      description: Server issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_HealthCheck_20_500_res'
+  /CLSDataLoad: 
+   post: 
+    operationId: post_CLSDataLoad_21
+    tags: 
+     - CLSDataLoad
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CLSDataLoad_21_req'
+    parameters: 
+     - $ref: '#/components/parameters/tenantIdHeaderParam'
+     - $ref: '#/components/parameters/jobIdHeaderParam'
+     - $ref: '#/components/parameters/transactionIdHeaderParam'
+     - $ref: '#/components/parameters/targetCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceCodeHeaderParam'
+     - $ref: '#/components/parameters/sourceNameHeaderParam'
+     - $ref: '#/components/parameters/entityDomainCodeHeaderParam'
+     - $ref: '#/components/parameters/entityTypeHeaderParam'
+     - $ref: '#/components/parameters/idlFlagHeaderParam'
+     - $ref: '#/components/parameters/countryCodeHeaderParam'
+     - $ref: '#/components/parameters/dcrStatusFlagHeaderParam'
+    responses: 
+     '200': 
+      description: post_CLSDataLoad_21
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CLSDataLoad_21_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CLSDataLoad_21_400_res'
+     '404': 
+      description: resource not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CLSDataLoad_21_404_res'
+     '500': 
+      description: internal server error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CLSDataLoad_21_500_res'
+  /resetCache: 
+   patch: 
+    operationId: patch_resetCache_22
+    tags: 
+     - resetCache
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/patch_resetCache_22_req'
+    parameters: 
+     - $ref: '#/components/parameters/patch_resetCache_22_reqParam'
+     - $ref: '#/components/parameters/messageidHeaderParam'
+    responses: 
+     '200': 
+      description: Cache Cleared
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/patch_resetCache_22_200_res'
+     '400': 
+      description: Bad Request
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_resetCache_22_400_res'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_resetCache_22_404_res'
+     '405': 
+      description: Method Not Allowed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_resetCache_22_405_res'
+     '406': 
+      description: Not Acceptable
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_resetCache_22_406_res'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_resetCache_22_500_res'
+  /internal/resetCache: 
+   patch: 
+    operationId: patch_internal_resetCache_23
+    tags: 
+     - internal
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/patch_internal_resetCache_23_req'
+    parameters: 
+     - $ref: '#/components/parameters/patch_internal_resetCache_23_reqParam'
+     - $ref: '#/components/parameters/messageidHeaderParam'
+    responses: 
+     '200': 
+      description: Cache Cleared
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/patch_internal_resetCache_23_200_res'
+     '400': 
+      description: Bad Request
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_internal_resetCache_23_400_res'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_internal_resetCache_23_404_res'
+     '405': 
+      description: Method Not Allowed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_internal_resetCache_23_405_res'
+     '406': 
+      description: Not Acceptable
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_internal_resetCache_23_406_res'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_internal_resetCache_23_500_res'
+  /CheckCertificationExpiry: 
+   get: 
+    operationId: get_CheckCertificationExpiry_24
+    tags: 
+     - CheckCertificationExpiry
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/messageidHeaderParam'
+    responses: 
+     '200': 
+      description: get_CheckCertificationExpiry_24
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_CheckCertificationExpiry_24_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_CheckCertificationExpiry_24_400_res'
+     '500': 
+      description: Server issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_CheckCertificationExpiry_24_500_res'
+components: 
+  schemas: 
+   value: 
+    title : value
+    type: object
+    properties: 
+     uri: 
+      type: string
+     type: 
+      type: string
+     createdBy: 
+      type: string
+     updatedBy: 
+      type: string
+     attributes: 
+      type: object
+      $ref: '#/components/schemas/attributes'
+     isFavorite: 
+      type: boolean
+     crosswalks: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/valuecrosswalksArray'
+     analyticsAttributes: 
+      type: object
+     label: 
+      type: string
+     secondaryLabel: 
+      type: string
+   Country: 
+    title : Country
+    type: object
+    properties: 
+     type: 
+      type: string
+     ov: 
+      type: boolean
+     value: 
+      type: string
+     lookupCode: 
+      type: string
+     lookupRawValue: 
+      type: string
+     uri: 
+      type: string
+   attributesCountryArray: 
+    title : attributesCountryArray
+    type: object
+    properties: 
+     Country: 
+      type: object
+      $ref: '#/components/schemas/Country'
+   attributes: 
+    title : attributes
+    type: object
+    properties: 
+     Country: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/attributesCountryArray'
+     FirstName: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/attributesFirstNameArray'
+     LastName: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/attributesLastNameArray'
+     MiddleName: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/attributesMiddleNameArray'
+     Gender: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/attributesGenderArray'
+     StatusIMS: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/attributesStatusIMSArray'
+     SourceCreationDate: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/attributesSourceCreationDateArray'
+     SourceName: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/attributesSourceNameArray'
+   FirstName: 
+    title : FirstName
+    type: object
+    properties: 
+     type: 
+      type: string
+     ov: 
+      type: boolean
+     value: 
+      type: string
+     uri: 
+      type: string
+   attributesFirstNameArray: 
+    title : attributesFirstNameArray
+    type: object
+    properties: 
+     FirstName: 
+      type: object
+      $ref: '#/components/schemas/FirstName'
+   LastName: 
+    title : LastName
+    type: object
+    properties: 
+     type: 
+      type: string
+     ov: 
+      type: boolean
+     value: 
+      type: string
+     uri: 
+      type: string
+   attributesLastNameArray: 
+    title : attributesLastNameArray
+    type: object
+    properties: 
+     LastName: 
+      type: object
+      $ref: '#/components/schemas/LastName'
+   MiddleName: 
+    title : MiddleName
+    type: object
+    properties: 
+     type: 
+      type: string
+     ov: 
+      type: boolean
+     value: 
+      type: string
+     uri: 
+      type: string
+   attributesMiddleNameArray: 
+    title : attributesMiddleNameArray
+    type: object
+    properties: 
+     MiddleName: 
+      type: object
+      $ref: '#/components/schemas/MiddleName'
+   Gender: 
+    title : Gender
+    type: object
+    properties: 
+     type: 
+      type: string
+     ov: 
+      type: boolean
+     value: 
+      type: string
+     lookupCode: 
+      type: string
+     lookupRawValue: 
+      type: string
+     uri: 
+      type: string
+   attributesGenderArray: 
+    title : attributesGenderArray
+    type: object
+    properties: 
+     Gender: 
+      type: object
+      $ref: '#/components/schemas/Gender'
+   StatusIMS: 
+    title : StatusIMS
+    type: object
+    properties: 
+     type: 
+      type: string
+     ov: 
+      type: boolean
+     value: 
+      type: string
+     lookupCode: 
+      type: string
+     lookupRawValue: 
+      type: string
+     uri: 
+      type: string
+   attributesStatusIMSArray: 
+    title : attributesStatusIMSArray
+    type: object
+    properties: 
+     StatusIMS: 
+      type: object
+      $ref: '#/components/schemas/StatusIMS'
+   SourceCreationDate: 
+    title : SourceCreationDate
+    type: object
+    properties: 
+     type: 
+      type: string
+     ov: 
+      type: boolean
+     value: 
+      type: string
+      format: date-time
+     uri: 
+      type: string
+   attributesSourceCreationDateArray: 
+    title : attributesSourceCreationDateArray
+    type: object
+    properties: 
+     SourceCreationDate: 
+      type: object
+      $ref: '#/components/schemas/SourceCreationDate'
+   SourceName: 
+    title : SourceName
+    type: object
+    properties: 
+     type: 
+      type: string
+     ov: 
+      type: boolean
+     value: 
+      type: string
+     uri: 
+      type: string
+   attributesSourceNameArray: 
+    title : attributesSourceNameArray
+    type: object
+    properties: 
+     SourceName: 
+      type: object
+      $ref: '#/components/schemas/SourceName'
+   crosswalks: 
+    title : crosswalks
+    type: object
+    properties: 
+     uri: 
+      type: string
+     type: 
+      type: string
+     value: 
+      type: string
+     reltioLoadDate: 
+      type: string
+      format: date-time
+     createDate: 
+      type: string
+      format: date-time
+     updateDate: 
+      type: string
+      format: date-time
+     attributes: 
+      type: array
+      items: 
+       type: string
+     singleAttributeUpdateDates: 
+      type: object
+   crosswalksattributesArray: 
+    title : crosswalksattributesArray
+    type: object
+    properties: 
+     attributes: 
+      type: string
+   valuecrosswalksArray: 
+    title : valuecrosswalksArray
+    type: object
+    properties: 
+     crosswalks: 
+      type: object
+      $ref: '#/components/schemas/crosswalks'
+   post_Search_1_200_resvalueArray: 
+    title : post_Search_1_200_resvalueArray
+    type: object
+    properties: 
+     value: 
+      type: object
+      $ref: '#/components/schemas/value'
+   post_Search_1_200_res: 
+    title : post_Search_1_200_res
+    type: object
+    properties: 
+     value: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_Search_1_200_resvalueArray'
+   post_Search_1_400_res: 
+    title : post_Search_1_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   error: 
+    title : error
+    type: object
+    properties: 
+     code: 
+      type: integer
+     message: 
+      type: string
+     errors: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/errorerrorsArray'
+   errorerrorsArray: 
+    title : errorerrorsArray
+    type: object
+    properties: 
+     domain: 
+      type: string
+     reason: 
+      type: string
+     message: 
+      type: string
+     location: 
+      type: string
+     locationType: 
+      type: string
+     extendedHelp: 
+      type: string
+     transactionId: 
+      type: string
+   post_Search_1_404_res: 
+    title : post_Search_1_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_Search_1_500_res: 
+    title : post_Search_1_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   Filter: 
+    title : Filter
+    type: object
+    properties: 
+     entityType: 
+      type: string
+     ID: 
+      type: string
+     FirstName: 
+      type: string
+     LastName: 
+      type: string
+     MiddleName: 
+      type: string
+     Gender: 
+      type: string
+     Name: 
+      type: string
+     ProfessionCode: 
+      type: string
+     AddressLine1: 
+      type: string
+     Country: 
+      type: string
+     Specialty: 
+      type: string
+     Offset: 
+      type: integer
+     ExpectedLimit: 
+      type: integer
+     Street: 
+      type: string
+     City: 
+      type: string
+     Zip: 
+      type: string
+     StateProvince: 
+      type: string
+     Phone: 
+      type: string
+     SpecialtyType: 
+      type: string
+     ClassofTradeN: 
+      type: string
+     CorpParentName: 
+      type: string
+     SourceCreationDate: 
+      type: string
+     SourceName: 
+      type: string
+     License: 
+      type: string
+     OwnershipStatus: 
+      type: string
+   post_Search_1_req: 
+    title : post_Search_1_req
+    type: object
+    properties: 
+     Filter: 
+      type: object
+      $ref: '#/components/schemas/Filter'
+     Config: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_Search_1_reqConfigArray'
+   post_Search_1_reqConfigArray: 
+    title : post_Search_1_reqConfigArray
+    type: object
+    properties: 
+     credentials: 
+      type: string
+   post_Export_2_200_res: 
+    title : post_Export_2_200_res
+    type: object
+    properties: 
+     groupId: 
+      type: string
+     exportType: 
+      type: string
+     version: 
+      type: string
+     status: 
+      type: string
+     details: 
+      type: string
+     taskIds: 
+      type: array
+      items: 
+       type: string
+   post_Export_2_400_res: 
+    title : post_Export_2_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_Export_2_404_res: 
+    title : post_Export_2_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_Export_2_500_res: 
+    title : post_Export_2_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   s3BucketDetails: 
+    title : s3BucketDetails
+    type: object
+    properties: 
+     s3Path: 
+      type: string
+   post_Export_2_req: 
+    title : post_Export_2_req
+    type: object
+    properties: 
+     s3BucketDetails: 
+      type: object
+      $ref: '#/components/schemas/s3BucketDetails'
+     ExportDetails: 
+      type: object
+      $ref: '#/components/schemas/ExportDetails'
+     Config: 
+      type: object
+      $ref: '#/components/schemas/Config'
+   ExportDetails: 
+    title : ExportDetails
+    type: object
+    properties: 
+     ovOnly: 
+      type: boolean
+     updateTimeFilter: 
+      type: object
+      $ref: '#/components/schemas/updateTimeFilter'
+   updateTimeFilter: 
+    title : updateTimeFilter
+    type: object
+    properties: 
+     since: 
+      type: string
+     to: 
+      type: string
+   Config: 
+    title : Config
+    type: object
+    properties: 
+     credentials: 
+      type: string
+   post_Export_TaskId_3_200_res: 
+    title : post_Export_TaskId_3_200_res
+    type: object
+    properties: 
+     id: 
+      type: string
+     groupId: 
+      type: string
+     createdBy: 
+      type: string
+     updatedBy: 
+      type: string
+     type: 
+      type: string
+     status: 
+      type: string
+     name: 
+      type: string
+     createdOnHost: 
+      type: string
+     executedOnHost: 
+      type: string
+     parallelExecution: 
+      type: boolean
+     nodesGroup: 
+      type: string
+     parameters: 
+      type: object
+      $ref: '#/components/schemas/parameters'
+     currentState: 
+      type: object
+      $ref: '#/components/schemas/currentState'
+     throughput: 
+      type: number
+     duration: 
+      type: string
+   parameters: 
+    title : parameters
+    type: object
+    properties: 
+     updatedSince: 
+      type: string
+     distributedTaskIndex: 
+      type: string
+     s3Path: 
+      type: string
+     partSize: 
+      type: string
+     headersStyle: 
+      type: string
+     specifiedMailAddress: 
+      type: string
+     taskId: 
+      type: string
+     useEsHeadersCollectionExport: 
+      type: string
+     updatedBefore: 
+      type: string
+     activeness: 
+      type: string
+     fileFormat: 
+      type: string
+     parallelTasksIds: 
+      type: string
+     tenantId: 
+      type: string
+     skipPostprocessing: 
+      type: string
+     s3Bucket: 
+      type: string
+     includeType: 
+      type: string
+     queryParams: 
+      type: string
+     exportName: 
+      type: string
+     userRoles: 
+      type: string
+     ovOnly: 
+      type: string
+     username: 
+      type: string
+     encryptUrl: 
+      type: string
+     headerFormat: 
+      type: string
+     sePrefix: 
+      type: string
+     distributedTasksPartsCount: 
+      type: string
+     dateFormat: 
+      type: string
+     mailAddress: 
+      type: string
+     exportPath: 
+      type: string
+   currentState: 
+    title : currentState
+    type: object
+    properties: 
+     statusId: 
+      type: number
+     status: 
+      type: string
+     lastExecutionEC2Instances: 
+      type: string
+     lastHourThroughput: 
+      type: number
+     numberOfProcessedObjects: 
+      type: number
+     numberOfFailedToPublishEvents: 
+      type: number
+     numberOfObjects: 
+      type: number
+     globalStatus: 
+      type: object
+      $ref: '#/components/schemas/globalStatus'
+     exportUrls: 
+      type: array
+      items: 
+       type: string
+   globalStatus: 
+    title : globalStatus
+    type: object
+    properties: 
+     lastFiveMinReadThroughput: 
+      type: number
+     lastFiveMinThroughput: 
+      type: number
+     entitiesTotal: 
+      type: number
+     entitiesNumber: 
+      type: number
+     overallThroughput: 
+      type: number
+     overallReadThroughput: 
+      type: number
+   currentStateexportUrlsArray: 
+    title : currentStateexportUrlsArray
+    type: object
+    properties: 
+     exportUrls: 
+      type: string
+   post_Export_TaskId_3_400_res: 
+    title : post_Export_TaskId_3_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_Export_TaskId_3_500_res: 
+    title : post_Export_TaskId_3_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_Export_TaskId_3_req: 
+    title : post_Export_TaskId_3_req
+    type: object
+    properties: 
+     Config: 
+      type: object
+      $ref: '#/components/schemas/Config'
+   post_CrossWalk_entities_entityURI_4_200_resvalueArray: 
+    title : post_CrossWalk_entities_entityURI_4_200_resvalueArray
+    type: object
+    properties: 
+     value: 
+      type: object
+      $ref: '#/components/schemas/value'
+   post_CrossWalk_entities_entityURI_4_200_res: 
+    title : post_CrossWalk_entities_entityURI_4_200_res
+    type: object
+    properties: 
+     value: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_CrossWalk_entities_entityURI_4_200_resvalueArray'
+   post_CrossWalk_entities_entityURI_4_400_res: 
+    title : post_CrossWalk_entities_entityURI_4_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_CrossWalk_entities_entityURI_4_500_res: 
+    title : post_CrossWalk_entities_entityURI_4_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_CrossWalk_entities_entityURI_4_req: 
+    title : post_CrossWalk_entities_entityURI_4_req
+    type: object
+    properties: 
+     Config: 
+      type: object
+      $ref: '#/components/schemas/Config'
+   post_CrossWalk_relations_entityURI_5_200_resvalueArray: 
+    title : post_CrossWalk_relations_entityURI_5_200_resvalueArray
+    type: object
+    properties: 
+     value: 
+      type: object
+      $ref: '#/components/schemas/value'
+   post_CrossWalk_relations_entityURI_5_200_res: 
+    title : post_CrossWalk_relations_entityURI_5_200_res
+    type: object
+    properties: 
+     value: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_CrossWalk_relations_entityURI_5_200_resvalueArray'
+   post_CrossWalk_relations_entityURI_5_400_res: 
+    title : post_CrossWalk_relations_entityURI_5_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_CrossWalk_relations_entityURI_5_500_res: 
+    title : post_CrossWalk_relations_entityURI_5_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_CrossWalk_relations_entityURI_5_req: 
+    title : post_CrossWalk_relations_entityURI_5_req
+    type: object
+    properties: 
+     Config: 
+      type: object
+      $ref: '#/components/schemas/Config'
+   post_SubscriptionFlag_entityUri_6_200_res: 
+    title : post_SubscriptionFlag_entityUri_6_200_res
+    type: object
+    properties: 
+     value: 
+      type: object
+      $ref: '#/components/schemas/value'
+   post_SubscriptionFlag_entityUri_6_400_res: 
+    title : post_SubscriptionFlag_entityUri_6_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_SubscriptionFlag_entityUri_6_500_res: 
+    title : post_SubscriptionFlag_entityUri_6_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   ReltioConfig: 
+    title : ReltioConfig
+    type: object
+    properties: 
+     credentials: 
+      type: string
+   post_SubscriptionFlag_entityUri_6_req: 
+    title : post_SubscriptionFlag_entityUri_6_req
+    type: object
+    properties: 
+     ReltioConfig: 
+      type: object
+      $ref: '#/components/schemas/ReltioConfig'
+     Entity: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_SubscriptionFlag_entityUri_6_reqEntityArray'
+   post_SubscriptionFlag_entityUri_6_reqEntityArray: 
+    title : post_SubscriptionFlag_entityUri_6_reqEntityArray
+    type: object
+    properties: 
+     type: 
+      type: string
+     uri: 
+      type: string
+     newValue: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_SubscriptionFlag_entityUri_6_reqEntityArraynewValueArray'
+     crosswalk: 
+      type: object
+      $ref: '#/components/schemas/crosswalk'
+   post_SubscriptionFlag_entityUri_6_reqEntityArraynewValueArray: 
+    title : post_SubscriptionFlag_entityUri_6_reqEntityArraynewValueArray
+    type: object
+    properties: 
+     value: 
+      type: boolean
+   crosswalk: 
+    title : crosswalk
+    type: object
+    properties: 
+     value: 
+      type: string
+   post_GetDetails_entities_7_200_res: 
+    title : post_GetDetails_entities_7_200_res
+    type: object
+    properties: 
+     uri: 
+      type: string
+     type: 
+      type: string
+   post_GetDetails_entities_7_400_res: 
+    title : post_GetDetails_entities_7_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_GetDetails_entities_7_500_res: 
+    title : post_GetDetails_entities_7_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_GetDetails_entities_7_req: 
+    title : post_GetDetails_entities_7_req
+    type: object
+    properties: 
+     EntityUris: 
+      type: array
+      items: 
+       type: string
+     Select: 
+      type: string
+     Config: 
+      type: object
+      $ref: '#/components/schemas/Config'
+   post_GetDetails_entities_entityUri_8_400_res: 
+    title : post_GetDetails_entities_entityUri_8_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_GetDetails_entities_entityUri_8_500_res: 
+    title : post_GetDetails_entities_entityUri_8_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_GetDetails_entities_entityUri_8_req: 
+    title : post_GetDetails_entities_entityUri_8_req
+    type: object
+    properties: 
+     Config: 
+      type: object
+      $ref: '#/components/schemas/Config'
+     Select: 
+      type: string
+   post_GetDetails_entities_searchByUris_9_200_res: 
+    title : post_GetDetails_entities_searchByUris_9_200_res
+    type: object
+    properties: 
+     uri: 
+      type: string
+     type: 
+      type: string
+   post_GetDetails_entities_searchByUris_9_400_res: 
+    title : post_GetDetails_entities_searchByUris_9_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_GetDetails_entities_searchByUris_9_500_res: 
+    title : post_GetDetails_entities_searchByUris_9_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_GetDetails_entities_searchByUris_9_req: 
+    title : post_GetDetails_entities_searchByUris_9_req
+    type: object
+    properties: 
+     EntityUris: 
+      type: array
+      items: 
+       type: string
+     Select: 
+      type: string
+     Config: 
+      type: object
+      $ref: '#/components/schemas/Config'
+   post_GetDetails_relations_10_400_res: 
+    title : post_GetDetails_relations_10_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_GetDetails_relations_10_500_res: 
+    title : post_GetDetails_relations_10_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_GetDetails_relations_10_req: 
+    title : post_GetDetails_relations_10_req
+    type: object
+    properties: 
+     RelationUris: 
+      type: array
+      items: 
+       type: string
+     Config: 
+      type: object
+      $ref: '#/components/schemas/Config'
+   post_GetDetails_relations_relationUri_11_400_res: 
+    title : post_GetDetails_relations_relationUri_11_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_GetDetails_relations_relationUri_11_500_res: 
+    title : post_GetDetails_relations_relationUri_11_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_GetDetails_relations_relationUri_11_req: 
+    title : post_GetDetails_relations_relationUri_11_req
+    type: object
+    properties: 
+     Config: 
+      type: object
+      $ref: '#/components/schemas/Config'
+   post_Merge_12_200_res: 
+    title : post_Merge_12_200_res
+    type: object
+    properties: 
+     groupId: 
+      type: string
+     exportType: 
+      type: string
+     version: 
+      type: string
+     status: 
+      type: string
+     details: 
+      type: string
+     taskIds: 
+      type: array
+      items: 
+       type: string
+   post_Merge_12_400_res: 
+    title : post_Merge_12_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_Merge_12_404_res: 
+    title : post_Merge_12_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_Merge_12_500_res: 
+    title : post_Merge_12_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_Merge_12_req: 
+    title : post_Merge_12_req
+    type: object
+    properties: 
+     s3BucketDetails: 
+      type: object
+      $ref: '#/components/schemas/s3BucketDetails'
+     ExportDetails: 
+      type: object
+      $ref: '#/components/schemas/ExportDetails'
+     Config: 
+      type: object
+      $ref: '#/components/schemas/Config'
+   post_UpdateEntities_13_200_resvalueArray: 
+    title : post_UpdateEntities_13_200_resvalueArray
+    type: object
+    properties: 
+     value: 
+      type: object
+      $ref: '#/components/schemas/value'
+   post_UpdateEntities_13_200_res: 
+    title : post_UpdateEntities_13_200_res
+    type: object
+    properties: 
+     value: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_UpdateEntities_13_200_resvalueArray'
+   post_UpdateEntities_13_400_res: 
+    title : post_UpdateEntities_13_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_UpdateEntities_13_404_res: 
+    title : post_UpdateEntities_13_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_UpdateEntities_13_500_res: 
+    title : post_UpdateEntities_13_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_UpdateEntities_13_req: 
+    title : post_UpdateEntities_13_req
+    type: object
+    properties: 
+     Uri: 
+      type: string
+     DCRType: 
+      type: string
+     DCRComments: 
+      type: string
+     Data: 
+      type: object
+     externalInfo: 
+      type: object
+     Config: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_UpdateEntities_13_reqConfigArray'
+   post_UpdateEntities_13_reqConfigArray: 
+    title : post_UpdateEntities_13_reqConfigArray
+    type: object
+    properties: 
+     credentials: 
+      type: string
+   post_CreateEntities_14_200_resvalueArray: 
+    title : post_CreateEntities_14_200_resvalueArray
+    type: object
+    properties: 
+     value: 
+      type: object
+      $ref: '#/components/schemas/value'
+   post_CreateEntities_14_200_res: 
+    title : post_CreateEntities_14_200_res
+    type: object
+    properties: 
+     value: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_CreateEntities_14_200_resvalueArray'
+   post_CreateEntities_14_400_res: 
+    title : post_CreateEntities_14_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_CreateEntities_14_404_res: 
+    title : post_CreateEntities_14_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_CreateEntities_14_500_res: 
+    title : post_CreateEntities_14_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_CreateEntities_14_req: 
+    title : post_CreateEntities_14_req
+    type: object
+    properties: 
+     DCRType: 
+      type: string
+     DCRComments: 
+      type: string
+     Data: 
+      type: object
+     externalInfo: 
+      type: object
+     Config: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_CreateEntities_14_reqConfigArray'
+   post_CreateEntities_14_reqConfigArray: 
+    title : post_CreateEntities_14_reqConfigArray
+    type: object
+    properties: 
+     credentials: 
+      type: string
+   post_DCRStatus_DCRUri_15_200_res: 
+    title : post_DCRStatus_DCRUri_15_200_res
+    type: object
+    properties: 
+     entityUri: 
+      type: string
+     entityType: 
+      type: string
+     hasAddressUri: 
+      type: string
+     activityUri: 
+      type: string
+     dcrStatus: 
+      type: string
+     dcrMessage: 
+      type: object
+   post_DCRStatus_DCRUri_15_400_res: 
+    title : post_DCRStatus_DCRUri_15_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_DCRStatus_DCRUri_15_500_res: 
+    title : post_DCRStatus_DCRUri_15_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_DCRStatus_DCRUri_15_req: 
+    title : post_DCRStatus_DCRUri_15_req
+    type: object
+    properties: 
+     Config: 
+      type: object
+      $ref: '#/components/schemas/Config'
+     sourceEntityIds: 
+      type: array
+      items: 
+       type: string
+   post_DCRInitiateStatus_DCRUri_16_200_res: 
+    title : post_DCRInitiateStatus_DCRUri_16_200_res
+    type: object
+    properties: 
+     value: 
+      type: object
+      $ref: '#/components/schemas/value'
+   post_DCRInitiateStatus_DCRUri_16_400_res: 
+    title : post_DCRInitiateStatus_DCRUri_16_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_DCRInitiateStatus_DCRUri_16_500_res: 
+    title : post_DCRInitiateStatus_DCRUri_16_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_DCRInitiateStatus_DCRUri_16_req: 
+    title : post_DCRInitiateStatus_DCRUri_16_req
+    type: object
+    properties: 
+     Config: 
+      type: object
+      $ref: '#/components/schemas/Config'
+   post_CreateRelation_17_200_resvalueArray: 
+    title : post_CreateRelation_17_200_resvalueArray
+    type: object
+    properties: 
+     value: 
+      type: object
+      $ref: '#/components/schemas/value'
+   post_CreateRelation_17_200_res: 
+    title : post_CreateRelation_17_200_res
+    type: object
+    properties: 
+     value: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_CreateRelation_17_200_resvalueArray'
+   post_CreateRelation_17_400_res: 
+    title : post_CreateRelation_17_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_CreateRelation_17_404_res: 
+    title : post_CreateRelation_17_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_CreateRelation_17_500_res: 
+    title : post_CreateRelation_17_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_CreateRelation_17_req: 
+    title : post_CreateRelation_17_req
+    type: object
+    properties: 
+     DCRComments: 
+      type: string
+     Data: 
+      type: object
+     externalInfo: 
+      type: object
+     Config: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_CreateRelation_17_reqConfigArray'
+   post_CreateRelation_17_reqConfigArray: 
+    title : post_CreateRelation_17_reqConfigArray
+    type: object
+    properties: 
+     credentials: 
+      type: string
+   post_SearchEvent_18_200_res: 
+    title : post_SearchEvent_18_200_res
+    type: object
+    properties: 
+     uris: 
+      type: array
+      items: 
+       type: string
+   post_SearchEvent_18_400_res: 
+    title : post_SearchEvent_18_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_SearchEvent_18_500_res: 
+    title : post_SearchEvent_18_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_SearchEvent_18_req: 
+    title : post_SearchEvent_18_req
+    type: object
+    properties: 
+     Config: 
+      type: object
+      $ref: '#/components/schemas/Config'
+   post_DCRComments_DCRUri_19_200_res: 
+    title : post_DCRComments_DCRUri_19_200_res
+    type: object
+    properties: 
+     status: 
+      type: string
+     taskId: 
+      type: string
+   post_DCRComments_DCRUri_19_400_res: 
+    title : post_DCRComments_DCRUri_19_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_DCRComments_DCRUri_19_404_res: 
+    title : post_DCRComments_DCRUri_19_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_DCRComments_DCRUri_19_500_res: 
+    title : post_DCRComments_DCRUri_19_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_DCRComments_DCRUri_19_req: 
+    title : post_DCRComments_DCRUri_19_req
+    type: object
+    properties: 
+     Comments: 
+      type: string
+     Config: 
+      type: object
+      $ref: '#/components/schemas/Config'
+   Response: 
+    title : Response
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     appName: 
+      type: string
+     message: 
+      type: string
+     time: 
+      type: string
+     worker: 
+      type: string
+     interactingSystem: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/ResponseinteractingSystemArray'
+   ResponseinteractingSystemArray: 
+    title : ResponseinteractingSystemArray
+    type: object
+    properties: 
+     systemId: 
+      type: string
+     systemName: 
+      type: string
+     message: 
+      type: string
+   get_HealthCheck_20_200_res: 
+    title : get_HealthCheck_20_200_res
+    type: object
+    properties: 
+     Response: 
+      type: object
+      $ref: '#/components/schemas/Response'
+   get_HealthCheck_20_400_res: 
+    title : get_HealthCheck_20_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   get_HealthCheck_20_500_res: 
+    title : get_HealthCheck_20_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_CLSDataLoad_21_200_res: 
+    title : post_CLSDataLoad_21_200_res
+    type: object
+    properties: 
+     scrollId: 
+      type: string
+     values: 
+      type: array
+      items: 
+       type: string
+   post_CLSDataLoad_21_400_res: 
+    title : post_CLSDataLoad_21_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_CLSDataLoad_21_404_res: 
+    title : post_CLSDataLoad_21_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_CLSDataLoad_21_500_res: 
+    title : post_CLSDataLoad_21_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_CLSDataLoad_21_req: 
+    title : post_CLSDataLoad_21_req
+    type: object
+    properties: 
+     scrollId: 
+      type: string
+     Config: 
+      type: object
+      $ref: '#/components/schemas/Config'
+   patch_resetCache_22_200_res: 
+    title : patch_resetCache_22_200_res
+    type: object
+    properties: 
+     cacheName: 
+      type: string
+     status: 
+      type: string
+     validCacheNames: 
+      type: array
+      items: 
+       type: string
+   patch_resetCache_22_400_res: 
+    title : patch_resetCache_22_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_resetCache_22_404_res: 
+    title : patch_resetCache_22_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_resetCache_22_405_res: 
+    title : patch_resetCache_22_405_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_resetCache_22_406_res: 
+    title : patch_resetCache_22_406_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_resetCache_22_500_res: 
+    title : patch_resetCache_22_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_resetCache_22_req: 
+    title : patch_resetCache_22_req
+    type: object
+    properties: 
+     cacheName: 
+      type: string
+   patch_internal_resetCache_23_200_res: 
+    title : patch_internal_resetCache_23_200_res
+    type: object
+    properties: 
+     cacheName: 
+      type: string
+     status: 
+      type: string
+     validCacheNames: 
+      type: array
+      items: 
+       type: string
+   patch_internal_resetCache_23_400_res: 
+    title : patch_internal_resetCache_23_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_internal_resetCache_23_404_res: 
+    title : patch_internal_resetCache_23_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_internal_resetCache_23_405_res: 
+    title : patch_internal_resetCache_23_405_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_internal_resetCache_23_406_res: 
+    title : patch_internal_resetCache_23_406_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_internal_resetCache_23_500_res: 
+    title : patch_internal_resetCache_23_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_internal_resetCache_23_req: 
+    title : patch_internal_resetCache_23_req
+    type: object
+    properties: 
+     cacheName: 
+      type: string
+   get_CheckCertificationExpiry_24_200_res: 
+    title : get_CheckCertificationExpiry_24_200_res
+    type: object
+    properties: 
+     CreatedDate: 
+      type: string
+     CurrentDate: 
+      type: string
+     ExpirationDate: 
+      type: string
+     ExpiringInDays: 
+      type: integer
+     FeatureName: 
+      type: string
+     LicenseOwner: 
+      type: string
+     ValidVersion: 
+      type: string
+     VendorName: 
+      type: string
+   get_CheckCertificationExpiry_24_400_res: 
+    title : get_CheckCertificationExpiry_24_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   get_CheckCertificationExpiry_24_500_res: 
+    title : get_CheckCertificationExpiry_24_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+  parameters: 
+   messageidHeaderParam: 
+    in: header
+    name: messageid
+    required: false
+    schema: 
+     type: string
+    description: A messageid uniquely identifies a message coming Anypoint MQ. Having a messageid allows us to fully reconstruct how a particular value ended-up in our dbs, using Splunk or similar system.
+   entityTypeQueryParam: 
+    in: query
+    name: entityType
+    required: true
+    schema: 
+     type: string
+    description: Entity Type
+   tenantIdHeaderParam: 
+    in: header
+    name: tenantId
+    required: true
+    schema: 
+     type: string
+    description: Tenant Identifier (guid)
+   jobIdHeaderParam: 
+    in: header
+    name: jobId
+    required: true
+    schema: 
+     type: string
+    description: job id
+   transactionIdHeaderParam: 
+    in: header
+    name: transactionId
+    required: true
+    schema: 
+     type: string
+    description: transaction id
+   targetCodeHeaderParam: 
+    in: header
+    name: targetCode
+    required: false
+    schema: 
+     type: string
+     format: array
+    description: application targetCode
+   sourceCodeHeaderParam: 
+    in: header
+    name: sourceCode
+    required: false
+    schema: 
+     type: string
+    description: application sourceCode
+   sourceNameHeaderParam: 
+    in: header
+    name: sourceName
+    required: false
+    schema: 
+     type: string
+    description: sourceName for country
+   entityDomainCodeHeaderParam: 
+    in: header
+    name: entityDomainCode
+    required: false
+    schema: 
+     type: string
+    description: application entityDomainCode
+   entityTypeHeaderParam: 
+    in: header
+    name: entityType
+    required: false
+    schema: 
+     type: string
+    description: entityType
+   idlFlagHeaderParam: 
+    in: header
+    name: idlFlag
+    required: false
+    schema: 
+     type: number
+    description: IDL Flag
+   countryCodeHeaderParam: 
+    in: header
+    name: countryCode
+    required: false
+    schema: 
+     type: string
+    description: countryCode
+   dcrStatusFlagHeaderParam: 
+    in: header
+    name: dcrStatusFlag
+    required: false
+    schema: 
+     type: number
+    description: DCR Status Flag
+   TaskIdPathParam: 
+    in: path
+    name: TaskId
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   entityURIPathParam: 
+    in: path
+    name: entityURI
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   sfdcIdQueryParam: 
+    in: query
+    name: sfdcId
+    required: true
+    schema: 
+     type: string
+    description: SalesforceID
+   entityUriPathParam: 
+    in: path
+    name: entityUri
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   ovOnlyQueryParam: 
+    in: query
+    name: ovOnly
+    required: false
+    schema: 
+     type: boolean
+    description: description of parameter passed
+   relationUriPathParam: 
+    in: path
+    name: relationUri
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   DCRUriPathParam: 
+    in: path
+    name: DCRUri
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   DCROperationTypeQueryParam: 
+    in: query
+    name: DCROperationType
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   crosswalkIdHeaderParam: 
+    in: header
+    name: crosswalkId
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   dataEntityUriQueryParam: 
+    in: query
+    name: dataEntityUri
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   taskFlagQueryParam: 
+    in: query
+    name: taskFlag
+    required: false
+    schema: 
+     type: boolean
+    description: description of parameter passed
+   patch_resetCache_22_reqParam: 
+    in: query
+    name: patch_resetCache_22_req
+    required: true
+    schema: 
+     type: string
+     format: array
+    description: description of parameter passed
+   patch_internal_resetCache_23_reqParam: 
+    in: query
+    name: patch_internal_resetCache_23_req
+    required: true
+    schema: 
+     type: string
+     format: array
+    description: description of parameter passed
