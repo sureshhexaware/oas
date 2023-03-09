@@ -1,0 +1,68 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: API with Examples
+  description: API description
+servers: 
+  - url: https://hexapi.example.com
+    description: API Server Description
+paths: 
+  /organisation: 
+   post: 
+    operationId: post_organisation_1
+    tags: 
+     - organisation
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_organisation_1_req'
+    parameters: 
+     - $ref: '#/components/parameters/UserIDHeaderParam'
+    responses: 
+     '200': 
+      description: Success
+   get: 
+    operationId: get_organisation_2
+    tags: 
+     - organisation
+    description: Description of path
+    responses: 
+     '201': 
+      description: get_organisation_2
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_organisation_2_201_res'
+components: 
+  schemas: 
+   post_organisation_1_req: 
+    title : post_organisation_1_req
+    type: object
+    properties: 
+     name: 
+      type: string
+     address: 
+      type: string
+     value: 
+      type: string
+   get_organisation_2_201_res: 
+    title : get_organisation_2_201_res
+    type: object
+    properties: 
+     name: 
+      type: string
+     address: 
+      type: string
+     value: 
+      type: string
+  parameters: 
+   UserIDHeaderParam: 
+    in: header
+    name: UserID
+    required: true
+    schema: 
+     type: string
+    description: the identifier for the user that posts a new organisation
