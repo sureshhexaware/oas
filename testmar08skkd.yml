@@ -1,0 +1,5620 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: EIC-Legacy-Member-Data-Service-sapi
+  description: This API will serve as a service wrapper for the EIC-API existing .net API during the transition from the legacy to Market Prominence. 
+servers: 
+  - url: https://hexapi.example.com
+    description: API Server Description
+paths: 
+  /agency/Application/Search: 
+   get: 
+    operationId: get_agency_Application_Search_1
+    tags: 
+     - agency
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_agency_Application_Search_1
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_agency_Application_Search_1_200_res'
+     '500': 
+      description: Internal Server Error
+  /broker/Application/Search: 
+   get: 
+    operationId: get_broker_Application_Search_2
+    tags: 
+     - broker
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_broker_Application_Search_2
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_broker_Application_Search_2_200_res'
+     '500': 
+      description: Internal Server Error
+  /claims/{altMemberId}/search: 
+   get: 
+    operationId: get_claims_altMemberId_search_3
+    tags: 
+     - claims
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/altMemberIdPathParam'
+     - $ref: '#/components/parameters/planIdQueryParam'
+     - $ref: '#/components/parameters/gpiQueryParam'
+     - $ref: '#/components/parameters/stageQueryParam'
+     - $ref: '#/components/parameters/startDateQueryParam'
+     - $ref: '#/components/parameters/endDateQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_claims_altMemberId_search_3_200_res'
+     '500': 
+      description: Internal Server Error
+  /claims/pricingstage/{altMemberId}/{personcode}: 
+   get: 
+    operationId: get_claims_pricingstage_altMemberId_personcode_4
+    tags: 
+     - claims
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/altMemberIdPathParam'
+     - $ref: '#/components/parameters/personcodePathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_claims_pricingstage_altMemberId_personcode_4_200_res'
+     '500': 
+      description: Internal Server Error
+  /Contact: 
+   post: 
+    operationId: post_Contact_5
+    tags: 
+     - Contact
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Contact_5_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Contact_5_200_res'
+     '500': 
+      description: Internal Server Error
+  /CoverageDetermination: 
+   post: 
+    operationId: post_CoverageDetermination_6
+    tags: 
+     - CoverageDetermination
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CoverageDetermination_6_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_CoverageDetermination_6_200_res'
+     '500': 
+      description: Internal Server Error
+  /drug/pricing: 
+   post: 
+    operationId: post_drug_pricing_7
+    tags: 
+     - drug
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_drug_pricing_7_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_drug_pricing_7_200_res'
+     '500': 
+      description: Internal Server Error
+  /drug/pricing/DrugStagePricing: 
+   post: 
+    operationId: post_drug_pricing_DrugStagePricing_8
+    tags: 
+     - drug
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_drug_pricing_DrugStagePricing_8_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_drug_pricing_DrugStagePricing_8_200_res'
+     '500': 
+      description: Internal Server Error
+  /drug/info/{languagecode}/{gpi}: 
+   get: 
+    operationId: get_drug_info_languagecode_gpi_9
+    tags: 
+     - drug
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/languagecodePathParam'
+     - $ref: '#/components/parameters/gpiPathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_drug_info_languagecode_gpi_9_200_res'
+     '500': 
+      description: Internal Server Error
+  /faqs: 
+   get: 
+    operationId: get_faqs_10
+    tags: 
+     - faqs
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_faqs_10_200_res'
+     '500': 
+      description: Internal Server Error
+  /faq/{languageType}/{groupCode}: 
+   get: 
+    operationId: get_faq_languageType_groupCode_11
+    tags: 
+     - faq
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/languageTypePathParam'
+     - $ref: '#/components/parameters/groupCodePathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_faq_languageType_groupCode_11_200_res'
+     '500': 
+      description: Internal Server Error
+  /formularydetail/{languageCode}/{formularyDetailId}: 
+   get: 
+    operationId: get_formularydetail_languageCode_formularyDetailId_12
+    tags: 
+     - formularydetail
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/languageCodePathParam'
+     - $ref: '#/components/parameters/formularyDetailIdPathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_formularydetail_languageCode_formularyDetailId_12_200_res'
+     '500': 
+      description: Internal Server Error
+  /formularydetail/ndc/{languageCode}/{year}/{ndc}: 
+   get: 
+    operationId: get_formularydetail_ndc_languageCode_year_ndc_13
+    tags: 
+     - formularydetail
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/languageCodePathParam'
+     - $ref: '#/components/parameters/yearPathParam'
+     - $ref: '#/components/parameters/ndcPathParam'
+     - $ref: '#/components/parameters/pbpCodeQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_formularydetail_ndc_languageCode_year_ndc_13_200_res'
+     '500': 
+      description: Internal Server Error
+  /formularydetail/ndc/{languageCode}/{year}/{ndc}/{pbpCode}: 
+   get: 
+    operationId: get_formularydetail_ndc_languageCode_year_ndc_pbpCode_14
+    tags: 
+     - formularydetail
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/languageCodePathParam'
+     - $ref: '#/components/parameters/yearPathParam'
+     - $ref: '#/components/parameters/ndcPathParam'
+     - $ref: '#/components/parameters/pbpCodePathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_formularydetail_ndc_languageCode_year_ndc_pbpCode_14_200_res'
+  /formularydetail/search: 
+   post: 
+    operationId: post_formularydetail_search_15
+    tags: 
+     - formularydetail
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_formularydetail_search_15_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/post_formularydetail_search_15_200_res'
+     '500': 
+      description: Internal Server Error
+  /formularydetail/search/Packaging: 
+   post: 
+    operationId: post_formularydetail_search_Packaging_16
+    tags: 
+     - formularydetail
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_formularydetail_search_Packaging_16_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/post_formularydetail_search_Packaging_16_200_res'
+     '500': 
+      description: Internal Server Error
+  /FormularyName: 
+   post: 
+    operationId: post_FormularyName_17
+    tags: 
+     - FormularyName
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_FormularyName_17_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/post_FormularyName_17_200_res'
+     '500': 
+      description: Internal Server Error
+  /FormularyName/ndc: 
+   post: 
+    operationId: post_FormularyName_ndc_18
+    tags: 
+     - FormularyName
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_FormularyName_ndc_18_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/post_FormularyName_ndc_18_200_res'
+     '500': 
+      description: Internal Server Error
+  /FormularyName/alternates/{pbpid}/{year}/{gpi}: 
+   get: 
+    operationId: get_FormularyName_alternates_pbpid_year_gpi_19
+    tags: 
+     - FormularyName
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/gpiPathParam'
+     - $ref: '#/components/parameters/yearPathParam'
+     - $ref: '#/components/parameters/pbpidPathParam'
+     - $ref: '#/components/parameters/takeQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_FormularyName_alternates_pbpid_year_gpi_19_200_res'
+     '500': 
+      description: Internal Server Error
+  /FormularyName/GetByProdName: 
+   get: 
+    operationId: get_FormularyName_GetByProdName_20
+    tags: 
+     - FormularyName
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/yearQueryParam'
+     - $ref: '#/components/parameters/prodNameQueryParam'
+     - $ref: '#/components/parameters/pbpQueryParam'
+     - $ref: '#/components/parameters/takeQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_FormularyName_GetByProdName_20_200_res'
+     '500': 
+      description: Internal Server Error
+  /FormularyName/ProdNameSearch: 
+   get: 
+    operationId: get_FormularyName_ProdNameSearch_21
+    tags: 
+     - FormularyName
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/yearQueryParam'
+     - $ref: '#/components/parameters/prefixQueryParam'
+     - $ref: '#/components/parameters/pbpQueryParam'
+     - $ref: '#/components/parameters/takeQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_FormularyName_ProdNameSearch_21_200_res'
+     '500': 
+      description: Internal Server Error
+  /glossary: 
+   get: 
+    operationId: get_glossary_22
+    tags: 
+     - glossary
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_glossary_22_200_res'
+     '500': 
+      description: Internal Server Error
+  /glossary/{languageType}/{groupCode}: 
+   get: 
+    operationId: get_glossary_languageType_groupCode_23
+    tags: 
+     - glossary
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/languageTypePathParam'
+     - $ref: '#/components/parameters/groupCodePathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_glossary_languageType_groupCode_23_200_res'
+     '500': 
+      description: Internal Server Error
+  /member: 
+   get: 
+    operationId: get_member_24
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_member_24
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_member_24_200_res'
+     '500': 
+      description: Internal Server Error
+  /member/pharmacy: 
+   post: 
+    operationId: post_member_pharmacy_25
+    tags: 
+     - member
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_member_pharmacy_25_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: post_member_pharmacy_25
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/post_member_pharmacy_25_200_res'
+     '404': 
+      description: Not found
+     '500': 
+      description: Internal Server Error
+  /member/pharmacy/memberPharmacyId/{memberPharmacyId}: 
+   delete: 
+    operationId: delete_member_pharmacy_memberPharmacyId_memberPharmacyId_26
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/memberPharmacyIdPathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: delete_member_pharmacy_memberPharmacyId_memberPharmacyId_26
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/delete_member_pharmacy_memberPharmacyId_memberPharmacyId_26_200_res'
+     '404': 
+      description: Not found
+     '500': 
+      description: Internal Server Error
+  /member/pharmacy/{NameId}: 
+   get: 
+    operationId: get_member_pharmacy_NameId_27
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/NameIdPathParam'
+     - $ref: '#/components/parameters/planIdQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_member_pharmacy_NameId_27_200_res'
+     '500': 
+      description: Internal Server Error
+  /member/pharmacy/visited/{altMemberId}: 
+   get: 
+    operationId: get_member_pharmacy_visited_altMemberId_28
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/altMemberIdPathParam'
+     - $ref: '#/components/parameters/planIdQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_member_pharmacy_visited_altMemberId_28_200_res'
+     '500': 
+      description: Internal Server Error
+  /member/eob/{altmemberid}: 
+   get: 
+    operationId: get_member_eob_altmemberid_29
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/altmemberidPathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_member_eob_altmemberid_29_200_res'
+     '500': 
+      description: Internal Server Error
+  /member/eob/document: 
+   get: 
+    operationId: get_member_eob_document_30
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/downloadTokenQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_member_eob_document_30_200_res'
+     '500': 
+      description: Internal Server Error
+  /member/eob/document/{altMemberId}/{monthYear}: 
+   get: 
+    operationId: get_member_eob_document_altMemberId_monthYear_31
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/altMemberIdPathParam'
+     - $ref: '#/components/parameters/monthYearPathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_member_eob_document_altMemberId_monthYear_31_200_res'
+     '500': 
+      description: Internal Server Error
+  /member/portaluser: 
+   post: 
+    operationId: post_member_portaluser_32
+    tags: 
+     - member
+    description: Description of path
+    responses: 
+     '200': 
+      description: post_member_portaluser_32
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_member_portaluser_32_200_res'
+     '500': 
+      description: Internal Server Error
+  /member/payment/insertpaymentlog: 
+   post: 
+    operationId: post_member_payment_insertpaymentlog_33
+    tags: 
+     - member
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_member_payment_insertpaymentlog_33_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+     '500': 
+      description: Internal Server Error
+  /member/payment/lastvalidpayment/{altMemberId}: 
+   get: 
+    operationId: get_member_payment_lastvalidpayment_altMemberId_34
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/altMemberIdPathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_member_payment_lastvalidpayment_altMemberId_34
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_member_payment_lastvalidpayment_altMemberId_34_200_res'
+     '404': 
+      description: Not found
+     '500': 
+      description: Internal Server Error
+  /member/ByAltMemberId/{altMemberId}: 
+   get: 
+    operationId: get_member_ByAltMemberId_altMemberId_35
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/altMemberIdPathParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_member_ByAltMemberId_altMemberId_35
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_member_ByAltMemberId_altMemberId_35_200_res'
+     '500': 
+      description: Internal Server Error
+  /member/validate/about: 
+   post: 
+    operationId: post_member_validate_about_36
+    tags: 
+     - member
+    description: Description of path
+    responses: 
+     '200': 
+      description: post_member_validate_about_36
+     '500': 
+      description: Internal Server Error
+  /member/addresschange: 
+   post: 
+    operationId: post_member_addresschange_37
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: post_member_addresschange_37
+     '500': 
+      description: Internal Server Error
+  /member/disenrollment: 
+   post: 
+    operationId: post_member_disenrollment_38
+    tags: 
+     - member
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_member_disenrollment_38_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_member_disenrollment_38_200_res'
+     '500': 
+      description: Internal Server Error
+  /member/MemberEnrollmentStatus/{medicareNumber}: 
+   get: 
+    operationId: get_member_MemberEnrollmentStatus_medicareNumber_39
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/medicareNumberPathParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_member_MemberEnrollmentStatus_medicareNumber_39
+     '500': 
+      description: Internal Server Error
+  /member/Premium/{memberId}: 
+   get: 
+    operationId: get_member_Premium_memberId_40
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/memberIdPathParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_member_Premium_memberId_40
+     '500': 
+      description: Internal Server Error
+  /member/transactionhistory/{altMemberId}: 
+   get: 
+    operationId: get_member_transactionhistory_altMemberId_41
+    tags: 
+     - member
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/altMemberIdPathParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_member_transactionhistory_altMemberId_41
+     '500': 
+      description: Internal Server Error
+  /memberivr/GetBalance: 
+   post: 
+    operationId: post_memberivr_GetBalance_42
+    tags: 
+     - memberivr
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: post_memberivr_GetBalance_42
+     '500': 
+      description: Internal Server Error
+  /user: 
+   post: 
+    operationId: post_user_43
+    tags: 
+     - user
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: post_user_43
+     '500': 
+      description: Internal Server Error
+  /user/login: 
+   post: 
+    operationId: post_user_login_44
+    tags: 
+     - user
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_user_login_44_req'
+    parameters: 
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: post_user_login_44
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_user_login_44_200_res'
+     '500': 
+      description: Internal Server Error
+  /user/PortalUserForgetUserName: 
+   post: 
+    operationId: post_user_PortalUserForgetUserName_45
+    tags: 
+     - user
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_user_PortalUserForgetUserName_45_req'
+    parameters: 
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: post_user_PortalUserForgetUserName_45
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_user_PortalUserForgetUserName_45_200_res'
+     '500': 
+      description: Internal Server Error
+  /user/SendUserNameMail/{nameId}: 
+   get: 
+    operationId: get_user_SendUserNameMail_nameId_46
+    tags: 
+     - user
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/nameIdPathParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_user_SendUserNameMail_nameId_46
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_user_SendUserNameMail_nameId_46_200_res'
+     '500': 
+      description: Internal Server Error
+  /user/ResetPassword: 
+   post: 
+    operationId: post_user_ResetPassword_47
+    tags: 
+     - user
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_user_ResetPassword_47_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: post_user_ResetPassword_47
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_user_ResetPassword_47_200_res'
+     '404': 
+      description: Not found
+     '500': 
+      description: Internal Server Error
+  /user/Temp: 
+   post: 
+    operationId: post_user_Temp_48
+    tags: 
+     - user
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/post_user_Temp_48_req'
+    parameters: 
+     - $ref: '#/components/parameters/post_user_Temp_48_reqParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: post_user_Temp_48
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_user_Temp_48_200_res'
+     '500': 
+      description: Internal Server Error
+  /user/Validate: 
+   post: 
+    operationId: post_user_Validate_49
+    tags: 
+     - user
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: post_user_Validate_49
+     '500': 
+      description: Internal Server Error
+  /user/SendPasswordResetMail: 
+   post: 
+    operationId: post_user_SendPasswordResetMail_50
+    tags: 
+     - user
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_user_SendPasswordResetMail_50_req'
+    parameters: 
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: post_user_SendPasswordResetMail_50
+     '500': 
+      description: Internal Server Error
+  /user/ValidateDob: 
+   get: 
+    operationId: get_user_ValidateDob_51
+    tags: 
+     - user
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_user_ValidateDob_51
+     '500': 
+      description: Internal Server Error
+  /user/{username}/{dob}: 
+   get: 
+    operationId: get_user_username_dob_52
+    tags: 
+     - user
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/usernamePathParam'
+     - $ref: '#/components/parameters/dobPathParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_user_username_dob_52
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_user_username_dob_52_200_res'
+     '500': 
+      description: Internal Server Error
+  /user/userName: 
+   get: 
+    operationId: get_user_userName_53
+    tags: 
+     - user
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/userNameQueryParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_user_userName_53
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_user_userName_53_200_res'
+     '500': 
+      description: Internal Server Error
+  /user/get: 
+   get: 
+    operationId: get_user_get_54
+    tags: 
+     - user
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/userIdQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_user_get_54
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_user_get_54_200_res'
+     '500': 
+      description: Internal Server Error
+  /data/codelookup: 
+   get: 
+    operationId: get_data_codelookup_55
+    tags: 
+     - data
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/LanguageQueryParam'
+     - $ref: '#/components/parameters/TypeCodeQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_data_codelookup_55_200_res'
+     '500': 
+      description: Internal Server Error
+  /data/codelookup/{Language}/{TypeCode}: 
+   get: 
+    operationId: get_data_codelookup_Language_TypeCode_56
+    tags: 
+     - data
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/LanguagePathParam'
+     - $ref: '#/components/parameters/TypeCodePathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+     '500': 
+      description: Internal Server Error
+  /data/EULA: 
+   get: 
+    operationId: get_data_EULA_57
+    tags: 
+     - data
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_data_EULA_57_200_res'
+     '500': 
+      description: Internal Server Error
+  /data/Pbp: 
+   get: 
+    operationId: get_data_Pbp_58
+    tags: 
+     - data
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_data_Pbp_58_200_res'
+     '500': 
+      description: Internal Server Error
+  /data/Pbp/{year}/{zipCode}: 
+   get: 
+    operationId: get_data_Pbp_year_zipCode_59
+    tags: 
+     - data
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/yearPathParam'
+     - $ref: '#/components/parameters/zipCodePathParam'
+     - $ref: '#/components/parameters/stateCodeQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_data_Pbp_year_zipCode_59_200_res'
+     '500': 
+      description: Internal Server Error
+  /data/Pbp/{year}/{zipCode}/{stateCode}: 
+   get: 
+    operationId: get_data_Pbp_year_zipCode_stateCode_60
+    tags: 
+     - data
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/yearPathParam'
+     - $ref: '#/components/parameters/zipCodePathParam'
+     - $ref: '#/components/parameters/stateCodePathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_data_Pbp_year_zipCode_stateCode_60_200_res'
+     '500': 
+      description: Internal Server Error
+  /data/preenrollmenttype: 
+   get: 
+    operationId: get_data_preenrollmenttype_61
+    tags: 
+     - data
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_data_preenrollmenttype_61_200_res'
+     '500': 
+      description: Internal Server Error
+  /data/sep: 
+   get: 
+    operationId: get_data_sep_62
+    tags: 
+     - data
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_data_sep_62_200_res'
+     '500': 
+      description: Internal Server Error
+  /data/secretimage: 
+   get: 
+    operationId: get_data_secretimage_63
+    tags: 
+     - data
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_data_secretimage_63_200_res'
+     '500': 
+      description: Internal Server Error
+  /data/secretimage/update: 
+   post: 
+    operationId: post_data_secretimage_update_64
+    tags: 
+     - data
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_data_secretimage_update_64_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_data_secretimage_update_64_200_res'
+     '500': 
+      description: Internal Server Error
+  /data/secretquestion: 
+   get: 
+    operationId: get_data_secretquestion_65
+    tags: 
+     - data
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_data_secretquestion_65_200_res'
+     '500': 
+      description: Internal Server Error
+  /data/secretquestion/{altMemberId}: 
+   get: 
+    operationId: get_data_secretquestion_altMemberId_66
+    tags: 
+     - data
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/altMemberIdPathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_data_secretquestion_altMemberId_66_200_res'
+     '500': 
+      description: Internal Server Error
+  /data/secretquestion/validate: 
+   post: 
+    operationId: post_data_secretquestion_validate_67
+    tags: 
+     - data
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_data_secretquestion_validate_67_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/post_data_secretquestion_validate_67_200_res'
+     '500': 
+      description: Internal Server Error
+  /data/secretquestion/update: 
+   post: 
+    operationId: post_data_secretquestion_update_68
+    tags: 
+     - data
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_data_secretquestion_update_68_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/post_data_secretquestion_update_68_200_res'
+     '500': 
+      description: Internal Server Error
+  /MetaData: 
+   get: 
+    operationId: get_MetaData_69
+    tags: 
+     - MetaData
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_MetaData_69
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_MetaData_69_200_res'
+     '404': 
+      description: Not found
+     '500': 
+      description: Internal Server Error
+  /pharmacy/search: 
+   get: 
+    operationId: get_pharmacy_search_70
+    tags: 
+     - pharmacy
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/request.nameQueryParam'
+     - $ref: '#/components/parameters/request.cityQueryParam'
+     - $ref: '#/components/parameters/request.stateCodeQueryParam'
+     - $ref: '#/components/parameters/request.zipCodeQueryParam'
+     - $ref: '#/components/parameters/request.latitudeQueryParam'
+     - $ref: '#/components/parameters/request.longitudeQueryParam'
+     - $ref: '#/components/parameters/request.distanceQueryParam'
+     - $ref: '#/components/parameters/request.yearQueryParam'
+     - $ref: '#/components/parameters/request.planIdQueryParam'
+     - $ref: '#/components/parameters/request.nabpsQueryParam'
+     - $ref: '#/components/parameters/request.takeQueryParam'
+     - $ref: '#/components/parameters/request.isPreferredQueryParam'
+     - $ref: '#/components/parameters/request.isBrokerPbpQueryParam'
+     - $ref: '#/components/parameters/request.pharmacyTypesQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: get_pharmacy_search_70
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_pharmacy_search_70_200_res'
+     '404': 
+      description: Not found
+     '500': 
+      description: Internal Server Error
+  /plan/search: 
+   get: 
+    operationId: get_plan_search_71
+    tags: 
+     - plan
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/request.planYearQueryParam'
+     - $ref: '#/components/parameters/request.planIdQueryParam'
+     - $ref: '#/components/parameters/request.stateQueryParam'
+     - $ref: '#/components/parameters/request.pbpQueryParam'
+     - $ref: '#/components/parameters/request.daysSupplyQueryParam'
+     - $ref: '#/components/parameters/request.drugTierQueryParam'
+     - $ref: '#/components/parameters/request.pharmacyCostTypeQueryParam'
+     - $ref: '#/components/parameters/request.languageQueryParam'
+     - $ref: '#/components/parameters/request.groupIdQueryParam'
+     - $ref: '#/components/parameters/request.isEGWPQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_plan_search_71_200_res'
+     '500': 
+      description: Internal Server Error
+  /plandocuments/search: 
+   post: 
+    operationId: post_plandocuments_search_72
+    tags: 
+     - plandocuments
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_plandocuments_search_72_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/post_plandocuments_search_72_200_res'
+     '500': 
+      description: Internal Server Error
+  /plandocuments/{languagecode}/{planYear}/{pbp}: 
+   get: 
+    operationId: get_plandocuments_languagecode_planYear_pbp_73
+    tags: 
+     - plandocuments
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/pbpPathParam'
+     - $ref: '#/components/parameters/planYearPathParam'
+     - $ref: '#/components/parameters/languagecodePathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_plandocuments_languagecode_planYear_pbp_73_200_res'
+     '500': 
+      description: Internal Server Error
+  /PreEnrollmentRequest: 
+   post: 
+    operationId: post_PreEnrollmentRequest_74
+    tags: 
+     - PreEnrollmentRequest
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_PreEnrollmentRequest_74_req'
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_PreEnrollmentRequest_74_200_res'
+     '500': 
+      description: Internal Server Error
+  /webdocuments: 
+   get: 
+    operationId: get_webdocuments_75
+    tags: 
+     - webdocuments
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_webdocuments_75_200_res'
+     '500': 
+      description: Internal Server Error
+  /webdocuments/{languageType}/{groupCode}: 
+   get: 
+    operationId: get_webdocuments_languageType_groupCode_76
+    tags: 
+     - webdocuments
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/languageTypePathParam'
+     - $ref: '#/components/parameters/groupCodePathParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_webdocuments_languageType_groupCode_76_200_res'
+     '500': 
+      description: Internal Server Error
+  /webdocuments/GetByGroupSubGroupYear: 
+   get: 
+    operationId: get_webdocuments_GetByGroupSubGroupYear_77
+    tags: 
+     - webdocuments
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/languageTypeQueryParam'
+     - $ref: '#/components/parameters/groupCodeQueryParam'
+     - $ref: '#/components/parameters/subGroupCodeQueryParam'
+     - $ref: '#/components/parameters/yearQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_webdocuments_GetByGroupSubGroupYear_77_200_res'
+     '500': 
+      description: Internal Server Error
+  /ZipCodes/Search: 
+   get: 
+    operationId: get_ZipCodes_Search_78
+    tags: 
+     - ZipCodes
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/zipCodeQueryParam'
+     - $ref: '#/components/parameters/stateQueryParam'
+     - $ref: '#/components/parameters/takeQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/get_ZipCodes_Search_78_200_res'
+     '500': 
+      description: Internal Server Error
+  /ZipCodes/Validate: 
+   get: 
+    operationId: get_ZipCodes_Validate_79
+    tags: 
+     - ZipCodes
+    description: Description of path
+    parameters: 
+     - $ref: '#/components/parameters/zipCodeQueryParam'
+     - $ref: '#/components/parameters/stateQueryParam'
+     - $ref: '#/components/parameters/TenantIdentifierHeaderParam'
+     - $ref: '#/components/parameters/client_idHeaderParam'
+     - $ref: '#/components/parameters/client_secretHeaderParam'
+    responses: 
+     '200': 
+      description: OK
+     '500': 
+      description: Internal Server Error
+components: 
+  schemas: 
+   get_agency_Application_Search_1_200_res: 
+    title : get_agency_Application_Search_1_200_res
+    type: object
+    properties: 
+     RecordCount: 
+      type: number
+     BrokerApplications: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/get_agency_Application_Search_1_200_resBrokerApplicationsArray'
+   BrokerApplications: 
+    title : BrokerApplications
+    type: object
+    properties: 
+     RowId: 
+      type: number
+     FirstName: 
+      type: string
+     LastName: 
+      type: string
+     HICN: 
+      type: string
+     MBI: 
+      type: string
+     MemberId: 
+      type: string
+     DateOfBirth: 
+      type: string
+      format: date-time
+     SubmittedDate: 
+      type: string
+      format: date-time
+     DisenrollmentDate: 
+      type: string
+     EnrollmentDate: 
+      type: string
+      format: date-time
+     BrokerId: 
+      type: number
+     WritingCode: 
+      type: string
+     BrokerFirstName: 
+      type: string
+     BrokerLastName: 
+      type: string
+     AddressLine1: 
+      type: string
+     AddressLine2: 
+      type: string
+     City: 
+      type: string
+     State: 
+      type: string
+     MemberState: 
+      type: string
+     ZipCode: 
+      type: string
+     ApplicationDate: 
+      type: string
+     BrokerPhoneNumber: 
+      type: string
+     Hierarchy1ID: 
+      type: string
+     Hierarchy1Name: 
+      type: string
+     Hierarchy1BrokerType: 
+      type: string
+     Hierarchy2ID: 
+      type: string
+     Hierarchy2Name: 
+      type: string
+     Hierarchy2BrokerType: 
+      type: string
+     Hierarchy3ID: 
+      type: string
+     Hierarchy3Name: 
+      type: string
+     Hierarchy3BrokerType: 
+      type: string
+     Hierarchy4ID: 
+      type: string
+     Hierarchy4Name: 
+      type: string
+     Hierarchy4BrokerType: 
+      type: string
+     TransactionReplies: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/BrokerApplicationsTransactionRepliesArray'
+   TransactionReplies: 
+    title : TransactionReplies
+    type: object
+    properties: 
+     Status: 
+      type: string
+     Reply: 
+      type: string
+     Date: 
+      type: string
+     EffectiveDate: 
+      type: string
+   BrokerApplicationsTransactionRepliesArray: 
+    title : BrokerApplicationsTransactionRepliesArray
+    type: object
+    properties: 
+     TransactionReplies: 
+      type: object
+      $ref: '#/components/schemas/TransactionReplies'
+   get_agency_Application_Search_1_200_resBrokerApplicationsArray: 
+    title : get_agency_Application_Search_1_200_resBrokerApplicationsArray
+    type: object
+    properties: 
+     BrokerApplications: 
+      type: object
+      $ref: '#/components/schemas/BrokerApplications'
+   get_broker_Application_Search_2_200_res: 
+    title : get_broker_Application_Search_2_200_res
+    type: object
+    properties: 
+     RowId: 
+      type: number
+     FirstName: 
+      type: string
+     LastName: 
+      type: string
+     HICN: 
+      type: string
+     MBI: 
+      type: string
+     MemberId: 
+      type: string
+     DateOfBirth: 
+      type: string
+      format: date-time
+     SubmittedDate: 
+      type: string
+      format: date-time
+     DisenrollmentDate: 
+      type: string
+     EnrollmentDate: 
+      type: string
+      format: date-time
+     BrokerId: 
+      type: number
+     WritingCode: 
+      type: string
+     BrokerFirstName: 
+      type: string
+     BrokerLastName: 
+      type: string
+     AddressLine1: 
+      type: string
+     AddressLine2: 
+      type: string
+     City: 
+      type: string
+     State: 
+      type: string
+     MemberState: 
+      type: string
+     ZipCode: 
+      type: string
+     ApplicationDate: 
+      type: string
+     BrokerPhoneNumber: 
+      type: string
+     Hierarchy1ID: 
+      type: string
+     Hierarchy1Name: 
+      type: string
+     Hierarchy1BrokerType: 
+      type: string
+     Hierarchy2ID: 
+      type: string
+     Hierarchy2Name: 
+      type: string
+     Hierarchy2BrokerType: 
+      type: string
+     Hierarchy3ID: 
+      type: string
+     Hierarchy3Name: 
+      type: string
+     Hierarchy3BrokerType: 
+      type: string
+     Hierarchy4ID: 
+      type: string
+     Hierarchy4Name: 
+      type: string
+     Hierarchy4BrokerType: 
+      type: string
+     TransactionReplies: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/get_broker_Application_Search_2_200_resTransactionRepliesArray'
+   get_broker_Application_Search_2_200_resTransactionRepliesArray: 
+    title : get_broker_Application_Search_2_200_resTransactionRepliesArray
+    type: object
+    properties: 
+     TransactionReplies: 
+      type: object
+      $ref: '#/components/schemas/TransactionReplies'
+   get_claims_altMemberId_search_3_200_res: 
+    title : get_claims_altMemberId_search_3_200_res
+    type: object
+    properties: 
+     YouPaid: 
+      type: number
+     PlanPaid: 
+      type: number
+     OtherPaid: 
+      type: number
+     TotalPaid: 
+      type: number
+     DrugCost: 
+      type: number
+     PharmacyItem: 
+      type: object
+      $ref: '#/components/schemas/PharmacyItem'
+     Stage: 
+      type: integer
+     StageName: 
+      type: string
+     COPAYDED: 
+      type: number
+     COPAYIG: 
+      type: number
+     COPAYOG: 
+      type: number
+     COPAYUG: 
+      type: number
+     ENTEREDDATE: 
+      type: string
+     NABP: 
+      type: string
+     AltMemberId: 
+      type: string
+     FilledDate: 
+      type: string
+     RxNumber: 
+      type: integer
+     Quantity: 
+      type: integer
+     DaysSupply: 
+      type: integer
+     CompoundCode: 
+      type: integer
+     AuthNumber: 
+      type: string
+     CopayAmount: 
+      type: number
+     LICSDED: 
+      type: number
+     LICSIG: 
+      type: number
+     LICSOG: 
+      type: number
+     LICSUG: 
+      type: number
+     NONTRCOPDED: 
+      type: number
+     NONTRCOPIG: 
+      type: number
+     NONTRCOPOG: 
+      type: number
+     NONTRCOPUG: 
+      type: number
+     OTHERTROOP: 
+      type: number
+     PC: 
+      type: integer
+     PLANPAYDED: 
+      type: number
+     PLANPAYIG: 
+      type: number
+     PLANPAYOG: 
+      type: number
+     PLANPAYUG: 
+      type: number
+     REVERSEDAUTH: 
+      type: string
+     BillIngredientCost: 
+      type: number
+     BillDispensingFee: 
+      type: number
+     BillTax: 
+      type: number
+     LICS: 
+      type: number
+     GroupBillCopay: 
+      type: number
+     GapDiscount: 
+      type: number
+     NDC: 
+      type: string
+     MPAMark: 
+      type: string
+     LICSLevel: 
+      type: string
+     Tier: 
+      type: string
+     TierCategory: 
+      type: string
+     TierName: 
+      type: string
+     DrugName: 
+      type: string
+     Gpi: 
+      type: string
+   PharmacyItem: 
+    title : PharmacyItem
+    type: object
+    properties: 
+     PharmacyId: 
+      type: integer
+     NABP: 
+      type: string
+     ChainCode: 
+      type: string
+     Name: 
+      type: string
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     PharmacyTypeId: 
+      type: integer
+     Phone: 
+      type: string
+     IsPrimary: 
+      type: boolean
+     IsPreferred: 
+      type: boolean
+     IsEPrescribing: 
+      type: boolean
+     IsEIC: 
+      type: boolean
+     IsEGWP: 
+      type: boolean
+     IsPreferredCC: 
+      type: boolean
+     Is90DayRetail: 
+      type: boolean
+     MemberPharmacyID: 
+      type: integer
+     Distance: 
+      type: integer
+     Year: 
+      type: integer
+     PreferenceType: 
+      type: string
+     IsBrokerPbp: 
+      type: boolean
+   Address: 
+    title : Address
+    type: object
+    properties: 
+     Latitude: 
+      type: string
+     Longitude: 
+      type: string
+     Address1: 
+      type: string
+     Address2: 
+      type: string
+     City: 
+      type: string
+     StateCode: 
+      type: string
+     ZipCode: 
+      type: string
+   get_claims_pricingstage_altMemberId_personcode_4_200_res: 
+    title : get_claims_pricingstage_altMemberId_personcode_4_200_res
+    type: object
+    properties: 
+     Stage: 
+      type: number
+     Description: 
+      type: string
+   post_Contact_5_200_res: 
+    title : post_Contact_5_200_res
+    type: object
+    properties: 
+     ResponseDetails: 
+      type: boolean
+     FaultException: 
+      type: object
+      $ref: '#/components/schemas/FaultException'
+   FaultException: 
+    title : FaultException
+    type: object
+    properties: 
+     Success: 
+      type: boolean
+     Exceptions: 
+      type: array
+      items: 
+       type: string
+     Errors: 
+      type: array
+      items: 
+       type: string
+     Warnings: 
+      type: array
+      items: 
+       type: string
+     Messages: 
+      type: array
+      items: 
+       type: string
+   post_Contact_5_req: 
+    title : post_Contact_5_req
+    type: object
+    properties: 
+     PreferredContactMethodId: 
+      type: string
+     AltMemberId: 
+      type: string
+     WritingCode: 
+      type: string
+     EPharmacyType: 
+      type: string
+     Email: 
+      type: string
+     Name: 
+      type: string
+     Phone: 
+      type: string
+     YouAreA: 
+      type: string
+     Comment: 
+      type: string
+     ContactType: 
+      type: string
+     Company: 
+      type: string
+   ResponseDetails: 
+    title : ResponseDetails
+    type: object
+    properties: 
+     CoverageDeterminationId: 
+      type: integer
+     AltMemberId: 
+      type: string
+     FirstName: 
+      type: string
+     MI: 
+      type: string
+     LastName: 
+      type: string
+     Prefix: 
+      type: string
+     Phone: 
+      type: string
+     PhysicianFirstName: 
+      type: string
+     PhysicianLastName: 
+      type: string
+     PhysicianPhone: 
+      type: string
+     PhysicianFax: 
+      type: string
+     Requestor: 
+      type: string
+     RequestorFirstName: 
+      type: string
+     RequestorLastName: 
+      type: string
+     RequestorPhone: 
+      type: string
+     DrugName: 
+      type: string
+     DrugStrength: 
+      type: string
+     ExceptionRequestType: 
+      type: string
+     Type: 
+      type: string
+     CreatedDate: 
+      type: string
+     ExportDate: 
+      type: string
+     Comments: 
+      type: string
+   post_CoverageDetermination_6_200_res: 
+    title : post_CoverageDetermination_6_200_res
+    type: object
+    properties: 
+     ResponseDetails: 
+      type: object
+      $ref: '#/components/schemas/ResponseDetails'
+     FaultException: 
+      type: object
+      $ref: '#/components/schemas/FaultException'
+   post_CoverageDetermination_6_req: 
+    title : post_CoverageDetermination_6_req
+    type: object
+    properties: 
+     Requestor: 
+      type: string
+     PhysicianFax: 
+      type: string
+     PhysicianLastName: 
+      type: string
+     AltMemberId: 
+      type: string
+     ExceptionRequestType: 
+      type: string
+     Phone: 
+      type: string
+     PhysicianPhone: 
+      type: string
+     Prefix: 
+      type: string
+     Comments: 
+      type: string
+     PhysicianFirstName: 
+      type: string
+     InsertType: 
+      type: string
+     DrugStrength: 
+      type: string
+     MI: 
+      type: string
+     DrugName: 
+      type: string
+     RequestorPhone: 
+      type: string
+     LastName: 
+      type: string
+     RequestorLastName: 
+      type: string
+     RequestorFirstName: 
+      type: string
+     FirstName: 
+      type: string
+   Pharmacy: 
+    title : Pharmacy
+    type: object
+    properties: 
+     PharmacyId: 
+      type: integer
+     NABP: 
+      type: string
+     ChainCode: 
+      type: string
+     Name: 
+      type: string
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     PharmacyTypeId: 
+      type: integer
+     Phone: 
+      type: string
+     IsPrimary: 
+      type: boolean
+     IsPreferred: 
+      type: boolean
+     IsEPrescribing: 
+      type: boolean
+     IsEIC: 
+      type: boolean
+     IsEGWP: 
+      type: boolean
+     IsPreferredCC: 
+      type: boolean
+     Is90DayRetail: 
+      type: boolean
+     MemberPharmacyID: 
+      type: integer
+     Distance: 
+      type: integer
+     Year: 
+      type: integer
+     PreferenceType: 
+      type: string
+     IsBrokerPbp: 
+      type: boolean
+   post_drug_pricing_7_200_resPricingArray: 
+    title : post_drug_pricing_7_200_resPricingArray
+    type: object
+    properties: 
+     Pharmacy: 
+      type: object
+      $ref: '#/components/schemas/Pharmacy'
+     AnnualOop: 
+      type: number
+     AnnualTroop: 
+      type: number
+     TotalSpend: 
+      type: number
+     MonthlyDetails: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_drug_pricing_7_200_resPricingArrayMonthlyDetailsArray'
+   post_drug_pricing_7_200_resPricingArrayMonthlyDetailsArray: 
+    title : post_drug_pricing_7_200_resPricingArrayMonthlyDetailsArray
+    type: object
+    properties: 
+     Month: 
+      type: integer
+     Year: 
+      type: integer
+     NDC: 
+      type: string
+     DrugName: 
+      type: string
+     YouPay: 
+      type: number
+     PlanPays: 
+      type: number
+     Oop: 
+      type: number
+     Troop: 
+      type: number
+     AccumulatedOop: 
+      type: number
+     AccumulatedTroop: 
+      type: number
+     Stage: 
+      type: string
+   post_drug_pricing_7_200_res: 
+    title : post_drug_pricing_7_200_res
+    type: object
+    properties: 
+     Pricing: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_drug_pricing_7_200_resPricingArray'
+   post_drug_pricing_7_reqDrugsArray: 
+    title : post_drug_pricing_7_reqDrugsArray
+    type: object
+    properties: 
+     Fills: 
+      type: integer
+     IsPrice90DayFill: 
+      type: boolean
+     IsPrice60DayFill: 
+      type: boolean
+     NDC: 
+      type: string
+     Qty: 
+      type: number
+     DaysSupply: 
+      type: string
+     FormularyItem: 
+      type: object
+     FormularyItemExists: 
+      type: boolean
+   post_drug_pricing_7_req: 
+    title : post_drug_pricing_7_req
+    type: object
+    properties: 
+     Drugs: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_drug_pricing_7_reqDrugsArray'
+     AltMemberId: 
+      type: string
+     NABPs: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_drug_pricing_7_reqNABPsArray'
+     Year: 
+      type: integer
+     PbpId: 
+      type: integer
+   post_drug_pricing_7_reqNABPsArray: 
+    title : post_drug_pricing_7_reqNABPsArray
+    type: object
+    properties: 
+     Nabp: 
+      type: string
+     PharmacyTypeId: 
+      type: integer
+   post_drug_pricing_DrugStagePricing_8_200_resPricingArray: 
+    title : post_drug_pricing_DrugStagePricing_8_200_resPricingArray
+    type: object
+    properties: 
+     Pharmacy: 
+      type: object
+      $ref: '#/components/schemas/Pharmacy'
+     AnnualOop: 
+      type: number
+     AnnualTroop: 
+      type: number
+     TotalSpend: 
+      type: number
+     MonthlyDetails: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_drug_pricing_DrugStagePricing_8_200_resPricingArrayMonthlyDetailsArray'
+   post_drug_pricing_DrugStagePricing_8_200_resPricingArrayMonthlyDetailsArray: 
+    title : post_drug_pricing_DrugStagePricing_8_200_resPricingArrayMonthlyDetailsArray
+    type: object
+    properties: 
+     Month: 
+      type: integer
+     Year: 
+      type: integer
+     NDC: 
+      type: string
+     DrugName: 
+      type: string
+     YouPay: 
+      type: number
+     PlanPays: 
+      type: number
+     Oop: 
+      type: number
+     Troop: 
+      type: number
+     AccumulatedOop: 
+      type: number
+     AccumulatedTroop: 
+      type: number
+     Stage: 
+      type: string
+   post_drug_pricing_DrugStagePricing_8_200_res: 
+    title : post_drug_pricing_DrugStagePricing_8_200_res
+    type: object
+    properties: 
+     Pricing: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_drug_pricing_DrugStagePricing_8_200_resPricingArray'
+   Drug: 
+    title : Drug
+    type: object
+    properties: 
+     Fills: 
+      type: integer
+     IsPrice90DayFill: 
+      type: boolean
+     IsPrice60DayFill: 
+      type: boolean
+     NDC: 
+      type: string
+     Qty: 
+      type: number
+     DaysSupply: 
+      type: string
+     FormularyItem: 
+      type: object
+     FormularyItemExists: 
+      type: boolean
+   post_drug_pricing_DrugStagePricing_8_req: 
+    title : post_drug_pricing_DrugStagePricing_8_req
+    type: object
+    properties: 
+     Drug: 
+      type: object
+      $ref: '#/components/schemas/Drug'
+     AltMemberId: 
+      type: string
+     Year: 
+      type: integer
+     PbpId: 
+      type: integer
+     NABP: 
+      type: object
+      $ref: '#/components/schemas/NABP'
+   NABP: 
+    title : NABP
+    type: object
+    properties: 
+     Nabp: 
+      type: string
+     PharmacyTypeId: 
+      type: integer
+   get_drug_info_languagecode_gpi_9_200_res: 
+    title : get_drug_info_languagecode_gpi_9_200_res
+    type: object
+    properties: 
+     Header: 
+      type: string
+     Text: 
+      type: string
+   get_faqs_10_200_res: 
+    title : get_faqs_10_200_res
+    type: object
+    properties: 
+     FaqID: 
+      type: integer
+     GroupCode: 
+      type: string
+     LanguageType: 
+      type: string
+     Title: 
+      type: string
+     Description: 
+      type: string
+     Link: 
+      type: string
+     LinkText: 
+      type: string
+     DefaultOrder: 
+      type: integer
+     IsEnabled: 
+      type: boolean
+     InsertTs: 
+      type: string
+   get_faq_languageType_groupCode_11_200_res: 
+    title : get_faq_languageType_groupCode_11_200_res
+    type: object
+    properties: 
+     FaqID: 
+      type: integer
+     GroupCode: 
+      type: string
+     LanguageType: 
+      type: string
+     Title: 
+      type: string
+     Description: 
+      type: string
+     Link: 
+      type: string
+     LinkText: 
+      type: string
+     DefaultOrder: 
+      type: integer
+     IsEnabled: 
+      type: boolean
+     InsertTs: 
+      type: string
+   get_formularydetail_languageCode_formularyDetailId_12_200_resDocumentsArray: 
+    title : get_formularydetail_languageCode_formularyDetailId_12_200_resDocumentsArray
+    type: object
+    properties: 
+     DocumentID: 
+      type: integer
+     FormularyID: 
+      type: string
+     RxCUI: 
+      type: string
+     Description: 
+      type: string
+     DocumentName: 
+      type: string
+     LanguageType: 
+      type: string
+     GPI: 
+      type: string
+     CreatedDate: 
+      type: string
+     DocumentType: 
+      type: string
+   get_formularydetail_languageCode_formularyDetailId_12_200_res: 
+    title : get_formularydetail_languageCode_formularyDetailId_12_200_res
+    type: object
+    properties: 
+     Documents: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/get_formularydetail_languageCode_formularyDetailId_12_200_resDocumentsArray'
+     FormularyDetailID: 
+      type: integer
+     FormularyID: 
+      type: string
+     GPI: 
+      type: string
+     MONY: 
+      type: string
+     TierCategory: 
+      type: string
+     TierName: 
+      type: string
+     ExtendedBenefit: 
+      type: boolean
+     BrandName: 
+      type: string
+     BrandNDC: 
+      type: string
+     PA: 
+      type: boolean
+     PANote: 
+      type: string
+     QL: 
+      type: boolean
+     QLAmount: 
+      type: string
+     QLDays: 
+      type: string
+     ST: 
+      type: boolean
+     STNote: 
+      type: string
+     TherapyClass: 
+      type: string
+     TherapyCategory: 
+      type: string
+     SP: 
+      type: boolean
+     BGD: 
+      type: boolean
+     CreatedDate: 
+      type: string
+     FormularyVersion: 
+      type: string
+     CarrierID: 
+      type: string
+     Adherence: 
+      type: boolean
+     HRMPA: 
+      type: boolean
+     ApprovedDate: 
+      type: string
+     EffectiveDate: 
+      type: string
+     OTC: 
+      type: boolean
+     Generic: 
+      type: boolean
+     BrandGeneric: 
+      type: boolean
+     BvD: 
+      type: boolean
+     GC: 
+      type: boolean
+     MO: 
+      type: boolean
+     NMO: 
+      type: boolean
+     Enhanced: 
+      type: boolean
+     HI: 
+      type: boolean
+     RxCUI: 
+      type: string
+     DosageForm: 
+      type: string
+     DosageFormDecoded: 
+      type: string
+     PlanId: 
+      type: string
+     PlanName: 
+      type: string
+     PkgQty: 
+      type: number
+     PkgSizeUom: 
+      type: string
+     PkgDesc: 
+      type: string
+     UsualDailyDose: 
+      type: string
+     DrugName: 
+      type: string
+     NDC: 
+      type: string
+     Tier: 
+      type: string
+     Year: 
+      type: string
+     Not90DElig: 
+      type: boolean
+     PkgSize: 
+      type: number
+     PBP: 
+      type: string
+     IsUnitDosage: 
+      type: boolean
+   get_formularydetail_ndc_languageCode_year_ndc_13_200_resDocumentsArray: 
+    title : get_formularydetail_ndc_languageCode_year_ndc_13_200_resDocumentsArray
+    type: object
+    properties: 
+     DocumentID: 
+      type: integer
+     FormularyID: 
+      type: string
+     RxCUI: 
+      type: string
+     Description: 
+      type: string
+     DocumentName: 
+      type: string
+     LanguageType: 
+      type: string
+     GPI: 
+      type: string
+     CreatedDate: 
+      type: string
+     DocumentType: 
+      type: string
+   get_formularydetail_ndc_languageCode_year_ndc_13_200_res: 
+    title : get_formularydetail_ndc_languageCode_year_ndc_13_200_res
+    type: object
+    properties: 
+     Documents: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/get_formularydetail_ndc_languageCode_year_ndc_13_200_resDocumentsArray'
+     FormularyDetailID: 
+      type: integer
+     FormularyID: 
+      type: string
+     GPI: 
+      type: string
+     MONY: 
+      type: string
+     TierCategory: 
+      type: string
+     TierName: 
+      type: string
+     ExtendedBenefit: 
+      type: boolean
+     BrandName: 
+      type: string
+     BrandNDC: 
+      type: string
+     PA: 
+      type: boolean
+     PANote: 
+      type: string
+     QL: 
+      type: boolean
+     QLAmount: 
+      type: string
+     QLDays: 
+      type: string
+     ST: 
+      type: boolean
+     STNote: 
+      type: string
+     TherapyClass: 
+      type: string
+     TherapyCategory: 
+      type: string
+     SP: 
+      type: boolean
+     BGD: 
+      type: boolean
+     CreatedDate: 
+      type: string
+     FormularyVersion: 
+      type: string
+     CarrierID: 
+      type: string
+     Adherence: 
+      type: boolean
+     HRMPA: 
+      type: boolean
+     ApprovedDate: 
+      type: string
+     EffectiveDate: 
+      type: string
+     OTC: 
+      type: boolean
+     Generic: 
+      type: boolean
+     BrandGeneric: 
+      type: boolean
+     BvD: 
+      type: boolean
+     GC: 
+      type: boolean
+     MO: 
+      type: boolean
+     NMO: 
+      type: boolean
+     Enhanced: 
+      type: boolean
+     HI: 
+      type: boolean
+     RxCUI: 
+      type: string
+     DosageForm: 
+      type: string
+     DosageFormDecoded: 
+      type: string
+     PlanId: 
+      type: string
+     PlanName: 
+      type: string
+     PkgQty: 
+      type: number
+     PkgSizeUom: 
+      type: string
+     PkgDesc: 
+      type: string
+     UsualDailyDose: 
+      type: string
+     DrugName: 
+      type: string
+     NDC: 
+      type: string
+     Tier: 
+      type: string
+     Year: 
+      type: string
+     Not90DElig: 
+      type: boolean
+     PkgSize: 
+      type: number
+     PBP: 
+      type: string
+     IsUnitDosage: 
+      type: boolean
+   get_formularydetail_ndc_languageCode_year_ndc_pbpCode_14_200_resDocumentsArray: 
+    title : get_formularydetail_ndc_languageCode_year_ndc_pbpCode_14_200_resDocumentsArray
+    type: object
+    properties: 
+     DocumentID: 
+      type: integer
+     FormularyID: 
+      type: string
+     RxCUI: 
+      type: string
+     Description: 
+      type: string
+     DocumentName: 
+      type: string
+     LanguageType: 
+      type: string
+     GPI: 
+      type: string
+     CreatedDate: 
+      type: string
+     DocumentType: 
+      type: string
+   get_formularydetail_ndc_languageCode_year_ndc_pbpCode_14_200_res: 
+    title : get_formularydetail_ndc_languageCode_year_ndc_pbpCode_14_200_res
+    type: object
+    properties: 
+     Documents: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/get_formularydetail_ndc_languageCode_year_ndc_pbpCode_14_200_resDocumentsArray'
+     FormularyDetailID: 
+      type: integer
+     FormularyID: 
+      type: string
+     GPI: 
+      type: string
+     MONY: 
+      type: string
+     TierCategory: 
+      type: string
+     TierName: 
+      type: string
+     ExtendedBenefit: 
+      type: boolean
+     BrandName: 
+      type: string
+     BrandNDC: 
+      type: string
+     PA: 
+      type: boolean
+     PANote: 
+      type: string
+     QL: 
+      type: boolean
+     QLAmount: 
+      type: string
+     QLDays: 
+      type: string
+     ST: 
+      type: boolean
+     STNote: 
+      type: string
+     TherapyClass: 
+      type: string
+     TherapyCategory: 
+      type: string
+     SP: 
+      type: boolean
+     BGD: 
+      type: boolean
+     CreatedDate: 
+      type: string
+     FormularyVersion: 
+      type: string
+     CarrierID: 
+      type: string
+     Adherence: 
+      type: boolean
+     HRMPA: 
+      type: boolean
+     ApprovedDate: 
+      type: string
+     EffectiveDate: 
+      type: string
+     OTC: 
+      type: boolean
+     Generic: 
+      type: boolean
+     BrandGeneric: 
+      type: boolean
+     BvD: 
+      type: boolean
+     GC: 
+      type: boolean
+     MO: 
+      type: boolean
+     NMO: 
+      type: boolean
+     Enhanced: 
+      type: boolean
+     HI: 
+      type: boolean
+     RxCUI: 
+      type: string
+     DosageForm: 
+      type: string
+     DosageFormDecoded: 
+      type: string
+     PlanId: 
+      type: string
+     PlanName: 
+      type: string
+     PkgQty: 
+      type: number
+     PkgSizeUom: 
+      type: string
+     PkgDesc: 
+      type: string
+     UsualDailyDose: 
+      type: string
+     DrugName: 
+      type: string
+     NDC: 
+      type: string
+     Tier: 
+      type: string
+     Year: 
+      type: string
+     Not90DElig: 
+      type: boolean
+     PkgSize: 
+      type: number
+     PBP: 
+      type: string
+     IsUnitDosage: 
+      type: boolean
+   post_formularydetail_search_15_200_resDocumentsArray: 
+    title : post_formularydetail_search_15_200_resDocumentsArray
+    type: object
+    properties: 
+     DocumentID: 
+      type: integer
+     FormularyID: 
+      type: string
+     RxCUI: 
+      type: string
+     Description: 
+      type: string
+     DocumentName: 
+      type: string
+     LanguageType: 
+      type: string
+     GPI: 
+      type: string
+     CreatedDate: 
+      type: string
+     DocumentType: 
+      type: string
+   post_formularydetail_search_15_200_res: 
+    title : post_formularydetail_search_15_200_res
+    type: object
+    properties: 
+     Documents: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/post_formularydetail_search_15_200_resDocumentsArray'
+     FormularyDetailID: 
+      type: integer
+     FormularyID: 
+      type: string
+     GPI: 
+      type: string
+     MONY: 
+      type: string
+     TierCategory: 
+      type: string
+     TierName: 
+      type: string
+     ExtendedBenefit: 
+      type: boolean
+     BrandName: 
+      type: string
+     BrandNDC: 
+      type: string
+     PA: 
+      type: boolean
+     PANote: 
+      type: string
+     QL: 
+      type: boolean
+     QLAmount: 
+      type: string
+     QLDays: 
+      type: string
+     ST: 
+      type: boolean
+     STNote: 
+      type: string
+     TherapyClass: 
+      type: string
+     TherapyCategory: 
+      type: string
+     SP: 
+      type: boolean
+     BGD: 
+      type: boolean
+     CreatedDate: 
+      type: string
+     FormularyVersion: 
+      type: string
+     CarrierID: 
+      type: string
+     Adherence: 
+      type: boolean
+     HRMPA: 
+      type: boolean
+     ApprovedDate: 
+      type: string
+     EffectiveDate: 
+      type: string
+     OTC: 
+      type: boolean
+     Generic: 
+      type: boolean
+     BrandGeneric: 
+      type: boolean
+     BvD: 
+      type: boolean
+     GC: 
+      type: boolean
+     MO: 
+      type: boolean
+     NMO: 
+      type: boolean
+     Enhanced: 
+      type: boolean
+     HI: 
+      type: boolean
+     RxCUI: 
+      type: string
+     DosageForm: 
+      type: string
+     DosageFormDecoded: 
+      type: string
+     PlanId: 
+      type: string
+     PlanName: 
+      type: string
+     PkgQty: 
+      type: number
+     PkgSizeUom: 
+      type: string
+     PkgDesc: 
+      type: string
+     UsualDailyDose: 
+      type: string
+     DrugName: 
+      type: string
+     NDC: 
+      type: string
+     Tier: 
+      type: string
+     Year: 
+      type: string
+     Not90DElig: 
+      type: boolean
+     PkgSize: 
+      type: number
+     PBP: 
+      type: string
+     IsUnitDosage: 
+      type: boolean
+   post_formularydetail_search_15_req: 
+    title : post_formularydetail_search_15_req
+    type: object
+    properties: 
+     ndc: 
+      type: string
+     gpi: 
+      type: string
+     tier: 
+      type: integer
+     year: 
+      type: integer
+     drugName: 
+      type: string
+     pbp: 
+      type: string
+     take: 
+      type: integer
+   post_formularydetail_search_Packaging_16_200_res: 
+    title : post_formularydetail_search_Packaging_16_200_res
+    type: object
+    properties: 
+     DrugName: 
+      type: string
+     NDC: 
+      type: string
+     Tier: 
+      type: string
+     Year: 
+      type: string
+     Not90DElig: 
+      type: boolean
+     PkgSize: 
+      type: number
+     PkgQty: 
+      type: number
+     PkgSizeUom: 
+      type: string
+     PkgDesc: 
+      type: string
+     UsualDailyDose: 
+      type: string
+     PBP: 
+      type: string
+     IsUnitDosage: 
+      type: boolean
+   post_formularydetail_search_Packaging_16_req: 
+    title : post_formularydetail_search_Packaging_16_req
+    type: object
+    properties: 
+     year: 
+      type: string
+     drugName: 
+      type: string
+     pbp: 
+      type: string
+     take: 
+      type: integer
+   post_FormularyName_17_200_res: 
+    title : post_FormularyName_17_200_res
+    type: object
+    properties: 
+     FormularyDetailId: 
+      type: integer
+     DrugName: 
+      type: string
+     Ndc: 
+      type: string
+     Gpi: 
+      type: string
+     PkgSize: 
+      type: number
+     DosageForm: 
+      type: string
+     DosageFormDecoded: 
+      type: string
+     UsualDailyDose: 
+      type: string
+     Tier: 
+      type: string
+     ProdName: 
+      type: string
+     Pbp: 
+      type: string
+   post_FormularyName_17_req: 
+    title : post_FormularyName_17_req
+    type: object
+    properties: 
+     Take: 
+      type: integer
+     Name: 
+      type: string
+     PbpId: 
+      type: integer
+   post_FormularyName_ndc_18_200_res: 
+    title : post_FormularyName_ndc_18_200_res
+    type: object
+    properties: 
+     FormularyDetailId: 
+      type: integer
+     DrugName: 
+      type: string
+     Ndc: 
+      type: string
+     Gpi: 
+      type: string
+     PkgSize: 
+      type: number
+     DosageForm: 
+      type: string
+     DosageFormDecoded: 
+      type: string
+     UsualDailyDose: 
+      type: string
+     Tier: 
+      type: string
+     ProdName: 
+      type: string
+     Pbp: 
+      type: string
+   post_FormularyName_ndc_18_req: 
+    title : post_FormularyName_ndc_18_req
+    type: object
+    properties: 
+     Take: 
+      type: integer
+     Name: 
+      type: string
+     Year: 
+      type: integer
+   get_FormularyName_alternates_pbpid_year_gpi_19_200_res: 
+    title : get_FormularyName_alternates_pbpid_year_gpi_19_200_res
+    type: object
+    properties: 
+     FormularyDetailId: 
+      type: integer
+     DrugName: 
+      type: string
+     Ndc: 
+      type: string
+     Gpi: 
+      type: string
+     PkgSize: 
+      type: number
+     DosageForm: 
+      type: string
+     DosageFormDecoded: 
+      type: string
+     UsualDailyDose: 
+      type: string
+     Tier: 
+      type: string
+     ProdName: 
+      type: string
+     Pbp: 
+      type: string
+   get_FormularyName_GetByProdName_20_200_res: 
+    title : get_FormularyName_GetByProdName_20_200_res
+    type: object
+    properties: 
+     FormularyDetailId: 
+      type: integer
+     DrugName: 
+      type: string
+     Ndc: 
+      type: string
+     Gpi: 
+      type: string
+     PkgSize: 
+      type: number
+     DosageForm: 
+      type: string
+     DosageFormDecoded: 
+      type: string
+     UsualDailyDose: 
+      type: string
+     Tier: 
+      type: string
+     ProdName: 
+      type: string
+     Pbp: 
+      type: string
+   get_FormularyName_ProdNameSearch_21_200_res: 
+    title : get_FormularyName_ProdNameSearch_21_200_res
+    type: object
+    properties: 
+     Name: 
+      type: string
+     Year: 
+      type: integer
+     Pbp: 
+      type: string
+   get_glossary_22_200_res: 
+    title : get_glossary_22_200_res
+    type: object
+    properties: 
+     GlossaryID: 
+      type: integer
+     GroupCode: 
+      type: string
+     LanguageType: 
+      type: string
+     Title: 
+      type: string
+     Description: 
+      type: string
+     Link: 
+      type: string
+     LinkText: 
+      type: string
+     DefaultOrder: 
+      type: integer
+     IsEnabled: 
+      type: boolean
+     InsertTs: 
+      type: string
+   get_glossary_languageType_groupCode_23_200_res: 
+    title : get_glossary_languageType_groupCode_23_200_res
+    type: object
+    properties: 
+     GlossaryID: 
+      type: integer
+     GroupCode: 
+      type: string
+     LanguageType: 
+      type: string
+     Title: 
+      type: string
+     Description: 
+      type: string
+     Link: 
+      type: string
+     LinkText: 
+      type: string
+     DefaultOrder: 
+      type: integer
+     IsEnabled: 
+      type: boolean
+     InsertTs: 
+      type: string
+   get_member_24_200_res: 
+    title : get_member_24_200_res
+    type: object
+    properties: 
+     MemberId: 
+      type: number
+     PlanId: 
+      type: number
+     PlanName: 
+      type: string
+     GroupId: 
+      type: string
+     AltMemberId: 
+      type: string
+     HICN: 
+      type: string
+     MBI: 
+      type: string
+     MedicareNumber: 
+      type: string
+     FirstName: 
+      type: string
+     LastName: 
+      type: string
+     Prefix: 
+      type: string
+     MiddleInitial: 
+      type: string
+     Address1: 
+      type: string
+     Address2: 
+      type: string
+     City: 
+      type: string
+     State: 
+      type: string
+     ZipCode: 
+      type: string
+     MAddress1: 
+      type: string
+     MAddress2: 
+      type: string
+     MCity: 
+      type: string
+     MState: 
+      type: string
+     MZipCode: 
+      type: string
+     DOB: 
+      type: string
+      format: date-time
+     Gender: 
+      type: string
+     Email: 
+      type: string
+     Phone: 
+      type: string
+     CellPhone: 
+      type: string
+     AltPhone: 
+      type: string
+     BWritingCode: 
+      type: string
+     PrimaryPharmacy: 
+      type: object
+      $ref: '#/components/schemas/PrimaryPharmacy'
+     Pharmacies: 
+      type: array
+      items: 
+       type: string
+     MonthlyPremium: 
+      type: number
+     CurrentBalance: 
+      type: number
+     EnrollmentDate: 
+      type: string
+      format: date-time
+     DisenrollmentDate: 
+      type: string
+     PbpCode: 
+      type: string
+     PbpId: 
+      type: number
+     Year: 
+      type: number
+     GreenEobReasonCode: 
+      type: number
+     CMSConfirmationID: 
+      type: string
+     MailNABPs: 
+      type: string
+     IsBroker: 
+      type: boolean
+     BrokerAttestation: 
+      type: boolean
+     BrokerID: 
+      type: number
+     Status: 
+      type: string
+     EGWPDirectBill: 
+      type: boolean
+   PrimaryPharmacy: 
+    title : PrimaryPharmacy
+    type: object
+    properties: 
+     PharmacyId: 
+      type: number
+     NABP: 
+      type: string
+     ChainCode: 
+      type: string
+     Name: 
+      type: string
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     PharmacyTypeId: 
+      type: number
+     Phone: 
+      type: string
+     IsPrimary: 
+      type: boolean
+     IsPreferred: 
+      type: boolean
+     IsEPrescribing: 
+      type: boolean
+     IsEIC: 
+      type: boolean
+     IsEGWP: 
+      type: boolean
+     IsPreferredCC: 
+      type: boolean
+     Is90DayRetail: 
+      type: boolean
+     MemberPharmacyID: 
+      type: number
+     Distance: 
+      type: number
+     Year: 
+      type: number
+     PreferenceType: 
+      type: number
+     IsBrokerPbp: 
+      type: boolean
+   get_member_24_200_resPharmaciesArray: 
+    title : get_member_24_200_resPharmaciesArray
+    type: object
+    properties: 
+     Pharmacies: 
+      type: string
+   post_member_pharmacy_25_200_res: 
+    title : post_member_pharmacy_25_200_res
+    type: object
+    properties: 
+     PharmacyId: 
+      type: number
+     NABP: 
+      type: string
+     ChainCode: 
+      type: string
+     Name: 
+      type: string
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     PharmacyTypeId: 
+      type: number
+     Phone: 
+      type: string
+     IsPrimary: 
+      type: boolean
+     IsPreferred: 
+      type: boolean
+     IsEPrescribing: 
+      type: boolean
+     IsEIC: 
+      type: boolean
+     IsEGWP: 
+      type: boolean
+     IsPreferredCC: 
+      type: boolean
+     Is90DayRetail: 
+      type: boolean
+     MemberPharmacyID: 
+      type: number
+     Distance: 
+      type: number
+     Year: 
+      type: number
+     PreferenceType: 
+      type: number
+     IsBrokerPbp: 
+      type: boolean
+   post_member_pharmacy_25_req: 
+    title : post_member_pharmacy_25_req
+    type: object
+    properties: 
+     IsPrimary: 
+      type: boolean
+     NameId: 
+      type: string
+     PharmacyTypeId: 
+      type: integer
+     Nabp: 
+      type: string
+   delete_member_pharmacy_memberPharmacyId_memberPharmacyId_26_200_res: 
+    title : delete_member_pharmacy_memberPharmacyId_memberPharmacyId_26_200_res
+    type: object
+    properties: 
+     ResponseDetails: 
+      type: string
+     FaultException: 
+      type: object
+      $ref: '#/components/schemas/FaultException'
+   get_member_pharmacy_NameId_27_200_res: 
+    title : get_member_pharmacy_NameId_27_200_res
+    type: object
+    properties: 
+     PharmacyId: 
+      type: number
+     NABP: 
+      type: string
+     ChainCode: 
+      type: string
+     Name: 
+      type: string
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     PharmacyTypeId: 
+      type: number
+     Phone: 
+      type: string
+     IsPrimary: 
+      type: boolean
+     IsPreferred: 
+      type: boolean
+     IsEPrescribing: 
+      type: boolean
+     IsEIC: 
+      type: boolean
+     IsEGWP: 
+      type: boolean
+     IsPreferredCC: 
+      type: boolean
+     Is90DayRetail: 
+      type: boolean
+     MemberPharmacyID: 
+      type: number
+     Distance: 
+      type: number
+     Year: 
+      type: number
+     PreferenceType: 
+      type: number
+     IsBrokerPbp: 
+      type: boolean
+   get_member_pharmacy_visited_altMemberId_28_200_res: 
+    title : get_member_pharmacy_visited_altMemberId_28_200_res
+    type: object
+    properties: 
+     ResponseDetails: 
+      type: string
+     FaultException: 
+      type: object
+      $ref: '#/components/schemas/FaultException'
+   get_member_eob_altmemberid_29_200_res: 
+    title : get_member_eob_altmemberid_29_200_res
+    type: object
+    properties: 
+     AltMemberId: 
+      type: string
+     RunDate: 
+      type: string
+     DownloadToken: 
+      type: string
+     Error: 
+      type: string
+   get_member_eob_document_30_200_res: 
+    title : get_member_eob_document_30_200_res
+    type: object
+    properties: 
+     Document: 
+      type: string
+   get_member_eob_document_altMemberId_monthYear_31_200_res: 
+    title : get_member_eob_document_altMemberId_monthYear_31_200_res
+    type: object
+    properties: 
+     Document: 
+      type: string
+   post_member_portaluser_32_200_res: 
+    title : post_member_portaluser_32_200_res
+    type: object
+    properties: 
+     ResponseDetails: 
+      type: object
+      $ref: '#/components/schemas/ResponseDetails'
+     FaultException: 
+      type: object
+      $ref: '#/components/schemas/FaultException'
+   post_member_payment_insertpaymentlog_33_req: 
+    title : post_member_payment_insertpaymentlog_33_req
+    type: object
+    properties: 
+     Id: 
+      type: integer
+     MemberId: 
+      type: string
+     CreatedDate: 
+      type: string
+     TransactionId: 
+      type: string
+     Approved: 
+      type: boolean
+     Status: 
+      type: string
+     Origin: 
+      type: number
+   Log: 
+    title : Log
+    type: object
+    properties: 
+     Id: 
+      type: number
+     MemberId: 
+      type: number
+     CreatedDate: 
+      type: string
+      format: date-time
+     TransactionId: 
+      type: string
+     Approved: 
+      type: boolean
+     Origin: 
+      type: string
+   get_member_payment_lastvalidpayment_altMemberId_34_200_res: 
+    title : get_member_payment_lastvalidpayment_altMemberId_34_200_res
+    type: object
+    properties: 
+     Log: 
+      type: object
+      $ref: '#/components/schemas/Log'
+     NextPaymentAllowedIn: 
+      type: number
+   get_member_ByAltMemberId_altMemberId_35_200_res: 
+    title : get_member_ByAltMemberId_altMemberId_35_200_res
+    type: object
+    properties: 
+     MemberId: 
+      type: number
+     PlanId: 
+      type: number
+     PlanName: 
+      type: string
+     GroupId: 
+      type: string
+     AltMemberId: 
+      type: string
+     HICN: 
+      type: string
+     MBI: 
+      type: string
+     MedicareNumber: 
+      type: string
+     FirstName: 
+      type: string
+     LastName: 
+      type: string
+     Prefix: 
+      type: string
+     MiddleInitial: 
+      type: string
+     Address1: 
+      type: string
+     Address2: 
+      type: string
+     City: 
+      type: string
+     State: 
+      type: string
+     ZipCode: 
+      type: string
+     MAddress1: 
+      type: string
+     MAddress2: 
+      type: string
+     MCity: 
+      type: string
+     MState: 
+      type: string
+     MZipCode: 
+      type: string
+     DOB: 
+      type: string
+      format: date-time
+     Gender: 
+      type: string
+     Email: 
+      type: string
+     Phone: 
+      type: string
+     CellPhone: 
+      type: string
+     AltPhone: 
+      type: string
+     BWritingCode: 
+      type: string
+     PrimaryPharmacy: 
+      type: object
+      $ref: '#/components/schemas/PrimaryPharmacy'
+     Pharmacies: 
+      type: array
+      items: 
+       type: string
+     MonthlyPremium: 
+      type: number
+     CurrentBalance: 
+      type: number
+     EnrollmentDate: 
+      type: string
+      format: date-time
+     DisenrollmentDate: 
+      type: string
+     PbpCode: 
+      type: string
+     PbpId: 
+      type: number
+     Year: 
+      type: number
+     GreenEobReasonCode: 
+      type: number
+     CMSConfirmationID: 
+      type: string
+     MailNABPs: 
+      type: string
+     IsBroker: 
+      type: boolean
+     BrokerAttestation: 
+      type: boolean
+     BrokerID: 
+      type: number
+     Status: 
+      type: string
+     EGWPDirectBill: 
+      type: boolean
+   get_member_ByAltMemberId_altMemberId_35_200_resPharmaciesArray: 
+    title : get_member_ByAltMemberId_altMemberId_35_200_resPharmaciesArray
+    type: object
+    properties: 
+     Pharmacies: 
+      type: string
+   post_member_disenrollment_38_200_res: 
+    title : post_member_disenrollment_38_200_res
+    type: object
+    properties: 
+     ResponseDetails: 
+      type: boolean
+     FaultException: 
+      type: object
+      $ref: '#/components/schemas/FaultException'
+   post_member_disenrollment_38_req: 
+    title : post_member_disenrollment_38_req
+    type: object
+    properties: 
+     DisenrollmentRequestId: 
+      type: integer
+     RequestedBy: 
+      type: string
+     Notes: 
+      type: string
+     AltMemberId: 
+      type: string
+     CompletionDate: 
+      type: string
+     MiddleInitial: 
+      type: string
+     Phone: 
+      type: string
+     Prefix: 
+      type: string
+     Comment: 
+      type: string
+     AssignedTo: 
+      type: string
+     LastName: 
+      type: string
+     FirstName: 
+      type: string
+     RequestedDate: 
+      type: string
+   post_user_login_44_200_res: 
+    title : post_user_login_44_200_res
+    type: object
+    properties: 
+     UserId: 
+      type: number
+     Password: 
+      type: string
+   post_user_login_44_req: 
+    title : post_user_login_44_req
+    type: object
+    properties: 
+     UserId: 
+      type: number
+     PortalRole: 
+      type: object
+      $ref: '#/components/schemas/PortalRole'
+     WritingCode: 
+      type: string
+     NameId: 
+      type: string
+     MemberId: 
+      type: string
+     Member: 
+      type: string
+     UserName: 
+      type: string
+     Email: 
+      type: string
+     SecretImage: 
+      type: string
+     SecretImageAltText: 
+      type: string
+     LoginAttempt: 
+      type: string
+     ResetGuid: 
+      type: string
+     Url: 
+      type: string
+     IsValidUser: 
+      type: boolean
+     Phone: 
+      type: string
+     SecretAnswers: 
+      type: array
+      items: 
+       type: string
+     SecretQuestions: 
+      type: array
+      items: 
+       type: string
+     HasAcceptedEula: 
+      type: boolean
+     PreferedContactMethod: 
+      type: string
+     PatientId: 
+      type: string
+     NPN: 
+      type: string
+     Broker: 
+      type: string
+     FirstName: 
+      type: string
+     LastName: 
+      type: string
+     Agency: 
+      type: string
+   PortalRole: 
+    title : PortalRole
+    type: object
+    properties: 
+     RoleId: 
+      type: number
+     RoleDescription: 
+      type: string
+   post_user_login_44_reqSecretAnswersArray: 
+    title : post_user_login_44_reqSecretAnswersArray
+    type: object
+    properties: 
+     SecretAnswers: 
+      type: string
+   post_user_login_44_reqSecretQuestionsArray: 
+    title : post_user_login_44_reqSecretQuestionsArray
+    type: object
+    properties: 
+     SecretQuestions: 
+      type: string
+   post_user_PortalUserForgetUserName_45_200_res: 
+    title : post_user_PortalUserForgetUserName_45_200_res
+    type: object
+    properties: 
+     UserId: 
+      type: number
+     PortalRole: 
+      type: object
+      $ref: '#/components/schemas/PortalRole'
+     WritingCode: 
+      type: string
+     NameId: 
+      type: string
+     MemberId: 
+      type: string
+     Member: 
+      type: string
+     UserName: 
+      type: string
+     Email: 
+      type: string
+     SecretImage: 
+      type: string
+     SecretImageAltText: 
+      type: string
+     LoginAttempt: 
+      type: string
+     ResetGuid: 
+      type: string
+     Url: 
+      type: string
+     IsValidUser: 
+      type: boolean
+     Phone: 
+      type: string
+     SecretAnswers: 
+      type: array
+      items: 
+       type: string
+     SecretQuestions: 
+      type: array
+      items: 
+       type: string
+     HasAcceptedEula: 
+      type: boolean
+     PreferedContactMethod: 
+      type: string
+     PatientId: 
+      type: string
+     NPN: 
+      type: string
+     Broker: 
+      type: string
+     FirstName: 
+      type: string
+     LastName: 
+      type: string
+     Agency: 
+      type: string
+   post_user_PortalUserForgetUserName_45_200_resSecretAnswersArray: 
+    title : post_user_PortalUserForgetUserName_45_200_resSecretAnswersArray
+    type: object
+    properties: 
+     SecretAnswers: 
+      type: string
+   post_user_PortalUserForgetUserName_45_200_resSecretQuestionsArray: 
+    title : post_user_PortalUserForgetUserName_45_200_resSecretQuestionsArray
+    type: object
+    properties: 
+     SecretQuestions: 
+      type: string
+   RequestDetails: 
+    title : RequestDetails
+    type: object
+    properties: 
+     Dob: 
+      type: string
+      format: date-time
+     AltMemberId: 
+      type: string
+     FirstName: 
+      type: string
+     LastName: 
+      type: string
+     UserName: 
+      type: string
+     UserRole: 
+      type: string
+   post_user_PortalUserForgetUserName_45_req: 
+    title : post_user_PortalUserForgetUserName_45_req
+    type: object
+    properties: 
+     RequestDetails: 
+      type: object
+      $ref: '#/components/schemas/RequestDetails'
+   get_user_SendUserNameMail_nameId_46_200_res: 
+    title : get_user_SendUserNameMail_nameId_46_200_res
+    type: object
+    properties: 
+     UserId: 
+      type: number
+     PortalRole: 
+      type: object
+      $ref: '#/components/schemas/PortalRole'
+     WritingCode: 
+      type: string
+     NameId: 
+      type: string
+     MemberId: 
+      type: string
+     Member: 
+      type: string
+     UserName: 
+      type: string
+     Email: 
+      type: string
+     SecretImage: 
+      type: string
+     SecretImageAltText: 
+      type: string
+     LoginAttempt: 
+      type: string
+     ResetGuid: 
+      type: string
+     Url: 
+      type: string
+     IsValidUser: 
+      type: boolean
+     Phone: 
+      type: string
+     SecretAnswers: 
+      type: array
+      items: 
+       type: string
+     SecretQuestions: 
+      type: array
+      items: 
+       type: string
+     HasAcceptedEula: 
+      type: boolean
+     PreferedContactMethod: 
+      type: string
+     PatientId: 
+      type: string
+     NPN: 
+      type: string
+     Broker: 
+      type: string
+     FirstName: 
+      type: string
+     LastName: 
+      type: string
+     Agency: 
+      type: string
+   get_user_SendUserNameMail_nameId_46_200_resSecretAnswersArray: 
+    title : get_user_SendUserNameMail_nameId_46_200_resSecretAnswersArray
+    type: object
+    properties: 
+     SecretAnswers: 
+      type: string
+   get_user_SendUserNameMail_nameId_46_200_resSecretQuestionsArray: 
+    title : get_user_SendUserNameMail_nameId_46_200_resSecretQuestionsArray
+    type: object
+    properties: 
+     SecretQuestions: 
+      type: string
+   post_user_ResetPassword_47_200_res: 
+    title : post_user_ResetPassword_47_200_res
+    type: object
+    properties: 
+     ResponseDetails: 
+      type: object
+      $ref: '#/components/schemas/ResponseDetails'
+     FaultException: 
+      type: object
+      $ref: '#/components/schemas/FaultException'
+   post_user_ResetPassword_47_req: 
+    title : post_user_ResetPassword_47_req
+    type: object
+    properties: 
+     RequestDetails: 
+      type: object
+      $ref: '#/components/schemas/RequestDetails'
+   post_user_Temp_48_200_res: 
+    title : post_user_Temp_48_200_res
+    type: object
+    properties: 
+     UserName: 
+      type: string
+     NameId: 
+      type: string
+   post_user_Temp_48_req: 
+    title : post_user_Temp_48_req
+    type: object
+    properties: 
+     RoleId: 
+      type: number
+     ResetTs: 
+      type: string
+     UserId: 
+      type: number
+     ResetGUID: 
+      type: string
+     Password: 
+      type: string
+     WritingCode: 
+      type: string
+     RoleDescription: 
+      type: string
+     NameId: 
+      type: string
+     AttemptTs: 
+      type: string
+     Email: 
+      type: string
+     SecretImage: 
+      type: string
+     UserName: 
+      type: string
+     LoginAttempt: 
+      type: string
+   post_user_SendPasswordResetMail_50_req: 
+    title : post_user_SendPasswordResetMail_50_req
+    type: object
+    properties: 
+     RequestDetails: 
+      type: object
+      $ref: '#/components/schemas/RequestDetails'
+   get_user_username_dob_52_200_res: 
+    title : get_user_username_dob_52_200_res
+    type: object
+    properties: 
+     UserId: 
+      type: number
+     PortalRole: 
+      type: object
+      $ref: '#/components/schemas/PortalRole'
+     WritingCode: 
+      type: string
+     NameId: 
+      type: string
+     MemberId: 
+      type: string
+     Member: 
+      type: string
+     UserName: 
+      type: string
+     Email: 
+      type: string
+     SecretImage: 
+      type: string
+     SecretImageAltText: 
+      type: string
+     LoginAttempt: 
+      type: string
+     ResetGuid: 
+      type: string
+     Url: 
+      type: string
+     IsValidUser: 
+      type: boolean
+     Phone: 
+      type: string
+     SecretAnswers: 
+      type: array
+      items: 
+       type: string
+     SecretQuestions: 
+      type: array
+      items: 
+       type: string
+     HasAcceptedEula: 
+      type: boolean
+     PreferedContactMethod: 
+      type: string
+     PatientId: 
+      type: string
+     NPN: 
+      type: string
+     Broker: 
+      type: string
+     FirstName: 
+      type: string
+     LastName: 
+      type: string
+     Agency: 
+      type: string
+   get_user_username_dob_52_200_resSecretAnswersArray: 
+    title : get_user_username_dob_52_200_resSecretAnswersArray
+    type: object
+    properties: 
+     SecretAnswers: 
+      type: string
+   get_user_username_dob_52_200_resSecretQuestionsArray: 
+    title : get_user_username_dob_52_200_resSecretQuestionsArray
+    type: object
+    properties: 
+     SecretQuestions: 
+      type: string
+   get_user_userName_53_200_res: 
+    title : get_user_userName_53_200_res
+    type: object
+    properties: 
+     UserId: 
+      type: number
+     PortalRole: 
+      type: object
+      $ref: '#/components/schemas/PortalRole'
+     WritingCode: 
+      type: string
+     NameId: 
+      type: string
+     MemberId: 
+      type: string
+     Member: 
+      type: string
+     UserName: 
+      type: string
+     Email: 
+      type: string
+     SecretImage: 
+      type: string
+     SecretImageAltText: 
+      type: string
+     LoginAttempt: 
+      type: string
+     ResetGuid: 
+      type: string
+     Url: 
+      type: string
+     IsValidUser: 
+      type: boolean
+     Phone: 
+      type: string
+     SecretAnswers: 
+      type: array
+      items: 
+       type: string
+     SecretQuestions: 
+      type: array
+      items: 
+       type: string
+     HasAcceptedEula: 
+      type: boolean
+     PreferedContactMethod: 
+      type: string
+     PatientId: 
+      type: string
+     NPN: 
+      type: string
+     Broker: 
+      type: string
+     FirstName: 
+      type: string
+     LastName: 
+      type: string
+     Agency: 
+      type: string
+   get_user_userName_53_200_resSecretAnswersArray: 
+    title : get_user_userName_53_200_resSecretAnswersArray
+    type: object
+    properties: 
+     SecretAnswers: 
+      type: string
+   get_user_userName_53_200_resSecretQuestionsArray: 
+    title : get_user_userName_53_200_resSecretQuestionsArray
+    type: object
+    properties: 
+     SecretQuestions: 
+      type: string
+   get_user_get_54_200_res: 
+    title : get_user_get_54_200_res
+    type: object
+    properties: 
+     UserId: 
+      type: number
+     PortalRole: 
+      type: object
+      $ref: '#/components/schemas/PortalRole'
+     WritingCode: 
+      type: string
+     NameId: 
+      type: string
+     MemberId: 
+      type: string
+     Member: 
+      type: string
+     UserName: 
+      type: string
+     Email: 
+      type: string
+     SecretImage: 
+      type: string
+     SecretImageAltText: 
+      type: string
+     LoginAttempt: 
+      type: string
+     ResetGuid: 
+      type: string
+     Url: 
+      type: string
+     IsValidUser: 
+      type: boolean
+     Phone: 
+      type: string
+     SecretAnswers: 
+      type: array
+      items: 
+       type: string
+     SecretQuestions: 
+      type: array
+      items: 
+       type: string
+     HasAcceptedEula: 
+      type: boolean
+     PreferedContactMethod: 
+      type: string
+     PatientId: 
+      type: string
+     NPN: 
+      type: string
+     Broker: 
+      type: string
+     FirstName: 
+      type: string
+     LastName: 
+      type: string
+     Agency: 
+      type: string
+   get_user_get_54_200_resSecretAnswersArray: 
+    title : get_user_get_54_200_resSecretAnswersArray
+    type: object
+    properties: 
+     SecretAnswers: 
+      type: string
+   get_user_get_54_200_resSecretQuestionsArray: 
+    title : get_user_get_54_200_resSecretQuestionsArray
+    type: object
+    properties: 
+     SecretQuestions: 
+      type: string
+   get_data_codelookup_55_200_res: 
+    title : get_data_codelookup_55_200_res
+    type: object
+    properties: 
+     LookupTypeCode: 
+      type: string
+     Code: 
+      type: string
+     Description: 
+      type: string
+     LanguageType: 
+      type: string
+     DefaultOrder: 
+      type: number
+   get_data_EULA_57_200_res: 
+    title : get_data_EULA_57_200_res
+    type: object
+    properties: 
+     EULAId: 
+      type: integer
+     EULAPath: 
+      type: string
+     EffectiveDate: 
+      type: string
+     HiddenDate: 
+      type: string
+   get_data_Pbp_58_200_res: 
+    title : get_data_Pbp_58_200_res
+    type: object
+    properties: 
+     PlanId: 
+      type: integer
+     Description: 
+      type: string
+     Enabled: 
+      type: boolean
+     PlanYearId: 
+      type: integer
+     Year: 
+      type: integer
+     PbpId: 
+      type: integer
+     PbpCode: 
+      type: string
+     PbpDescription: 
+      type: string
+     GroupId: 
+      type: string
+     StateCode: 
+      type: string
+     StateName: 
+      type: string
+     LIS25: 
+      type: number
+     LIS50: 
+      type: number
+     LIS75: 
+      type: number
+     LIS100: 
+      type: number
+     Deductible: 
+      type: number
+     Premium: 
+      type: number
+     Deminimis: 
+      type: boolean
+     FormularyId: 
+      type: string
+     PricingGroupId: 
+      type: string
+     IsBrokerPbp: 
+      type: boolean
+     IsEGWP: 
+      type: boolean
+     TimeZone: 
+      type: string
+     DayLightSavings: 
+      type: boolean
+     SkipDeductable: 
+      type: boolean
+   get_data_Pbp_year_zipCode_59_200_res: 
+    title : get_data_Pbp_year_zipCode_59_200_res
+    type: object
+    properties: 
+     PlanId: 
+      type: integer
+     Description: 
+      type: string
+     Enabled: 
+      type: boolean
+     PlanYearId: 
+      type: integer
+     Year: 
+      type: integer
+     PbpId: 
+      type: integer
+     PbpCode: 
+      type: string
+     PbpDescription: 
+      type: string
+     GroupId: 
+      type: string
+     StateCode: 
+      type: string
+     StateName: 
+      type: string
+     LIS25: 
+      type: number
+     LIS50: 
+      type: number
+     LIS75: 
+      type: number
+     LIS100: 
+      type: number
+     Deductible: 
+      type: number
+     Premium: 
+      type: number
+     Deminimis: 
+      type: boolean
+     FormularyId: 
+      type: string
+     PricingGroupId: 
+      type: string
+     IsBrokerPbp: 
+      type: boolean
+     IsEGWP: 
+      type: boolean
+     TimeZone: 
+      type: string
+     DayLightSavings: 
+      type: boolean
+     SkipDeductable: 
+      type: boolean
+   get_data_Pbp_year_zipCode_stateCode_60_200_res: 
+    title : get_data_Pbp_year_zipCode_stateCode_60_200_res
+    type: object
+    properties: 
+     PlanId: 
+      type: integer
+     Description: 
+      type: string
+     Enabled: 
+      type: boolean
+     PlanYearId: 
+      type: integer
+     Year: 
+      type: integer
+     PbpId: 
+      type: integer
+     PbpCode: 
+      type: string
+     PbpDescription: 
+      type: string
+     GroupId: 
+      type: string
+     StateCode: 
+      type: string
+     StateName: 
+      type: string
+     LIS25: 
+      type: number
+     LIS50: 
+      type: number
+     LIS75: 
+      type: number
+     LIS100: 
+      type: number
+     Deductible: 
+      type: number
+     Premium: 
+      type: number
+     Deminimis: 
+      type: boolean
+     FormularyId: 
+      type: string
+     PricingGroupId: 
+      type: string
+     IsBrokerPbp: 
+      type: boolean
+     IsEGWP: 
+      type: boolean
+     TimeZone: 
+      type: string
+     DayLightSavings: 
+      type: boolean
+     SkipDeductable: 
+      type: boolean
+   get_data_preenrollmenttype_61_200_res: 
+    title : get_data_preenrollmenttype_61_200_res
+    type: object
+    properties: 
+     RequestType: 
+      type: integer
+     Description: 
+      type: string
+   get_data_sep_62_200_res: 
+    title : get_data_sep_62_200_res
+    type: object
+    properties: 
+     SEPReasonID: 
+      type: integer
+     Code: 
+      type: string
+     Reason: 
+      type: string
+     ActiveFlag: 
+      type: boolean
+     MoreInfo: 
+      type: boolean
+   get_data_secretimage_63_200_res: 
+    title : get_data_secretimage_63_200_res
+    type: object
+    properties: 
+     SecretImageId: 
+      type: integer
+     SecretImagePath: 
+      type: string
+     EffectiveDate: 
+      type: string
+     HiddenDate: 
+      type: string
+   post_data_secretimage_update_64_200_res: 
+    title : post_data_secretimage_update_64_200_res
+    type: object
+    properties: 
+     ResponseDetails: 
+      type: boolean
+     FaultException: 
+      type: object
+      $ref: '#/components/schemas/FaultException'
+   post_data_secretimage_update_64_req: 
+    title : post_data_secretimage_update_64_req
+    type: object
+    properties: 
+     NameId: 
+      type: string
+     SecretQuestionId: 
+      type: number
+     Answer: 
+      type: string
+   get_data_secretquestion_65_200_res: 
+    title : get_data_secretquestion_65_200_res
+    type: object
+    properties: 
+     SecretQuestionId: 
+      type: integer
+     SecretQuestionText: 
+      type: string
+     EffectiveDate: 
+      type: string
+     HiddenDate: 
+      type: string
+   get_data_secretquestion_altMemberId_66_200_res: 
+    title : get_data_secretquestion_altMemberId_66_200_res
+    type: object
+    properties: 
+     SecretQuestionId: 
+      type: integer
+     SecretQuestionText: 
+      type: string
+     EffectiveDate: 
+      type: string
+     HiddenDate: 
+      type: string
+   post_data_secretquestion_validate_67_200_res: 
+    title : post_data_secretquestion_validate_67_200_res
+    type: object
+    properties: 
+     SecretQuestionId: 
+      type: integer
+     SecretQuestionText: 
+      type: string
+     EffectiveDate: 
+      type: string
+     HiddenDate: 
+      type: string
+   post_data_secretquestion_validate_67_req: 
+    title : post_data_secretquestion_validate_67_req
+    type: object
+    properties: 
+     UserId: 
+      type: integer
+     SecretQuestionId: 
+      type: integer
+     Answer: 
+      type: string
+   post_data_secretquestion_update_68_200_res: 
+    title : post_data_secretquestion_update_68_200_res
+    type: object
+    properties: 
+     SecretQuestionId: 
+      type: integer
+     SecretQuestionText: 
+      type: string
+     EffectiveDate: 
+      type: string
+     HiddenDate: 
+      type: string
+   post_data_secretquestion_update_68_req: 
+    title : post_data_secretquestion_update_68_req
+    type: object
+    properties: 
+     NameId: 
+      type: string
+     SecretQuestionId: 
+      type: integer
+     Answer: 
+      type: string
+   get_MetaData_69_200_res: 
+    title : get_MetaData_69_200_res
+    type: object
+    properties: 
+     TenantIdentifier: 
+      type: string
+     TenantName: 
+      type: string
+     HostName: 
+      type: string
+     TenantId: 
+      type: integer
+     FolderName: 
+      type: string
+     Logo: 
+      type: string
+     WelcomeText: 
+      type: string
+     SessionTimeout: 
+      type: integer
+     LandingController: 
+      type: string
+     LandingAction: 
+      type: string
+   get_pharmacy_search_70_200_res: 
+    title : get_pharmacy_search_70_200_res
+    type: object
+    properties: 
+     PharmacyId: 
+      type: number
+     NABP: 
+      type: string
+     ChainCode: 
+      type: string
+     Name: 
+      type: string
+     Address: 
+      type: object
+      $ref: '#/components/schemas/Address'
+     PharmacyTypeId: 
+      type: number
+     Phone: 
+      type: string
+     IsPrimary: 
+      type: boolean
+     IsPreferred: 
+      type: boolean
+     IsEPrescribing: 
+      type: boolean
+     IsEIC: 
+      type: boolean
+     IsEGWP: 
+      type: boolean
+     IsPreferredCC: 
+      type: boolean
+     Is90DayRetail: 
+      type: boolean
+     MemberPharmacyID: 
+      type: number
+     Distance: 
+      type: number
+     Year: 
+      type: number
+     PreferenceType: 
+      type: number
+     IsBrokerPbp: 
+      type: boolean
+   get_plan_search_71_200_res: 
+    title : get_plan_search_71_200_res
+    type: object
+    properties: 
+     PlanId: 
+      type: integer
+     PlanName: 
+      type: string
+     PlanYear: 
+      type: integer
+     Pbp: 
+      type: string
+     PbpDescription: 
+      type: string
+     IsEGWP: 
+      type: boolean
+     GroupId: 
+      type: string
+     State: 
+      type: string
+     StateName: 
+      type: string
+     Lis25: 
+      type: number
+     Lis50: 
+      type: number
+     Lis75: 
+      type: number
+     Lis100: 
+      type: number
+     Deductible: 
+      type: number
+     DeductibleDescription: 
+      type: string
+     Premium: 
+      type: number
+     Deminimis: 
+      type: boolean
+     PlanDetails: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/get_plan_search_71_200_resPlanDetailsArray'
+     PlanYearStages: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/get_plan_search_71_200_resPlanYearStagesArray'
+     SkipDeductable: 
+      type: boolean
+   get_plan_search_71_200_resPlanDetailsArray: 
+    title : get_plan_search_71_200_resPlanDetailsArray
+    type: object
+    properties: 
+     PharmacyCostType: 
+      type: string
+     DrugTier: 
+      type: integer
+     DrugTierCaption: 
+      type: string
+     DaysSupply: 
+      type: string
+     CostAmount: 
+      type: number
+     CostPercentage: 
+      type: number
+     MinAmount: 
+      type: number
+     MaxAmount: 
+      type: number
+     Is31DaySupply: 
+      type: boolean
+     DrugCategory: 
+      type: string
+     SubCategory: 
+      type: string
+   get_plan_search_71_200_resPlanYearStagesArray: 
+    title : get_plan_search_71_200_resPlanYearStagesArray
+    type: object
+    properties: 
+     Stage: 
+      type: integer
+     StageDescription: 
+      type: string
+     StageLimit: 
+      type: number
+     StageGenericDescription: 
+      type: string
+     StageBrandDescription: 
+      type: string
+   post_plandocuments_search_72_200_res: 
+    title : post_plandocuments_search_72_200_res
+    type: object
+    properties: 
+     PlanDocumentID: 
+      type: integer
+     PlanYearID: 
+      type: integer
+     GroupCode: 
+      type: string
+     SubGroupCode: 
+      type: string
+     LanguageType: 
+      type: string
+     Link: 
+      type: string
+     LinkText: 
+      type: string
+     DocumentType: 
+      type: string
+     DefaultOrder: 
+      type: integer
+     IsEnabled: 
+      type: boolean
+     InsertTs: 
+      type: string
+     ApprovedDate: 
+      type: string
+     PbpId: 
+      type: integer
+     Pbp: 
+      type: string
+     GroupId: 
+      type: string
+     IsEGWP: 
+      type: boolean
+   post_plandocuments_search_72_req: 
+    title : post_plandocuments_search_72_req
+    type: object
+    properties: 
+     IsEnabled: 
+      type: boolean
+     SubGroupCode: 
+      type: string
+     Pbp: 
+      type: string
+     GroupId: 
+      type: string
+     PlanYear: 
+      type: integer
+     GroupCode: 
+      type: string
+     PbpId: 
+      type: integer
+     Language: 
+      type: string
+   get_plandocuments_languagecode_planYear_pbp_73_200_res: 
+    title : get_plandocuments_languagecode_planYear_pbp_73_200_res
+    type: object
+    properties: 
+     PlanDocumentID: 
+      type: integer
+     PlanYearID: 
+      type: integer
+     GroupCode: 
+      type: string
+     SubGroupCode: 
+      type: string
+     LanguageType: 
+      type: string
+     Link: 
+      type: string
+     LinkText: 
+      type: string
+     DocumentType: 
+      type: string
+     DefaultOrder: 
+      type: integer
+     IsEnabled: 
+      type: boolean
+     InsertTs: 
+      type: string
+     ApprovedDate: 
+      type: string
+     PbpId: 
+      type: integer
+     Pbp: 
+      type: string
+     GroupId: 
+      type: string
+     IsEGWP: 
+      type: boolean
+   post_PreEnrollmentRequest_74_200_res: 
+    title : post_PreEnrollmentRequest_74_200_res
+    type: object
+    properties: 
+     ResponseDetails: 
+      type: object
+      $ref: '#/components/schemas/ResponseDetails'
+     FaultException: 
+      type: object
+      $ref: '#/components/schemas/FaultException'
+   post_PreEnrollmentRequest_74_req: 
+    title : post_PreEnrollmentRequest_74_req
+    type: object
+    properties: 
+     RequestType: 
+      type: integer
+     RequestLocation: 
+      type: integer
+     ReferralCode: 
+      type: string
+     FirstName: 
+      type: string
+     MI: 
+      type: string
+     LastName: 
+      type: string
+     Address1: 
+      type: string
+     Address2: 
+      type: string
+     City: 
+      type: string
+     State: 
+      type: string
+     ZipCode: 
+      type: string
+     Phone: 
+      type: string
+     CostcoCity: 
+      type: string
+     CostcoState: 
+      type: string
+     Representative: 
+      type: string
+     FollowUpName: 
+      type: string
+     FollowUpDate: 
+      type: string
+     SendPacket: 
+      type: boolean
+     FollowUp: 
+      type: boolean
+     NoCallBack: 
+      type: boolean
+     Notes: 
+      type: string
+     EntryLocation: 
+      type: string
+     Spanish: 
+      type: boolean
+   get_webdocuments_75_200_res: 
+    title : get_webdocuments_75_200_res
+    type: object
+    properties: 
+     WebDocumentId: 
+      type: integer
+     GroupCode: 
+      type: string
+     SubGroupCode: 
+      type: string
+     Year: 
+      type: integer
+     LanguageType: 
+      type: string
+     Link: 
+      type: string
+     LinkText: 
+      type: string
+     DocumentType: 
+      type: string
+     DefaultOrder: 
+      type: integer
+     IsEnabled: 
+      type: boolean
+     InsertTs: 
+      type: string
+   get_webdocuments_languageType_groupCode_76_200_res: 
+    title : get_webdocuments_languageType_groupCode_76_200_res
+    type: object
+    properties: 
+     WebDocumentId: 
+      type: integer
+     GroupCode: 
+      type: string
+     SubGroupCode: 
+      type: string
+     Year: 
+      type: integer
+     LanguageType: 
+      type: string
+     Link: 
+      type: string
+     LinkText: 
+      type: string
+     DocumentType: 
+      type: string
+     DefaultOrder: 
+      type: integer
+     IsEnabled: 
+      type: boolean
+     InsertTs: 
+      type: string
+   get_webdocuments_GetByGroupSubGroupYear_77_200_res: 
+    title : get_webdocuments_GetByGroupSubGroupYear_77_200_res
+    type: object
+    properties: 
+     WebDocumentId: 
+      type: integer
+     GroupCode: 
+      type: string
+     SubGroupCode: 
+      type: string
+     Year: 
+      type: integer
+     LanguageType: 
+      type: string
+     Link: 
+      type: string
+     LinkText: 
+      type: string
+     DocumentType: 
+      type: string
+     DefaultOrder: 
+      type: integer
+     IsEnabled: 
+      type: boolean
+     InsertTs: 
+      type: string
+   get_ZipCodes_Search_78_200_res: 
+    title : get_ZipCodes_Search_78_200_res
+    type: object
+    properties: 
+     Zip: 
+      type: string
+     State: 
+      type: string
+  parameters: 
+   client_idHeaderParam: 
+    in: header
+    name: client_id
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   client_secretHeaderParam: 
+    in: header
+    name: client_secret
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   altMemberIdPathParam: 
+    in: path
+    name: altMemberId
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   planIdQueryParam: 
+    in: query
+    name: planId
+    required: true
+    schema: 
+     type: integer
+    description: PlanId.
+   gpiQueryParam: 
+    in: query
+    name: gpi
+    required: false
+    schema: 
+     type: string
+    description: GPI.
+   stageQueryParam: 
+    in: query
+    name: stage
+    required: false
+    schema: 
+     type: string
+     format: array
+    description: Stage.
+   startDateQueryParam: 
+    in: query
+    name: startDate
+    required: false
+    schema: 
+     type: string
+    description: startDate.
+   endDateQueryParam: 
+    in: query
+    name: endDate
+    required: false
+    schema: 
+     type: string
+    description: endDate.
+   TenantIdentifierHeaderParam: 
+    in: header
+    name: TenantIdentifier
+    required: true
+    schema: 
+     type: string
+    description: Tenant Identifier
+   personcodePathParam: 
+    in: path
+    name: personcode
+    required: true
+    schema: 
+     type: string
+    description: string
+   languagecodePathParam: 
+    in: path
+    name: languagecode
+    required: true
+    schema: 
+     type: string
+    description: The Language Type Code
+   gpiPathParam: 
+    in: path
+    name: gpi
+    required: true
+    schema: 
+     type: string
+    description: The Generic Product Identifier.
+   languageTypePathParam: 
+    in: path
+    name: languageType
+    required: true
+    schema: 
+     type: string
+    description: string
+   groupCodePathParam: 
+    in: path
+    name: groupCode
+    required: true
+    schema: 
+     type: string
+    description: string
+   languageCodePathParam: 
+    in: path
+    name: languageCode
+    required: true
+    schema: 
+     type: string
+    description: string
+   formularyDetailIdPathParam: 
+    in: path
+    name: formularyDetailId
+    required: true
+    schema: 
+     type: integer
+    description: long
+   yearPathParam: 
+    in: path
+    name: year
+    required: true
+    schema: 
+     type: integer
+    description: description of parameter passed
+   ndcPathParam: 
+    in: path
+    name: ndc
+    required: true
+    schema: 
+     type: string
+    description: int
+   pbpCodeQueryParam: 
+    in: query
+    name: pbpCode
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   pbpCodePathParam: 
+    in: path
+    name: pbpCode
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   pbpidPathParam: 
+    in: path
+    name: pbpid
+    required: true
+    schema: 
+     type: integer
+    description: int
+   takeQueryParam: 
+    in: query
+    name: take
+    required: false
+    schema: 
+     type: integer
+    description: int
+   yearQueryParam: 
+    in: query
+    name: year
+    required: true
+    schema: 
+     type: integer
+    description: int
+   prodNameQueryParam: 
+    in: query
+    name: prodName
+    required: true
+    schema: 
+     type: string
+    description: string
+   pbpQueryParam: 
+    in: query
+    name: pbp
+    required: true
+    schema: 
+     type: string
+    description: string length 3 pbp code
+   prefixQueryParam: 
+    in: query
+    name: prefix
+    required: true
+    schema: 
+     type: string
+    description: string
+   memberPharmacyIdPathParam: 
+    in: path
+    name: memberPharmacyId
+    required: true
+    schema: 
+     type: integer
+    description: Member Pharmacy ID
+   NameIdPathParam: 
+    in: path
+    name: NameId
+    required: true
+    schema: 
+     type: string
+    description: NameId
+   altmemberidPathParam: 
+    in: path
+    name: altmemberid
+    required: true
+    schema: 
+     type: string
+    description: string
+   downloadTokenQueryParam: 
+    in: query
+    name: downloadToken
+    required: true
+    schema: 
+     type: string
+    description: string
+   monthYearPathParam: 
+    in: path
+    name: monthYear
+    required: true
+    schema: 
+     type: string
+    description: Month Year
+   medicareNumberPathParam: 
+    in: path
+    name: medicareNumber
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   memberIdPathParam: 
+    in: path
+    name: memberId
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   nameIdPathParam: 
+    in: path
+    name: nameId
+    required: true
+    schema: 
+     type: string
+    description: nameId
+   post_user_Temp_48_reqParam: 
+    in: query
+    name: post_user_Temp_48_req
+    required: true
+    schema: 
+     type: string
+     format: array
+    description: description of parameter passed
+   usernamePathParam: 
+    in: path
+    name: username
+    required: true
+    schema: 
+     type: string
+    description: The User Name
+   dobPathParam: 
+    in: path
+    name: dob
+    required: true
+    schema: 
+     type: string
+    description: The DOB.
+   userNameQueryParam: 
+    in: query
+    name: userName
+    required: true
+    schema: 
+     type: string
+    description: User search parameter
+   userIdQueryParam: 
+    in: query
+    name: userId
+    required: true
+    schema: 
+     type: integer
+    description: description of parameter passed
+   LanguageQueryParam: 
+    in: query
+    name: Language
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   TypeCodeQueryParam: 
+    in: query
+    name: TypeCode
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   LanguagePathParam: 
+    in: path
+    name: Language
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   TypeCodePathParam: 
+    in: path
+    name: TypeCode
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   zipCodePathParam: 
+    in: path
+    name: zipCode
+    required: true
+    schema: 
+     type: string
+    description: The zip code.
+   stateCodeQueryParam: 
+    in: query
+    name: stateCode
+    required: false
+    schema: 
+     type: string
+    description: The year.
+   stateCodePathParam: 
+    in: path
+    name: stateCode
+    required: true
+    schema: 
+     type: string
+    description: The year.
+   request.nameQueryParam: 
+    in: query
+    name: request.name
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   request.cityQueryParam: 
+    in: query
+    name: request.city
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   request.stateCodeQueryParam: 
+    in: query
+    name: request.stateCode
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   request.zipCodeQueryParam: 
+    in: query
+    name: request.zipCode
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   request.latitudeQueryParam: 
+    in: query
+    name: request.latitude
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   request.longitudeQueryParam: 
+    in: query
+    name: request.longitude
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   request.distanceQueryParam: 
+    in: query
+    name: request.distance
+    required: false
+    schema: 
+     type: integer
+    description: description of parameter passed
+   request.yearQueryParam: 
+    in: query
+    name: request.year
+    required: false
+    schema: 
+     type: integer
+    description: description of parameter passed
+   request.planIdQueryParam: 
+    in: query
+    name: request.planId
+    required: false
+    schema: 
+     type: integer
+    description: description of parameter passed
+   request.nabpsQueryParam: 
+    in: query
+    name: request.nabps
+    required: false
+    schema: 
+     type: string
+     format: array
+    description: description of parameter passed
+   request.takeQueryParam: 
+    in: query
+    name: request.take
+    required: false
+    schema: 
+     type: integer
+    description: description of parameter passed
+   request.isPreferredQueryParam: 
+    in: query
+    name: request.isPreferred
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   request.isBrokerPbpQueryParam: 
+    in: query
+    name: request.isBrokerPbp
+    required: false
+    schema: 
+     type: boolean
+    description: description of parameter passed
+   request.pharmacyTypesQueryParam: 
+    in: query
+    name: request.pharmacyTypes
+    required: false
+    schema: 
+     type: string
+     format: array
+    description: description of parameter passed
+   request.planYearQueryParam: 
+    in: query
+    name: request.planYear
+    required: true
+    schema: 
+     type: integer
+    description: description of parameter passed
+   request.stateQueryParam: 
+    in: query
+    name: request.state
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   request.pbpQueryParam: 
+    in: query
+    name: request.pbp
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   request.daysSupplyQueryParam: 
+    in: query
+    name: request.daysSupply
+    required: false
+    schema: 
+     type: integer
+    description: description of parameter passed
+   request.drugTierQueryParam: 
+    in: query
+    name: request.drugTier
+    required: false
+    schema: 
+     type: integer
+    description: description of parameter passed
+   request.pharmacyCostTypeQueryParam: 
+    in: query
+    name: request.pharmacyCostType
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   request.languageQueryParam: 
+    in: query
+    name: request.language
+    required: true
+    schema: 
+     type: string
+    description: description of parameter passed
+   request.groupIdQueryParam: 
+    in: query
+    name: request.groupId
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   request.isEGWPQueryParam: 
+    in: query
+    name: request.isEGWP
+    required: false
+    schema: 
+     type: boolean
+    description: description of parameter passed
+   pbpPathParam: 
+    in: path
+    name: pbp
+    required: true
+    schema: 
+     type: string
+    description: The PBP code.
+   planYearPathParam: 
+    in: path
+    name: planYear
+    required: true
+    schema: 
+     type: integer
+    description: The Plan Year.
+   languageTypeQueryParam: 
+    in: query
+    name: languageType
+    required: true
+    schema: 
+     type: string
+    description: string
+   groupCodeQueryParam: 
+    in: query
+    name: groupCode
+    required: true
+    schema: 
+     type: string
+    description: string
+   subGroupCodeQueryParam: 
+    in: query
+    name: subGroupCode
+    required: false
+    schema: 
+     type: string
+    description: string | nil
+   zipCodeQueryParam: 
+    in: query
+    name: zipCode
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
+   stateQueryParam: 
+    in: query
+    name: state
+    required: false
+    schema: 
+     type: string
+    description: description of parameter passed
