@@ -1,0 +1,959 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: ts-idl-mdm-intake
+  description: mdm intake api
+servers: 
+  - url: https://hexapi.example.com
+    description: API Server Description
+paths: 
+  /HealthCheck: 
+   get: 
+    operationId: get_HealthCheck_1
+    tags: 
+     - HealthCheck
+    description: Description of path
+    responses: 
+     '200': 
+      description: get_HealthCheck_1
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_HealthCheck_1_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_HealthCheck_1_400_res'
+     '500': 
+      description: Server issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_HealthCheck_1_500_res'
+   post: 
+    operationId: post_HealthCheck_2
+    tags: 
+     - HealthCheck
+    description: Description of path
+    responses: 
+     '200': 
+      description: post_HealthCheck_2
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_HealthCheck_2_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_HealthCheck_2_400_res'
+     '404': 
+      description: resource not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_HealthCheck_2_404_res'
+     '500': 
+      description: internal server error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_HealthCheck_2_500_res'
+   patch: 
+    operationId: patch_HealthCheck_3
+    tags: 
+     - HealthCheck
+    description: Description of path
+    responses: 
+     '200': 
+      description: patch_HealthCheck_3
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_HealthCheck_3_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_HealthCheck_3_400_res'
+     '404': 
+      description: resource not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_HealthCheck_3_404_res'
+     '500': 
+      description: internal server error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_HealthCheck_3_500_res'
+   delete: 
+    operationId: delete_HealthCheck_4
+    tags: 
+     - HealthCheck
+    description: Description of path
+    responses: 
+     '200': 
+      description: delete_HealthCheck_4
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/delete_HealthCheck_4_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/delete_HealthCheck_4_400_res'
+     '404': 
+      description: resource not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/delete_HealthCheck_4_404_res'
+     '500': 
+      description: internal server error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/delete_HealthCheck_4_500_res'
+  /UnzipStatus: 
+   post: 
+    operationId: post_UnzipStatus_5
+    tags: 
+     - UnzipStatus
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_UnzipStatus_5_req'
+    responses: 
+     '200': 
+      description: post_UnzipStatus_5
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_UnzipStatus_5_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_UnzipStatus_5_400_res'
+     '404': 
+      description: resource not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_UnzipStatus_5_404_res'
+     '500': 
+      description: internal server error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_UnzipStatus_5_500_res'
+   get: 
+    operationId: get_UnzipStatus_6
+    tags: 
+     - UnzipStatus
+    description: Description of path
+    responses: 
+     '200': 
+      description: get_UnzipStatus_6
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_UnzipStatus_6_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_UnzipStatus_6_400_res'
+     '500': 
+      description: Server issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_UnzipStatus_6_500_res'
+   patch: 
+    operationId: patch_UnzipStatus_7
+    tags: 
+     - UnzipStatus
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_UnzipStatus_7_req'
+    responses: 
+     '200': 
+      description: patch_UnzipStatus_7
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_UnzipStatus_7_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_UnzipStatus_7_400_res'
+     '404': 
+      description: resource not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_UnzipStatus_7_404_res'
+     '500': 
+      description: internal server error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_UnzipStatus_7_500_res'
+   delete: 
+    operationId: delete_UnzipStatus_8
+    tags: 
+     - UnzipStatus
+    description: Description of path
+    responses: 
+     '200': 
+      description: delete_UnzipStatus_8
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/delete_UnzipStatus_8_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/delete_UnzipStatus_8_400_res'
+     '404': 
+      description: resource not found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/delete_UnzipStatus_8_404_res'
+     '500': 
+      description: internal server error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/delete_UnzipStatus_8_500_res'
+  /Schedulers/ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records: 
+   post: 
+    operationId: post_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_9
+    tags: 
+     - Schedulers
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_9_req'
+    responses: 
+     '200': 
+      description: post_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_9
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_9_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_9_400_res'
+     '500': 
+      description: Server-side issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/post_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_9_500_res'
+   get: 
+    operationId: get_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_10
+    tags: 
+     - Schedulers
+    description: Description of path
+    responses: 
+     '200': 
+      description: get_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_10
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_10_200_res'
+     '400': 
+      description: A request was malformed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_10_400_res'
+     '500': 
+      description: Server issue
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/get_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_10_500_res'
+  /resetCache: 
+   patch: 
+    operationId: patch_resetCache_11
+    tags: 
+     - resetCache
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/patch_resetCache_11_req'
+    parameters: 
+     - $ref: '#/components/parameters/patch_resetCache_11_reqParam'
+     - $ref: '#/components/parameters/tidHeaderParam'
+    responses: 
+     '200': 
+      description: Parameters Cache Cleared
+     '400': 
+      description: Bad Request
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_resetCache_11_400_res'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_resetCache_11_404_res'
+     '405': 
+      description: Method Not Allowed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_resetCache_11_405_res'
+     '406': 
+      description: Not Acceptable
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_resetCache_11_406_res'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_resetCache_11_500_res'
+  /internal/resetCache: 
+   patch: 
+    operationId: patch_internal_resetCache_12
+    tags: 
+     - internal
+    description: Description of path
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/patch_internal_resetCache_12_req'
+    parameters: 
+     - $ref: '#/components/parameters/patch_internal_resetCache_12_reqParam'
+     - $ref: '#/components/parameters/tidHeaderParam'
+    responses: 
+     '200': 
+      description: Cache Cleared
+      content: 
+       application/json: 
+        schema: 
+         type: array
+         items: 
+          $ref: '#/components/schemas/patch_internal_resetCache_12_200_res'
+     '400': 
+      description: Bad Request
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_internal_resetCache_12_400_res'
+     '404': 
+      description: Not Found
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_internal_resetCache_12_404_res'
+     '405': 
+      description: Method Not Allowed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_internal_resetCache_12_405_res'
+     '406': 
+      description: Not Acceptable
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_internal_resetCache_12_406_res'
+     '500': 
+      description: Internal Server Error
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/patch_internal_resetCache_12_500_res'
+components: 
+  schemas: 
+   entity: 
+    title : entity
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     appName: 
+      type: string
+     message: 
+      type: string
+     time: 
+      type: string
+     worker: 
+      type: string
+     interactingSystem: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/entityinteractingSystemArray'
+   entityinteractingSystemArray: 
+    title : entityinteractingSystemArray
+    type: object
+    properties: 
+     systemId: 
+      type: string
+     systemName: 
+      type: string
+     message: 
+      type: string
+   get_HealthCheck_1_200_res: 
+    title : get_HealthCheck_1_200_res
+    type: object
+    properties: 
+     entity: 
+      type: object
+      $ref: '#/components/schemas/entity'
+   get_HealthCheck_1_400_res: 
+    title : get_HealthCheck_1_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   error: 
+    title : error
+    type: object
+    properties: 
+     code: 
+      type: integer
+     message: 
+      type: string
+     errors: 
+      type: array
+      items: 
+       $ref: '#/components/schemas/errorerrorsArray'
+   errorerrorsArray: 
+    title : errorerrorsArray
+    type: object
+    properties: 
+     domain: 
+      type: string
+     reason: 
+      type: string
+     message: 
+      type: string
+     location: 
+      type: string
+     locationType: 
+      type: string
+     extendedHelp: 
+      type: string
+     transactionId: 
+      type: string
+   get_HealthCheck_1_500_res: 
+    title : get_HealthCheck_1_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_HealthCheck_2_200_res: 
+    title : post_HealthCheck_2_200_res
+    type: object
+    properties: 
+     entity: 
+      type: object
+      $ref: '#/components/schemas/entity'
+   post_HealthCheck_2_400_res: 
+    title : post_HealthCheck_2_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_HealthCheck_2_404_res: 
+    title : post_HealthCheck_2_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_HealthCheck_2_500_res: 
+    title : post_HealthCheck_2_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_HealthCheck_3_200_res: 
+    title : patch_HealthCheck_3_200_res
+    type: object
+    properties: 
+     entity: 
+      type: object
+      $ref: '#/components/schemas/entity'
+   patch_HealthCheck_3_400_res: 
+    title : patch_HealthCheck_3_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_HealthCheck_3_404_res: 
+    title : patch_HealthCheck_3_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_HealthCheck_3_500_res: 
+    title : patch_HealthCheck_3_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   delete_HealthCheck_4_200_res: 
+    title : delete_HealthCheck_4_200_res
+    type: object
+    properties: 
+     entity: 
+      type: object
+      $ref: '#/components/schemas/entity'
+   delete_HealthCheck_4_400_res: 
+    title : delete_HealthCheck_4_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   delete_HealthCheck_4_404_res: 
+    title : delete_HealthCheck_4_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   delete_HealthCheck_4_500_res: 
+    title : delete_HealthCheck_4_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   unzipStatus: 
+    title : unzipStatus
+    type: object
+    properties: 
+     status: 
+      type: string
+     timestamp: 
+      type: string
+   post_UnzipStatus_5_200_res: 
+    title : post_UnzipStatus_5_200_res
+    type: object
+    properties: 
+     unzipStatus: 
+      type: object
+      $ref: '#/components/schemas/unzipStatus'
+   post_UnzipStatus_5_400_res: 
+    title : post_UnzipStatus_5_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_UnzipStatus_5_404_res: 
+    title : post_UnzipStatus_5_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_UnzipStatus_5_500_res: 
+    title : post_UnzipStatus_5_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_UnzipStatus_5_req: 
+    title : post_UnzipStatus_5_req
+    type: object
+    properties: 
+     unzipStatus: 
+      type: object
+      $ref: '#/components/schemas/unzipStatus'
+   get_UnzipStatus_6_200_res: 
+    title : get_UnzipStatus_6_200_res
+    type: object
+    properties: 
+     unzipStatus: 
+      type: object
+      $ref: '#/components/schemas/unzipStatus'
+   get_UnzipStatus_6_400_res: 
+    title : get_UnzipStatus_6_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   get_UnzipStatus_6_500_res: 
+    title : get_UnzipStatus_6_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_UnzipStatus_7_200_res: 
+    title : patch_UnzipStatus_7_200_res
+    type: object
+    properties: 
+     unzipStatus: 
+      type: object
+      $ref: '#/components/schemas/unzipStatus'
+   patch_UnzipStatus_7_400_res: 
+    title : patch_UnzipStatus_7_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_UnzipStatus_7_404_res: 
+    title : patch_UnzipStatus_7_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_UnzipStatus_7_500_res: 
+    title : patch_UnzipStatus_7_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_UnzipStatus_7_req: 
+    title : patch_UnzipStatus_7_req
+    type: object
+    properties: 
+     unzipStatus: 
+      type: object
+      $ref: '#/components/schemas/unzipStatus'
+   delete_UnzipStatus_8_200_res: 
+    title : delete_UnzipStatus_8_200_res
+    type: object
+    properties: 
+     unzipStatus: 
+      type: object
+      $ref: '#/components/schemas/unzipStatus'
+   delete_UnzipStatus_8_400_res: 
+    title : delete_UnzipStatus_8_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   delete_UnzipStatus_8_404_res: 
+    title : delete_UnzipStatus_8_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   delete_UnzipStatus_8_500_res: 
+    title : delete_UnzipStatus_8_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   delete_UnzipStatus_8_req: 
+    title : delete_UnzipStatus_8_req
+    type: object
+    properties: 
+     unzipStatus: 
+      type: object
+      $ref: '#/components/schemas/unzipStatus'
+   post_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_9_200_res: 
+    title : post_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_9_200_res
+    type: object
+    properties: 
+     status: 
+      type: string
+     transactionId: 
+      type: string
+     message: 
+      type: string
+     timestamp: 
+      type: string
+   post_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_9_400_res: 
+    title : post_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_9_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_9_500_res: 
+    title : post_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_9_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   post_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_9_req: 
+    title : post_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_9_req
+    type: object
+    properties: 
+     status: 
+      type: string
+   get_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_10_200_res: 
+    title : get_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_10_200_res
+    type: object
+    properties: 
+     status: 
+      type: string
+     transactionId: 
+      type: string
+     message: 
+      type: string
+     timestamp: 
+      type: string
+   get_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_10_400_res: 
+    title : get_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_10_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   get_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_10_500_res: 
+    title : get_Schedulers_ts-idl-mdm-intake-poller-reprocessFlow_Reprocess_Records_10_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_resetCache_11_400_res: 
+    title : patch_resetCache_11_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_resetCache_11_404_res: 
+    title : patch_resetCache_11_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_resetCache_11_405_res: 
+    title : patch_resetCache_11_405_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_resetCache_11_406_res: 
+    title : patch_resetCache_11_406_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_resetCache_11_500_res: 
+    title : patch_resetCache_11_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_resetCache_11_req: 
+    title : patch_resetCache_11_req
+    type: object
+    properties: 
+     cacheName: 
+      type: string
+   patch_internal_resetCache_12_200_res: 
+    title : patch_internal_resetCache_12_200_res
+    type: object
+    properties: 
+     cacheName: 
+      type: string
+     status: 
+      type: string
+     validCacheNames: 
+      type: array
+      items: 
+       type: string
+   patch_internal_resetCache_12_400_res: 
+    title : patch_internal_resetCache_12_400_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_internal_resetCache_12_404_res: 
+    title : patch_internal_resetCache_12_404_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_internal_resetCache_12_405_res: 
+    title : patch_internal_resetCache_12_405_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_internal_resetCache_12_406_res: 
+    title : patch_internal_resetCache_12_406_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_internal_resetCache_12_500_res: 
+    title : patch_internal_resetCache_12_500_res
+    type: object
+    properties: 
+     apiVersion: 
+      type: string
+     error: 
+      type: object
+      $ref: '#/components/schemas/error'
+   patch_internal_resetCache_12_req: 
+    title : patch_internal_resetCache_12_req
+    type: object
+    properties: 
+     cacheName: 
+      type: string
+  parameters: 
+   patch_resetCache_11_reqParam: 
+    in: query
+    name: patch_resetCache_11_req
+    required: true
+    schema: 
+     type: string
+     format: array
+    description: description of parameter passed
+   tidHeaderParam: 
+    in: header
+    name: tid
+    required: false
+    schema: 
+     type: string
+    description: A tid is coming from a Mulesoft flow and it is usually a mule message root ID. Having a tid allows us to fully reconstruct how a particular value ended-up in our dbs, using Splunk or similar system.
+   patch_internal_resetCache_12_reqParam: 
+    in: query
+    name: patch_internal_resetCache_12_req
+    required: true
+    schema: 
+     type: string
+     format: array
+    description: description of parameter passed
