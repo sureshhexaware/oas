@@ -1,0 +1,266 @@
+openapi: 3.0.0
+info: 
+  version: 1.0.0
+  title: Orders API V1
+  description: Orders API
+servers: 
+  - url: <to be set>
+    description: API Server Description
+security: 
+  - BasicAuth: []
+paths: 
+  /order/{id}: 
+   get: 
+    operationId: getOrderById
+    tags: 
+     - orders
+    summary: Get a Single Order details by passing it's ID
+    description: get Item details by Id
+    parameters: 
+     - $ref: '#/components/parameters/idPathParam'
+    responses: 
+     '200': 
+      description: Order retrieved by ID
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/order'
+   put: 
+    operationId: updateOrder
+    tags: 
+     - orders
+    summary: updates an order by Id
+    description: updates an order by Id
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/order'
+    parameters: 
+     - $ref: '#/components/parameters/idPathParam'
+    responses: 
+     '200': 
+      description: Order updated by ID
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/order'
+     '400': 
+      description: Order not present
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/ErrorResponseList'
+   delete: 
+    operationId: deleteOrder
+    tags: 
+     - orders
+    summary: deletes an order by Id
+    description: deletes an order by Id
+    parameters: 
+     - $ref: '#/components/parameters/idPathParam'
+    responses: 
+     '200': 
+      description: Order deleted
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/deleteOrderResp'
+  /order: 
+   get: 
+    operationId: listOrders
+    tags: 
+     - orders
+    summary: List all orders
+    description: List all orders
+    responses: 
+     '200': 
+      description: Orders listed
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/order'
+   post: 
+    operationId: createOrder
+    tags: 
+     - orders
+    summary: creates an order
+    description: creates an order
+    requestBody: 
+     required: true
+     content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/order'
+    responses: 
+     '200': 
+      description: Order created
+      content: 
+       application/json: 
+        schema: 
+         $ref: '#/components/schemas/order'
+components: 
+  securitySchemes: 
+   BasicAuth: 
+    type: http
+    scheme: basic
+  schemas: 
+   order: 
+    title : order
+    type: object
+    properties: 
+     id: 
+      type: string
+     basket_Id: 
+      type: string
+     customer: 
+      type: object
+      $ref: '#/components/schemas/customer'
+     createdOn: 
+      type: string
+     currency: 
+      type: string
+     shippingAddress: 
+      type: object
+      $ref: '#/components/schemas/shippingAddress'
+     billingAddress: 
+      type: object
+      $ref: '#/components/schemas/billingAddress'
+     paymentMethod: 
+      type: string
+     shippingMethod: 
+      type: string
+     status: 
+      type: string
+     total: 
+      type: number
+     discount: 
+      type: string
+   customer: 
+    title : customer
+    type: object
+    properties: 
+     id: 
+      type: string
+     email: 
+      type: string
+     firstName: 
+      type: string
+     lastName: 
+      type: string
+     phone: 
+      type: string
+   shippingAddress: 
+    title : shippingAddress
+    type: object
+    properties: 
+     id: 
+      type: object
+     type: 
+      type: object
+     firstName: 
+      type: object
+     lastName: 
+      type: string
+     postCode: 
+      type: string
+     address1: 
+      type: string
+     address2: 
+      type: string
+     phone: 
+      type: string
+     phone_mobile: 
+      type: string
+     city: 
+      type: string
+     country: 
+      type: string
+     state: 
+      type: string
+     company: 
+      type: string
+     fax: 
+      type: string
+     website: 
+      type: string
+     gender: 
+      type: string
+     region: 
+      type: string
+     tax_id: 
+      type: string
+     identification_number: 
+      type: string
+   ErrorResponseList: 
+    title : ErrorResponseList
+    type: object
+    properties: 
+     Error: 
+      type: object
+      $ref: '#/components/schemas/Error'
+   Error: 
+    title : Error
+    type: object
+    properties: 
+     ErrorCode: 
+      type: string
+     ErrorDescription: 
+      type: string
+   billingAddress: 
+    title : billingAddress
+    type: object
+    properties: 
+     id: 
+      type: object
+     type: 
+      type: object
+     firstName: 
+      type: object
+     lastName: 
+      type: string
+     postCode: 
+      type: string
+     address1: 
+      type: string
+     address2: 
+      type: string
+     phone: 
+      type: string
+     phone_mobile: 
+      type: string
+     city: 
+      type: string
+     country: 
+      type: string
+     state: 
+      type: string
+     company: 
+      type: string
+     fax: 
+      type: string
+     website: 
+      type: string
+     gender: 
+      type: string
+     region: 
+      type: string
+     tax_id: 
+      type: string
+     identification_number: 
+      type: string
+   deleteOrderResp: 
+    title : deleteOrderResp
+    type: object
+    properties: 
+     status: 
+      type: string
+  parameters: 
+   idPathParam: 
+    in: path
+    name: id
+    required: true
+    schema: 
+     type: string
+    description: Id of an item to get details
